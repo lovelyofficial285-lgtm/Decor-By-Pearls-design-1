@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decor By Pearls | Luxury Wedding Planner & Decor in Chandigarh</title>
+  <meta name="description" content="Decor By Pearls creates refined weddings, celebrations and destination events in Chandigarh, with considered decor, floral design and personalised planning.">
+  <meta name="theme-color" content="#102542">
+
+  <meta property="og:title" content="Decor By Pearls | Luxury Wedding Planner">
+  <meta property="og:description" content="Bespoke planning, refined decor and unforgettable celebrations in Chandigarh.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.decorbypearls.com">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="images/hero-1.webp" fetchpriority="high">
+
+  <!-- FIX: runs before first paint. Decides preloader + hidden hero states. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      root.classList.add("js-animations-enabled");
+      // Preloader shows on every page load. Only skipped for reduced-motion users.
+      if (reduce) root.classList.add("no-preloader");
+    })();
+  </script>
+  <noscript><style>#page-preloader{display:none!important}</style></noscript>
+
+  <style>
+    /* ===== DESIGN TOKENS ===== */
+    :root {
+      --midnight: #102542;
+      --sapphire: #1e3a5f;
+      --champagne: #d8c3a5;
+      --ivory: #faf8f5;
+      --brass: #c79c5a;
+      --muted: #687487;
+      --white: #ffffff;
+      --heading-font: "Cormorant Garamond", Georgia, serif;
+      --body-font: "Inter", Arial, sans-serif;
+    }
+
+    /* ===== BASE ===== */
+    * { box-sizing: border-box; }
+
+    /* FIX: removed scroll-behavior:smooth (fights pinned sections; JS handles it) */
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      font-family: var(--body-font);
+      font-weight: 400;
+      color: var(--midnight);
+      background-color: var(--ivory);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.preloader-active { overflow: hidden; }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+
+    h1, h2 {
+      font-family: var(--heading-font);
+      font-weight: 400;
+      line-height: 1.06;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+
+    .skip-link {
+      position: fixed; left: -9999px; top: 0; z-index: 3000;
+      padding: 14px 22px; background: var(--brass); color: var(--midnight);
+    }
+    .skip-link:focus { left: 16px; top: 16px; }
+
+    .eyebrow {
+      margin: 0 0 20px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--brass);
+    }
+
+    .btn {
+      display: inline-block;
+      border: none;
+      border-radius: 999px;
+      padding: 16px 34px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color .3s ease, border-color .3s ease, color .3s ease;
+    }
+    .btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; }
+
+    .btn-brass { background: var(--brass);
+         border: 1px solid var(--brass);
+          color: var(--midnight); 
+          }
+    .btn-brass:hover, .btn-brass:focus-visible { background: var(--champagne); border-color: var(--champagne); }
+
+    .btn-outline-light { border: 1px solid rgba(255,255,255,.55); color: var(--white); background: transparent; }
+    .btn-outline-light:hover, .btn-outline-light:focus-visible { border-color: var(--brass); color: var(--brass); }
+
+    /* ===== PRELOADER ===== */
+    #page-preloader { position: fixed; inset: 0; z-index: 9999; }
+    html.no-preloader #page-preloader { display: none; }
+
+    .preloader__panel {
+      position: absolute; inset: 0;
+      background: #102542;
+      display: grid; place-items: center;
+      will-change: transform;
+    }
+    .preloader__content { text-align: center; padding: 20px; }
+
+    .preloader__logo {
+      font-family: var(--heading-font);
+      font-size: clamp(1.8rem, 6vw, 3.2rem);
+      font-weight: 500;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: #faf8f5;
+      margin: 0 0 24px;
+      opacity: 0;
+    }
+    .preloader__line-wrap { width: 200px; height: 1px; margin: 0 auto 20px; overflow: hidden; }
+    .preloader__line {
+      width: 100%; height: 1px;
+      background: #c79c5a;
+      transform-origin: center;
+      transform: scaleX(0);
+    }
+    .preloader__subtitle {
+      margin: 0;
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: #c79c5a;
+      opacity: 0;
+    }
+
+    /* ===== NAVBAR ===== */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1200;
+      transition: background-color .35s ease, backdrop-filter .35s ease, box-shadow .35s ease;
+    }
+    .site-nav { padding-block: 24px; transition: padding .35s ease; }
+    .site-nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .site-nav__brand {
+      font-family: var(--heading-font);
+      font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+      color: var(--white);
+      letter-spacing: .02em;
+    }
+    .site-nav__desktop { display: flex; align-items: center; gap: 36px; }
+
+    .site-header.is-scrolled {
+      background: rgba(16,37,66,.88);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(216,195,165,.16);
+    }
+    .site-header.is-scrolled .site-nav { padding-block: 14px; }
+
+    .site-nav__toggler {
+      display: flex; flex-direction: column; gap: 7px;
+      padding: 10px; border: 0; background: none; cursor: pointer;
+    }
+    .site-nav__toggler span { width: 28px; height: 1px; background: var(--white); }
+    .site-nav__toggler:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; }
+
+    /* Mobile: hamburger only. Desktop: Book Now button only. */
+    @media (max-width: 991.98px) { .site-nav__desktop { display: none; } }
+    @media (min-width: 992px) { .site-nav__toggler { display: none; } }
+
+    /* ===== MOBILE MENU ===== */
+    .mobile-menu {
+      position: fixed; top: 0; right: -100%;
+      width: min(88vw, 390px);
+      height: 100vh; height: 100svh;
+      background: var(--midnight);
+      color: var(--white);
+      z-index: 1300;
+      transition: right .4s ease;
+      padding: 80px 32px 40px;
+    }
+    .mobile-menu.is-open { right: 0; }
+
+    .mobile-menu__overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.6);
+      z-index: 1299;
+      opacity: 0; visibility: hidden;
+      transition: opacity .4s ease, visibility .4s ease;
+    }
+    .mobile-menu__overlay.is-open { opacity: 1; visibility: visible; }
+
+    .mobile-menu__brand { font-family: var(--heading-font); font-size: 1.35rem; color: var(--white); }
+    .mobile-menu__close {
+      position: absolute; top: 24px; right: 24px;
+      background: none; border: none; color: var(--white);
+      font-size: 2rem; cursor: pointer; padding: 8px; line-height: 1;
+    }
+    .mobile-menu__links { list-style: none; margin: 48px 0 0; padding: 0; }
+    .mobile-menu__links a {
+      display: block; padding: 22px 0;
+      font-family: var(--heading-font);
+      font-size: clamp(1.7rem, 6vw, 2.2rem);
+      color: rgba(255,255,255,.86);
+      border-bottom: 1px solid rgba(216,195,165,.16);
+      transition: color .3s ease;
+    }
+    .mobile-menu__links a:hover, .mobile-menu__links a:focus-visible { color: var(--brass); }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh; min-height: 100svh;
+      display: flex; align-items: center;
+      overflow: hidden;
+      background: var(--midnight);
+      color: var(--white);
+    }
+    .hero__slider, .hero__slide { position: absolute; inset: 0; }
+    .hero__slide { opacity: 0; visibility: hidden; transition: opacity 1.2s ease, visibility 1.2s ease; }
+    .hero__slide.is-active { opacity: 1; visibility: visible; }
+    .hero__slide img { width: 100%; height: 100%; object-fit: cover; }
+
+    .hero__overlay { position: absolute; inset: 0; z-index: 1; background: rgba(16,37,66,.45); }
+
+    .hero__content { position: relative; z-index: 2; width: 100%; padding-block: 130px; text-align: center; }
+    .hero__eyebrow { color: var(--champagne); }
+
+    .hero__title {
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      max-width: 16ch;
+      margin-inline: auto;
+      margin-bottom: 26px;
+    }
+    /* FIX: padding-bottom stops the clipped line from cutting letters like "p" */
+    .hero__line { display: block; overflow: hidden; padding-bottom: .12em; }
+    .hero__line span { display: block; }
+
+    .hero__subtitle {
+      max-width: 46ch;
+      margin: 0 auto 40px;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--champagne);
+    }
+    .hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+
+    .hero__indicators { position: absolute; left: 32px; bottom: 38px; z-index: 2; display: flex; gap: 10px; }
+    .hero__indicator { width: 34px; height: 1px; background: rgba(255,255,255,.35); transition: background-color .4s ease; }
+    .hero__indicator.is-active { background: var(--brass); }
+
+    .hero__scroll {
+      position: absolute; left: 50%; bottom: 30px; z-index: 2;
+      width: 1px; height: 72px;
+      transform: translateX(-50%);
+      background: rgba(216,195,165,.35);
+    }
+    .hero__scroll span {
+      position: absolute; inset: 0 0 auto;
+      height: 32px; background: var(--brass);
+      animation: heroScroll 2.4s ease-in-out infinite;
+    }
+    @keyframes heroScroll {
+      0% { transform: translateY(-100%); }
+      50% { transform: translateY(110%); }
+      100% { transform: translateY(140%); }
+    }
+
+    @media (max-width: 767.98px) {
+      .hero__content { padding-block: 120px; }
+      .hero__actions .btn { width: 100%; }
+      .hero__indicators { left: 20px; bottom: 28px; }
+      .hero__scroll { display: none; }
+    }
+
+    /* Hidden start states. Only active while JS is on. */
+    .js-animations-enabled .hero__eyebrow,
+    .js-animations-enabled .hero__subtitle,
+    .js-animations-enabled .hero__actions .btn { opacity: 0; transform: translateY(24px); }
+    .js-animations-enabled .hero__line span { transform: translateY(100%); }
+
+    /* ===== MARQUEE ===== */
+    .marquee {
+      height: clamp(70px, 9vw, 88px);
+      display: flex; align-items: center;
+      overflow: hidden;
+      background: var(--champagne);
+      color: var(--midnight);
+      border-block: 1px solid rgba(199,156,90,.45);
+    }
+    .marquee__track { display: flex; width: max-content; will-change: transform; }
+    .marquee__content {
+      display: flex; align-items: center;
+      gap: clamp(24px, 4vw, 48px);
+      padding-inline: clamp(12px, 2vw, 24px);
+    }
+    .marquee__word {
+      display: flex; align-items: center;
+      gap: clamp(24px, 4vw, 48px);
+      font-family: var(--heading-font);
+      font-size: clamp(1.15rem, 2.6vw, 1.7rem);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .marquee__word::after { content: "\2726"; font-size: .7em; color: var(--brass); }
+
+    /* ===== GATE (auto-opens once when it scrolls into view) ===== */
+    .gate {
+      height: 100vh; height: 100svh;
+      position: relative;
+      overflow: hidden;
+      background: var(--midnight);
+    }
+    .gate__stage { position: absolute; inset: 0; display: grid; place-items: center; }
+    /* Coordinates measured for door.webp (736 x 1288). A different door image needs new numbers. */
+    .gate__wrap {
+      position: relative;
+      height: min(100svh, 175vw);
+      aspect-ratio: 736 / 1288;
+      background: url("images/door.jpg") center / 100% 100% no-repeat;
+      perspective: 1800px;
+      perspective-origin: 50% 62.6%;
+    }
+    .gate__reveal, .gate__leaf { position: absolute; top: 31.06%; height: 63.04%; }
+
+    .gate__reveal { left: 16.3%; width: 67.4%; overflow: hidden; background: #1a1410; z-index: 1; }
+    .gate__reveal img {
+      width: 100%; height: 100%;
+      
+      object-fit: cover;
+      background: linear-gradient(135deg, #2a2018, #5a4630);
+    }
+    .gate__reveal::after {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(255,214,140,.2), rgba(0,0,0,.4));
+    }
+
+    .gate__leaf {
+      width: 33.7%;
+      z-index: 2;
+      background-image: url("images/door.webp");
+      background-repeat: no-repeat;
+      background-size: 296.7% 158.6%;
+      backface-visibility: hidden;
+      will-change: transform;
+    }
+    .gate__leaf--left { left: 16.3%; background-position: 24.6% 84.04%; transform-origin: left center; }
+    .gate__leaf--right { left: 50%; background-position: 75.4% 84.04%; transform-origin: right center; }
+    .gate__leaf::after { content: ""; position: absolute; inset: 0; background: #000; opacity: var(--shade, 0); }
+
+    /* Thin gold light in the gap between the leaves */
+    .gate__light {
+      position: absolute; z-index: 3;
+      left: 50%; top: 31.06%;
+      width: 2px; height: 63.04%;
+      margin-left: -1px;
+      background: #c79c5a;
+      box-shadow: 0 0 12px rgba(199,156,90,.9), 0 0 28px rgba(199,156,90,.45);
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: center;
+      pointer-events: none;
+    }
+
+    .gate__final {
+      position: absolute; inset: 0; z-index: 10;
+      visibility: hidden; opacity: 0;
+      display: grid; place-items: end center;
+      text-align: center; color: #fff;
+    }
+    .gate__final img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      background: linear-gradient(135deg, #2a2018, #5a4630);
+    }
+    .gate__shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,10,14,.92), rgba(8,10,14,.1) 65%); }
+    .gate__text { position: relative; padding: 0 20px 12vh; }
+    .gate__eyebrow {
+      letter-spacing: .4em; text-transform: uppercase;
+      color: #ecc982; font-size: clamp(12px, 1.6vw, 18px);
+    }
+    .gate__title {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(52px, 9vw, 120px);
+      line-height: 1.1;
+      margin: 10px 0 24px;
+      font-weight: 400;
+    }
+
+    .gate { --door-h: min(100svh, 175vw); --door-w: calc(var(--door-h) * .5714); }
+
+    /* Desktop only: pictures either side of the door. Hidden on mobile. */
+    .gate__side { display: none; }
+    .gate__pic { overflow: hidden; border-radius: 10px; background: #2a2018; }
+    .gate__pic img { width: 100%; height: 100%; object-fit: cover; }
+    .gate__quote {
+      margin: 0;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1.7rem, 2.5vw, 2.7rem);
+      line-height: 1.12;
+      letter-spacing: -.01em;
+      color: var(--champagne);
+      max-width: 15em;
+    }
+
+    @media (min-width: 992px) {
+      .gate__side {
+        display: block;
+        position: absolute; top: 0; bottom: 0; z-index: 2;
+        width: calc((100% - var(--door-w)) / 2);
+      }
+      .gate__side--left { left: 0; }
+      .gate__side--right {
+        right: 0;
+        display: flex; flex-direction: column;
+        justify-content: center; align-items: flex-start;
+        gap: 28px;
+        padding: 0 7% 0 8%;
+      }
+      .gate__pic--a { position: absolute; left: 14%; top: 13%; width: 44%; aspect-ratio: 3 / 4; }
+      .gate__pic--b { position: absolute; left: 46%; bottom: 12%; width: 38%; aspect-ratio: 4 / 5; }
+      .gate__pic--c { position: relative; width: 68%; aspect-ratio: 4 / 5; }
+
+      /* On desktop the final text sits inside the doorway, so the side pictures stay visible */
+      .gate__final {
+        inset: auto;
+        z-index: 3;
+        left: calc(50% - var(--door-w) / 2 + var(--door-w) * .163);
+       
+        left: calc(50% - var(--door-w) / 2 + var(--door-w) * .10625);
+width: calc(var(--door-w) * .7969);
+top: calc(50% - var(--door-h) / 2 + var(--door-h) * .1144);
+height: calc(var(--door-h) * .8468);
+      }
+      .gate__final img { display: none; }
+      .gate__text { padding: 0 16px 7%; }
+      .gate__eyebrow { letter-spacing: .3em; font-size: 11px; }
+      .gate__title { font-size: clamp(34px, 3.2vw, 50px); margin: 6px 0 18px; }
+      .gate__final .btn { padding: 12px 22px; font-size: .7rem; }
+    }
+
+    /* Open state without animation (no GSAP, or reduced motion) */
+    .gate.is-open .gate__leaf { opacity: 0; }
+    .gate.is-open .gate__final { visibility: visible; opacity: 1; 
+    .gate__wrap { background: none; }
+.gate__leaf, .gate__light { display: none; }
+.gate__reveal { border-radius: 4px; }}
+
+    /* ===== REDUCED MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .hero__slide { opacity: 1; visibility: visible; }
+      .hero__slide:not(:first-child) { display: none; }
+      .js-animations-enabled .hero__eyebrow,
+      .js-animations-enabled .hero__subtitle,
+      .js-animations-enabled .hero__actions .btn { opacity: 1; transform: none; }
+      .js-animations-enabled .hero__line span { transform: none; }
+      .marquee__track { transform: none !important; }
+      .gate__leaf { opacity: 0 !important; }
+      .gate__final { visibility: visible !important; opacity: 1 !important; }
+      .gate__light { display: none; }
+    }
+    /* Slow zoom-out on whichever slide is showing */
+.hero__slide.is-active img { animation: heroZoom 8s ease-out forwards; }
+@keyframes heroZoom { from { transform: scale(1.14); } to { transform: scale(1); } }
+
+/* Hold the zoom until the preloader curtain lifts */
+.js-animations-enabled:not(.hero-ready) .hero__slide img { animation-play-state: paused; }
+
+/* Hero headline: new font, second line in italic and cream-gold */
+.hero__title {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -.02em;
+  line-height: 1.02;
+}
+.hero__line:nth-child(2) span { font-style: italic; color: var(--champagne); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__slide.is-active img { animation: none; }
+}
+.gate__wrap {
+  position: relative;
+  height: min(100svh, 175vw);
+  aspect-ratio: 640 / 1136;
+  background: url("images/door.jpg") center / 100% 100% no-repeat;
+  perspective: 1800px;
+  perspective-origin: 50% 59.5%;
+}
+.gate__reveal, .gate__leaf { position: absolute; top: 11.44%; height: 84.68%; }
+
+.gate__reveal { border-radius: 4px; transform: scale(1.12); }
+
+.gate__leaf {
+  width: 39.84%;
+  z-index: 2;
+  background-image: url("images/door.jpg");
+  background-repeat: no-repeat;
+  background-size: 250.98% 118.09%;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+.gate__leaf--left  { left: 10.625%; background-position: 17.66% 74.71%; transform-origin: left center; }
+.gate__leaf--right { left: 50.47%;  background-position: 83.9% 74.71%;  transform-origin: right center; }
+
+.gate__light {
+  position: absolute; z-index: 3;
+  left: 50.47%; top: 11.44%;
+  width: 2px; height: 84.68%;
+  margin-left: -1px;
+  background: #c79c5a;
+  box-shadow: 0 0 12px rgba(199,156,90,.9), 0 0 28px rgba(199,156,90,.45);
+  opacity: 0; transform: scaleY(0); transform-origin: center; pointer-events: none;
+}
+
+.gate { --door-h: min(100svh, 175vw); --door-w: calc(var(--door-h) * .5634); }
+.bubble {
+  position: fixed;
+  left: 0; top: 0;
+  z-index: 9998;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff3d0, #c79c5a 60%, rgba(199,156,90,.2));
+  box-shadow: 0 0 8px rgba(199,156,90,.7);
+  animation: bubbleFloat 1s ease-out forwards;
+}
+@keyframes bubbleFloat {
+  from { opacity: .9; transform: translate(var(--x), var(--y)) scale(1); }
+  to   { opacity: 0;  transform: translate(calc(var(--x) + var(--dx)), calc(var(--y) - 60px)) scale(.2); }
+}
+@media (hover: none), (prefers-reduced-motion: reduce) { .bubble { display: none; } }
+@media (prefers-reduced-motion: reduce) { .bubble { display: none; } }
+  </style>
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div id="page-preloader" aria-hidden="true">
+    <div class="preloader__panel">
+      <div class="preloader__content">
+        <!-- FIX: div, not h1. The hero owns the page's only h1 -->
+        <div class="preloader__logo">Decor By Pearls</div>
+        <div class="preloader__line-wrap"><div class="preloader__line"></div></div>
+        <p class="preloader__subtitle">Luxury Wedding Planner &amp; Decor</p>
+      </div>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <div class="container site-nav__inner">
+        <a class="site-nav__brand" href="#hero">Decor By Pearls</a>
+
+        <div class="site-nav__desktop">
+          <a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding">Book Now</a>
+        </div>
+
+        <button class="site-nav__toggler" type="button" aria-label="Open navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu__overlay" id="mobileMenuOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="mobile-menu__close" type="button" aria-label="Close menu">&times;</button>
+    <span class="mobile-menu__brand">Decor By Pearls</span>
+    <ul class="mobile-menu__links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#doorReveal">Our Work</a></li>
+      <li><a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding">Book Now</a></li>
+    </ul>
+  </div>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="hero" aria-label="Luxury wedding planning introduction">
+      <div class="hero__slider" aria-hidden="true">
+        <div class="hero__slide is-active">
+          <img src="hero image.jpg" alt="Indian wedding couple beneath an elegant floral mandap" width="1600" height="1067" fetchpriority="high">
+        </div>
+        <!-- FIX: removed loading="lazy" from hidden slides (caused blank flashes) -->
+        <div class="hero__slide">
+          <img src="hero image 3.jpg" alt="Bride in traditional Indian bridal attire during a wedding ceremony" width="1600" height="1067">
+        </div>
+        <div class="hero__slide">
+          <img src="hero image.jpg" alt="Luxury wedding table decor with candles and floral arrangements" width="1600" height="1067">
+        </div>
+        <div class="hero__slide">
+          <img src="hero image 4 (2).jpg" alt="Elegant outdoor wedding venue decorated with flowers and lighting" width="1600" height="1067">
+        </div>
+      </div>
+
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <p class="eyebrow hero__eyebrow">Wedding Planner &amp; Decor in Chandigarh</p>
+
+        <h1 class="hero__title">
+          <span class="hero__line"><span>Timeless weddings,</span></span>
+          <span class="hero__line"><span>beautifully composed.</span></span>
+        </h1>
+
+        <p class="hero__subtitle">Bespoke planning, refined decor and unforgettable celebrations.</p>
+
+        <div class="hero__actions">
+          <a class="btn btn-brass magnetic-btn" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding">Book Consultation</a>
+          <!-- FIX: now scrolls to the gate, not WhatsApp -->
+          <a class="btn btn-outline-light magnetic-btn" href="#doorReveal">View Our Work</a>
+        </div>
+      </div>
+
+      <div class="hero__indicators" aria-hidden="true">
+        <span class="hero__indicator is-active"></span>
+        <span class="hero__indicator"></span>
+        <span class="hero__indicator"></span>
+        <span class="hero__indicator"></span>
+      </div>
+
+      <a class="hero__scroll" href="#marquee" aria-label="Scroll to the next section"><span></span></a>
+    </section>
+
+    <!-- MARQUEE (second copy is cloned by JS for the seamless loop) -->
+    <section class="marquee" id="marquee" aria-label="Wedding services and celebrations">
+      <div class="marquee__track">
+        <div class="marquee__content">
+          <span class="marquee__word">Weddings</span>
+          <span class="marquee__word">Mehndi</span>
+          <span class="marquee__word">Sangeet</span>
+          <span class="marquee__word">Haldi</span>
+          <span class="marquee__word">Engagement</span>
+          <span class="marquee__word">Reception</span>
+          <span class="marquee__word">Decor</span>
+          <span class="marquee__word">Floral Design</span>
+          <span class="marquee__word">Destination Weddings</span>
+          <span class="marquee__word">Photography</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- GATE (TEMP photo below is an Unsplash placeholder. Replace both src values with your own wedding photo) -->
+    <section class="gate" id="doorReveal" aria-label="Wedding planning introduction">
+      <div class="gate__stage">
+        <div class="gate__wrap">
+          <div class="gate__reveal">
+            <img src="gate open door animation.jpg" alt="" loading="lazy">
+          </div>
+          <div class="gate__leaf gate__leaf--left"></div>
+          <div class="gate__leaf gate__leaf--right"></div>
+          <div class="gate__light"></div>
+        </div>
+      </div>
+
+      <!-- Desktop-only side pictures. TEMP Unsplash placeholders: replace with your own images -->
+      <div class="gate__side gate__side--left">
+        <div class="gate__pic gate__pic--a">
+          <img src="door side.jpg" alt="Floral wedding decor" style="object-position:30% 50%" loading="lazy">
+        </div>
+        <div class="gate__pic gate__pic--b">
+          <img src="door side 2.jpg" alt="Wedding celebration detail" style="object-position:70% 50%" loading="lazy">
+        </div>
+      </div>
+
+      <div class="gate__side gate__side--right">
+        <p class="gate__quote">We design for the moment you walk in and go quiet.</p>
+        <div class="gate__pic gate__pic--c">
+          <img src="door right 1.jpg" alt="Elegant wedding setting" style="object-position:80% 50%" loading="lazy">
+        </div>
+      </div>
+
+      <div class="gate__final">
+        <img src="gate open door animation.jpg" alt="Bride and groom sharing an intimate moment at their wedding" loading="lazy">
+        <div class="gate__shade"></div>
+        <div class="gate__text">
+          <p class="gate__eyebrow">Decor By Pearls</p>
+          <h2 class="gate__title">Let&rsquo;s Start a Love Story</h2>
+          <a class="btn btn-brass magnetic-btn" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding">Plan Your Wedding</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FIX: GSAP 3.12.7 (3.15.0 may not exist on the CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var body = document.body;
+      var hasGsap = typeof gsap !== "undefined";
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var preloader = document.getElementById("page-preloader");
+      var skipPreloader = root.classList.contains("no-preloader");
+
+      // FIX: safe registration. If GSAP fails, the page still shows.
+      if (hasGsap) {
+        gsap.registerPlugin(ScrollTrigger);
+        ScrollTrigger.config({ ignoreMobileResize: true });
+      } else {
+        root.classList.remove("js-animations-enabled");
+      }
+
+      /* ===== NAVBAR (works without GSAP) ===== */
+      function initNavbar() {
+        var header = document.getElementById("siteHeader");
+        var toggler = document.querySelector(".site-nav__toggler");
+        var menu = document.getElementById("mobileMenu");
+        var overlay = document.getElementById("mobileMenuOverlay");
+        var closeBtn = document.querySelector(".mobile-menu__close");
+
+        function onScroll() { header.classList.toggle("is-scrolled", window.scrollY > 80); }
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+
+        function openMenu() {
+          menu.classList.add("is-open");
+          overlay.classList.add("is-open");
+          menu.setAttribute("aria-hidden", "false");
+          toggler.setAttribute("aria-expanded", "true");
+          body.style.overflow = "hidden";
+          if (hasGsap && !reduce) {
+            gsap.fromTo(menu.querySelectorAll(".mobile-menu__links a"),
+              { y: 26, opacity: 0 },
+              { y: 0, opacity: 1, duration: .9, ease: "power3.out", stagger: .08, overwrite: true });
+          }
+        }
+        function closeMenu() {
+          menu.classList.remove("is-open");
+          overlay.classList.remove("is-open");
+          menu.setAttribute("aria-hidden", "true");
+          toggler.setAttribute("aria-expanded", "false");
+          body.style.overflow = "";
+        }
+        toggler.addEventListener("click", openMenu);
+        closeBtn.addEventListener("click", closeMenu);
+        overlay.addEventListener("click", closeMenu);
+
+        // Smooth anchor scrolling (JS only, no CSS scroll-behavior)
+        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+          a.addEventListener("click", function (e) {
+            var id = a.getAttribute("href");
+            if (!id || id === "#") return;
+            var target = document.querySelector(id);
+            if (!target) return;
+            e.preventDefault();
+            closeMenu();
+            var top = target.getBoundingClientRect().top + window.scrollY - (id === "#hero" ? 0 : header.offsetHeight);
+            window.scrollTo({ top: top, behavior: reduce ? "auto" : "smooth" });
+          });
+        });
+      }
+
+      /* ===== HERO SLIDER (works without GSAP) ===== */
+      function initHeroSlider() {
+        var slides = document.querySelectorAll(".hero__slide");
+        var dots = document.querySelectorAll(".hero__indicator");
+        if (!slides.length || reduce) return;
+        var i = 0;
+        setInterval(function () {
+          slides[i].classList.remove("is-active");
+          dots[i].classList.remove("is-active");
+          i = (i + 1) % slides.length;
+          slides[i].classList.add("is-active");
+          dots[i].classList.add("is-active");
+        }, 6000);
+      }
+
+      /* ===== HERO INTRO: ONE function, called ONCE, after the curtain starts lifting ===== */
+      function playHeroIntro() {
+        if (!hasGsap || reduce) return;
+        document.documentElement.classList.add("hero-ready");
+        gsap.timeline({ defaults: { ease: "power3.out", duration: 1.1 } })
+          .to(".hero__eyebrow", { y: 0, opacity: 1 })
+          .to(".hero__line span", { y: 0, stagger: .12 }, "-=0.8")
+          .to(".hero__subtitle", { y: 0, opacity: 1 }, "-=0.75")
+          .to(".hero__actions .btn", { y: 0, opacity: 1, stagger: .12 }, "-=0.75");
+      }
+
+      /* ===== MAGNETIC BUTTONS (desktop) ===== */
+      function initMagnetic() {
+        if (!hasGsap || reduce || !window.matchMedia("(min-width: 1024px)").matches) return;
+        document.querySelectorAll(".magnetic-btn").forEach(function (btn) {
+          var mx = gsap.quickTo(btn, "x", { duration: .35, ease: "power3.out" });
+          var my = gsap.quickTo(btn, "y", { duration: .35, ease: "power3.out" });
+          btn.addEventListener("mousemove", function (e) {
+            var r = btn.getBoundingClientRect();
+            mx((e.clientX - r.left - r.width / 2) * .16);
+            my((e.clientY - r.top - r.height / 2) * .16);
+          });
+          btn.addEventListener("mouseleave", function () { mx(0); my(0); });
+        });
+      }
+
+      /* ===== MARQUEE ===== */
+      function initMarquee() {
+        var track = document.querySelector(".marquee__track");
+        if (!track) return;
+        var first = track.querySelector(".marquee__content");
+        var clone = first.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        track.appendChild(clone);
+        if (!hasGsap || reduce) return;
+
+        var tween = gsap.to(track, { xPercent: -50, duration: 28, ease: "none", repeat: -1 });
+        var timer;
+        window.addEventListener("scroll", function () {
+          tween.timeScale(1.8);
+          clearTimeout(timer);
+          timer = setTimeout(function () {
+            gsap.to(tween, { timeScale: 1, duration: .6, ease: "power2.out", overwrite: true });
+          }, 150);
+        }, { passive: true });
+        track.addEventListener("mouseenter", function () { tween.timeScale(0); });
+        track.addEventListener("mouseleave", function () { tween.timeScale(1); });
+      }
+
+      /* ===== GATE: opens by itself, once, when ~60% of it is on screen. No pinning, no scroll effort. ===== */
+      function initGate() {
+        var gate = document.querySelector(".gate");
+        if (!gate) return;
+        if (!hasGsap || reduce) { gate.classList.add("is-open"); return; }
+
+        var played = false;
+        var tl = gsap.timeline({ paused: true });
+        tl.from(".gate__pic, .gate__quote", { y: 24, autoAlpha: 0, stagger: .15, duration: 1.1, ease: "power3.out" }, 0)
+          .to(".gate__light", { opacity: 1, scaleY: 1, duration: .5, ease: "power2.out" }, 0)
+          .to(".gate__leaf--left", { rotationY: -88, duration: 1.6, ease: "power3.inOut" }, .4)
+          .to(".gate__leaf--right", { rotationY: 88, duration: 1.6, ease: "power3.inOut" }, .4)
+          .to(".gate__leaf", { "--shade": .5, duration: 1.6, ease: "power1.in" }, .4)
+          .to(".gate__light", { opacity: 0, duration: .6 }, 1)
+          .fromTo(".gate__reveal img", { scale: 1.15 }, { scale: 1, duration: 2.4, ease: "power2.out" }, .4)
+          .to(".gate__final", { autoAlpha: 1, duration: 1 }, 1.8)
+          .from(".gate__text > *", { y: 30, autoAlpha: 0, stagger: .15, duration: .9, ease: "power3.out" }, 2.1);
+
+        function play() { if (!played) { played = true; tl.play(); } }
+        ScrollTrigger.create({
+          trigger: gate,
+          start: "top 40%",
+          end: "bottom top",
+          onEnter: play,
+          onEnterBack: play
+        });
+      }
+
+      /* ===== PRELOADER ===== */
+      function runPreloader() {
+        var logo = document.querySelector(".preloader__logo");
+        var line = document.querySelector(".preloader__line");
+        var subtitle = document.querySelector(".preloader__subtitle");
+        var panel = document.querySelector(".preloader__panel");
+        var finished = false;
+
+        body.classList.add("preloader-active");
+        gsap.set(logo, { y: 20 }); // FIX: logo now rises from below
+
+        function finish() {
+          if (finished) return;
+          finished = true;
+          if (preloader) preloader.remove();
+          body.classList.remove("preloader-active");
+          initMagnetic();
+          ScrollTrigger.refresh();
+        }
+
+        gsap.timeline({ onComplete: finish })
+          .to(logo, { y: 0, opacity: 1, duration: .7, ease: "power3.out" })
+          .to(line, { scaleX: 1, duration: .6, ease: "power3.inOut" }, "-=0.5")
+          .to(subtitle, { opacity: 1, duration: .5, ease: "power2.out" }, "-=0.4")
+          .to([logo, subtitle], { y: -30, opacity: 0, stagger: .1, duration: .35, ease: "power2.in" }, "+=0.3")
+          .to(line, { scaleX: 0, duration: .35, ease: "power2.in" }, "<")
+          .to(panel, { yPercent: -100, duration: .9, ease: "power4.inOut" }, "-=0.1")
+          .add(playHeroIntro, "-=0.45"); // hero text starts while the curtain is still lifting
+
+        // Safety net: never leave the visitor stuck behind the preloader
+        setTimeout(function () {
+          if (!finished) {
+            root.classList.remove("js-animations-enabled");
+            finish();
+          }
+        }, 7000);
+      }
+
+      /* ===== START ===== */
+      initNavbar();
+      initHeroSlider();
+      initMarquee();
+      initGate();
+
+      if (!hasGsap) {
+        if (preloader) preloader.remove();
+        return;
+      }
+
+      if (skipPreloader) {
+        if (preloader) preloader.remove();
+        playHeroIntro();
+        initMagnetic();
+      } else {
+        runPreloader();
+      }
+    })();
+    
+(function () {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var last = 0;
+
+  function spawn(x, y) {
+    var now = Date.now();
+    if (now - last < 45) return;
+    last = now;
+    var b = document.createElement("span");
+    var s = 4 + Math.random() * 8;
+    b.className = "bubble";
+    b.style.width = b.style.height = s + "px";
+    b.style.setProperty("--x", x - s / 2 + "px");
+    b.style.setProperty("--y", y - s / 2 + "px");
+    b.style.setProperty("--dx", (Math.random() * 30 - 15) + "px");
+    document.body.appendChild(b);
+    setTimeout(function () { b.remove(); }, 1000);
+  }
+
+  window.addEventListener("mousemove", function (e) { spawn(e.clientX, e.clientY); });
+
+  function touch(e) {
+    var t = e.touches[0];
+    if (t) spawn(t.clientX, t.clientY);
+  }
+  window.addEventListener("touchstart", touch, { passive: true });
+  window.addEventListener("touchmove", touch, { passive: true });
+})();
+
+  </script>
+</body>
+</html>
