@@ -1312,7 +1312,35 @@ height: calc(var(--door-h) * .8468);
   window.addEventListener("touchstart", touch, { passive: true });
   window.addEventListener("touchmove", touch, { passive: true });
 })();
+(function () {
+  var nums = document.querySelectorAll(".stats strong");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!nums.length || reduce || !("IntersectionObserver" in window)) return;
 
+  nums.forEach(function (el) {
+    el.dataset.target = parseInt(el.textContent, 10);
+    el.dataset.suffix = el.textContent.replace(/[0-9]/g, "");
+    el.textContent = "0" + el.dataset.suffix;
+  });
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      io.unobserve(en.target);
+      var el = en.target, target = +el.dataset.target, start = null, dur = 2000;
+      function step(t) {
+        if (!start) start = t;
+        var p = Math.min((t - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased) + el.dataset.suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.6 });
+
+  nums.forEach(function (el) { io.observe(el); });
+})();
   </script>
 </body>
 </html>
