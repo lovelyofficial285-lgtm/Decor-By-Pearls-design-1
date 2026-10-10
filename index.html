@@ -342,16 +342,9 @@
       perspective: 1800px;
       perspective-origin: 50% 62.6%;
     }
-   .gate__reveal, .gate__leaf { top: 11.44%; height: 84.68%; }
+    .gate__reveal, .gate__leaf { position: absolute; top: 31.06%; height: 63.04%; }
 
-
-  .gate__reveal {
-  left: 10.625%;
-  width: 79.69%;
-  top: 14%; height: 81.7%;
-  transform: none;
-  border-radius: 999px 999px 4px 4px; /* arch top */
-}
+    .gate__reveal { left: 16.3%; width: 67.4%; overflow: hidden; background: #1a1410; z-index: 1; }
     .gate__reveal img {
       width: 100%; height: 100%;
       
@@ -471,18 +464,17 @@ height: calc(var(--door-h) * .8468);
     }
 
     /* Open state without animation (no GSAP, or reduced motion) */
-    .gate.is-open .gate__leaf { opacity: 0; }
-    .gate.is-open .gate__final { visibility: visible; opacity: 1; 
-    .gate__wrap { background: none; }
-.gate__leaf, .gate__light { display: none; }
-.gate__reveal { border-radius: 4px; }}
-
+   .gate.is-open .gate__final { visibility: visible; opacity: 1; }
+.gate.is-open .gate__reveal { opacity: 1; visibility: visible; }
+.gate.is-open .gate__wrap { background: none; }
+.gate.is-open .gate__leaf, .gate.is-open .gate__light { display: none; }
     /* ===== REDUCED MOTION ===== */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
+        .gate__reveal { opacity: 1 !important; visibility: visible !important; }
       }
       .hero__slide { opacity: 1; visibility: visible; }
       .hero__slide:not(:first-child) { display: none; }
@@ -524,7 +516,14 @@ height: calc(var(--door-h) * .8468);
 }
 .gate__reveal, .gate__leaf { position: absolute; top: 11.44%; height: 84.68%; }
 
-.gate__reveal { border-radius: 4px; transform: scale(1.12); }
+.gate__reveal {
+  left: 10.625%;
+  width: 79.69%;
+  transform: none;
+  border-radius: 999px 999px 4px 4px;
+  opacity: 0;
+  visibility: hidden;
+}
 
 .gate__leaf {
   width: 39.84%;
@@ -565,6 +564,109 @@ height: calc(var(--door-h) * .8468);
 }
 @media (hover: none), (prefers-reduced-motion: reduce) { .bubble { display: none; } }
 @media (prefers-reduced-motion: reduce) { .bubble { display: none; } }
+/* ===== NEW SECTIONS ===== */
+.sec { padding: clamp(70px, 10vw, 120px) 0; background: var(--ivory); }
+.sec--dark { background: var(--midnight); color: var(--white); }
+.sec__head { text-align: center; margin-bottom: clamp(36px, 6vw, 64px); }
+.sec__head .eyebrow { margin-bottom: 14px; }
+.sec__title { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+.sec__title em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; color: var(--brass); }
+.sec__cta { text-align: center; margin-top: 48px; }
+.btn-dark { background: var(--midnight); color: var(--white); border: 1px solid var(--midnight); }
+.btn-dark:hover, .btn-dark:focus-visible { background: var(--brass); border-color: var(--brass); color: var(--midnight); }
+ 
+/* About */
+.about { display: grid; gap: 48px; align-items: center; }
+.about__imgs { position: relative; padding-bottom: 18%; }
+.about__imgs img { width: 78%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; }
+.about__imgs img + img { position: absolute; right: 0; bottom: 0; width: 52%; aspect-ratio: 1; border: 8px solid var(--ivory); }
+.about__text p { color: var(--muted); max-width: 52ch; }
+.about__text .btn { margin-top: 12px; }
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 20px; margin-top: clamp(48px, 7vw, 80px); padding-top: 40px; border-top: 1px solid rgba(199,156,90,.45); text-align: center; }
+.stats strong { display: block; font-family: var(--heading-font); font-weight: 500; font-size: clamp(2.2rem, 5vw, 3.2rem); color: var(--brass); line-height: 1; }
+.stats span { font-size: .8rem; letter-spacing: .1em; color: var(--muted); }
+ 
+/* Events */
+.events { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.event { position: relative; overflow: hidden; border-radius: 6px; aspect-ratio: 4 / 5; background: var(--midnight); }
+.event img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.event:hover img { transform: scale(1.06); }
+.event::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(16,37,66,.92), rgba(16,37,66,0) 60%); }
+.event__body { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 26px; color: var(--white); }
+.event__body h3 { margin: 0 0 6px; font-family: var(--heading-font); font-weight: 500; font-size: 1.7rem; }
+.event__body p { margin: 0 0 16px; font-size: .9rem; color: var(--champagne); }
+.event__body .btn { padding: 11px 24px; font-size: .7rem; }
+ 
+/* Gallery */
+.gallery { columns: 2; column-gap: 12px; }
+.gallery img { width: 100%; margin-bottom: 12px; border-radius: 4px; break-inside: avoid; }
+ 
+/* Films */
+.films { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.film { position: relative; display: block; overflow: hidden; border-radius: 6px; aspect-ratio: 16 / 10; }
+.film img { width: 100%; height: 100%; object-fit: cover; }
+.film::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(16,37,66,.85), rgba(16,37,66,.15)); }
+.film__play { position: absolute; z-index: 1; top: 50%; left: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; border: 1px solid var(--brass); background: rgba(16,37,66,.55); display: grid; place-items: center; transition: background-color .3s ease; }
+.film__play::before { content: ""; margin-left: 4px; border-style: solid; border-width: 9px 0 9px 15px; border-color: transparent transparent transparent var(--brass); transition: border-color .3s ease; }
+.film:hover .film__play { background: var(--brass); }
+.film:hover .film__play::before { border-left-color: var(--midnight); }
+.film__cap { position: absolute; z-index: 1; left: 20px; right: 20px; bottom: 16px; }
+.film__cap h3 { margin: 0; font-family: var(--heading-font); font-weight: 500; font-size: 1.35rem; }
+.film__cap span { font-size: .75rem; color: var(--champagne); }
+ 
+/* Testimonials */
+.reviews { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.review { background: var(--white); border-radius: 6px; padding: 34px 28px; box-shadow: 0 1px 0 rgba(16,37,66,.08); }
+.review__stars { color: var(--brass); letter-spacing: .2em; margin-bottom: 14px; }
+.review blockquote { margin: 0 0 22px; font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 1.3rem; line-height: 1.35; }
+.review__who { font-size: .85rem; font-weight: 600; }
+.review__who span { display: block; font-weight: 400; color: var(--muted); }
+ 
+/* Form */
+.contact { max-width: 720px; margin: 0 auto; }
+.form { display: grid; gap: 16px; background: var(--white); border-radius: 6px; padding: clamp(24px, 5vw, 48px); }
+.form__row { display: grid; gap: 16px; grid-template-columns: 1fr; }
+.form label { display: block; margin-bottom: 6px; font-size: .8rem; font-weight: 500; color: var(--muted); }
+.form input, .form select, .form textarea { width: 100%; padding: 14px 16px; font: inherit; color: var(--midnight); background: var(--ivory); border: 1px solid rgba(16,37,66,.15); border-radius: 4px; }
+.form textarea { min-height: 120px; resize: vertical; }
+.form input:focus-visible, .form select:focus-visible, .form textarea:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.form .btn { justify-self: start; }
+.form__note { margin: 0; font-size: .85rem; color: var(--muted); }
+ 
+/* CTA */
+.cta { text-align: center; }
+.cta p { max-width: 46ch; margin: 18px auto 36px; color: var(--champagne); }
+.cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+ 
+/* Footer */
+.footer { padding: 70px 0 28px; background: #0b1a30; color: rgba(255,255,255,.72); font-size: .92rem; }
+.footer__grid { display: grid; gap: 36px; grid-template-columns: 1fr; }
+.footer__brand { font-family: var(--heading-font); font-size: 1.7rem; color: var(--white); }
+.footer h4 { margin: 0 0 14px; font-family: var(--heading-font); font-weight: 500; font-size: 1.2rem; color: var(--brass); }
+.footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.footer a:hover, .footer a:focus-visible { color: var(--brass); }
+.footer p { margin: 0 0 8px; }
+.footer__bottom { margin-top: 48px; padding-top: 22px; border-top: 1px solid rgba(216,195,165,.16); font-size: .8rem; text-align: center; }
+ 
+@media (min-width: 768px) {
+  .events, .films, .reviews { grid-template-columns: repeat(3, 1fr); }
+  .gallery { columns: 3; column-gap: 16px; }
+  .gallery img { margin-bottom: 16px; }
+  .stats { grid-template-columns: repeat(4, 1fr); }
+  .form__row { grid-template-columns: 1fr 1fr; }
+  .footer__grid { grid-template-columns: 1.6fr 1fr 1fr 1.4fr; }
+}
+@media (min-width: 992px) { .about { grid-template-columns: 1fr 1fr; gap: 80px; } }
+.sec.pattern-bg {
+  background-color: #fff;
+  background-image:
+    linear-gradient(rgba(255,255,255,.78), rgba(255,255,255,.78)),
+    url("pattern.jpg");
+  background-repeat: repeat;
+  background-size: auto, 320px auto;
+}
+.about__imgs img + img { border-color: #fff; }
+
   </style>
 </head>
 <body>
@@ -604,11 +706,16 @@ height: calc(var(--door-h) * .8468);
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <button class="mobile-menu__close" type="button" aria-label="Close menu">&times;</button>
     <span class="mobile-menu__brand">Decor By Pearls</span>
-    <ul class="mobile-menu__links">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#doorReveal">Our Work</a></li>
-      <li><a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding">Book Now</a></li>
-    </ul>
+   <ul class="mobile-menu__links">
+  <li><a href="#hero">Home</a></li>
+  <li><a href="#doorReveal">Our Work</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#events">Events</a></li>
+  <li><a href="#gallery">Gallery</a></li>
+  <li><a href="#films">Films</a></li>
+  <li><a href="#reviews">Reviews</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
   </div>
 
   <main id="main">
@@ -624,7 +731,7 @@ height: calc(var(--door-h) * .8468);
           <img src="hero image 3.jpg" alt="Bride in traditional Indian bridal attire during a wedding ceremony" width="1600" height="1067">
         </div>
         <div class="hero__slide">
-          <img src="bride and groom hero photo.jpg" alt="Luxury wedding table decor with candles and floral arrangements" width="1600" height="1067">
+          <img src="hero image.jpg" alt="Luxury wedding table decor with candles and floral arrangements" width="1600" height="1067">
         </div>
         <div class="hero__slide">
           <img src="hero image 4 (2).jpg" alt="Elegant outdoor wedding venue decorated with flowers and lighting" width="1600" height="1067">
@@ -720,12 +827,216 @@ height: calc(var(--door-h) * .8468);
     </section>
 
   </main>
+    <!-- ABOUT -->
+<section class="sec pattern-bg" id="about" aria-label="About Decor By Pearls">
+  <div class="container">
+    <div class="about">
+      <div class="about__imgs reveal">
+        <img src="about image 1.jpg" alt="Wedding decor" loading="lazy">
+        <img src="about image 2.jpg" alt="Wedding flowers" loading="lazy">
+      </div>
+      <div class="about__text reveal">
+        <p class="eyebrow">About Us</p>
+        <h2 class="sec__title">We turn dreams into <em>memories</em></h2>
+        <p>From intimate garden ceremonies to grand destination weddings, we handle every detail with care: the finest vendors, breathtaking decor, and flawless events across India.</p>
+        <a class="btn btn-dark" href="#contact">Our Story</a>
+      </div>
+    </div>
+    <div class="stats reveal">
+      <div><strong>500+</strong><span>Weddings Crafted</span></div>
+      <div><strong>12+</strong><span>Years of Experience</span></div>
+      <div><strong>20+</strong><span>Destination Cities</span></div>
+      <div><strong>98%</strong><span>Happy Couples</span></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- EVENTS -->
+<section class="sec sec--dark" id="events" aria-label="Wedding categories">
+  <div class="container">
+    <div class="sec__head reveal">
+      <p class="eyebrow">Find Your Style</p>
+      <h2 class="sec__title">Wedding <em>categories</em></h2>
+    </div>
+    <div class="events">
+      <article class="event reveal"><img src="https://picsum.photos/seed/pearls-beach/600/750" alt="Beach wedding" loading="lazy"><div class="event__body"><h3>Beach Weddings</h3><p>Blue skies and ocean waves.</p><a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Beach%20Wedding">Book Now</a></div></article>
+      <article class="event reveal"><img src="https://picsum.photos/seed/pearls-cruise/600/750" alt="Cruise wedding" loading="lazy"><div class="event__body"><h3>Cruise Weddings</h3><p>Celebrate on the open ocean.</p><a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Cruise%20Wedding">Book Now</a></div></article>
+      <article class="event reveal"><img src="https://picsum.photos/seed/pearls-vineyard/600/750" alt="Vineyard wedding" loading="lazy"><div class="event__body"><h3>Vineyard Weddings</h3><p>Green wineries, romantic settings.</p><a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Vineyard%20Weddings">Book Now</a></div></article>
+      <article class="event reveal"><img src="https://picsum.photos/seed/pearls-fort/600/750" alt="Fort wedding" loading="lazy"><div class="event__body"><h3>Fort Weddings</h3><p>Royal grandeur, unforgettable.</p><a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Fort%20Weddings">Book Now</a></div></article>
+      <article class="event reveal"><img src="https://picsum.photos/seed/pearls-mountain/600/750" alt="Mountain wedding" loading="lazy"><div class="event__body"><h3>Mountain Weddings</h3><p>Hilltop vistas and cool air.</p><a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Mountain%20Weddings">Book Now</a></div></article>
+      <article class="event reveal"><img src="https://picsum.photos/seed/pearls-intimate/600/750" alt="Intimate wedding" loading="lazy"><div class="event__body"><h3>Intimate Weddings</h3><p>Cozy, meaningful, with family.</p><a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Intimate%20Weddings">Book Now</a></div></article>
+    </div>
+  </div>
+</section>
+ 
+<!-- GALLERY -->
+<section class="sec pattern-bg" id="gallery" aria-label="Gallery">
+  <div class="container">
+    <div class="sec__head reveal">
+      <p class="eyebrow">Our Work</p>
+      <h2 class="sec__title">A glimpse of <em>magic</em></h2>
+    </div>
+    <div class="gallery">
+      <img class="reveal" src="https://picsum.photos/seed/pearls-g1/600/800" alt="Wedding stage decor" loading="lazy">
+      <img class="reveal" src="https://picsum.photos/seed/pearls-g2/600/450" alt="Table setting" loading="lazy">
+      <img class="reveal" src="https://picsum.photos/seed/pearls-g3/600/700" alt="Floral mandap" loading="lazy">
+      <img class="reveal" src="https://picsum.photos/seed/pearls-g4/600/500" alt="Outdoor ceremony" loading="lazy">
+      <img class="reveal" src="https://picsum.photos/seed/pearls-g5/600/800" alt="Reception decor" loading="lazy">
+      <img class="reveal" src="https://picsum.photos/seed/pearls-g6/600/600" alt="Bridal portrait" loading="lazy">
+      <img class="reveal" src="https://picsum.photos/seed/pearls-g7/600/750" alt="Beach wedding" loading="lazy">
+      <img class="reveal" src="https://picsum.photos/seed/pearls-g8/600/480" alt="Venue view" loading="lazy">
+      <img class="reveal" src="https://picsum.photos/seed/pearls-g9/600/700" alt="Wedding detail" loading="lazy">
+    </div>
+    <div class="sec__cta"><a class="btn btn-dark" href="#contact">Plan Your Event</a></div>
+  </div>
+</section>
+ 
+<!-- WEDDING FILMS -->
+<section class="sec sec--dark" id="films" aria-label="Wedding films">
+  <div class="container">
+    <div class="sec__head reveal">
+      <p class="eyebrow">Stories We've Told</p>
+      <h2 class="sec__title">Wedding <em>films</em></h2>
+    </div>
+    <div class="films">
+      <a class="film reveal" href="#" aria-label="Play film: Priya and Arjun"><img src="https://picsum.photos/seed/pearls-f1/800/500" alt="" loading="lazy"><span class="film__play"></span><div class="film__cap"><h3>Priya &amp; Arjun</h3><span>Udaipur</span></div></a>
+      <a class="film reveal" href="#" aria-label="Play film: Devansh and Mayra"><img src="https://picsum.photos/seed/pearls-f2/800/500" alt="" loading="lazy"><span class="film__play"></span><div class="film__cap"><h3>Devansh &amp; Mayra</h3><span>Beach wedding</span></div></a>
+      <a class="film reveal" href="#" aria-label="Play film: Anubhav and Harshita"><img src="https://picsum.photos/seed/pearls-f3/800/500" alt="" loading="lazy"><span class="film__play"></span><div class="film__cap"><h3>Anubhav &amp; Harshita</h3><span>Fort wedding</span></div></a>
+    </div>
+  </div>
+</section>
+ 
+<!-- TESTIMONIALS -->
+<section class="sec pattern-bg" id="reviews" aria-label="Testimonials">
+  <div class="container">
+    <div class="sec__head reveal">
+      <p class="eyebrow">Love Notes</p>
+      <h2 class="sec__title">What couples <em>say</em></h2>
+    </div>
+    <div class="reviews">
+      <figure class="review reveal" style="margin:0"><div class="review__stars">★★★★★</div><blockquote>Every detail was perfect, from the flowers to the lighting. A truly magical day.</blockquote><figcaption class="review__who">Priya Sharma<span>Udaipur Palace Wedding</span></figcaption></figure>
+      <figure class="review reveal" style="margin:0"><div class="review__stars">★★★★★</div><blockquote>They understood our vision and executed it flawlessly. Our Goa wedding was breathtaking.</blockquote><figcaption class="review__who">Meera &amp; Rahul Kapoor<span>Goa Beach Wedding</span></figcaption></figure>
+      <figure class="review reveal" style="margin:0"><div class="review__stars">★★★★★</div><blockquote>From the first consultation to the last dance, everything was handled with grace.</blockquote><figcaption class="review__who">Ananya Singh<span>Chandigarh Garden Wedding</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+ 
+<!-- FORM (placeholder fields, opens WhatsApp on submit) -->
+<section class="sec sec--dark" id="contact" aria-label="Enquiry form">
+  <div class="container contact">
+    <div class="sec__head reveal">
+      <p class="eyebrow">Plan Your Event</p>
+      <h2 class="sec__title">Tell us about your <em>day</em></h2>
+    </div>
+    <form class="form reveal" id="enquiryForm" novalidate style="color:var(--midnight)">
+      <div class="form__row">
+        <div><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+        <div><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+      </div>
+      <div class="form__row">
+        <div><label for="f-type">Event type</label>
+          <select id="f-type" name="type"><option>Wedding</option><option>Destination Wedding</option><option>Engagement</option><option>Sangeet / Mehndi</option><option>Reception</option><option>Other</option></select></div>
+        <div><label for="f-date">Event date</label><input id="f-date" name="date" type="date"></div>
+      </div>
+      <div><label for="f-msg">Message</label><textarea id="f-msg" name="message"></textarea></div>
+      <button class="btn btn-brass" type="submit">Send Enquiry</button>
+      <p class="form__note" id="formNote" role="status"></p>
+    </form>
+  </div>
+</section>
+ 
+<!-- CTA -->
+<section class="sec cta" id="cta" aria-label="Get in touch" style="background:var(--sapphire);color:var(--white)">
+  <div class="container reveal">
+    <h2 class="sec__title">Begin your <em>love story</em></h2>
+    <p>Get in touch for a complimentary consultation.</p>
+    <div class="cta__actions">
+      <a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding">WhatsApp Us</a>
+      <a class="btn btn-outline-light" href="mailto:info@decorbypearls.com">Email Us</a>
+    </div>
+  </div>
+</section>
+ 
+<!-- (c) Paste the FOOTER right AFTER </main> -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">Decor By Pearls</div>
+        <p style="margin-top:12px;max-width:34ch">Unforgettable celebrations where every detail tells your love story.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#films">Films</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/decor_bypearls" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61578885675391" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://pin.it/5KsKYR2QE" target="_blank" rel="noopener">Pinterest</a></li>
+          <li><a href="https://wa.me/917355051840" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="tel:+917355051840">+91-7355051840</a></p>
+        <p><a href="mailto:info@decorbypearls.com">info@decorbypearls.com</a></p>
+        <p>4th Floor, Plot No. C-210 B, Fateh Tower, Industrial Area, Phase 8B, Sector 74, Mohali, Punjab 160071</p>
+      </div>
+    </div>
+    <div class="footer__bottom">&copy; 2026 Decor By Pearls. Weddings With Elegance.</div>
+  </div>
+</footer>
+
 
   <!-- FIX: GSAP 3.12.7 (3.15.0 may not exist on the CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
 
   <script>
+    
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ 
+  /* Scroll reveal (skipped if GSAP missing or reduced motion) */
+  if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined" && !reduce) {
+    gsap.set(".reveal", { opacity: 0, y: 36 });
+    ScrollTrigger.batch(".reveal", {
+      start: "top 90%",
+      once: true,
+      onEnter: function (els) {
+        gsap.to(els, { opacity: 1, y: 0, duration: .9, stagger: .12, ease: "power3.out", overwrite: true });
+      }
+    });
+    window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+  }
+ 
+  /* Form: opens WhatsApp with the details */
+  var form = document.getElementById("enquiryForm");
+  var note = document.getElementById("formNote");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var d = new FormData(form);
+      if (!d.get("name").trim() || !d.get("phone").trim()) {
+        note.textContent = "Please add your name and phone number.";
+        return;
+      }
+      var text = "Hi! I'm " + d.get("name") + " (" + d.get("phone") + "). Event: " + d.get("type") +
+        (d.get("date") ? ", date: " + d.get("date") : "") +
+        (d.get("message").trim() ? ". " + d.get("message") : "");
+      note.textContent = "Opening WhatsApp...";
+      window.open("https://wa.me/917355051840?text=" + encodeURIComponent(text), "_blank", "noopener");
+    });
+  }
+})();
     (function () {
       var root = document.documentElement;
       var body = document.body;
@@ -870,6 +1181,7 @@ height: calc(var(--door-h) * .8468);
           .to(".gate__leaf--right", { rotationY: 88, duration: 1.6, ease: "power3.inOut" }, .4)
           .to(".gate__leaf", { "--shade": .5, duration: 1.6, ease: "power1.in" }, .4)
           .to(".gate__light", { opacity: 0, duration: .6 }, 1)
+          .set(".gate__reveal", { autoAlpha: 1 }, .4)
           .fromTo(".gate__reveal img", { scale: 1.15 }, { scale: 1, duration: 2.4, ease: "power2.out" }, .4)
           .to(".gate__final", { autoAlpha: 1, duration: 1 }, 1.8)
           .from(".gate__text > *", { y: 30, autoAlpha: 0, stagger: .15, duration: .9, ease: "power3.out" }, 2.1);
