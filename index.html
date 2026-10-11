@@ -696,7 +696,101 @@ height: calc(var(--door-h) * .8468);
   .collage .c4 { grid-column: 3; grid-row: 2; }
   .collage .c5 { grid-column: 1 / 3; grid-row: 3; }
   .collage .c6 { grid-column: 3 / 5; grid-row: 3; }
+}  <style>
+/* Process */
+.process { position: relative; }
+.process__track {
+  display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+  scrollbar-width: none; padding: 4px 0 8px;
 }
+.process__track::-webkit-scrollbar { display: none; }
+.step { position: relative; flex: 0 0 78%; scroll-snap-align: center; text-align: center; padding: 0 18px; }
+.step::before {
+  content: ""; position: absolute; top: 40px; left: -50%; width: 100%; height: 1px; background: var(--brass);
+}
+.step:first-child::before { display: none; }
+.step__num {
+  position: relative; z-index: 1; width: 80px; height: 80px; margin: 0 auto 28px;
+  display: grid; place-items: center; border-radius: 50%;
+  border: 1px solid var(--brass); background: var(--ivory); color: var(--brass);
+  font-family: var(--heading-font); font-size: 1.7rem;
+}
+.step h3 { margin: 0 0 12px; font-family: var(--heading-font); font-weight: 600; font-size: 1.45rem; }
+.step p { margin: 0 auto; max-width: 26ch; font-size: .95rem; color: #4a5568; }
+.process__arrow {
+  position: absolute; top: 40px; transform: translateY(-50%); z-index: 2;
+  width: 40px; height: 40px; border: 0; border-radius: 50%; cursor: pointer;
+  background: rgba(16,37,66,.55); color: var(--white); font-size: 1.1rem; line-height: 1;
+}
+.process__arrow:hover { background: var(--midnight); }
+.process__arrow--prev { left: 0; }
+.process__arrow--next { right: 0; }
+@media (min-width: 640px) { .step { flex-basis: 45%; } }
+@media (min-width: 992px) {
+  .step { flex: 1 1 0; padding: 0 14px; }
+  .process__track { overflow: visible; }
+  .process__arrow { display: none; }
+}
+ 
+/* Team */
+.team { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.member {
+  position: relative; overflow: hidden; min-height: 460px;
+  border-radius: 20px; border: 1px solid rgba(216,195,165,.22);
+  background: var(--sapphire);
+}
+.member img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  transition: transform .8s ease;
+}
+.member:hover img { transform: scale(1.06); }
+.member::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,16,38,.96) 0%, rgba(10,16,38,.75) 35%, rgba(10,16,38,0) 70%);
+}
+.member__body { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 26px; }
+.member__tag {
+  display: inline-block; margin-bottom: 12px; padding: 6px 14px;
+  border-radius: 999px; background: var(--brass); color: var(--midnight);
+  font-size: .62rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+}
+.member h3 { margin: 0 0 4px; font-family: var(--heading-font); font-weight: 600; font-size: 1.8rem; color: var(--white); }
+.member__role { margin: 0 0 10px; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+.member__bio { margin: 0; font-size: .92rem; line-height: 1.55; color: rgba(255,255,255,.78); }
+
+@media (min-width: 768px) { .team { grid-template-columns: repeat(3, 1fr); } .member { min-height: 520px; } }  .sec.pattern-bg { position: relative; }
+.sec.pattern-bg > .container { position: relative; z-index: 1; }
+
+.fade-top::before, .fade-bottom::after {
+  content: ""; position: absolute; left: 0; right: 0; z-index: 0; pointer-events: none;
+  height: clamp(140px, 20vw, 260px);
+}
+.fade-top::before {
+  top: 0;
+  background: linear-gradient(to bottom,
+    rgba(16,37,66,1) 0%, rgba(16,37,66,.75) 30%, rgba(16,37,66,.3) 65%, rgba(16,37,66,0) 100%);
+}
+.fade-bottom::after {
+  bottom: 0;
+  background: linear-gradient(to top,
+    rgba(16,37,66,1) 0%, rgba(16,37,66,.75) 30%, rgba(16,37,66,.3) 65%, rgba(16,37,66,0) 100%);
+} .vmodal {
+  position: fixed; inset: 0; z-index: 10000;
+  display: grid; place-items: center; padding: 20px;
+  background: rgba(8,10,14,.92);
+  opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility .35s ease;
+}
+.vmodal.is-open { opacity: 1; visibility: visible; }
+.vmodal__box { width: min(1000px, 100%); aspect-ratio: 16 / 9; background: #000; border-radius: 8px; overflow: hidden; }
+.vmodal__box iframe { width: 100%; height: 100%; border: 0; }
+.vmodal__close {
+  position: absolute; top: 18px; right: 22px; background: none; border: 0;
+  color: var(--white); font-size: 2.6rem; line-height: 1; cursor: pointer;
+}
+.vmodal__close:hover { color: var(--brass); }
+</style>
+ 
   </style>
 </head>
 <body>
@@ -859,7 +953,7 @@ height: calc(var(--door-h) * .8468);
   </main>
   <hr class="gold-line"/>
     <!-- ABOUT -->
-<section class="sec pattern-bg" id="about" aria-label="About Decor By Pearls">
+<section class="sec pattern-bg fade-top" id="about" aria-label="About Decor By Pearls">
   <div class="container">
     <div class="about">
       <div class="about__imgs reveal">
@@ -878,6 +972,45 @@ height: calc(var(--door-h) * .8468);
       <div><strong>12+</strong><span>Years of Experience</span></div>
       <div><strong>20+</strong><span>Destination Cities</span></div>
       <div><strong>98%</strong><span>Happy Couples</span></div>
+    </div>
+  </div>
+</section>
+ <section class="sec pattern-bg fade-bottom" id="process" aria-label="Our planning process">
+  <div class="container">
+    <div class="sec__head reveal">
+      <p class="eyebrow">How It Works</p>
+      <h2 class="sec__title">Our Planning <em>Process</em></h2>
+    </div>
+    <div class="process reveal">
+      <button class="process__arrow process__arrow--prev" type="button" aria-label="Previous step">&#8249;</button>
+      <div class="process__track" id="processTrack">
+        <div class="step">
+          <div class="step__num">01</div>
+          <h3>Initial Consultation</h3>
+          <p>We understand your vision, preferences, and budget in a detailed discovery session.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">02</div>
+          <h3>Concept Design</h3>
+          <p>Our designers craft a personalised mood board and event blueprint for your approval.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">03</div>
+          <h3>Vendor Curation</h3>
+          <p>We shortlist and coordinate with the finest vendors tailored to your needs.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">04</div>
+          <h3>Event Execution</h3>
+          <p>Our on-ground team ensures flawless execution of every detail on your big day.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">05</div>
+          <h3>Post-Event Care</h3>
+          <p>We handle wrap-up logistics and deliver your memories beautifully packaged.</p>
+        </div>
+      </div>
+      <button class="process__arrow process__arrow--next" type="button" aria-label="Next step">&#8250;</button>
     </div>
   </div>
 </section>
@@ -901,7 +1034,7 @@ height: calc(var(--door-h) * .8468);
 </section>
  
 <!-- GALLERY -->
-<section class="sec pattern-bg" id="gallery" aria-label="Gallery">
+<section class="sec pattern-bg fade-top fade-bottom" id="gallery" aria-label="Gallery">
   <div class="container">
     <div class="sec__head reveal">
       <p class="eyebrow">Our Work</p>
@@ -920,7 +1053,7 @@ height: calc(var(--door-h) * .8468);
     <div class="sec__cta"><a class="btn btn-dark" href="#contact">Plan Your Event</a></div>
   </div>
 </section>
- 
+ <hr/>
 <!-- WEDDING FILMS -->
 <section class="sec sec--dark" id="films" aria-label="Wedding films">
   <div class="container">
@@ -929,15 +1062,54 @@ height: calc(var(--door-h) * .8468);
       <h2 class="sec__title">Wedding <em>films</em></h2>
     </div>
     <div class="films">
-      <a class="film reveal" href="#" aria-label="Play film: Priya and Arjun"><img src="https://picsum.photos/seed/pearls-f1/800/500" alt="" loading="lazy"><span class="film__play"></span><div class="film__cap"><h3>Priya &amp; Arjun</h3><span>Udaipur</span></div></a>
-      <a class="film reveal" href="#" aria-label="Play film: Devansh and Mayra"><img src="https://picsum.photos/seed/pearls-f2/800/500" alt="" loading="lazy"><span class="film__play"></span><div class="film__cap"><h3>Devansh &amp; Mayra</h3><span>Beach wedding</span></div></a>
-      <a class="film reveal" href="#" aria-label="Play film: Anubhav and Harshita"><img src="https://picsum.photos/seed/pearls-f3/800/500" alt="" loading="lazy"><span class="film__play"></span><div class="film__cap"><h3>Anubhav &amp; Harshita</h3><span>Fort wedding</span></div></a>
+    <a class="film reveal" href="#" data-video="https://drive.google.com/file/d/1WokMcX721Zw-l6tpmbLPOIKnxYsjOhI3/view?usp=sharing" aria-label="Play film: Priya and Arjun"><img src="https://picsum.photos/seed/pearls-f1/800/500" alt="" loading="lazy"><span class="film__play"></span><div class="film__cap"><h3>Priya &amp; Arjun</h3><span>Udaipur</span></div></a>
+
+<a class="film reveal" href="#" data-video="https://drive.google.com/file/d/16NnWh1PvDYY5Kg8Cs0mj3mglOYmYfwHY/view?usp=sharing" aria-label="Play film: Devansh and Mayra"><img src="https://picsum.photos/seed/pearls-f2/800/500" alt="" loading="lazy"><span class="film__play"></span><div class="film__cap"><h3>Devansh &amp; Mayra</h3><span>Beach wedding</span></div></a>
+
+<a class="film reveal" href="#" data-video="https://drive.google.com/file/d/1pb6nsO75YcyV2Z0DYzXeN0-JRCXjjiCe/view?usp=sharing" aria-label="Play film: Anubhav and Harshita"><img src="https://picsum.photos/seed/pearls-f3/800/500" alt="" loading="lazy"><span class="film__play"></span><div class="film__cap"><h3>Anubhav &amp; Harshita</h3><span>Fort wedding</span></div></a> </div>
+  </div>
+</section>
+
+<section class="sec sec--dark" id="team" aria-label="Meet our team">
+  <div class="container">
+    <div class="sec__head reveal">
+      <p class="eyebrow">The People Behind Your Day</p>
+      <h2 class="sec__title">Meet Our <em>Team</em></h2>
+    </div>
+    <div class="team">
+      <article class="member reveal">
+        <img src="team mohit.jpg" alt="Mohit Kumar" loading="lazy">
+        <div class="member__body">
+          <span class="member__tag">Visionary</span>
+          <h3>Mohit Kumar</h3>
+          <p class="member__role">Founder &amp; Creative Director</p>
+          <p class="member__bio">Crafting extraordinary celebrations with timeless decor concepts, luxury aesthetics, and unforgettable event experiences.</p>
+        </div>
+      </article>
+      <article class="member reveal">
+        <img src="team sachin.jpg" alt="Sachin Mishra" loading="lazy">
+        <div class="member__body">
+          <span class="member__tag">Operations</span>
+          <h3>Sachin Mishra</h3>
+          <p class="member__role">Co-Founder &amp; Operations Head</p>
+          <p class="member__bio">Managing seamless event execution, client coordination, and flawless planning for every celebration.</p>
+        </div>
+      </article>
+      <article class="member reveal">
+        <img src="team jasneet.jpg" alt="Jasneet Kaur" loading="lazy">
+        <div class="member__body">
+          <span class="member__tag">Styling</span>
+          <h3>Jasneet Kaur</h3>
+          <p class="member__role">Co-Founder &amp; Styling Director</p>
+          <p class="member__bio">Bringing elegant wedding styling, creative themes, and personalized decor inspirations to life beautifully.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
  
 <!-- TESTIMONIALS -->
-<section class="sec pattern-bg" id="reviews" aria-label="Testimonials">
+<section class="sec pattern-bg fade-top fade-bottom" id="reviews" aria-label="Testimonials">
   <div class="container">
     <div class="sec__head reveal">
       <p class="eyebrow">Love Notes</p>
@@ -1025,7 +1197,10 @@ height: calc(var(--door-h) * .8468);
   </div>
 </footer>
 
-
+<div class="vmodal" id="videoModal" aria-hidden="true" role="dialog" aria-label="Wedding film">
+  <button class="vmodal__close" type="button" aria-label="Close video">&times;</button>
+  <div class="vmodal__box"><iframe id="videoFrame" src="" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+</div>
   <!-- FIX: GSAP 3.12.7 (3.15.0 may not exist on the CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
@@ -1340,7 +1515,98 @@ height: calc(var(--door-h) * .8468);
   }, { threshold: 0.6 });
 
   nums.forEach(function (el) { io.observe(el); });
+})(); 
+(function () {
+  var track = document.getElementById("processTrack");
+  if (!track) return;
+  var steps = track.querySelectorAll(".step");
+  var prev = document.querySelector(".process__arrow--prev");
+  var next = document.querySelector(".process__arrow--next");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var i = 0, timer = null, visible = false;
+
+  function show(n) {
+    i = (n + steps.length) % steps.length;
+    steps.forEach(function (s, k) { s.classList.toggle("is-active", k === i); });
+    if (track.scrollWidth > track.clientWidth + 2) {
+      var s = steps[i];
+      track.scrollTo({
+        left: s.offsetLeft - (track.clientWidth - s.offsetWidth) / 2,
+        behavior: reduce ? "auto" : "smooth"
+      });
+    }
+  }
+  function start() {
+    if (reduce || timer || !visible) return;
+    timer = setInterval(function () { show(i + 1); }, 3000);
+  }
+  function stop() { clearInterval(timer); timer = null; }
+
+  prev.addEventListener("click", function () { stop(); show(i - 1); start(); });
+  next.addEventListener("click", function () { stop(); show(i + 1); start(); });
+  track.addEventListener("mouseenter", stop);
+  track.addEventListener("mouseleave", start);
+  track.addEventListener("touchstart", stop, { passive: true });
+  track.addEventListener("touchend", function () { setTimeout(start, 4000); }, { passive: true });
+
+  show(0);
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (en) {
+      visible = en[0].isIntersecting;
+      visible ? start() : stop();
+    }, { threshold: 0.4 }).observe(track);
+  } else { visible = true; start(); }
 })();
+(function () {
+  var modal = document.getElementById("videoModal");
+  var frame = document.getElementById("videoFrame");
+  if (!modal) return;
+
+  function toEmbed(url) {
+    var m = url.match(/\/d\/([\w-]+)/) || url.match(/[?&]id=([\w-]+)/);
+    return m ? "https://drive.google.com/file/d/" + m[1] + "/preview" : url;
+  }
+  function open(url) {
+    frame.src = toEmbed(url);
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+  function close() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    frame.src = "";
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll(".film[data-video]").forEach(function (f) {
+    f.addEventListener("click", function (e) { e.preventDefault(); open(f.dataset.video); });
+  });
+  modal.querySelector(".vmodal__close").addEventListener("click", close);
+  modal.addEventListener("click", function (e) { if (e.target === modal) close(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+})(); 
+(function () {
+  document.querySelectorAll(".film[data-video]").forEach(function (f) {
+    var img = f.querySelector("img");
+    var m = f.dataset.video.match(/\/d\/([\w-]+)/);
+    if (!img || !m) return;
+    var id = m[1];
+    var sources = [
+      "https://drive.google.com/thumbnail?id=" + id + "&sz=w1000",
+      "https://lh3.googleusercontent.com/d/" + id + "=w1000"
+    ];
+    var n = 0;
+    img.referrerPolicy = "no-referrer";
+    img.onerror = function () {
+      n++;
+      if (n < sources.length) img.src = sources[n];
+      else if (f.dataset.thumb) { img.onerror = null; img.src = f.dataset.thumb; }
+    };
+    img.src = sources[0];
+  });
+})();
+
   </script>
 </body>
 </html>
