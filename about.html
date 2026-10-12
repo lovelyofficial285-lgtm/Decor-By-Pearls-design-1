@@ -1,0 +1,437 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Us | Decor By Pearls – Luxury Wedding Planner in Mohali & Chandigarh</title>
+    <meta name="description" content="Meet the team behind Decor By Pearls. 12+ years crafting intimate garden ceremonies and grand destination weddings across Chandigarh, Punjab, Haryana and Himachal.">
+    <meta name="theme-color" content="#102542">
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+    <script>document.documentElement.classList.add("js")</script>
+
+    <style>
+        :root {
+        --midnight: #102542;
+        --sapphire: #1e3a5f;
+        --champagne: #d8c3a5;
+        --ivory: #faf8f5;
+        --brass: #c79c5a;
+        --muted: #5d6879;
+        --display: "Instrument Serif", Georgia, serif;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "Inter", Arial, sans-serif;
+        --pad: clamp(72px, 10vw, 140px);
+        }
+        * { box-sizing: border-box; }
+        body {
+        margin: 0;
+        font-family: var(--sans);
+        color: var(--midnight);
+        background: var(--ivory);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        animation: pageIn .9s ease both;
+        }
+        @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+        img { display: block; max-width: 100%; }
+        a { color: inherit; text-decoration: none; }
+        h1, h2, h3, p { margin: 0; }
+        em { font-style: italic; }
+        .wrap { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+        .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+        .eyebrow {
+        font-size: .72rem; font-weight: 600;
+        letter-spacing: .26em; text-transform: uppercase;
+        color: var(--brass);
+        }
+        .btn {
+        display: inline-block;
+        padding: 16px 34px;
+        border-radius: 999px;
+        background: var(--brass);
+        border: 1px solid var(--brass);
+        color: var(--midnight);
+        font-size: .78rem; font-weight: 600;
+        letter-spacing: .12em; text-transform: uppercase;
+        transition: background-color .3s ease, border-color .3s ease;
+        }
+        .btn:hover, .btn:focus-visible { background: var(--champagne); border-color: var(--champagne); }
+        .btn:focus-visible, a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; }
+
+        /* Calm reveal on scroll */
+        .js .rv { opacity: 0; transform: translateY(26px); transition: opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
+        .js .rv.in { opacity: 1; transform: none; }
+
+        /* ===== HEADER ===== */
+        .nav {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+        padding: 22px 0;
+        transition: background-color .35s ease, padding .35s ease, box-shadow .35s ease;
+        }
+        .nav.is-scrolled { background: rgba(16,37,66,.92); backdrop-filter: blur(14px); padding: 14px 0; box-shadow: 0 1px 0 rgba(216,195,165,.16); }
+        .nav__in { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+        .nav__brand { font-family: var(--display); font-size: 1.6rem; color: #fff; letter-spacing: .01em; }
+        .nav__brand em { color: var(--brass); }
+        .nav__links { display: none; align-items: center; gap: 30px; }
+        .nav__links a { font-size: .72rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.82); transition: color .3s ease; }
+        .nav__links a:hover, .nav__links a[aria-current] { color: var(--brass); }
+        .nav .btn { display: none; padding: 12px 24px; font-size: .7rem; }
+        .nav__toggle { display: flex; flex-direction: column; gap: 7px; padding: 10px; background: none; border: 0; cursor: pointer; }
+        .nav__toggle span { width: 28px; height: 1px; background: #fff; }
+        @media (min-width: 992px) {
+        .nav__links, .nav .btn { display: flex; }
+        .nav__toggle { display: none; }
+        }
+
+        .drawer {
+        position: fixed; inset: 0 0 0 auto; z-index: 200;
+        width: min(88vw, 380px);
+        background: var(--midnight); color: #fff;
+        padding: 80px 32px 40px;
+        transform: translateX(105%);
+        transition: transform .45s cubic-bezier(.2,.7,.2,1);
+        }
+        .drawer.is-open { transform: none; }
+        .drawer a { display: block; padding: 18px 0; font-family: var(--display); font-size: 1.9rem; border-bottom: 1px solid rgba(216,195,165,.16); }
+        .drawer button { position: absolute; top: 20px; right: 22px; background: none; border: 0; color: #fff; font-size: 2rem; cursor: pointer; }
+
+        /* ===== 1. OPENING: headline split around an arch ===== */
+        .opening {
+        min-height: 100svh;
+        display: flex; align-items: center;
+        padding: clamp(120px, 16vh, 170px) 0 clamp(64px, 10vh, 110px);
+        background: var(--midnight); color: var(--ivory);
+        }
+        .opening__grid {
+        width: min(1320px, calc(100% - 48px)); margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr minmax(260px, 30vw) 1fr;
+        gap: clamp(28px, 4.5vw, 72px);
+        align-items: center;
+        }
+        .opening__title {
+        font-family: var(--display); font-weight: 400;
+        font-size: clamp(2.6rem, 5.4vw, 5.8rem);
+        line-height: .98; letter-spacing: -.02em;
+        }
+        .opening__title em { color: var(--champagne); }
+        .opening__left { text-align: right; align-self: end; padding-bottom: 6vh; }
+        .opening__left .eyebrow { margin-bottom: 22px; }
+        .opening__right { align-self: start; padding-top: 6vh; }
+        .opening__arch {
+        margin: 0;
+        aspect-ratio: 3 / 4.3;
+        border-radius: 999px 999px 0 0;
+        overflow: hidden;
+        outline: 1px solid rgba(199,156,90,.55);
+        outline-offset: 14px;
+        }
+        .opening__arch img { width: 100%; height: 100%; object-fit: cover; animation: settle 2.6s cubic-bezier(.2,.7,.2,1) both; }
+        @keyframes settle { from { transform: scale(1.14); } to { transform: scale(1); } }
+        @media (max-width: 899.98px) {
+        .opening { min-height: 0; }
+        .opening__grid { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+        .opening__arch { order: 1; width: min(76vw, 340px); margin: 0 auto 14px; }
+        .opening__left { order: 2; text-align: center; padding: 0; }
+        .opening__right { order: 3; padding: 0; margin-top: -18px; }
+        }
+
+        /* ===== 2. STORY ===== */
+        .story { background: var(--ivory); padding: var(--pad) 0; }
+        .story__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(40px, 7vw, 110px); align-items: center; }
+        .story__arch { width: min(100%, 420px); aspect-ratio: 3 / 4; border-radius: 999px 999px 0 0; overflow: hidden; }
+        .story__arch img { width: 100%; height: 100%; object-fit: cover; }
+        .story__years { display: flex; align-items: baseline; gap: 18px; margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(16,37,66,.18); width: min(100%, 420px); }
+        .story__years b { font-family: var(--display); font-weight: 400; font-style: italic; font-size: clamp(3.6rem, 7vw, 6rem); line-height: .85; color: var(--brass); }
+        .story__years span { font-size: .72rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+        .story__copy .eyebrow { margin-bottom: 22px; }
+        .story__lead { font-family: var(--display); font-style: italic; font-size: clamp(1.7rem, 2.8vw, 2.6rem); line-height: 1.18; margin-bottom: 30px; }
+        .story__copy p:last-child { color: var(--muted); max-width: 46ch; }
+        @media (max-width: 899.98px) { .story__grid { grid-template-columns: 1fr; } }
+
+        /* ===== 3. WHAT WE DO: typographic list ===== */
+        .craft { background: var(--champagne); padding: var(--pad) 0; }
+        .craft__head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(32px, 5vw, 64px); }
+        .craft__head h2 { font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.05; }
+        .craft__head h2 em { color: #8a6a35; }
+        .craft__row {
+        display: grid; grid-template-columns: 56px 1fr auto; align-items: center; gap: 18px;
+        padding: clamp(18px, 2.6vw, 30px) 0;
+        border-top: 1px solid rgba(16,37,66,.22);
+        transition: padding .5s cubic-bezier(.2,.7,.2,1);
+        }
+        .craft__row:last-child { border-bottom: 1px solid rgba(16,37,66,.22); }
+        .craft__row i { font-style: normal; font-size: .75rem; font-weight: 600; letter-spacing: .14em; color: #8a6a35; }
+        .craft__row b { font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 5vw, 4.4rem); line-height: 1; letter-spacing: -.015em; }
+        .craft__row span { font-size: 1.6rem; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+        .craft__row:hover { padding-left: 16px; }
+        .craft__row:hover b { font-style: italic; }
+        .craft__row:hover span { transform: translate(6px, -6px); }
+
+        /* ===== 4. TEAM: staggered arches ===== */
+        .team { background: var(--midnight); color: var(--ivory); padding: var(--pad) 0; }
+        .team__head { text-align: center; max-width: 620px; margin: 0 auto clamp(48px, 7vw, 90px); }
+        .team__head .eyebrow { margin-bottom: 20px; }
+        .team__head h2 { font-family: var(--display); font-weight: 400; font-size: clamp(2.4rem, 5vw, 4.4rem); line-height: 1.02; margin-bottom: 18px; }
+        .team__head h2 em { color: var(--champagne); }
+        .team__head p { color: rgba(250,248,245,.7); }
+        .team__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+        .member:nth-child(2) { margin-top: clamp(40px, 7vw, 96px); }
+        .member:nth-child(3) { margin-top: clamp(12px, 2.5vw, 36px); }
+        .member__photo { aspect-ratio: 3 / 4.2; border-radius: 999px 999px 0 0; overflow: hidden; margin-bottom: 26px; }
+        .member__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+        .member:hover .member__photo img { transform: scale(1.05); }
+        .member h3 { font-family: var(--display); font-style: italic; font-weight: 400; font-size: clamp(1.8rem, 2.6vw, 2.4rem); line-height: 1.1; margin-bottom: 6px; }
+        .member .role { font-size: .7rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--champagne); margin-bottom: 14px; }
+        .member p:last-child { color: rgba(250,248,245,.7); font-size: .95rem; max-width: 34ch; }
+        @media (max-width: 799.98px) {
+        .team__grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; gap: 56px; }
+        .member:nth-child(n) { margin-top: 0; }
+        }
+
+        /* ===== 5. VISIT ===== */
+        .visit { background: var(--ivory); padding: var(--pad) 0; }
+        .visit__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(40px, 7vw, 110px); align-items: start; }
+        .visit h2 { font-family: var(--display); font-weight: 400; font-size: clamp(2.6rem, 6vw, 5.4rem); line-height: .98; letter-spacing: -.02em; margin: 20px 0 26px; }
+        .visit h2 em { color: var(--brass); }
+        .visit__lead { color: var(--muted); max-width: 44ch; margin-bottom: 34px; }
+        .visit dl { margin: 0; }
+        .visit dl > div { padding: 22px 0; border-top: 1px solid rgba(16,37,66,.16); }
+        .visit dl > div:last-child { border-bottom: 1px solid rgba(16,37,66,.16); }
+        .visit dt { font-size: .68rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--brass); margin-bottom: 6px; }
+        .visit dd { margin: 0; font-family: var(--display); font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.3; }
+        @media (max-width: 899.98px) { .visit__grid { grid-template-columns: 1fr; } }
+
+        /* ===== FOOTER + FLOATING BUTTONS ===== */
+        footer { background: #0b1b31; color: rgba(250,248,245,.65); padding: 28px 0; font-size: .78rem; }
+        footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; }
+        footer a:hover { color: var(--brass); }
+        footer nav { display: flex; gap: 22px; }
+        .fab { position: fixed; right: 20px; bottom: 20px; z-index: 90; display: flex; flex-direction: column; gap: 12px; }
+        .fab a { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; box-shadow: 0 8px 24px rgba(0,0,0,.22); }
+        .fab svg { width: 24px; height: 24px; fill: currentColor; }
+        .fab__call { background: var(--brass); color: var(--midnight); }
+        .fab__wa { background: #25d366; color: #fff; }
+
+        @media (prefers-reduced-motion: reduce) {
+        body, .opening__arch img { animation: none; }
+        .js .rv { opacity: 1; transform: none; transition: none; }
+        }
+        .nav-rule {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    margin: 0;
+    border: 0;
+    background: linear-gradient(90deg, transparent, #c79c5a 20%, #c79c5a 80%, transparent);
+    opacity: .85;
+    }
+    .pattern-bg { position: relative; isolation: isolate; }
+    .pattern-bg::before {
+    content: "";
+    position: absolute; inset: 0;
+    z-index: -1;
+    background: url("pattern.jpg") center / 320px repeat;
+    opacity: .08;
+    pointer-events: none;
+    } .sec--dark.pattern-bg {
+    background-color: #102542;
+    background-image:
+        linear-gradient(rgba(16,37,66,.9), rgba(16,37,66,.9)),
+        url("pattern.jpg");
+    background-repeat: repeat;
+    background-size: auto, 320px auto;
+    }
+    </style>
+    </head>
+    <body>
+
+    <header class="nav" id="nav">
+        <div class="wrap nav__in">
+        <a class="nav__brand" href="index.html">Decor <em>By</em> Pearls</a>
+        <nav class="nav__links" aria-label="Primary">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="blog.html">Blogs</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="about.html" aria-current="page">About</a>
+        </nav>
+            <hr class="nav-rule">
+        <a class="btn" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding">Plan Your Event</a>
+        <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <aside class="drawer" id="drawer" aria-hidden="true">
+        <button type="button" aria-label="Close menu">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blogs</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="about.html">About</a>
+    </aside>
+
+    <main>
+
+        <!-- 1. OPENING (TEMP Unsplash photos in the two big arches: swap the src with your own images) -->
+        <section class="opening pattern-bg" aria-label="About Decor By Pearls">
+        <div class="opening__grid">
+            <div class="opening__left">
+            <p class="eyebrow">Our story</p>
+            <h1 class="opening__title">We turn <em>dreams</em><span class="sr-only"> into memories.</span></h1>
+            </div>
+            <figure class="opening__arch">
+            <img src="https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?auto=format&fit=crop&w=1000&q=80" alt="Floral wedding arch with white drapes" width="900" height="1290">
+            </figure>
+            <div class="opening__right">
+            <p class="opening__title" aria-hidden="true">into <em>memories.</em></p>
+            </div>
+        </div>
+        </section>
+
+        <!-- 2. STORY -->
+        <section class="story pattern-bg">
+        <div class="wrap story__grid">
+            <div class="rv">
+            <div class="story__arch">
+                <img src="bride and groom (1).png" alt="Elegant tented dining setup in a garden" loading="lazy">
+            </div>
+            <div class="story__years"><b>12+</b><span>Years of excellence</span></div>
+            </div>
+            <div class="story__copy rv" style="--d:.15s">
+            <p class="eyebrow">About us</p>
+            <p class="story__lead">At Decor By Pearls, we believe that your wedding day is one of the most special days in your life. Our passionate team of wedding artisans and event designers craft each celebration as a unique masterpiece.</p>
+            <p>From intimate garden ceremonies to grand destination weddings, we handle every detail with meticulous care — sourcing the finest vendors, curating breathtaking décor, and orchestrating flawless events across India's most iconic locations.</p>
+            </div>
+        </div>
+        </section>
+
+        <!-- 3. WHAT WE DO -->
+        <section class="craft">
+        <div class="wrap">
+            <div class="craft__head rv">
+            <h2>What we <em>do</em></h2>
+            <a class="eyebrow" href="services.html" style="color:#8a6a35">All services &rarr;</a>
+            </div>
+            <div class="rv">
+            <a class="craft__row" href="services.html"><i>01</i><b>Destination Weddings</b><span>&#8599;</span></a>
+            <a class="craft__row" href="services.html"><i>02</i><b>Luxury Events</b><span>&#8599;</span></a>
+            <a class="craft__row" href="services.html"><i>03</i><b>Full-Service Planning</b><span>&#8599;</span></a>
+            <a class="craft__row" href="services.html"><i>04</i><b>Corporate Events</b><span>&#8599;</span></a>
+            </div>
+        </div>
+        </section>
+
+        <!-- 4. TEAM -->
+        <section class="team pattern-bg">
+        <div class="wrap">
+            <div class="team__head rv">
+            <p class="eyebrow">The people behind the magic</p>
+            <h2>Meet our <em>team</em></h2>
+            <p>Passionate creatives who live &amp; breathe extraordinary celebrations.</p>
+            </div>
+            <div class="team__grid">
+            <article class="member rv">
+                <div class="member__photo"><img src="images/team/MOHIT_SINGH_RAJPUT.jpeg" alt="Mohit Kumar" loading="lazy"></div>
+                <h3>Mohit Kumar</h3>
+                <p class="role">Founder &amp; Creative Director</p>
+                <p>Crafting extraordinary celebrations with timeless decor concepts, luxury aesthetics, and unforgettable event experiences.</p>
+            </article>
+            <article class="member rv" style="--d:.15s">
+                <div class="member__photo"><img src="images/team/SACHIN_MISHRA.jpeg" alt="Sachin Mishra" loading="lazy"></div>
+                <h3>Sachin Mishra</h3>
+                <p class="role">Co-Founder &amp; Operations Head</p>
+                <p>Managing seamless event execution, client coordination, and flawless planning for every celebration.</p>
+            </article>
+            <article class="member rv" style="--d:.3s">
+                <div class="member__photo"><img src="images/team/JASNEET_KAUR.jpeg" alt="Jasneet Kaur" loading="lazy"></div>
+                <h3>Jasneet Kaur</h3>
+                <p class="role">Co-Founder &amp; Styling Director</p>
+                <p>Bringing elegant wedding styling, creative themes, and personalized decor inspirations to life beautifully.</p>
+            </article>
+            </div>
+        </div>
+        </section>
+
+        <!-- 5. VISIT -->
+        <section class="visit" id="contact">
+        <div class="wrap visit__grid">
+            <div class="rv">
+            <p class="eyebrow">Begin your story</p>
+            <h2>Begin your <em>love story</em></h2>
+            <p class="visit__lead">Let us craft an event that mirrors the depth of your love. Get in touch for a complimentary consultation.</p>
+            <a class="btn" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding">Plan Your Event</a>
+            </div>
+            <dl class="rv" style="--d:.15s">
+            <div><dt>Visit</dt><dd>4th Floor, Plot No. C-210 B, Fateh Tower, Industrial Area, Phase 8B, Sector 74, Sahibzada Ajit Singh Nagar (Mohali), Punjab 160071</dd></div>
+            <div><dt>Call</dt><dd><a href="tel:+917355051840">+91 73550 51840</a></dd></div>
+            <div><dt>Write</dt><dd><a href="mailto:info@decorbypearls.com">info@decorbypearls.com</a></dd></div>
+            <div><dt>Weddings across</dt><dd>Chandigarh &middot; Punjab &middot; Haryana &middot; Himachal</dd></div>
+            </dl>
+        </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="wrap">
+        <span>&copy; 2026 Decor By Pearls. Weddings with elegance.</span>
+        <nav aria-label="Legal">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="sitemap.xml">Sitemap</a>
+        </nav>
+        </div>
+    </footer>
+
+    <div class="fab">
+        <a class="fab__call" href="tel:+917355051840" aria-label="Call Decor By Pearls">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+        </a>
+        <a class="fab__wa" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg>
+        </a>
+    </div>
+
+    <script>
+        (function () {
+        var nav = document.getElementById("nav");
+        function onScroll() { nav.classList.toggle("is-scrolled", window.scrollY > 60); }
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+
+        var drawer = document.getElementById("drawer");
+        var toggle = document.querySelector(".nav__toggle");
+        function setDrawer(open) {
+            drawer.classList.toggle("is-open", open);
+            drawer.setAttribute("aria-hidden", String(!open));
+            toggle.setAttribute("aria-expanded", String(open));
+            document.body.style.overflow = open ? "hidden" : "";
+        }
+        toggle.addEventListener("click", function () { setDrawer(true); });
+        drawer.querySelector("button").addEventListener("click", function () { setDrawer(false); });
+        drawer.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setDrawer(false); }); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") setDrawer(false); });
+
+        // Calm fade-up on scroll
+        var items = document.querySelectorAll(".rv");
+        if (!("IntersectionObserver" in window)) { items.forEach(function (el) { el.classList.add("in"); }); return; }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+            });
+        }, { threshold: .15 });
+        items.forEach(function (el) { io.observe(el); });
+        })();
+    </script>
+    </body>
+    </html>

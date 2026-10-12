@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery | Decor By Pearls – Luxury Wedding Planner in Chandigarh</title>
+<meta name="description" content="Browse weddings, mehndi, sangeet, haldi and reception decor by Decor By Pearls across Chandigarh, Punjab, Haryana and Himachal.">
+<meta name="theme-color" content="#102542">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--midnight:#102542;--sapphire:#1e3a5f;--champagne:#d8c3a5;--ivory:#faf8f5;--brass:#c79c5a;--muted:#5d6879;--display:"Instrument Serif",Georgia,serif;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Inter",Arial,sans-serif;--pad:clamp(64px,9vw,120px)}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);color:var(--midnight);background:var(--ivory);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}h1,h2,h3,p{margin:0}em{font-style:italic}
+.wrap{width:min(1240px,calc(100% - 40px));margin:0 auto}
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--brass)}
+.btn{display:inline-block;padding:16px 34px;border-radius:999px;background:var(--brass);border:1px solid var(--brass);color:var(--midnight);font:600 .78rem var(--sans);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background-color .3s,border-color .3s,color .3s}
+.btn:hover,.btn:focus-visible{background:var(--champagne);border-color:var(--champagne)}
+.btn-outline{background:transparent;border-color:rgba(255,255,255,.55);color:#fff}
+.btn-outline:hover,.btn-outline:focus-visible{background:transparent;border-color:var(--brass);color:var(--brass)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:4px}
+.pattern{background-color:#102542;background-image:linear-gradient(rgba(16,37,66,.9),rgba(16,37,66,.9)),url("pattern.jpg");background-size:auto,320px auto;color:#fff}
+.pattern-light{background-color:#fff;background-image:linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)),url("pattern.jpg");background-size:auto,320px auto}
+.gold-line{height:3px;margin:0;border:0;background:linear-gradient(90deg,#c79c5a,#e6c98f,#c79c5a);transform-origin:left}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:background-color .35s,padding .35s}
+.nav.is-scrolled{background:rgba(16,37,66,.92);backdrop-filter:blur(14px);padding:14px 0}
+.nav__in{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav__brand{font-family:var(--display);font-size:1.6rem;color:#fff}.nav__brand em{color:var(--brass)}
+.nav__links{display:none;align-items:center;gap:30px}
+.nav__links a{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .3s}
+.nav__links a:hover,.nav__links a[aria-current]{color:var(--brass)}
+.nav .btn{display:none;padding:12px 24px;font-size:.7rem}
+.nav__toggle{display:flex;flex-direction:column;gap:7px;padding:10px;background:none;border:0;cursor:pointer}
+.nav__toggle span{width:28px;height:1px;background:#fff}
+.nav-rule{position:absolute;left:0;right:0;bottom:0;height:1px;margin:0;border:0;background:linear-gradient(90deg,transparent,#c79c5a 20%,#c79c5a 80%,transparent);opacity:.85}
+@media(min-width:992px){.nav__links,.nav .btn{display:flex}.nav__toggle{display:none}}
+.drawer-ov{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:199;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.drawer-ov.is-open{opacity:1;visibility:visible}
+.drawer{position:fixed;inset:0 0 0 auto;z-index:200;width:min(88vw,380px);background:var(--midnight);color:#fff;padding:80px 32px 40px;transform:translateX(105%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.drawer.is-open{transform:none}
+.drawer a{display:block;padding:18px 0;font-family:var(--display);font-size:1.9rem;border-bottom:1px solid rgba(216,195,165,.16)}
+.drawer button{position:absolute;top:20px;right:22px;background:none;border:0;color:#fff;font-size:2rem;cursor:pointer}
+
+/* HEADER */
+.hd{position:relative;overflow:hidden;min-height:56svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:150px 0 80px}
+.hd__bg{position:absolute;inset:-6%;background:url("pattern.jpg") center/320px repeat;opacity:.1}
+.hd .wrap{position:relative}
+.hd h1{font-family:var(--display);font-weight:400;font-size:clamp(2.8rem,8vw,6rem);line-height:1.02;letter-spacing:-.02em;margin:16px 0 20px}
+.hd h1 em{color:var(--champagne)}
+.hd p.sub{max-width:46ch;margin:0 auto;color:var(--champagne)}
+
+/* FILTERS */
+.filters{position:sticky;top:0;z-index:50;background:var(--ivory);border-bottom:1px solid rgba(16,37,66,.1);padding:14px 0}
+.filters__in{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:2px 0}
+.filters__in::-webkit-scrollbar{display:none}
+@media(min-width:900px){.filters__in{justify-content:center}}
+.pill{flex:0 0 auto;padding:10px 20px;border-radius:999px;border:1px solid rgba(16,37,66,.2);background:transparent;color:var(--midnight);font:500 .74rem var(--sans);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background-color .3s,color .3s,border-color .3s}
+.pill:hover{border-color:var(--brass)}
+.pill.active{background:var(--brass);border-color:var(--brass);color:var(--midnight)}
+
+/* GRID */
+.sec{padding:var(--pad) 0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;grid-auto-flow:dense;gap:12px}
+@media(min-width:768px){.grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:220px;gap:16px}}
+.g-item{position:relative;overflow:hidden;border-radius:6px;cursor:pointer;background:var(--midnight);margin:0;padding:0;border:0}
+.g-item.t{grid-row:span 2}.g-item.w{grid-column:span 2}
+.g-item.hide{display:none}
+.g-item img{position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover}
+.g-item::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(16,37,66,.75),transparent 55%);opacity:0;transition:opacity .4s}
+.g-item:hover::after,.g-item:focus-visible::after{opacity:1}
+.tag{position:absolute;z-index:1;left:14px;bottom:12px;padding:5px 12px;border-radius:999px;background:var(--brass);color:var(--midnight);font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transform:translateY(140%);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.g-item:hover .tag,.g-item:focus-visible .tag{transform:none}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;background:rgba(8,10,14,.95);visibility:hidden;opacity:0}
+.lb__img{max-width:min(92vw,1100px);max-height:78vh;border-radius:6px;object-fit:contain;touch-action:pan-y}
+.lb__cap{position:absolute;left:0;right:0;bottom:22px;text-align:center;color:var(--champagne);font-family:var(--display);font-size:1.3rem;padding:0 60px}
+.lb__cap small{display:block;font:500 .7rem var(--sans);letter-spacing:.2em;color:rgba(255,255,255,.55)}
+.lb button{position:absolute;background:none;border:0;color:#fff;cursor:pointer;line-height:1;padding:12px}
+.lb button:hover{color:var(--brass)}
+.lb__x{top:14px;right:18px;font-size:2.6rem}
+.lb__p,.lb__n{top:50%;transform:translateY(-50%);font-size:2.6rem}
+.lb__p{left:10px}.lb__n{right:10px}
+
+/* FILMS */
+.sec__head{text-align:center;margin-bottom:clamp(32px,5vw,56px)}
+.sec__title{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.06;margin-top:12px}
+.sec__title em{font-family:var(--display);color:var(--brass)}
+.films{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:768px){.films{grid-template-columns:repeat(3,1fr)}}
+.film{position:relative;display:block;overflow:hidden;border-radius:6px;aspect-ratio:16/10;background:var(--sapphire)}
+.film img{width:100%;height:100%;object-fit:cover}
+.film::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(16,37,66,.85),rgba(16,37,66,.15))}
+.film__play{position:absolute;z-index:1;top:50%;left:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;border:1px solid var(--brass);background:rgba(16,37,66,.55);display:grid;place-items:center;transition:background-color .3s}
+.film__play::before{content:"";margin-left:4px;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent var(--brass)}
+.film:hover .film__play{background:var(--brass)}
+.pulse{position:absolute;z-index:1;top:50%;left:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;border:1px solid var(--brass);pointer-events:none}
+.film__cap{position:absolute;z-index:1;left:20px;right:20px;bottom:14px}
+.film__cap h3{font-family:var(--serif);font-weight:500;font-size:1.35rem}
+.film__cap span{font-size:.75rem;color:var(--champagne)}
+.vmodal{position:fixed;inset:0;z-index:10001;display:grid;place-items:center;padding:20px;background:rgba(8,10,14,.92);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.vmodal.is-open{opacity:1;visibility:visible}
+.vmodal__box{width:min(1000px,100%);aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden}
+.vmodal__box iframe{width:100%;height:100%;border:0}
+.vmodal__x{position:absolute;top:18px;right:22px;background:none;border:0;color:#fff;font-size:2.6rem;line-height:1;cursor:pointer}
+
+/* CTA + FOOTER */
+.cta{text-align:center;background:var(--sapphire);color:#fff}
+.cta h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.06}
+.cta h2 em{font-family:var(--display);color:var(--brass)}
+.cta p{max-width:46ch;margin:18px auto 36px;color:var(--champagne)}
+.cta__actions{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+footer{background:#0b1b31;color:rgba(250,248,245,.65);padding:28px 0;font-size:.78rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px}
+footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
+.fab{position:fixed;right:20px;bottom:20px;z-index:90;display:flex;flex-direction:column;gap:12px}
+.fab a{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.fab svg{width:24px;height:24px;fill:currentColor}
+.fab__call{background:var(--brass);color:var(--midnight)}.fab__wa{background:#25d366;color:#fff}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="nav__brand" href="index.html">Decor <em>By</em> Pearls</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html" aria-current="page">Gallery</a><a href="blog.html">Blogs</a><a href="testimonials.html">Testimonials</a><a href="about.html">About</a>
+    </nav>
+    <a class="btn" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding">Plan Your Event</a>
+    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <hr class="nav-rule">
+</header>
+<div class="drawer-ov" id="drawerOv"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <button type="button" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="blog.html">Blogs</a><a href="testimonials.html">Testimonials</a><a href="about.html">About</a>
+</aside>
+
+<main>
+  <section class="hd pattern" aria-label="Gallery introduction">
+    <div class="hd__bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow hd__e">Our Work</p>
+      <h1 class="hd__t">A glimpse of <em>magic</em></h1>
+      <p class="sub hd__s">Real celebrations, styled and run by our team across Chandigarh, Punjab, Haryana and Himachal.</p>
+    </div>
+  </section>
+
+  <div class="filters" role="toolbar" aria-label="Filter gallery">
+    <div class="wrap filters__in">
+      <button class="pill active" data-f="all" type="button">All</button>
+      <button class="pill" data-f="wedding" type="button">Weddings</button>
+      <button class="pill" data-f="destination" type="button">Destination</button>
+      <button class="pill" data-f="mehndi" type="button">Mehndi &amp; Sangeet</button>
+      <button class="pill" data-f="haldi" type="button">Haldi</button>
+      <button class="pill" data-f="engagement" type="button">Engagement</button>
+      <button class="pill" data-f="reception" type="button">Reception</button>
+      <button class="pill" data-f="decor" type="button">Decor Details</button>
+    </div>
+  </div>
+
+  <!-- PLACEHOLDER IMAGES: replace each src with your own photo. Keep data-cat and data-cap. -->
+  <section class="sec pattern-light" aria-label="Photo gallery">
+    <div class="wrap">
+      <div class="grid" id="grid">
+        <button class="g-item t" data-cat="wedding" data-cap="Floral mandap, Chandigarh"><img src="fort wedding.jpg" alt="Floral wedding mandap" loading="lazy"><span class="tag">Wedding</span></button>
+        <button class="g-item" data-cat="decor" data-cap="Table styling with candles"><img src="gallery 1.jpg" alt="Wedding table decor" loading="lazy"><span class="tag">Decor</span></button>
+        <button class="g-item w" data-cat="destination" data-cap="Beachfront ceremony, Goa"><img src="destination wedding.JPG" alt="Beach wedding setup" loading="lazy"><span class="tag">Destination</span></button>
+        <button class="g-item" data-cat="mehndi" data-cap="Mehndi evening lounge"><img src="hero image 4 (2).jpg" alt="Mehndi function decor" loading="lazy"><span class="tag">Mehndi</span></button>
+        <button class="g-item t" data-cat="haldi" data-cap="Marigold haldi setup"><img src="mehandi.jpg" alt="Haldi ceremony decor" loading="lazy"><span class="tag">Haldi</span></button>
+        <button class="g-item" data-cat="engagement" data-cap="Ring ceremony stage"><img src="about image 2.jpg" alt="Engagement stage" loading="lazy"><span class="tag">Engagement</span></button>
+        <button class="g-item w" data-cat="reception" data-cap="Grand reception hall"><img src="gallery 3.jpg" alt="Reception hall decor" loading="lazy"><span class="tag">Reception</span></button>
+        <button class="g-item" data-cat="decor" data-cap="Floral entrance arch"><img src="hero image 3.jpg" alt="Floral entrance" loading="lazy"><span class="tag">Decor</span></button>
+        <button class="g-item t" data-cat="wedding" data-cap="Bride and groom portrait"><img src="wedding day gallery .jpg" alt="Bride and groom" loading="lazy"><span class="tag">Wedding</span></button>
+        <button class="g-item" data-cat="mehndi" data-cap="Sangeet stage lighting"><img src="ring ceremony.jpg" alt="Sangeet stage" loading="lazy"><span class="tag">Sangeet</span></button>
+        <button class="g-item" data-cat="destination" data-cap="Fort wedding, Rajasthan"><img src="destination wedding.JPG" alt="Fort wedding" loading="lazy"><span class="tag">Destination</span></button>
+        <button class="g-item" data-cat="engagement" data-cap="Pastel engagement brunch"><img src="door side 2.jpg" alt="Engagement brunch decor" loading="lazy"><span class="tag">Engagement</span></button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="gold-line" id="gl1">
+
+  <section class="sec pattern" id="films" aria-label="Wedding films">
+    <div class="wrap">
+      <div class="sec__head"><p class="eyebrow">Stories We've Told</p><h2 class="sec__title">Wedding <em>films</em></h2></div>
+      <div class="films">
+        <a class="film" href="#" data-video="https://drive.google.com/file/d/1WokMcX721Zw-l6tpmbLPOIKnxYsjOhI3/view?usp=sharing" aria-label="Play film: Priya and Arjun"><img src="https://picsum.photos/seed/pearls-f1/800/500" alt="" loading="lazy"><span class="pulse"></span><span class="film__play"></span><div class="film__cap"><h3>Priya &amp; Arjun</h3><span>Udaipur</span></div></a>
+        <a class="film" href="#" data-video="https://drive.google.com/file/d/16NnWh1PvDYY5Kg8Cs0mj3mglOYmYfwHY/view?usp=sharing" aria-label="Play film: Devansh and Mayra"><img src="https://picsum.photos/seed/pearls-f2/800/500" alt="" loading="lazy"><span class="pulse"></span><span class="film__play"></span><div class="film__cap"><h3>Devansh &amp; Mayra</h3><span>Beach wedding</span></div></a>
+        <a class="film" href="#" data-video="https://drive.google.com/file/d/1pb6nsO75YcyV2Z0DYzXeN0-JRCXjjiCe/view?usp=sharing" aria-label="Play film: Anubhav and Harshita"><img src="https://picsum.photos/seed/pearls-f3/800/500" alt="" loading="lazy"><span class="pulse"></span><span class="film__play"></span><div class="film__cap"><h3>Anubhav &amp; Harshita</h3><span>Fort wedding</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec cta" aria-label="Get in touch">
+    <div class="wrap">
+      <h2 class="cta__t">Begin your <em>love story</em></h2>
+      <p>Get in touch for a complimentary consultation.</p>
+      <div class="cta__actions">
+        <a class="btn" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding">WhatsApp Us</a>
+        <a class="btn btn-outline" href="mailto:info@decorbypearls.com">Email Us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Decor By Pearls. Weddings with elegance.</span>
+    <nav aria-label="Legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="sitemap.xml">Sitemap</a></nav>
+  </div>
+</footer>
+
+<div class="fab">
+  <a class="fab__call" href="tel:+917355051840" aria-label="Call Decor By Pearls"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></a>
+  <a class="fab__wa" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg></a>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb__x" type="button" aria-label="Close">&times;</button>
+  <button class="lb__p" type="button" aria-label="Previous photo">&#8249;</button>
+  <img class="lb__img" id="lbImg" src="" alt="">
+  <button class="lb__n" type="button" aria-label="Next photo">&#8250;</button>
+  <p class="lb__cap" id="lbCap"></p>
+</div>
+
+<div class="vmodal" id="videoModal" aria-hidden="true" role="dialog" aria-label="Wedding film">
+  <button class="vmodal__x" type="button" aria-label="Close video">&times;</button>
+  <div class="vmodal__box"><iframe id="videoFrame" src="" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Observer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script>
+(function () {
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var hasG = typeof gsap !== "undefined";
+  if (hasG) gsap.registerPlugin.apply(gsap, [ScrollTrigger, Flip, Observer, window.SplitText].filter(Boolean));
+
+  /* NAV + DRAWER (no GSAP needed) */
+  var nav = $("#nav"), drawer = $("#drawer"), ov = $("#drawerOv"), tg = $(".nav__toggle");
+  function onScroll() { nav.classList.toggle("is-scrolled", window.scrollY > 60); }
+  onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
+  function setDrawer(o) {
+    drawer.classList.toggle("is-open", o); ov.classList.toggle("is-open", o);
+    drawer.setAttribute("aria-hidden", String(!o)); tg.setAttribute("aria-expanded", String(o));
+    document.body.style.overflow = o ? "hidden" : "";
+  }
+  tg.addEventListener("click", function () { setDrawer(true); });
+  $("button", drawer).addEventListener("click", function () { setDrawer(false); });
+  ov.addEventListener("click", function () { setDrawer(false); });
+
+  /* FILTER (Flip) */
+  var items = $$(".g-item"), pills = $$(".pill");
+  pills.forEach(function (p) {
+    p.addEventListener("click", function () {
+      pills.forEach(function (x) { x.classList.remove("active"); });
+      p.classList.add("active");
+      var f = p.dataset.f;
+      var state = hasG ? Flip.getState(items) : null;
+      items.forEach(function (it) { it.classList.toggle("hide", f !== "all" && it.dataset.cat !== f); });
+      if (!hasG) return;
+      Flip.from(state, {
+        duration: .7, ease: "power3.inOut", scale: true, absolute: true, nested: true,
+        onEnter: function (els) { return gsap.fromTo(els, { opacity: 0, scale: .8 }, { opacity: 1, scale: 1, duration: .6 }); },
+        onLeave: function (els) { return gsap.to(els, { opacity: 0, scale: .8, duration: .4 }); },
+        onComplete: function () { ScrollTrigger.refresh(); }
+      });
+    });
+  });
+
+  /* LIGHTBOX */
+  var lb = $("#lb"), lbImg = $("#lbImg"), lbCap = $("#lbCap"), cur = 0, open = false;
+  function vis() { return items.filter(function (i) { return !i.classList.contains("hide"); }); }
+  function show(i, dir) {
+    var v = vis(); cur = (i + v.length) % v.length;
+    var it = v[cur], im = $("img", it);
+    var set = function () {
+      lbImg.src = im.currentSrc || im.src; lbImg.alt = im.alt;
+      lbCap.innerHTML = it.dataset.cap + "<small>" + (cur + 1) + " / " + v.length + "</small>";
+    };
+    if (!hasG || !dir) { set(); return; }
+    gsap.to(lbImg, { x: -60 * dir, autoAlpha: 0, duration: .25, ease: "power2.in", onComplete: function () {
+      set(); gsap.fromTo(lbImg, { x: 60 * dir, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: .45, ease: "power3.inOut" });
+    } });
+  }
+  function openLb(it) {
+    open = true; show(vis().indexOf(it)); document.body.style.overflow = "hidden";
+    if (hasG) {
+      gsap.set(lb, { visibility: "visible" });
+      gsap.fromTo(lb, { opacity: 0 }, { opacity: 1, duration: .35 });
+      gsap.fromTo(lbImg, { scale: .85, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: .6, ease: "power3.out" });
+    } else { lb.style.visibility = "visible"; lb.style.opacity = 1; }
+    $(".lb__x").focus();
+  }
+  function closeLb() {
+    if (!open) return; open = false; document.body.style.overflow = "";
+    if (hasG) gsap.to(lb, { opacity: 0, duration: .3, onComplete: function () { gsap.set(lb, { visibility: "hidden" }); } });
+    else { lb.style.opacity = 0; lb.style.visibility = "hidden"; }
+  }
+  items.forEach(function (it) { it.addEventListener("click", function () { openLb(it); }); });
+  $(".lb__x").addEventListener("click", closeLb);
+  $(".lb__p").addEventListener("click", function () { show(cur - 1, -1); });
+  $(".lb__n").addEventListener("click", function () { show(cur + 1, 1); });
+  lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") { closeLb(); setDrawer(false); closeVid(); }
+    if (!open) return;
+    if (e.key === "ArrowLeft") show(cur - 1, -1);
+    if (e.key === "ArrowRight") show(cur + 1, 1);
+  });
+  if (hasG) Observer.create({ target: lb, type: "touch,pointer", tolerance: 60,
+    onLeft: function () { if (open) show(cur + 1, 1); },
+    onRight: function () { if (open) show(cur - 1, -1); } });
+
+  /* VIDEO MODAL */
+  var vm = $("#videoModal"), vf = $("#videoFrame");
+  function closeVid() { if (!vm.classList.contains("is-open")) return; vm.classList.remove("is-open"); vm.setAttribute("aria-hidden", "true"); vf.src = ""; document.body.style.overflow = ""; }
+  $$(".film").forEach(function (f) {
+    var m = f.dataset.video.match(/\/d\/([\w-]+)/), img = $("img", f);
+    f.addEventListener("click", function (e) {
+      e.preventDefault();
+      vf.src = m ? "https://drive.google.com/file/d/" + m[1] + "/preview" : f.dataset.video;
+      vm.classList.add("is-open"); vm.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden";
+    });
+    if (m && img) {
+      var srcs = ["https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w1000", "https://lh3.googleusercontent.com/d/" + m[1] + "=w1000"], n = 0, fb = img.src;
+      img.referrerPolicy = "no-referrer";
+      img.onerror = function () { n++; if (n < srcs.length) img.src = srcs[n]; else { img.onerror = null; img.src = fb; } };
+      img.src = srcs[0];
+    }
+  });
+  $(".vmodal__x").addEventListener("click", closeVid);
+  vm.addEventListener("click", function (e) { if (e.target === vm) closeVid(); });
+
+  if (!hasG) return;
+
+  /* ANIMATIONS (skipped for reduced motion, content stays visible) */
+  gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", function () {
+    // page load
+    gsap.from(".nav", { yPercent: -100, autoAlpha: 0, duration: .9, ease: "power3.out" });
+    var tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
+    tl.from(".hd__e", { y: 24, autoAlpha: 0 });
+    if (window.SplitText) {
+      var st = new SplitText(".hd__t", { type: "lines", mask: "lines" });
+      tl.from(st.lines, { yPercent: 110, stagger: .12 }, "-=0.6");
+    } else tl.from(".hd__t", { y: 30, autoAlpha: 0 }, "-=0.6");
+    tl.from(".hd__s", { y: 24, autoAlpha: 0 }, "-=0.6")
+      .from(".pill", { y: 16, autoAlpha: 0, stagger: .06, duration: .7 }, "-=0.5");
+    gsap.to(".hd__bg", { scale: 1.12, duration: 14, ease: "sine.inOut", repeat: -1, yoyo: true });
+
+    // grid reveal
+    gsap.set(items, { autoAlpha: 0, y: 40 });
+    ScrollTrigger.batch(items, { start: "top 92%", once: true,
+      onEnter: function (els) { gsap.to(els, { autoAlpha: 1, y: 0, duration: .9, stagger: .1, ease: "power3.out", overwrite: true }); } });
+
+    // parallax + hover
+    items.forEach(function (it) {
+      gsap.fromTo($("img", it), { yPercent: -7 }, { yPercent: 7, ease: "none",
+        scrollTrigger: { trigger: it, start: "top bottom", end: "bottom top", scrub: true } });
+      if (window.matchMedia("(hover: hover)").matches) {
+        var sc = gsap.quickTo(it, "scale", { duration: .4, ease: "power3.out" });
+        it.addEventListener("mouseenter", function () { sc(1.03); });
+        it.addEventListener("mouseleave", function () { sc(1); });
+      }
+    });
+
+    // gold line draws on scroll
+    gsap.fromTo("#gl1", { scaleX: 0 }, { scaleX: 1, ease: "none",
+      scrollTrigger: { trigger: "#gl1", start: "top 95%", end: "top 55%", scrub: true } });
+
+    // films
+    gsap.set(".film", { autoAlpha: 0, y: 40 });
+    ScrollTrigger.batch(".film", { start: "top 90%", once: true,
+      onEnter: function (els) { gsap.to(els, { autoAlpha: 1, y: 0, duration: .9, stagger: .12, ease: "power3.out" }); } });
+    gsap.fromTo(".pulse", { scale: 1, opacity: .7 }, { scale: 1.7, opacity: 0, duration: 1.8, ease: "sine.inOut", repeat: -1 });
+
+    // CTA
+    if (window.SplitText) {
+      var cs = new SplitText(".cta__t", { type: "words" });
+      gsap.from(cs.words, { y: 30, autoAlpha: 0, stagger: .08, duration: .9, ease: "back.out(1.6)",
+        scrollTrigger: { trigger: ".cta", start: "top 75%", once: true } });
+    }
+    gsap.from(".cta p, .cta__actions", { y: 24, autoAlpha: 0, stagger: .15, duration: .9, ease: "power3.out",
+      scrollTrigger: { trigger: ".cta", start: "top 70%", once: true } });
+  });
+
+  window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+})();
+</script>
+</body>
+</html>

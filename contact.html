@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us | Decor By Pearls – Wedding Planner in Mohali & Chandigarh</title>
+<meta name="description" content="Plan your wedding with Decor By Pearls. Send an enquiry, call or WhatsApp our Mohali team for a complimentary consultation.">
+<meta name="theme-color" content="#102542">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<style>
+:root{--midnight:#102542;--sapphire:#1e3a5f;--champagne:#d8c3a5;--ivory:#faf8f5;--brass:#c79c5a;--muted:#5d6879;--display:"Instrument Serif",Georgia,serif;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Inter",Arial,sans-serif;--pad:clamp(64px,9vw,120px)}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);color:var(--midnight);background:var(--ivory);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}h1,h2,h3,p,dl,dd{margin:0}em{font-style:italic}
+.wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--brass)}
+.btn{display:inline-block;padding:16px 34px;border:1px solid var(--brass);border-radius:999px;background:var(--brass);color:var(--midnight);font:600 .78rem var(--sans);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background-color .3s,border-color .3s,color .3s}
+.btn:hover,.btn:focus-visible{background:var(--champagne);border-color:var(--champagne)}
+.btn[disabled]{opacity:.6;cursor:not-allowed}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.pattern{background-color:#102542;background-image:linear-gradient(rgba(16,37,66,.9),rgba(16,37,66,.9)),url("pattern.jpg");background-size:auto,320px auto;color:#fff}
+.pattern-light{background-color:#fff;background-image:linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)),url("pattern.jpg");background-size:auto,320px auto}
+.sec{padding:var(--pad) 0}
+.gold-line{height:3px;margin:0;border:0;background:linear-gradient(90deg,#c79c5a,#e6c98f,#c79c5a);transform-origin:left}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:background-color .35s,padding .35s}
+.nav.is-scrolled{background:rgba(16,37,66,.92);backdrop-filter:blur(14px);padding:14px 0}
+.nav__in{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav__brand{font-family:var(--display);font-size:1.6rem;color:#fff}.nav__brand em{color:var(--brass)}
+.nav__links{display:none;align-items:center;gap:26px}
+.nav__links a{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .3s}
+.nav__links a:hover,.nav__links a[aria-current]{color:var(--brass)}
+.nav .btn{display:none;padding:12px 24px;font-size:.7rem}
+.nav__toggle{display:flex;flex-direction:column;gap:7px;padding:10px;background:none;border:0;cursor:pointer}
+.nav__toggle span{width:28px;height:1px;background:#fff}
+.nav-rule{position:absolute;left:0;right:0;bottom:0;height:1px;margin:0;border:0;background:linear-gradient(90deg,transparent,#c79c5a 20%,#c79c5a 80%,transparent);opacity:.85}
+@media(min-width:992px){.nav__links,.nav .btn{display:flex}.nav__toggle{display:none}}
+.drawer-ov{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:199;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.drawer-ov.is-open{opacity:1;visibility:visible}
+.drawer{position:fixed;inset:0 0 0 auto;z-index:200;width:min(88vw,380px);background:var(--midnight);color:#fff;padding:80px 32px 40px;transform:translateX(105%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.drawer.is-open{transform:none}
+.drawer a{display:block;padding:18px 0;font-family:var(--display);font-size:1.9rem;border-bottom:1px solid rgba(216,195,165,.16)}
+.drawer button{position:absolute;top:20px;right:22px;background:none;border:0;color:#fff;font-size:2rem;cursor:pointer}
+
+/* HERO */
+.hd{position:relative;overflow:hidden;text-align:center;padding:150px 0 80px}
+.hd__bg{position:absolute;inset:-6%;background:url("pattern.jpg") center/320px repeat;opacity:.1}
+.hd .wrap{position:relative}
+.hd h1{font-family:var(--display);font-weight:400;font-size:clamp(2.8rem,8vw,6rem);line-height:1.02;letter-spacing:-.02em;margin:16px 0 20px}
+.hd h1 em{color:var(--champagne)}
+.hd .sub{max-width:46ch;margin:0 auto;color:var(--champagne)}
+
+/* LAYOUT */
+.cols{display:grid;gap:clamp(36px,6vw,80px);align-items:start}
+@media(min-width:992px){.cols{grid-template-columns:.8fr 1.2fr}}
+.info h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,3rem);line-height:1.08;margin:12px 0 28px}
+.info h2 em{font-family:var(--display);color:var(--brass)}
+.info dl>div{padding:20px 0;border-top:1px solid rgba(16,37,66,.16)}
+.info dl>div:last-child{border-bottom:1px solid rgba(16,37,66,.16)}
+.info dt{font-size:.68rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);margin-bottom:4px}
+.info dd{font-family:var(--serif);font-size:1.3rem;line-height:1.35}
+.info dd a:hover{color:var(--brass)}
+.social{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.social a{padding:9px 18px;border:1px solid rgba(16,37,66,.2);border-radius:999px;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;transition:background-color .3s,border-color .3s}
+.social a:hover{background:var(--brass);border-color:var(--brass)}
+
+/* FORM */
+.form{display:grid;gap:18px;padding:clamp(24px,5vw,44px);background:#fff;border-radius:8px;border:1px solid rgba(16,37,66,.08);box-shadow:0 20px 50px rgba(16,37,66,.08)}
+.form h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,3vw,2.2rem);line-height:1.1}
+.form h2 em{font-family:var(--display);color:var(--brass)}
+.row{display:grid;gap:18px}
+@media(min-width:640px){.row{grid-template-columns:1fr 1fr}}
+.field{min-width:0}
+.form label{display:block;margin-bottom:6px;font-size:.8rem;font-weight:500;color:var(--muted)}
+.form input[type=text],.form input[type=tel],.form input[type=email],.form input[type=date],.form select{width:100%;padding:14px 16px;font:inherit;color:var(--midnight);background:var(--ivory);border:1px solid rgba(16,37,66,.15);border-radius:4px}
+.form select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+.err{display:block;min-height:1em;margin-top:4px;font-size:.75rem;color:#c0392b}
+.invalid{border-color:#c0392b!important}
+.hp{position:absolute;left:-9999px;opacity:0}
+.note{margin:0;font-size:.9rem}.note.ok{color:#1e7e4a;font-weight:500}.note.bad{color:#c0392b;font-weight:500}
+.form .btn{width:100%}
+.cf-turnstile{max-width:100%;overflow:hidden}
+
+/* MAP */
+.map{position:relative;height:clamp(300px,45vw,440px);background:var(--sapphire)}
+.map iframe{width:100%;height:100%;border:0;filter:saturate(.85)}
+.map a{position:absolute;left:20px;bottom:20px}
+
+/* FOOTER */
+footer{background:#0b1b31;color:rgba(250,248,245,.65);padding:28px 0;font-size:.78rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px}
+footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
+.fab{position:fixed;right:20px;bottom:20px;z-index:90;display:flex;flex-direction:column;gap:12px}
+.fab a{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.fab svg{width:24px;height:24px;fill:currentColor}
+.fab__call{background:var(--brass);color:var(--midnight)}.fab__wa{background:#25d366;color:#fff}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="nav__brand" href="index.html">Decor <em>By</em> Pearls</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="blog.html">Blogs</a><a href="testimonials.html">Testimonials</a><a href="about.html">About</a><a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+    <a class="btn" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding">Plan Your Event</a>
+    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <hr class="nav-rule">
+</header>
+<div class="drawer-ov" id="drawerOv"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <button type="button" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="blog.html">Blogs</a><a href="testimonials.html">Testimonials</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+</aside>
+
+<main>
+  <section class="hd pattern" aria-label="Contact Decor By Pearls">
+    <div class="hd__bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow hd__e">Contact Us</p>
+      <h1 class="hd__t">Let's plan your <em>celebration</em></h1>
+      <p class="sub hd__s">Tell us about your day. We reply within one working day with a complimentary consultation.</p>
+    </div>
+  </section>
+
+  <section class="sec pattern-light" aria-label="Contact details and enquiry form">
+    <div class="wrap cols">
+      <div class="info">
+        <p class="eyebrow">Reach us</p>
+        <h2>We'd love to hear <em>from you</em></h2>
+        <dl>
+          <div><dt>Visit</dt><dd>4th Floor, Plot No. C-210 B, Fateh Tower, Industrial Area, Phase 8B, Sector 74, Mohali, Punjab 160071</dd></div>
+          <div><dt>Call</dt><dd><a href="tel:+917355051840">+91 73550 51840</a></dd></div>
+          <div><dt>WhatsApp</dt><dd><a href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding" target="_blank" rel="noopener">Message us directly</a></dd></div>
+          <div><dt>Write</dt><dd><a href="mailto:info@decorbypearls.com">info@decorbypearls.com</a></dd></div>
+          <div><dt>Weddings across</dt><dd>Chandigarh, Punjab, Haryana and Himachal</dd></div>
+        </dl>
+        <div class="social">
+          <a href="https://www.instagram.com/decor_bypearls" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61578885675391" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://pin.it/5KsKYR2QE" target="_blank" rel="noopener">Pinterest</a>
+        </div>
+      </div>
+
+      <form class="form" id="wedForm" novalidate>
+        <input type="hidden" name="access_key" value="6f5e23c9-29cc-4cdb-a97d-5cb981330aa0">
+        <input type="hidden" name="subject" value="New Wedding Enquiry | Decor By Pearls">
+        <input type="hidden" name="from_name" value="Decor By Pearls Website">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <h2>Wedding <em>enquiry</em></h2>
+        <div class="row">
+          <div class="field"><label for="w-name">Full name *</label><input id="w-name" name="name" type="text" autocomplete="name" required><small class="err"></small></div>
+          <div class="field"><label for="w-phone">Phone number *</label><input id="w-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98765 43210" required><small class="err"></small></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="w-email">Email address *</label><input id="w-email" name="email" type="email" autocomplete="email" required><small class="err"></small></div>
+          <div class="field"><label for="w-date">Event date *</label><input id="w-date" name="event_date" type="date" required><small class="err"></small></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="w-type">Event type *</label>
+            <select id="w-type" name="event_type" required><option value="">Select event type</option><option>Wedding</option><option>Destination Wedding</option><option>Engagement</option><option>Reception</option><option>Pre-Wedding Functions</option><option>Other</option></select><small class="err"></small></div>
+          <div class="field"><label for="w-budget">Estimated budget *</label>
+            <select id="w-budget" name="budget" required><option value="">Select budget</option><option>₹10–20 Lakhs</option><option>₹20–50 Lakhs</option><option>₹50 Lakhs–₹1 Crore</option><option>Custom Budget (Available on Request)</option></select><small class="err"></small></div>
+        </div>
+        <div class="field"><div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY"></div><small class="err" id="w-cap"></small></div>
+        <button class="btn" type="submit" id="wSubmit">Submit Enquiry</button>
+        <p class="note" id="wNote" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <hr class="gold-line" id="gl1">
+
+  <section class="map" aria-label="Our location">
+    <iframe title="Decor By Pearls on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Fateh+Tower+Industrial+Area+Phase+8B+Sector+74+Mohali+Punjab+160071&amp;output=embed"></iframe>
+    <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Fateh+Tower+Sector+74+Mohali+Punjab+160071" target="_blank" rel="noopener">Get directions</a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Decor By Pearls. Weddings with elegance.</span>
+    <nav aria-label="Legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="sitemap.xml">Sitemap</a></nav>
+  </div>
+</footer>
+
+<div class="fab">
+  <a class="fab__call" href="tel:+917355051840" aria-label="Call Decor By Pearls"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></a>
+  <a class="fab__wa" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg></a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script>
+(function () {
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var hasG = typeof gsap !== "undefined";
+  if (hasG) gsap.registerPlugin.apply(gsap, [ScrollTrigger, window.SplitText].filter(Boolean));
+
+  /* Google Sheet web app URL (leave as is to skip saving to a Sheet) */
+  var SHEET_URL = "PASTE_WEB_APP_URL_HERE";
+
+  /* NAV + DRAWER */
+  var nav = $("#nav"), drawer = $("#drawer"), ov = $("#drawerOv"), tg = $(".nav__toggle");
+  function onScroll() { nav.classList.toggle("is-scrolled", window.scrollY > 60); }
+  onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
+  function setDrawer(o) {
+    drawer.classList.toggle("is-open", o); ov.classList.toggle("is-open", o);
+    drawer.setAttribute("aria-hidden", String(!o)); tg.setAttribute("aria-expanded", String(o));
+    document.body.style.overflow = o ? "hidden" : "";
+  }
+  tg.addEventListener("click", function () { setDrawer(true); });
+  $("button", drawer).addEventListener("click", function () { setDrawer(false); });
+  ov.addEventListener("click", function () { setDrawer(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setDrawer(false); });
+
+  /* FORM */
+  var form = $("#wedForm"), note = $("#wNote"), btn = $("#wSubmit"), capErr = $("#w-cap");
+  var d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+  form.elements.event_date.min = d.toISOString().split("T")[0];
+  function setErr(el, m) { var s = el.parentNode.querySelector(".err"); if (s) s.textContent = m || ""; el.classList.toggle("invalid", !!m); }
+  function check() {
+    var f = form.elements, ok = true, v;
+    v = f.name.value.trim().length >= 2; setErr(f.name, v ? "" : "Please enter your full name."); ok = ok && v;
+    var ph = f.phone.value.trim(), dg = ph.replace(/\D/g, "");
+    v = /^\+?[\d\s\-()]+$/.test(ph) && dg.length >= 10 && dg.length <= 15; setErr(f.phone, v ? "" : "Enter a valid phone number (10 to 15 digits)."); ok = ok && v;
+    v = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.value.trim()); setErr(f.email, v ? "" : "Enter a valid email address."); ok = ok && v;
+    v = f.event_date.value && f.event_date.value >= f.event_date.min; setErr(f.event_date, v ? "" : "Choose a future event date."); ok = ok && !!v;
+    ["event_type", "budget"].forEach(function (n) { var bad = !f[n].value; setErr(f[n], bad ? "Please select an option." : ""); if (bad) ok = false; });
+    var t = form.querySelector('[name="cf-turnstile-response"]'), tOk = t && t.value;
+    capErr.textContent = tOk ? "" : "Please complete the verification."; ok = ok && !!tOk;
+    return ok;
+  }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); note.className = "note"; note.textContent = "";
+    if (form.elements.botcheck.checked) return;
+    if (!check()) { note.className = "note bad"; note.textContent = "Please fix the highlighted fields."; return; }
+    btn.disabled = true; btn.textContent = "Sending...";
+    fetch("https://api.web3forms.com/submit", { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (!res.success) throw new Error(res.message);
+        var f = form.elements;
+        if (SHEET_URL.indexOf("http") === 0) {
+          fetch(SHEET_URL, { method: "POST", mode: "no-cors", body: new URLSearchParams({
+            name: f.name.value, phone: f.phone.value, email: f.email.value,
+            event_date: f.event_date.value, event_type: f.event_type.value, budget: f.budget.value }) }).catch(function () {});
+        }
+        note.className = "note ok"; note.textContent = "Thank you! Your enquiry has been sent. We will contact you shortly.";
+        form.reset(); if (window.turnstile) turnstile.reset();
+      })
+      .catch(function () { note.className = "note bad"; note.textContent = "Submission failed. Please try again or WhatsApp us at +91 73550 51840."; })
+      .finally(function () { btn.disabled = false; btn.textContent = "Submit Enquiry"; });
+  });
+  form.addEventListener("input", function (e) { if (e.target.classList.contains("invalid")) setErr(e.target, ""); });
+
+  if (!hasG) return;
+
+  /* ANIMATIONS (skipped for reduced motion) */
+  gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", function () {
+    gsap.from(".nav", { yPercent: -100, autoAlpha: 0, duration: .9, ease: "power3.out" });
+    var tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
+    tl.from(".hd__e", { y: 24, autoAlpha: 0 });
+    if (window.SplitText) {
+      var st = new SplitText(".hd__t", { type: "lines", mask: "lines" });
+      tl.from(st.lines, { yPercent: 110 }, "-=0.6");
+    } else tl.from(".hd__t", { y: 30, autoAlpha: 0 }, "-=0.6");
+    tl.from(".hd__s", { y: 24, autoAlpha: 0 }, "-=0.6");
+    gsap.to(".hd__bg", { scale: 1.12, duration: 14, ease: "sine.inOut", repeat: -1, yoyo: true });
+
+    gsap.from(".info > *, .info dl > div, .social a", { y: 28, autoAlpha: 0, stagger: .08, duration: .8, ease: "power3.out",
+      scrollTrigger: { trigger: ".info", start: "top 85%", once: true } });
+    gsap.from(".form", { y: 50, autoAlpha: 0, duration: 1, ease: "power3.out",
+      scrollTrigger: { trigger: ".form", start: "top 88%", once: true } });
+    gsap.from(".form .row, .form .field, .form .btn", { y: 18, autoAlpha: 0, stagger: .07, duration: .6, ease: "power3.out",
+      scrollTrigger: { trigger: ".form", start: "top 80%", once: true } });
+    gsap.fromTo("#gl1", { scaleX: 0 }, { scaleX: 1, ease: "none", scrollTrigger: { trigger: "#gl1", start: "top 95%", end: "top 55%", scrub: true } });
+    gsap.from(".map iframe", { scale: 1.1, duration: 1.6, ease: "power2.out", scrollTrigger: { trigger: ".map", start: "top 85%", once: true } });
+  });
+  window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+})();
+</script>
+</body>
+</html>
