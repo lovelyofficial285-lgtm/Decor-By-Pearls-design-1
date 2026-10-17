@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog | Decor By Pearls – Luxury Wedding Planner in Chandigarh</title>
+<meta name="description" content="Wedding planning tips and inspiration from Decor By Pearls, luxury wedding planners in Chandigarh, Mohali and across North India.">
+<meta name="theme-color" content="#102542">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--midnight:#102542;--sapphire:#1e3a5f;--champagne:#d8c3a5;--ivory:#faf8f5;--brass:#c79c5a;--muted:#5d6879;--display:"Instrument Serif",Georgia,serif;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Inter",Arial,sans-serif;--pad:clamp(64px,9vw,120px)}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);color:var(--midnight);background:var(--ivory);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}h1,h2,h3,p,blockquote,figure{margin:0}em{font-style:italic}
+.wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--brass)}
+.btn{display:inline-block;padding:16px 34px;border:1px solid var(--brass);border-radius:999px;background:var(--brass);color:var(--midnight);font:600 .78rem var(--sans);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background-color .3s,border-color .3s,color .3s}
+.btn:hover,.btn:focus-visible{background:var(--champagne);border-color:var(--champagne)}
+.btn-outline{background:transparent;border-color:rgba(255,255,255,.55);color:#fff}
+.btn-outline:hover,.btn-outline:focus-visible{background:transparent;border-color:var(--brass);color:var(--brass)}
+.btn-line{background:transparent;border-color:rgba(16,37,66,.35);color:var(--midnight)}
+.btn-line:hover,.btn-line:focus-visible{background:transparent;border-color:var(--brass);color:var(--brass)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.pattern{background-color:#102542;background-image:linear-gradient(rgba(16,37,66,.9),rgba(16,37,66,.9)),url("pattern.jpg");background-size:auto,320px auto;color:#fff}
+.pattern-light{background-color:#fff;background-image:linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)),url("pattern.jpg");background-size:auto,320px auto}
+.sec{padding:var(--pad) 0}
+.gold-line{height:3px;margin:0;border:0;background:linear-gradient(90deg,#c79c5a,#e6c98f,#c79c5a)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:background-color .35s,padding .35s}
+.nav.is-scrolled{background:rgba(16,37,66,.92);backdrop-filter:blur(14px);padding:14px 0}
+.nav__in{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav__brand{font-family:var(--display);font-size:1.6rem;color:#fff}.nav__brand em{color:var(--brass)}
+.nav__links{display:none;align-items:center;gap:30px}
+.nav__links a{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .3s}
+.nav__links a:hover,.nav__links a[aria-current]{color:var(--brass)}
+.nav .btn{display:none;padding:12px 24px;font-size:.7rem}
+.nav__toggle{display:flex;flex-direction:column;gap:7px;padding:10px;background:none;border:0;cursor:pointer}
+.nav__toggle span{width:28px;height:1px;background:#fff}
+.nav-rule{position:absolute;left:0;right:0;bottom:0;height:1px;margin:0;border:0;background:linear-gradient(90deg,transparent,#c79c5a 20%,#c79c5a 80%,transparent);opacity:.85}
+@media(min-width:992px){.nav__links,.nav .btn{display:flex}.nav__toggle{display:none}}
+.drawer-ov{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:199;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.drawer-ov.is-open{opacity:1;visibility:visible}
+.drawer{position:fixed;inset:0 0 0 auto;z-index:200;width:min(88vw,380px);background:var(--midnight);color:#fff;padding:80px 32px 40px;transform:translateX(105%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.drawer.is-open{transform:none}
+.drawer a{display:block;padding:18px 0;font-family:var(--display);font-size:1.9rem;border-bottom:1px solid rgba(216,195,165,.16)}
+.drawer button{position:absolute;top:20px;right:22px;background:none;border:0;color:#fff;font-size:2rem;cursor:pointer}
+
+/* HERO */
+.hd{position:relative;overflow:hidden;text-align:center;padding:150px 0 90px}
+.hd__bg{position:absolute;inset:-6%;background:url("pattern.jpg") center/320px repeat;opacity:.06}
+.hd__photo{position:absolute;inset:0;background:url("hero image 3.jpg") center/cover;opacity:.35}
+.hd .wrap{position:relative}
+.hd h1{font-family:var(--display);font-weight:400;font-size:clamp(2.8rem,8vw,6rem);line-height:1.02;letter-spacing:-.02em;margin:16px 0 20px}
+.hd h1 em{color:var(--champagne)}
+.hd .sub{max-width:46ch;margin:0 auto;color:var(--champagne)}
+
+/* FILTER */
+.filter{display:grid;gap:18px;grid-template-columns:1fr;align-items:end;padding:clamp(22px,4vw,34px);background:var(--ivory);border-radius:8px;border:1px solid rgba(16,37,66,.08)}
+@media(min-width:900px){.filter{grid-template-columns:240px 1fr auto auto}}
+.filter label{display:block;margin-bottom:6px;font-size:.8rem;font-weight:500;color:var(--muted)}
+.filter select,.filter input{width:100%;height:50px;padding:0 16px;font:inherit;color:var(--midnight);background:#fff;border:1px solid rgba(16,37,66,.15);border-radius:4px}
+.filter .btn{height:50px;padding:0 28px;display:inline-flex;align-items:center;justify-content:center}
+.count{margin:26px 0 0;font-size:.85rem;color:var(--muted)}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;padding:20px 0 0}
+.card{display:flex;flex-direction:column;background:#fff;border-radius:8px;border:1px solid rgba(16,37,66,.08);overflow:hidden}
+.thumb{position:relative;aspect-ratio:16/11;background:var(--midnight);overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.card:hover .thumb img{transform:scale(1.06)}
+.date{position:absolute;left:16px;bottom:16px;background:var(--brass);color:var(--midnight);font-size:.72rem;font-weight:600;letter-spacing:.06em;padding:6px 14px;border-radius:999px}
+.cbody{display:flex;flex-direction:column;flex:1;padding:28px 26px 30px}
+.cbody .eyebrow{margin-bottom:12px}
+.cbody h3{font-family:var(--serif);font-weight:500;font-size:1.65rem;line-height:1.2;margin-bottom:14px}
+.cbody p{font-size:.95rem;color:var(--muted);margin-bottom:24px;flex:1}
+.more{align-self:flex-start;padding:13px 24px;background:var(--brass);border:0;border-radius:4px;font:600 .72rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--midnight);cursor:pointer;transition:background-color .3s}
+.more:hover,.more:focus-visible{background:var(--champagne)}
+.empty{grid-column:1/-1;padding:60px 0;text-align:center;font-family:var(--serif);font-size:1.6rem;color:var(--muted)}
+
+/* READER */
+.reader{position:fixed;inset:0;z-index:300;overflow-y:auto;background:var(--ivory);opacity:0;visibility:hidden;transform:translateY(24px);transition:opacity .35s,transform .35s,visibility 0s .35s}
+.reader.open{opacity:1;visibility:visible;transform:none;transition:opacity .35s,transform .35s}
+.close{position:fixed;top:20px;left:20px;z-index:310;width:52px;height:52px;border-radius:50%;border:0;background:var(--brass);color:var(--midnight);font-size:1.8rem;line-height:1;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:background-color .3s}
+.close:hover,.close:focus-visible{background:var(--champagne)}
+.rhd{text-align:center;padding:110px 0 70px}
+.rhd .wrap{max-width:900px}
+.rhd h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,5vw,3.6rem);line-height:1.08;margin:16px 0 22px}
+.meta{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 28px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--champagne)}
+.rbody{padding:clamp(36px,6vw,70px) 0 clamp(60px,8vw,100px)}
+.article{max-width:800px;margin:0 auto;padding:clamp(26px,5vw,56px);background:#fff;border-radius:8px;border:1px solid rgba(16,37,66,.08)}
+.article .cover{width:100%;border-radius:6px;margin-bottom:34px}
+.article p{font-size:1.02rem;line-height:1.85;color:#2b3a52;margin-bottom:20px}
+.article strong{font-weight:600;color:var(--midnight)}
+.article h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,3.5vw,2.3rem);line-height:1.15;margin:46px 0 16px}
+.article ul,.article ol{margin:0 0 22px;padding-left:22px}
+.article li{font-size:1rem;line-height:1.7;color:#2b3a52;margin-bottom:6px}
+.article h4{font-family:var(--serif);font-weight:600;font-size:1.4rem;line-height:1.25;color:var(--brass);margin:28px 0 8px}
+.article a{color:var(--midnight);border-bottom:1px solid var(--brass);transition:color .3s}
+.article a:hover{color:var(--brass)}
+.rcta{margin-top:44px;padding-top:36px;border-top:1px solid rgba(16,37,66,.1);text-align:center}
+.rcta h4{font-family:var(--serif);font-weight:400;font-size:2rem;color:var(--midnight);margin:0 0 18px}
+.rcta .btn{color:var(--midnight);border-bottom:1px solid var(--brass)}
+
+/* CTA + FOOTER + FAB */
+.cta{text-align:center;background:var(--sapphire);color:#fff}
+.cta h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.06}
+.cta h2 em{font-family:var(--display);color:var(--brass)}
+.cta p{max-width:46ch;margin:18px auto 36px;color:var(--champagne)}
+.cta__a{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.fab{position:fixed;right:20px;bottom:20px;z-index:90;display:flex;flex-direction:column;gap:12px}
+.fab a{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.fab svg{width:24px;height:24px;fill:currentColor}
+.fab__call{background:var(--brass);color:var(--midnight)}.fab__wa{background:#25d366;color:#fff}
+.footer{padding:70px 0 28px;background:#0b1a30;color:rgba(255,255,255,.72);font-family:"Inter",Arial,sans-serif;font-size:.92rem;line-height:1.65}
+.footer__in{width:min(1240px,calc(100% - 40px));margin:0 auto}
+.footer__grid{display:grid;gap:36px;grid-template-columns:1fr}
+.footer__brand{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.7rem;color:#fff}
+.footer h4{margin:0 0 14px;font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:1.2rem;color:#c79c5a}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.footer p{margin:0 0 8px}
+.footer a{transition:color .3s}
+.footer a:hover,.footer a:focus-visible{color:#c79c5a}
+.footer__bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(216,195,165,.16);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;font-size:.8rem}
+.footer__legal{display:flex;flex-wrap:wrap;gap:8px 22px}
+@media(min-width:768px){.footer__grid{grid-template-columns:1.6fr 1fr 1fr 1.4fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="nav__brand" href="index.html">Decor <em>By</em> Pearls</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="blog.html" aria-current="page">Blogs</a><a href="reviews.html">Testimonials</a><a href="about.html">About</a>
+    </nav>
+    <a class="btn" href="contact.html">Plan Your Event</a>
+    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <hr class="nav-rule">
+</header>
+<div class="drawer-ov" id="drawerOv"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <button type="button" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="blog.html">Blogs</a>
+  <a href="reviews.html">Testimonials</a>
+  <a href="about.html">About</a>
+</aside>
+
+<main>
+  <section class="hd pattern" aria-label="Blog">
+    <div class="hd__photo" aria-hidden="true"></div>
+    <div class="hd__bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow">Stories &amp; Inspiration</p>
+      <h1>Wedding Planning Tips &amp; <em>Inspiration</em></h1>
+      <p class="sub">Guides and ideas from our team to help you plan with confidence.</p>
+    </div>
+  </section>
+
+  <hr class="gold-line">
+
+  <section class="sec pattern-light" style="padding-top:clamp(40px,6vw,72px)" aria-label="All blogs">
+    <div class="wrap">
+      <div class="filter">
+        <div><label for="cat">Category</label><select id="cat"><option value="all">All Categories</option></select></div>
+        <div><label for="q">Search</label><input id="q" type="search" placeholder="Search blogs..."></div>
+        <button class="btn" id="apply" type="button">Apply Filter</button>
+        <button class="btn btn-line" id="clear" type="button">Clear</button>
+      </div>
+      <p class="count" id="count" role="status" aria-live="polite"></p>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="sec cta" aria-label="Get in touch">
+    <div class="wrap">
+      <h2>Begin your <em>love story</em></h2>
+      <p>Get in touch for a complimentary consultation.</p>
+      <div class="cta__a">
+        <a class="btn" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding">WhatsApp Us</a>
+        <a class="btn btn-outline" href="mailto:info@decorbypearls.com">Email Us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__in">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">Decor By Pearls</div>
+        <p style="margin-top:12px;max-width:34ch">Unforgettable celebrations where every detail tells your love story.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="index.html#events">Events</a></li>
+          <li><a href="index.html#films">Films</a></li>
+          <li><a href="reviews.html">Testimonials</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/decor_bypearls" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61578885675391" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://pin.it/5KsKYR2QE" target="_blank" rel="noopener">Pinterest</a></li>
+          <li><a href="https://wa.me/917355051840" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="tel:+917355051840">+91-7355051840</a></p>
+        <p><a href="mailto:info@decorbypearls.com">info@decorbypearls.com</a></p>
+        <p>4th Floor, Plot No. C-210 B, Fateh Tower, Industrial Area, Phase 8B, Sector 74, Mohali, Punjab 140307</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 Decor By Pearls. Weddings With Elegance.</span>
+      <div class="footer__legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="refund.html">Refund &amp; Cancellation</a>
+        <a href="packages.html">Packages &amp; Pricing</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="fab">
+  <a class="fab__call" href="tel:+917355051840" aria-label="Call Decor By Pearls"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></a>
+  <a class="fab__wa" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg></a>
+</div>
+
+<!-- Overlay reader -->
+<div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="rTitle">
+  <button class="close" id="close" type="button" aria-label="Close article">&times;</button>
+  <div class="rhd pattern">
+    <div class="wrap">
+      <p class="eyebrow" id="rCat"></p>
+      <h2 id="rTitle"></h2>
+      <div class="meta"><span id="rDate"></span><span id="rBy"></span></div>
+    </div>
+  </div>
+  <hr class="gold-line">
+  <div class="rbody pattern-light">
+    <div class="wrap"><article class="article" id="rBody"></article></div>
+  </div>
+</div>
+
+<script>
+var posts = [
+  {
+    id:1,
+    title:"Why October to February Is Peak Wedding Season in Chandigarh (And What That Means for Booking)",
+    excerpt:"October to February is the peak wedding season in Chandigarh due to pleasant weather, auspicious wedding dates, and increased demand after the festive season. This guide explains how peak season affects venue availability, vendor pricing, planning timelines, and why booking an experienced wedding planner early can give couples more options.",
+    date:"September 27, 2026",
+    by:"Decor By Pearls Team",
+    category:"Planning Tips",
+    image:"blog1.webp",
+    content:`
+<p>If you've mentioned your wedding date to anyone in Chandigarh recently and gotten a slightly worried look back, there's a reason for that. October through February isn't just a popular window for weddings here — it's when almost everyone wants to get married, which changes how the whole booking process works.</p>
+<p>If you're only just starting to look for a wedding planner in Chandigarh, this is the part nobody tells you upfront: the calendar matters almost as much as the planner you choose.</p>
+
+<h3>Why This Five-Month Window Fills Up First</h3>
+<p>Three things line up at once between October and February, and none of them are going anywhere.</p>
+<p><strong>The weather actually cooperates.</strong> Chandigarh summers are brutal for an outdoor mandap, and the monsoon makes anything unroofed a gamble. Once October arrives and the humidity drops, evenings get genuinely pleasant — cool enough for a late-night sangeet, warm enough that guests aren't shivering through the pheras. That six-month stretch of good weather is short, and everyone's trying to use it.</p>
+<p><strong>The calendar works in your favor.</strong> A large share of auspicious wedding dates through the Hindu and Sikh calendars fall in this window, which means families aren't just picking dates for comfort — they're picking them because the timing is considered right. When a cluster of "good" dates lands in the same few weeks, every couple with flexibility ends up chasing the same handful of Saturdays.</p>
+<p><strong>Festival season leads straight into it.</strong> Diwali and Karva Chauth tend to be when engagements get finalized and families start actively planning, which pushes a wave of bookings into November and December almost immediately afterward.</p>
+<p>Put those three together, and you get a season where good venues, good caterers, and good planners are being booked months before the actual date.</p>
+
+<h3>What "Peak Season" Actually Changes for You</h3>
+<p>It's not just about venues filling up, though that's part of it. A few things shift once you're planning inside this window instead of outside it.</p>
+<p><strong>Your shortlist shrinks fast.</strong> The venues everyone wants — the ones with good photos, the right guest capacity, the right location for your side of the family — are exactly the ones that get booked first. By the time you're comparing three or four options, a couple planning in June had eight or nine to choose from.</p>
+<p><strong>Vendors get stretched thin.</strong> A caterer or decorator who can give your event their full attention in July might be running three functions in the same week come December. That doesn't mean the work gets bad — most established vendors manage it well — but it does mean less room for last-minute changes, and less flexibility if something needs to shift.</p>
+<p><strong>Prices move.</strong> This isn't unique to Chandigarh, but demand does affect what vendors quote during peak months. Locking things in early generally gets you a fairer number than trying to negotiate two months out, when a vendor knows you have fewer alternatives left.</p>
+<p><strong>Your planner's local relationships start to matter more than usual.</strong> This is the part that's easy to underestimate. During peak season, a planner who's actually worked in Chandigarh for years — and has standing relationships with venues and vendors — can often get you a date or a slot that a newer or less-connected planner simply can't.</p>
+
+<h3>So When Should You Actually Start Booking?</h3>
+<p>As a rough guide, if your wedding falls anywhere between October and February, you want to be locking in your venue and your wedding planner in Chandigarh <strong>8 to 10 months ahead</strong>, not the 4 to 6 months that might work for an off-season date. Vendors — especially the well-reviewed ones — tend to fill their peak-season calendar first and their off-season calendar as an afterthought.</p>
+<p>If you're already inside that window and haven't started, it doesn't mean you've missed your chance. It means your options are narrower than they would've been, and it's worth moving quickly rather than continuing to compare in the background for another few weeks.</p>
+
+<h4>Finding the Right Fit, Not Just Any Planner</h4>
+<p>Once you know you're working against the calendar, the type of planner you're looking for matters more too.</p>
+
+<h4>If You're Looking for a Luxury Wedding Planner in Chandigarh</h4>
+<p>Peak season is exactly when a luxury wedding planner in Chandigarh earns their fee. Premium venues, in-demand decorators, and sought-after caterers get booked out first during this stretch, so a planner with established relationships can secure them before they disappear from the calendar.</p>
+
+<h4>If You're Looking for an Affordable Wedding Planner in Chandigarh</h4>
+<p>Budget-conscious doesn't have to mean last-minute or under-planned. An affordable wedding planner in Chandigarh who knows the season well can often get you better rates precisely because they're booking vendors early, before peak-season pricing kicks in — which is the opposite of what most couples assume.</p>
+
+<h4>If You're Considering a Destination Wedding Planner in Chandigarh</h4>
+<p>If part of your family is local but you're considering a destination celebration elsewhere, a destination wedding planner in Chandigarh who's used to coordinating across cities has a real advantage during this window — flights, stays, and vendor coordination all get harder to arrange the closer you get to peak dates, in India and at the destination both.</p>
+
+<h3>Why Working With an Established Planner Matters Even More Right Now</h3>
+<p>During any other part of the year, the gap between a newer planner and an established one is smaller — there's enough slack in everyone's schedule that most planners can deliver a solid event. Peak season removes that slack. This is when it actually shows who has the standing vendor relationships, who can get a call answered quickly, and who's run enough weddings in this specific window to know where things usually go wrong.</p>
+<p>This is also wherein couples researching the <strong>best wedding planner in Chandigarh</strong> or a <strong>top wedding planner in Chandigarh</strong> have a tendency to start paying closer attention to tune documents in place of simply portfolio pics—how many weddings has this group surely run in this metropolis for the duration of this actual season at this exact scale?</p>
+<p><a href="index.html">Decor By Pearls</a> has been planning weddings throughout Chandigarh, Mohali, and Panchkula for over 12 years, with 500+ weddings and destination events throughout 20+ cities. Their <a href="services.html">Complete Wedding Management</a> service covers everything from venue selection and vendor sourcing to budgeting, décor, and on-day logistics, which matters most during exactly this kind of high-demand season, when timing and vendor relationships decide how much choice you actually get. You can see their coverage across <a href="#">Chandigarh</a>, <a href="#">Punjab</a>, <a href="#">Haryana</a>, and <a href="#">Himachal</a>, or <a href="contact.html">get in touch</a> to check what's still available for your dates.</p>
+
+<h3>Frequently Asked Questions</h3>
+<p><strong>Why is October to February the busiest wedding season in Chandigarh?</strong> Cooler, drier weather after the monsoon, a cluster of auspicious dates on the Hindu and Sikh calendars, and the wave of engagements finalized around Diwali and Karva Chauth all overlap in this window, which pushes demand for venues and vendors up sharply.</p>
+<p><strong>How early should I book a wedding planner in Chandigarh for a peak-season date?</strong> Aim for 8 to 10 months ahead if your date falls between October and February. Off-season dates give you more flexibility, but peak-season venues and top vendors tend to get booked out well in advance.</p>
+<p><strong>Is it more expensive to get married during peak season?</strong> Often, yes — demand affects vendor pricing, and negotiating leverage tends to shrink the closer you get to a peak-season date. Booking early generally gets you a fairer rate than booking late.</p>
+<p><strong>I'm already inside the October–February window and haven't booked anything yet. What should I do?</strong> Move quickly rather than continuing to compare options over several more weeks. Your choices will be narrower than they would've been earlier in the year, but a planner with strong local vendor relationships can still find good options that aren't obvious from public availability listings.</p>
+<p><strong>Does peak season affect destination weddings too?</strong> Yes. Flights, accommodation, and vendor coordination at destination locations get tighter closer to peak dates, so destination weddings should be planned well ahead as well.</p>`
+  },
+  {
+    id:2,
+    title:"Best Wedding Planner in Chandigarh: Hire With Confidence, Not Guesswork",
+    excerpt:"Looking for the best wedding planner in Chandigarh? Learn what to consider when choosing a planner for your venue, decor, budget, coordination, and overall wedding vision.",
+    date:"September 20, 2026",
+    by:"Decor By Pearls Team",
+    category:"Planning Tips",
+    image:"blog2.webp",
+    content:`
+<p>Most people don't actually struggle to find a wedding planner in Chandigarh. There are plenty around. What they struggle with is trust. That's the real bottleneck.</p>
+<p>Scroll Instagram for five minutes and every planner looks the same — polished, confident, "the best in the city," whatever that means. So how do you actually figure out who'll show up for you the way they show up in their reels? Not through vibes. That's the question this whole search is really about, even if nobody phrases it that way.</p>
+<p>This isn't another "check reviews, ask about pricing" list. You already know that part. What actually helps is understanding the difference between someone who talks well and someone who delivers, consistently, when things get messy. And figuring that out before the advance goes through, not after.</p>
+
+<h3>Why This Feels Like a Gamble</h3>
+<p>Let's just say it plainly. You're handing over a large amount of money and trusting someone with one of the most emotional days of your life. Based on what, really? A few Instagram posts. Maybe one meeting. When you put it that way, it's a strange amount of trust to place on so little.</p>
+<p>Part of it is timing. Chandigarh's wedding industry has grown fast over the last several years. Some of the newer planners are genuinely skilled. Others are still learning — on your money, not theirs. So the uncertainty you're feeling isn't imagined. There's a real gap in how much proof exists before you commit to anyone.</p>
+<p>That gap closes though, if you know where to look.</p>
+
+<h3>What Real Confidence Actually Looks Like</h3>
+<p>Not marketing confidence. The other kind.</p>
+<p>They can show you a full wedding, start to finish — not a sixty-second reel. Anyone can edit around two or three problems nobody caught on camera. Ask for the <a href="gallery.html">whole gallery</a>. Or full footage from something close to your scale. If someone's genuinely proud of their execution, they won't flinch at showing you the unedited version.</p>
+<p>They talk about things going wrong. Ask them, straight up, about a wedding where something broke down — a vendor no-show, bad weather, the guest count changing overnight. Planners who've actually run weddings here will have an answer ready almost instantly. The newer ones tend to go quiet, or vague, or pivot back to their highlight reel.</p>
+<p>Their past clients will actually talk to you. Not a screenshot. A real person. If a planner hesitates when you ask to speak with someone they worked with recently, that hesitation is telling you something.</p>
+<p>Their pricing doesn't dodge. Flat fee, percentage, vendor commission — whatever it is, they'll say it plainly. If the money conversation keeps sliding to "we'll sort that out later," don't let it slide.</p>
+<p>And here's an odd one — the good ones tell you what they <em>don't</em> do. "We're strong on decor and coordination, but we bring in a partner for large entertainment bookings." That kind of honesty, weirdly, builds more trust than someone claiming they can flawlessly do everything under the sun.</p>
+
+<h4>A Quick Gut-Check</h4>
+<p>A few signs you're probably talking to the right person:</p>
+<ul>
+<li>They ask about your vision before pitching a package</li>
+<li>They'll show full event footage, not just the highlight reel</li>
+<li>They've actually handled weddings at your scale and budget before</li>
+<li>They talk specifics about Chandigarh vendors and venues, not vague generalities</li>
+<li>A written contract shows up without you having to ask twice</li>
+<li>Pricing is explained clearly, upfront, no dodging</li>
+<li>They'll connect you to a real past client if you ask</li>
+</ul>
+<p>Most of these should come up naturally in conversation. If you're having to dig for every single one, take that as a signal.</p>
+
+<h3>"Best" Means Something Different for Everyone</h3>
+<p><strong>If you want… Look for someone who…</strong></p>
+<p>A big, traditional Punjabi wedding - Has real experience running large guest lists and multiple functions</p>
+<p>Something smaller, more intimate - Designs specifically for that — not just a shrunk-down big-wedding template</p>
+<p>A fusion or modern-style wedding - Has a portfolio that isn't purely traditional</p>
+<p>A tighter budget, still wants impact - Is honest about where money goes, and where you can trim without it showing</p>
+<p>Minimal hands-on involvement - Offers full-service planning, not just day-of coordination</p>
+<p>There's no universal "best." There's the planner who fits what you're actually building.</p>
+
+<h3>Roughly What This Costs</h3>
+<p>Prices shift a lot depending on scale, but here's a starting point for Chandigarh:</p>
+<p>Day-of coordination generally runs ₹50,000 to ₹1,50,000. Partial planning lands somewhere between ₹1,50,000 and ₹4,00,000. <a href="services.html">Full-service planning</a> for a mid-sized wedding usually falls between ₹4,00,000 and ₹10,00,000. Bigger, more elaborate or destination-style weddings can go well past that.</p>
+<p>Treat these as rough markers, not quotes. Anyone who gives you an exact number before knowing your guest count or venue is probably just guessing.</p>
+
+<h3>Questions Worth Actually Asking</h3>
+<p>Skip the generic ones. Try these instead:</p>
+<p>Walk me through what happens if a vendor cancels three days before my wedding.</p>
+<p>Tell me about a wedding that didn't go the way you planned. What did you do?</p>
+<p>Can I talk directly to a couple you worked with in the past six months?</p>
+<p>What do you <em>not</em> handle yourself — and who do you bring in for that?</p>
+<p>If my budget shifts halfway through, how do we adjust things together?</p>
+<p>Who's physically present, and responsible, on the actual wedding day?</p>
+<p>Watch how someone answers. Calm and specific usually means real experience. Vague and rehearsed usually doesn't.</p>
+
+<h3>Bottom Line</h3>
+<p>Hiring a wedding planner shouldn't feel like rolling dice on one of the biggest days of your life. Real confidence doesn't come from a nice-looking grid of photos — it comes from proof. Full footage. Honest stories about what went wrong once. Real conversations with people who've actually been through it. Pricing that's clear from the start, not extracted from someone reluctantly.</p>
+<p>The <a href="index.html">best wedding planner in Chandigarh</a> probably isn't the loudest one on your feed. It's the one who answers hard questions plainly, shows you real work, and leaves you feeling like you made an informed call — not a hopeful one.</p>
+<p>Ask the questions most couples skip. That's usually the whole difference.</p>
+
+<h3>Frequently Asked Questions</h3>
+<p><strong>How do I know if a wedding planner in Chandigarh is actually trustworthy?</strong> Look for full event footage instead of highlight reels, a willingness to connect you with recent clients, clear pricing, and a written contract offered without you having to push for it.</p>
+<p><strong>What's a realistic budget for a wedding planner in Chandigarh?</strong> Usually somewhere between ₹50,000 for day-of coordination and ₹10,00,000+ for full-service luxury planning — depends heavily on guest count and how much you're handing off.</p>
+<p><strong>Should I pick a planner based on their portfolio alone?</strong> No. A portfolio shows their best work, not their typical work. Ask for events closer to your own scale, and ask for full footage, not curated clips.</p>
+<p><strong>What questions actually reveal how reliable a planner is?</strong> Ask about past problems — a vendor backing out, bad weather, last-minute changes. Specific answers usually mean real experience. Vague ones usually mean the opposite.</p>
+<p><strong>Does a higher price always mean a better wedding planner in Chandigarh?</strong> Not really. Price often tracks scale and service level more than raw skill. The right fit depends on your vision, your budget, and how hands-on you want to be.</p>
+<p><strong>Can I speak with a planner's past clients before hiring them?</strong> You should be able to, yes. A good planner will happily connect you with a recent client.</p>
+`
+  },
+  {
+    id:3,
+    title:"Best Wedding Planner in Punjab: Check Availability Before Your Dream Date Is Gone",
+    excerpt:"Planning a wedding in Punjab? Discover why booking the right wedding planner early can help you secure your preferred date, venue, and services before availability becomes limited.",
+    date:"September 10, 2026",
+    by:"Decor By Pearls Team",
+    category:"Planning Tips",
+    image:"blog 3 img.webp",
+    content:`
+<p>If you have only just begun to look into getting a wedding planner in Punjab, then there is one thing you will quickly notice—that the <a href="index.html">best wedding planners in Punjab</a> have already been hired. It takes longer for calls to be answered. Preferred wedding locations seem to have limited available dates. All wedding planners talk about how "this week is full."</p>
+<p>That's not a sales tactic. The wedding season in Punjab is a very fast-paced one. The best wedding planner in Punjab may very well be meeting with two or three other couples at this moment in time. Thus, the most important question here is really not "Whom should I hire?" but rather "How long do I have?"</p>
+<p>This guide walks you through both.</p>
+
+<h3>Why Punjab Wedding Dates Disappear So Quickly</h3>
+<p>Punjab weddings aren't single-day activities. Between the sangeet, mehndi, haldi, and reception, most households are planning three to five separate functions—each requiring its own venue slot, supplier team, and guest coordination. That means one wedding can quietly take up the same amount of planner bandwidth as three smaller weddings somewhere else.</p>
+<p>Add to that the fact that families from <a href="index.html">Chandigarh</a>, Ludhiana, Amritsar, and the surrounding Tricity areas are all competing for the same top venues and the same handful of experienced planners, and you can see why availability tightens quickly once the season picks up. By the time most couples start "seriously" looking, a lot of the quality options are already gone.</p>
+<p>This isn't meant to rush you into a decision you're not ready for. It's meant to help you make the right one before the choice gets made for you by default.</p>
+
+<h4>What Actually Makes a Wedding Planner "the Best" in Punjab</h4>
+<p>Every planner's website says they're the best. Here's how to actually tell.</p>
+<h4>They know the local vendor ecosystem, not just the big names</h4>
+<p>Someone who has been in the wedding planning business for years in Punjab will have connections with caterers, decorators, venues, etc., which will extend beyond anything found online. This generally results in better prices, quick solutions to problems, and fewer surprises.</p>
+<h4>Their portfolio isn't just their five best weddings</h4>
+<p>Ask to see other types of events that fit your budget and number of guests rather than only showing you the luxurious wedding events from their website home page. Why is the planner only willing to show you their best work?</p>
+<h4>They're upfront about pricing, not vague</h4>
+<p>Some planners quietly mark up vendor costs without telling you. A trustworthy one will explain clearly whether they charge a flat planning fee, a percentage, or a vendor commission — and won't dodge the question if you ask directly.</p>
+<h4>They give you a real point of contact, not just "the team"</h4>
+<p>Punjab wedding season gets busy, and some planners take on more events than they can realistically give full attention to. Ask who exactly will be present and responsible on your actual wedding day — not just during the sales conversation.</p>
+<h4>They put things in writing</h4>
+<p>Verbal promises don't hold up when things get chaotic. A serious planner will give you a written agreement covering what's included, payment terms, and what happens if a vendor cancels last minute.</p>
+
+<h3>Full Planning, Partial Planning, or Just Day-Of? Here's the Difference</h3>
+<p>Not every "wedding planner" in Punjab offers the same service — whether it's a local ceremony or a <a href="index.html">destination wedding in Himachal</a> — and comparing prices without understanding this can leave you confused about who's actually cheaper.</p>
+<h4>Service Type: What's Included</h4>
+<p><strong>Full Wedding Planning</strong> — Vendor sourcing, budgeting, design, and complete execution from start to finish</p>
+<p><strong>Partial Planning</strong> — You've already booked some vendors; the planner fills the gaps and runs the event</p>
+<p><strong>Day-of Coordination</strong> — The planner steps in close to the wedding, mainly to manage logistics on the day</p>
+<p><strong>Decor-Only Services</strong> — Styling and decor, without handling the rest of the planning</p>
+<p>If your date is coming up soon and you haven't started planning yet, full-service planning is usually the safer bet — trying to piece together vendors on your own with limited time tends to get expensive fast.</p>
+
+<h3>What Does a Wedding Planner in Punjab Actually Cost?</h3>
+<p>Pricing varies a lot depending on guest count, venue, and how much you're handing off, but here's a rough sense of where things typically land:</p>
+<ul>
+<li><strong>Day-of coordination:</strong> ₹50,000 — ₹1,50,000</li>
+<li><strong>Partial planning:</strong> ₹1,50,000 — ₹4,00,000</li>
+<li><strong>Full-service planning (mid-sized wedding):</strong> ₹4,00,000 — ₹10,00,000</li>
+<li><strong>Larger or destination-style weddings:</strong> ₹10,00,000 and above</li>
+</ul>
+<p>These are starting benchmarks, not fixed numbers — always ask for a quote based on your actual wedding, not a generic package price.</p>
+
+<h3>Questions Worth Asking Before You Book</h3>
+<p>Bring these into your first conversation with any planner:</p>
+<ol>
+<li>How many weddings have you actually run in Punjab in the last year?</li>
+<li>Can you show me weddings closer to my budget, not just your best ones?</li>
+<li>What exactly is included in your package?</li>
+<li>Do you charge a flat fee, or do you take a commission from vendors?</li>
+<li>Who's my direct point of contact through planning and on the wedding day?</li>
+<li>What happens if a vendor cancels close to the date?</li>
+<li>Can I speak with a couple you've worked with recently?</li>
+<li>Do you have availability for my date, and how many other weddings are you managing that week?</li>
+</ol>
+<p>That last question matters more than people realize. A planner juggling several weddings the same week may not be able to give your date the attention it deserves, however talented they are.</p>
+
+<h3>Signs You Should Book Now, Not Later</h3>
+<ul>
+<li>Your wedding date is within the next few months and you haven't confirmed a planner</li>
+<li>The venues you've shortlisted are already showing limited availability</li>
+<li>You've contacted a few planners and most are slow to respond or already booked out</li>
+<li>You're still juggling vendors on your own and it's starting to feel unmanageable</li>
+</ul>
+<p>None of these mean you're behind — but they're a sign that the window to get your first-choice planner is closing, not opening.</p>
+
+<h3>Bringing It Together</h3>
+<p>The best wedding planner in Punjab isn't necessarily the one with the biggest following or the flashiest portfolio—it is the one who understands your vision, is transparent about costs, and actually has the availability to give your date real attention. And that last part is regularly the deciding factor, particularly once wedding season is in full swing and the good planners start filling up their calendars fast.</p>
+<p>If you've found someone whose work you like, don't wait too long to lock in your date. In Punjab wedding season, availability is often the real deadline—not just your wedding day.</p>
+<p><strong>Have a date in mind? Check availability with a trusted wedding planner in Punjab today before it's booked by someone else.</strong></p>
+
+<h3>Frequently Asked Questions</h3>
+<p><strong>How much does a wedding planner in Punjab cost?</strong></p>
+<p>Costs typically vary from ₹50,000 for day-of coordination to ₹10,00,000 or more for full-service luxury planning, depending on guest count, venue, and what type of planning you hand off.</p>
+<p><strong>How far in advance should I book a wedding planner in Punjab?</strong></p>
+<p>Ideally, 6–12 months before your date, and further in advance if you're marrying during peak wedding season, since popular planners and venues get booked up quickly.</p>
+<p><strong>What's the difference between a wedding planner and a wedding decorator?</strong></p>
+<p>A wedding planner manages the whole event—budgeting, vendors, logistics, and timelines. A decorator is responsible only for the visible styling of the venue, not the overall event management.</p>
+<p><strong>Can a wedding planner help even if my date is coming up soon?</strong></p>
+<p>Yes, though options narrow the closer you get to the date. Many planners provide day-of coordination or partial planning, particularly for couples working with limited time.</p>
+<p><strong>Do wedding planners in Punjab only handle traditional Punjabi weddings?</strong></p>
+<p>No. Most established planners handle a range of styles—traditional Punjabi weddings, fusion ceremonies, destination-style events, and smaller, more minimalist celebrations.</p>
+<p><strong>Is it worth hiring a full planner instead of just day-of coordination?</strong></p>
+<p>If you are short on time or want to avoid managing vendors yourself, full planning is usually worth it. If you enjoy the planning process and just need smooth execution on the day, coordination alone may be sufficient.</p>
+<p><strong>How do I know if a wedding planner is still available for my date?</strong></p>
+<p>The most effective and dependable way is to ask directly and get written confirmation. Availability changes quickly during peak season, so it's worth checking sooner rather than later, even if you're still deciding on other details.</p>
+`
+  },
+  {
+    id:4,
+    title:"How to Choose the Right Wedding Planner in Chandigarh: A Complete Guide",
+    excerpt:"Choosing the right wedding planner in Chandigarh can make your celebration smoother and more enjoyable. This guide covers key factors to consider, from experience and services to budget, venues, and planning style.",
+    date:"August 22, 2026",
+    by:"Decor By Pearls Team",
+    category:"Planning Tips",
+    image:"blog 4 img.webp",
+    content:`
+<p>If you have started planning a wedding in Chandigarh, you quickly realize how things pile up. One week you're excited about mood boards and shortlists for venues, and the next you're caught comparing five catering prices in the middle of the night, wondering if you chose the wrong party routine. This is usually the point where couples start asking around for a good wedding planner in Chandigarh — and it's a smart move, but only if you pick the right one.</p>
+<p>There's no shortage of wedding planners in the city these days. Some are genuinely excellent, others are just good at Instagram. So how do you tell the difference before you've signed anything or handed over an advance? That's what this guide is for.</p>
+
+<h3>Why Chandigarh Weddings Are Their Own Category</h3>
+<p>Anyone who has been to a Punjabi wedding knows that they are usually not small. Between music, mehndi, haldi, and reception, you will often find multiple separate functions, each with their own guest list, decor theme, and logistics. Families from Mohali, Panchkula, and Zirakpur are also usually involved, which means that travel and accommodation can become important parts of the planning process.</p>
+<p>A planner who is hands-on and experienced in managing multiple functions will probably be better prepared to handle this scale. What Chandigarh weddings need is someone who's actually managed the details — vendors who show up on time, backup plans for weather, and a team that can coordinate multiple functions without falling apart.</p>
+
+<h3>What to Actually Look for When Choosing a Planner</h3>
+<h4>Start with your own clarity, not theirs</h4>
+<p>Before you even open Google and search "<a href="index.html">best wedding planner Chandigarh</a>," sit down with your partner or family and rough out three things — how many guests, what kind of budget you're comfortable with, and what feel you're going for. You don't need exact numbers. But if you walk into a consultation with zero direction, most planners will just sell you their standard package instead of building something around what you actually want.</p>
+<h4>Ask how much of their work is actually local</h4>
+<p>This sounds obvious, but it trips people up constantly. A planner may have a nice portfolio full of destination weddings in Goa or Udaipur; however, the Chandigarh-Mohali-Panchkula wedding market is different. It matters because close vendor relationships are often important when arranging flowers, catering, décor, and other wedding services.</p>
+<p>Just ask them straight up — how many weddings have you actually run here in the past year? A confident, specific answer is a good sign. Vague ones aren't.</p>
+<h4>Don't stop at the portfolio highlights</h4>
+<p>Every planner shows you their best five weddings. That's marketing, not evidence. Ask to see something closer to your budget range, not just the luxury ones they put on their website. And if possible, ask for full event footage rather than the 60-second reel — it tells you a lot more about how things actually ran on the day.</p>
+<h4>Read reviews properly, not just the star rating</h4>
+<p>Reviews are useful, but skim past the star count and actually read what people wrote. You're looking for patterns — did people mention slow replies, budget surprises, or vendors not showing up? One bad review isn't a dealbreaker. Three similar complaints across different reviews usually is.</p>
+<h4>Understand exactly what you're paying for</h4>
+<p>Not every "wedding planner" offers the same service. Some do full end-to-end planning. Others only step in a week before the wedding to coordinate logistics. A few just handle décor. None of these is wrong, but comparing prices across different service types is like comparing apples to a full grocery cart — you need to know what's actually included.</p>
+<h4>Service Type: What You Actually Get</h4>
+<p><strong>Full Wedding Planning</strong> — Vendor sourcing, budgeting, design, and complete on-day execution</p>
+<p><strong>Partial Planning</strong> — You've booked some vendors already; they fill the gaps and run the event</p>
+<p><strong>Day-of Coordination</strong> — They step in only near the end, mostly for logistics on the day itself</p>
+<p><strong>Decor-Only Services</strong> — Styling and decor, without managing the rest of the event</p>
+<h4>Ask about money directly, even if it feels awkward</h4>
+<p>This is where a lot of couples get burned. It's fair to ask: are you charging a flat fee, or are you taking a cut from the vendors? Can I see the actual vendor quotes? Are there hidden charges for setup, transport or GST? A planner who answers this comfortably is usually trustworthy. One who deflects probably isn't.</p>
+<h4>Pay attention to how they talk to you now</h4>
+<p>The way someone communicates during your first few conversations is usually the way they'll communicate for the next eight months. If they're slow to reply now, or brush past your questions to push their own package, that pattern rarely improves once you've paid the advance.</p>
+<h4>Get everything in writing</h4>
+<p>A verbal understanding is not a contract. Whatever gets agreed on — scope of work, payment schedule, cancellation terms, who's responsible if a vendor doesn't show — needs to be written down. It protects both sides, and any planner worth hiring will expect this anyway.</p>
+<h4>Meet them before you commit</h4>
+<p>A few DMs and a phone call aren't enough to judge whether you'll work well together for months. If you can, sit down with them or at least get on a video call. You're not just hiring a service — you're bringing someone into a fairly emotional, high-stakes process, so personality fit matters more than people expect.</p>
+<h4>Ask how many weddings they're juggling around your date</h4>
+<p>Wedding season in Chandigarh gets busy, and some planners take on more events than they can realistically give full attention to. Ask directly how many other weddings they have during your week, and who exactly will be present on your actual wedding day. "The whole team is available" isn't the same as one dedicated point of contact who knows your event inside out.</p>
+<h4>Warning Signs Worth Taking Seriously</h4>
+<p>A few things should make you pause before signing anything:</p>
+<ul>
+<li>They won't share past client references when asked</li>
+<li>Pricing stays vague or only gets discussed verbally</li>
+<li>There's pressure to sign quickly because of a "limited-time offer"</li>
+<li>No written contract, or unclear terms around cancellation</li>
+<li>Promises that sound too good — full luxury execution at an unusually low rate</li>
+</ul>
+<p>None of these alone is necessarily a dealbreaker, but more than one together is worth taking seriously.</p>
+
+<h3>Questions Worth Asking in Your First Meeting</h3>
+<ul>
+<li><strong>How long have you been planning weddings specifically in Chandigarh or the Tricity area?</strong></li>
+<li><strong>Can you show me weddings closer to my budget, not just your best ones?</strong></li>
+<li><strong>What's included in your package, in plain terms?</strong></li>
+<li><strong>How do you structure your fees — flat rate, percentage, or vendor commission?</strong></li>
+<li><strong>Who's my actual point of contact through planning and on the wedding day?</strong></li>
+<li><strong>What happens if a vendor backs out close to the date?</strong></li>
+<li><strong>Can I speak with a couple you've worked with recently?</strong></li>
+<li><strong>How do you handle it if my budget or plans change midway through?</strong></li>
+</ul>
+
+<h3>A Personalized Approach to Wedding Planning</h3>
+<p>Prices shift a lot depending on guest count, venue, décor preferences, and the services required. Rather than relying on general price ranges, always get a quote tailored to your actual wedding.</p>
+<p>A good planner should understand your vision, preferences, and budget before developing the plan. Decor By Pearls' planning process begins with an initial consultation to understand these details, followed by a personalized mood board and event blueprint, vendor curation, event execution, and post-event care.</p>
+
+<h3>Bringing It Together</h3>
+<p>Choosing a first-class <a href="index.html">wedding planner in Chandigarh</a> is honestly not about searching for the most important name within the market or chasing the cheapest quote you can get. It all comes down to whether they recognize what you're honestly going for, whether they're upfront about costs, and whether they know the surrounding wedding landscape well enough to address it without the usual hand-waving from you.</p>
+<p>Take the time to ask uncomfortable questions in advance. It's much less complicated to walk away during negotiations than in the middle of planning. The perfect planner will not only manage your event—they will, in turn, be able to offer you something most couples don't count on getting throughout the wedding season: a slice of real peace of mind.</p>
+
+<h3>Frequently Asked Questions</h3>
+<p><strong>How much does a wedding planner in Chandigarh usually cost?</strong></p>
+<p>This varies depending on your guest list, venue, décor preferences, and the type of services you need. Rather than relying on a fixed price range, ask for a quote tailored to your actual wedding requirements.</p>
+<p><strong>When should I actually start looking for a wedding planner?</strong></p>
+<p>It's a good idea to start early so you have enough time to discuss your vision, compare services, and coordinate venues and vendors. Decor By Pearls' website recommends booking a wedding planner around 4 to 8 months before the wedding.</p>
+<p><strong>What's the real difference between a wedding planner and a decorator?</strong></p>
+<p>A planner handles the whole event — budgeting, vendors, timelines, logistics. A decorator is primarily responsible for how the venue looks. They're not interchangeable.</p>
+<p><strong>Do Chandigarh planners only handle Punjabi weddings?</strong></p>
+<p>Not necessarily. Wedding planners can work across different communities and styles, including fusion weddings, destination-style events, smaller ceremonies, and traditional celebrations.</p>
+<p><strong>Can hiring a planner actually save me money?</strong></p>
+<p>A planner can help with budget management, vendor sourcing, and coordination, which can make it easier to keep the overall wedding plan organized. The actual cost and value will depend on your requirements and the services you choose.</p>
+<p><strong>What should definitely be in the contract?</strong></p>
+<p>At minimum — what's included in their service, the payment schedule, cancellation terms, and what happens if a vendor cancels or doesn't deliver. Get it in writing, not just discussed over a call.</p>
+<p><strong>Should I hire a full planner or just someone for day-of coordination?</strong></p>
+<p>It depends on how much you want to handle yourself. If you have already arranged most of the wedding and mainly need someone to manage logistics on the day, coordination may be enough. Full planning is worth considering if you want support with the planning process from the beginning.</p>
+`
+  }
+];
+
+(function () {
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var grid = $('#grid'), catSel = $('#cat'), q = $('#q'), count = $('#count');
+  var reader = $('#reader'), closeBtn = $('#close'), lastFocus = null;
+
+  /* NAV + DRAWER */
+  var nav = $('#nav'), drawer = $('#drawer'), ov = $('#drawerOv'), tg = $('.nav__toggle');
+  function onScroll(){ nav.classList.toggle('is-scrolled', window.scrollY > 60); }
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+  function setDrawer(o){
+    drawer.classList.toggle('is-open', o); ov.classList.toggle('is-open', o);
+    drawer.setAttribute('aria-hidden', String(!o)); tg.setAttribute('aria-expanded', String(o));
+    document.body.style.overflow = o ? 'hidden' : '';
+  }
+  tg.addEventListener('click', function(){ setDrawer(true); });
+  $('button', drawer).addEventListener('click', function(){ setDrawer(false); });
+  ov.addEventListener('click', function(){ setDrawer(false); });
+
+  /* CATEGORIES */
+  ['Planning Tips','Trends','Inspiration','Hospitality','Uncategorized'].forEach(function(c){
+    var o = document.createElement('option'); o.value = c; o.textContent = c; catSel.appendChild(o);
+  });
+
+  function esc(s){ return s.replace(/[&<>"]/g, function(m){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]; }); }
+
+  function render(list){
+    count.textContent = list.length + (list.length === 1 ? ' article' : ' articles');
+    if(!list.length){ grid.innerHTML = '<div class="empty">No blogs match your search.</div>'; return; }
+    grid.innerHTML = list.map(function(p){ return '' +
+      '<article class="card">' +
+        '<div class="thumb"><img src="' + p.image + '" alt="' + esc(p.title) + '" loading="lazy" onerror="this.remove()"><span class="date">' + p.date + '</span></div>' +
+        '<div class="cbody"><p class="eyebrow">' + p.category + '</p><h3>' + esc(p.title) + '</h3><p>' + esc(p.excerpt) + '</p>' +
+        '<button class="more" type="button" data-id="' + p.id + '">Read more &rarr;</button></div>' +
+      '</article>'; }).join('');
+  }
+
+  /* FILTER */
+  function applyFilter(){
+    var c = catSel.value, t = q.value.trim().toLowerCase();
+    render(posts.filter(function(p){
+      return (c === 'all' || p.category === c) &&
+        (!t || (p.title + ' ' + p.excerpt + ' ' + p.content).toLowerCase().indexOf(t) > -1);
+    }));
+  }
+  $('#apply').addEventListener('click', applyFilter);
+  $('#clear').addEventListener('click', function(){ catSel.value = 'all'; q.value = ''; applyFilter(); });
+  q.addEventListener('keydown', function(e){ if(e.key === 'Enter') applyFilter(); });
+  catSel.addEventListener('change', applyFilter);
+
+  /* READER */
+  function openPost(id, fromPop){
+    var p = posts.filter(function(x){ return x.id === id; })[0];
+    if(!p) return;
+    $('#rCat').textContent = p.category;
+    $('#rTitle').textContent = p.title;
+    $('#rDate').textContent = p.date;
+    $('#rBy').textContent = 'By ' + p.by;
+    $('#rBody').innerHTML = '<img class="cover" src="' + p.image + '" alt="" onerror="this.remove()">' + p.content +
+      '<div class="rcta"><h4>Plan Your Dream Day</h4><a class="btn" href="contact.html">Contact Us</a></div>';
+    lastFocus = document.activeElement;
+    reader.scrollTop = 0;
+    reader.classList.add('open');
+    document.body.classList.add('lock');
+    if(!fromPop) history.pushState({ post: id }, '', '#post-' + id);
+    closeBtn.focus();
+  }
+  function closePost(fromPop){
+    if(!reader.classList.contains('open')) return;
+    reader.classList.remove('open');
+    document.body.classList.remove('lock');
+    if(!fromPop && location.hash.indexOf('#post-') === 0) history.back();
+    if(lastFocus) lastFocus.focus();
+  }
+  grid.addEventListener('click', function(e){
+    var b = e.target.closest('.more'); if(b) openPost(+b.dataset.id);
+  });
+  closeBtn.addEventListener('click', function(){ closePost(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key !== 'Escape') return;
+    if(reader.classList.contains('open')) closePost(); else setDrawer(false);
+  });
+  window.addEventListener('popstate', function(){
+    if(location.hash.indexOf('#post-') === 0) openPost(+location.hash.slice(6), true);
+    else closePost(true);
+  });
+
+  render(posts);
+  if(location.hash.indexOf('#post-') === 0) openPost(+location.hash.slice(6), true);
+})();
+</script>
+</body>
+</html>

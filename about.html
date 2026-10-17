@@ -248,7 +248,19 @@
         url("pattern.jpg");
     background-repeat: repeat;
     background-size: auto, 320px auto;
-    }
+    } /* FOOTER (shared) */
+.footer{padding:70px 0 28px;background:#0b1a30;color:rgba(255,255,255,.72);font-family:"Inter",Arial,sans-serif;font-size:.92rem;line-height:1.65}
+.footer__in{width:min(1240px,calc(100% - 40px));margin:0 auto}
+.footer__grid{display:grid;gap:36px;grid-template-columns:1fr}
+.footer__brand{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.7rem;color:#fff}
+.footer h4{margin:0 0 14px;font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:1.2rem;color:#c79c5a}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.footer p{margin:0 0 8px}
+.footer a{transition:color .3s}
+.footer a:hover,.footer a:focus-visible{color:#c79c5a}
+.footer__bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(216,195,165,.16);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;font-size:.8rem}
+.footer__legal{display:flex;flex-wrap:wrap;gap:8px 22px}
+@media(min-width:768px){.footer__grid{grid-template-columns:1.6fr 1fr 1fr 1.4fr}}
     </style>
     </head>
     <body>
@@ -342,8 +354,8 @@
             </div>
             <div class="team__grid">
             <article class="member rv">
-                <div class="member__photo"><img src="images/team/MOHIT_SINGH_RAJPUT.jpeg" alt="Mohit Kumar" loading="lazy"></div>
-                <h3>Mohit Kumar</h3>
+                <div class="member__photo"><img src="images/team/MOHIT_SINGH_RAJPUT.jpeg" alt="Mohit Singh Rajput" loading="lazy"></div>
+                <h3>Mohit Singh Rajput</h3>
                 <p class="role">Founder &amp; Creative Director</p>
                 <p>Crafting extraordinary celebrations with timeless decor concepts, luxury aesthetics, and unforgettable event experiences.</p>
             </article>
@@ -373,7 +385,7 @@
             <a class="btn" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding">Plan Your Event</a>
             </div>
             <dl class="rv" style="--d:.15s">
-            <div><dt>Visit</dt><dd>4th Floor, Plot No. C-210 B, Fateh Tower, Industrial Area, Phase 8B, Sector 74, Sahibzada Ajit Singh Nagar (Mohali), Punjab 160071</dd></div>
+            <div><dt>Visit</dt><dd>4th Floor, Plot No. C-210 B, Fateh Tower, Industrial Area, Phase 8B, Sector 74, Sahibzada Ajit Singh Nagar (Mohali), Punjab 140307</dd></div>
             <div><dt>Call</dt><dd><a href="tel:+917355051840">+91 73550 51840</a></dd></div>
             <div><dt>Write</dt><dd><a href="mailto:info@decorbypearls.com">info@decorbypearls.com</a></dd></div>
             <div><dt>Weddings across</dt><dd>Chandigarh &middot; Punjab &middot; Haryana &middot; Himachal</dd></div>
@@ -383,16 +395,53 @@
 
     </main>
 
-    <footer>
-        <div class="wrap">
-        <span>&copy; 2026 Decor By Pearls. Weddings with elegance.</span>
-        <nav aria-label="Legal">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
-            <a href="sitemap.xml">Sitemap</a>
-        </nav>
-        </div>
-    </footer>
+   <footer class="footer">
+  <div class="footer__in">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">Decor By Pearls</div>
+        <p style="margin-top:12px;max-width:34ch">Unforgettable celebrations where every detail tells your love story.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="index.html#events">Events</a></li>
+          <li><a href="index.html#films">Films</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/decor_bypearls" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61578885675391" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://pin.it/5KsKYR2QE" target="_blank" rel="noopener">Pinterest</a></li>
+          <li><a href="https://wa.me/917355051840" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="tel:+917355051840">+91-7355051840</a></p>
+        <p><a href="mailto:info@decorbypearls.com">info@decorbypearls.com</a></p>
+        <p>4th Floor, Plot No. C-210 B, Fateh Tower, Industrial Area, Phase 8B, Sector 74, Mohali, Punjab 140307</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 Decor By Pearls. Weddings With Elegance.</span>
+      <div class="footer__legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="refund.html">Refund &amp; Cancellation</a>
+        <a href="packages.html">Packages &amp; Pricing</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
     <div class="fab">
         <a class="fab__call" href="tel:+917355051840" aria-label="Call Decor By Pearls">

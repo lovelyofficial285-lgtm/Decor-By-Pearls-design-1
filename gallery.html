@@ -121,7 +121,19 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
 .fab{position:fixed;right:20px;bottom:20px;z-index:90;display:flex;flex-direction:column;gap:12px}
 .fab a{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.22)}
 .fab svg{width:24px;height:24px;fill:currentColor}
-.fab__call{background:var(--brass);color:var(--midnight)}.fab__wa{background:#25d366;color:#fff}
+.fab__call{background:var(--brass);color:var(--midnight)}.fab__wa{background:#25d366;color:#fff} /* FOOTER (shared) */
+.footer{padding:70px 0 28px;background:#0b1a30;color:rgba(255,255,255,.72);font-family:"Inter",Arial,sans-serif;font-size:.92rem;line-height:1.65}
+.footer__in{width:min(1240px,calc(100% - 40px));margin:0 auto}
+.footer__grid{display:grid;gap:36px;grid-template-columns:1fr}
+.footer__brand{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.7rem;color:#fff}
+.footer h4{margin:0 0 14px;font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:1.2rem;color:#c79c5a}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.footer p{margin:0 0 8px}
+.footer a{transition:color .3s}
+.footer a:hover,.footer a:focus-visible{color:#c79c5a}
+.footer__bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(216,195,165,.16);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;font-size:.8rem}
+.footer__legal{display:flex;flex-wrap:wrap;gap:8px 22px}
+@media(min-width:768px){.footer__grid{grid-template-columns:1.6fr 1fr 1fr 1.4fr}} 
 </style>
 </head>
 <body>
@@ -192,7 +204,13 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
         <button class="g-item" data-cat="mehndi" data-cap="Sangeet stage lighting"><img src="ring ceremony.jpg" alt="Sangeet stage" loading="lazy"><span class="tag">Sangeet</span></button>
         <button class="g-item" data-cat="destination" data-cap="Fort wedding, Rajasthan"><img src="destination wedding.JPG" alt="Fort wedding" loading="lazy"><span class="tag">Destination</span></button>
         <button class="g-item" data-cat="engagement" data-cap="Pastel engagement brunch"><img src="door side 2.jpg" alt="Engagement brunch decor" loading="lazy"><span class="tag">Engagement</span></button>
-      </div>
+      <button class="g-item" data-cat="wedding" data-cap="Wedding stage decor"><img src="images/gallery/g13.jpg" alt="Wedding stage decor" loading="lazy"><span class="tag">Wedding</span></button>
+<button class="g-item t" data-cat="decor" data-cap="Floral ceiling installation"><img src="images/gallery/g14.jpg" alt="Floral ceiling decor" loading="lazy"><span class="tag">Decor</span></button>
+<button class="g-item" data-cat="mehndi" data-cap="Mehndi seating setup"><img src="images/gallery/g15.jpg" alt="Mehndi seating setup" loading="lazy"><span class="tag">Mehndi</span></button>
+<button class="g-item w" data-cat="reception" data-cap="Reception stage and lighting"><img src="images/gallery/g16.jpg" alt="Reception stage" loading="lazy"><span class="tag">Reception</span></button>
+<button class="g-item" data-cat="haldi" data-cap="Haldi ceremony corner"><img src="images/gallery/g17.jpg" alt="Haldi ceremony decor" loading="lazy"><span class="tag">Haldi</span></button>
+<button class="g-item" data-cat="engagement" data-cap="Engagement backdrop"><img src="images/gallery/g18.jpg" alt="Engagement backdrop" loading="lazy"><span class="tag">Engagement</span></button>
+<button class="g-item t" data-cat="destination" data-cap="Destination wedding mandap"><img src="images/gallery/g19.jpg" alt="Destination wedding mandap" loading="lazy"><span class="tag">Destination</span></button> </div>
     </div>
   </section>
 
@@ -221,13 +239,53 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
   </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <span>&copy; 2026 Decor By Pearls. Weddings with elegance.</span>
-    <nav aria-label="Legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="sitemap.xml">Sitemap</a></nav>
+<footer class="footer">
+  <div class="footer__in">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">Decor By Pearls</div>
+        <p style="margin-top:12px;max-width:34ch">Unforgettable celebrations where every detail tells your love story.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="index.html#events">Events</a></li>
+          <li><a href="index.html#films">Films</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/decor_bypearls" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61578885675391" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://pin.it/5KsKYR2QE" target="_blank" rel="noopener">Pinterest</a></li>
+          <li><a href="https://wa.me/917355051840" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="tel:+917355051840">+91-7355051840</a></p>
+        <p><a href="mailto:info@decorbypearls.com">info@decorbypearls.com</a></p>
+        <p>4th Floor, Plot No. C-210 B, Fateh Tower, Industrial Area, Phase 8B, Sector 74, Mohali, Punjab 140307</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 Decor By Pearls. Weddings With Elegance.</span>
+      <div class="footer__legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="refund.html">Refund &amp; Cancellation</a>
+        <a href="packages.html">Packages &amp; Pricing</a>
+      </div>
+    </div>
   </div>
 </footer>
-
 <div class="fab">
   <a class="fab__call" href="tel:+917355051840" aria-label="Call Decor By Pearls"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></a>
   <a class="fab__wa" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg></a>
