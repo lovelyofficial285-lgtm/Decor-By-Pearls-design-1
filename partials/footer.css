@@ -1,0 +1,13 @@
+/* ===== FOOTER (shared across all pages) ===== */
+.footer{padding:70px 0 28px;background:#0b1a30;color:rgba(255,255,255,.72);font-size:.92rem}
+.footer__grid{display:grid;gap:36px;grid-template-columns:1fr}
+.footer__brand{font-family:var(--heading-font,"Cormorant Garamond",Georgia,serif);font-size:1.7rem;color:var(--white,#fff)}
+.footer h4{margin:0 0 14px;font-family:var(--heading-font,"Cormorant Garamond",Georgia,serif);font-weight:500;font-size:1.2rem;color:var(--brass,#c79c5a)}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.footer a:hover,.footer a:focus-visible{color:var(--brass,#c79c5a)}
+.footer p{margin:0 0 8px}
+.footer__bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(216,195,165,.16);font-size:.8rem;text-align:center}
+
+@media (min-width:768px){
+  .footer__grid{grid-template-columns:1.6fr 1fr 1fr 1.4fr}
+}

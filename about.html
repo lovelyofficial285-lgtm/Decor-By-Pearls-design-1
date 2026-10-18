@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="partials/navbar.css">
     <script>document.documentElement.classList.add("js")</script>
 
     <style>
@@ -70,38 +70,7 @@
         .js .rv.in { opacity: 1; transform: none; }
 
         /* ===== HEADER ===== */
-        .nav {
-        position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-        padding: 22px 0;
-        transition: background-color .35s ease, padding .35s ease, box-shadow .35s ease;
-        }
-        .nav.is-scrolled { background: rgba(16,37,66,.92); backdrop-filter: blur(14px); padding: 14px 0; box-shadow: 0 1px 0 rgba(216,195,165,.16); }
-        .nav__in { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-        .nav__brand { font-family: var(--display); font-size: 1.6rem; color: #fff; letter-spacing: .01em; }
-        .nav__brand em { color: var(--brass); }
-        .nav__links { display: none; align-items: center; gap: 30px; }
-        .nav__links a { font-size: .72rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.82); transition: color .3s ease; }
-        .nav__links a:hover, .nav__links a[aria-current] { color: var(--brass); }
-        .nav .btn { display: none; padding: 12px 24px; font-size: .7rem; }
-        .nav__toggle { display: flex; flex-direction: column; gap: 7px; padding: 10px; background: none; border: 0; cursor: pointer; }
-        .nav__toggle span { width: 28px; height: 1px; background: #fff; }
-        @media (min-width: 992px) {
-        .nav__links, .nav .btn { display: flex; }
-        .nav__toggle { display: none; }
-        }
-
-        .drawer {
-        position: fixed; inset: 0 0 0 auto; z-index: 200;
-        width: min(88vw, 380px);
-        background: var(--midnight); color: #fff;
-        padding: 80px 32px 40px;
-        transform: translateX(105%);
-        transition: transform .45s cubic-bezier(.2,.7,.2,1);
-        }
-        .drawer.is-open { transform: none; }
-        .drawer a { display: block; padding: 18px 0; font-family: var(--display); font-size: 1.9rem; border-bottom: 1px solid rgba(216,195,165,.16); }
-        .drawer button { position: absolute; top: 20px; right: 22px; background: none; border: 0; color: #fff; font-size: 2rem; cursor: pointer; }
-
+       
         /* ===== 1. OPENING: headline split around an arch ===== */
         .opening {
         min-height: 100svh;
@@ -265,33 +234,67 @@
     </head>
     <body>
 
-    <header class="nav" id="nav">
-        <div class="wrap nav__in">
-        <a class="nav__brand" href="index.html">Decor <em>By</em> Pearls</a>
-        <nav class="nav__links" aria-label="Primary">
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="blog.html">Blogs</a>
-            <a href="testimonials.html">Testimonials</a>
-            <a href="about.html" aria-current="page">About</a>
-        </nav>
-            <hr class="nav-rule">
-        <a class="btn" href="contact.html">Plan Your Event</a>
-        <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-        </div>
-    </header>
+<header class="site-header" id="siteHeader">
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="site-container site-nav__inner">
+      <a class="site-nav__brand" href="index.html" aria-label="Decor By Pearls home">
+        <img src="https://decorbypearls.com/static/images/logo_decorbypearls.png?v=1787160818" alt="Decor By Pearls" width="160" height="48">
+      </a>
 
-    <aside class="drawer" id="drawer" aria-hidden="true">
-        <button type="button" aria-label="Close menu">&times;</button>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="blog.html">Blogs</a>
-        <a href="reviews.html">Testimonials</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </aside>
+      <div class="site-nav__desktop">
+        <div class="site-nav__links">
+          <a href="index.html" data-page="index.html">Home</a>
+
+          <div class="nav-dd" id="navDd">
+            <a href="service.html/mainservice.html" class="nav-dd__link" data-page="services.html">Services</a>
+            <button class="nav-dd__caret" type="button" aria-label="Show service locations" aria-expanded="false" aria-controls="navDdMenu"></button>
+            <ul class="nav-dd__menu" id="navDdMenu">
+              <li><a href="/service.html/chandigarh.html" data-page="chandigarh-wedding-planner.html">Chandigarh</a></li>
+              <li><a href="/service.html/punjab.html" data-page="punjab-wedding-planner.html">Punjab</a></li>
+              <li><a href="/service.html/haryana.html" data-page="haryana-wedding-planner.html">Haryana</a></li>
+              <li><a href="/service.html/himachal.html" data-page="himachal-wedding-planner.html">Himachal</a></li>
+            </ul>
+          </div>
+
+          <a href="gallery.html" data-page="gallery.html">Gallery</a>
+          <a href="blog.html" data-page="blog.html">Blogs</a>
+          <a href="reviews.html" data-page="reviews.html">Testimonials</a>
+          <a href="about.html" data-page="about.html">About</a>
+        </div>
+        <a class="nav-btn" href="contact.html">Plan Your Event</a>
+      </div>
+
+      <button class="site-nav__toggler" type="button" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <hr class="nav-rule">
+</header>
+
+<div class="mobile-menu__overlay" id="mobileMenuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mobile-menu__close" type="button" aria-label="Close menu">&times;</button>
+  <ul class="mobile-menu__links">
+    <li><a href="index.html">Home</a></li>
+    <li class="mm-dd">
+      <div class="mm-dd__row">
+        <a href="service.html/mainservice.html">Services</a>
+        <button class="mm-dd__btn" type="button" aria-label="Show service locations" aria-expanded="false"></button>
+      </div>
+      <ul class="mm-dd__list">
+        <li><a href="chandigarh-wedding-planner.html">Chandigarh</a></li>
+        <li><a href="punjab-wedding-planner.html">Punjab</a></li>
+        <li><a href="haryana-wedding-planner.html">Haryana</a></li>
+        <li><a href="himachal-wedding-planner.html">Himachal</a></li>
+      </ul>
+    </li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="blog.html">Blogs</a></li>
+    <li><a href="reviews.html">Testimonials</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</div>
 
     <main>
 
@@ -316,7 +319,7 @@
         <div class="wrap story__grid">
             <div class="rv">
             <div class="story__arch">
-                <img src="bride and groom (1).png" alt="Elegant tented dining setup in a garden" loading="lazy">
+                <img src="/images/bride and groom (1).png" alt="Elegant tented dining setup in a garden" loading="lazy">
             </div>
             <div class="story__years"><b>12+</b><span>Years of excellence</span></div>
             </div>
@@ -354,19 +357,19 @@
             </div>
             <div class="team__grid">
             <article class="member rv">
-                <div class="member__photo"><img src="images/team/MOHIT_SINGH_RAJPUT.jpeg" alt="Mohit Singh Rajput" loading="lazy"></div>
+                <div class="member__photo"><img src="/images/Mohit Singh Rajput.jpeg" alt="Mohit Singh Rajput" loading="lazy"></div>
                 <h3>Mohit Singh Rajput</h3>
                 <p class="role">Founder &amp; Creative Director</p>
                 <p>Crafting extraordinary celebrations with timeless decor concepts, luxury aesthetics, and unforgettable event experiences.</p>
             </article>
             <article class="member rv" style="--d:.15s">
-                <div class="member__photo"><img src="images/team/SACHIN_MISHRA.jpeg" alt="Sachin Mishra" loading="lazy"></div>
+                <div class="member__photo"><img src="/images/sachin mishra.jpeg" alt="Sachin Mishra" loading="lazy"></div>
                 <h3>Sachin Mishra</h3>
                 <p class="role">Co-Founder &amp; Operations Head</p>
                 <p>Managing seamless event execution, client coordination, and flawless planning for every celebration.</p>
             </article>
             <article class="member rv" style="--d:.3s">
-                <div class="member__photo"><img src="images/team/JASNEET_KAUR.jpeg" alt="Jasneet Kaur" loading="lazy"></div>
+                <div class="member__photo"><img src="/images/Jasneet Kaur.jpeg" alt="Jasneet Kaur" loading="lazy"></div>
                 <h3>Jasneet Kaur</h3>
                 <p class="role">Co-Founder &amp; Styling Director</p>
                 <p>Bringing elegant wedding styling, creative themes, and personalized decor inspirations to life beautifully.</p>
@@ -411,7 +414,7 @@
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="index.html#events">Events</a></li>
           <li><a href="index.html#films">Films</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="reviews.html">Testimonials</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -452,36 +455,19 @@
         </a>
     </div>
 
-    <script>
-        (function () {
-        var nav = document.getElementById("nav");
-        function onScroll() { nav.classList.toggle("is-scrolled", window.scrollY > 60); }
-        onScroll();
-        window.addEventListener("scroll", onScroll, { passive: true });
-
-        var drawer = document.getElementById("drawer");
-        var toggle = document.querySelector(".nav__toggle");
-        function setDrawer(open) {
-            drawer.classList.toggle("is-open", open);
-            drawer.setAttribute("aria-hidden", String(!open));
-            toggle.setAttribute("aria-expanded", String(open));
-            document.body.style.overflow = open ? "hidden" : "";
-        }
-        toggle.addEventListener("click", function () { setDrawer(true); });
-        drawer.querySelector("button").addEventListener("click", function () { setDrawer(false); });
-        drawer.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setDrawer(false); }); });
-        document.addEventListener("keydown", function (e) { if (e.key === "Escape") setDrawer(false); });
-
-        // Calm fade-up on scroll
-        var items = document.querySelectorAll(".rv");
-        if (!("IntersectionObserver" in window)) { items.forEach(function (el) { el.classList.add("in"); }); return; }
-        var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (en) {
-            if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
-            });
-        }, { threshold: .15 });
-        items.forEach(function (el) { io.observe(el); });
-        })();
+   <script src="partials/navbar.js" defer></script>
+<script>
+(function () {
+  var items = document.querySelectorAll(".rv");
+  if (!("IntersectionObserver" in window)) { items.forEach(function (el) { el.classList.add("in"); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+    });
+  }, { threshold: .15 });
+  items.forEach(function (el) { io.observe(el); });
+})();
+</script>
     </script>
     </body>
     </html>

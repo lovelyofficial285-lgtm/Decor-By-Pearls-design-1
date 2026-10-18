@@ -9,7 +9,7 @@
 <link rel="icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"> <link rel="stylesheet" href="partials/navbar.css">
 <style>
 :root{--midnight:#102542;--sapphire:#1e3a5f;--champagne:#d8c3a5;--ivory:#faf8f5;--brass:#c79c5a;--muted:#5d6879;--display:"Instrument Serif",Georgia,serif;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Inter",Arial,sans-serif;--pad:clamp(64px,9vw,120px)}
 *{box-sizing:border-box}
@@ -27,24 +27,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
 .gold-line{height:3px;margin:0;border:0;background:linear-gradient(90deg,#c79c5a,#e6c98f,#c79c5a);transform-origin:left}
 
 /* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:background-color .35s,padding .35s}
-.nav.is-scrolled{background:rgba(16,37,66,.92);backdrop-filter:blur(14px);padding:14px 0}
-.nav__in{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.nav__brand{font-family:var(--display);font-size:1.6rem;color:#fff}.nav__brand em{color:var(--brass)}
-.nav__links{display:none;align-items:center;gap:30px}
-.nav__links a{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .3s}
-.nav__links a:hover,.nav__links a[aria-current]{color:var(--brass)}
-.nav .btn{display:none;padding:12px 24px;font-size:.7rem}
-.nav__toggle{display:flex;flex-direction:column;gap:7px;padding:10px;background:none;border:0;cursor:pointer}
-.nav__toggle span{width:28px;height:1px;background:#fff}
-.nav-rule{position:absolute;left:0;right:0;bottom:0;height:1px;margin:0;border:0;background:linear-gradient(90deg,transparent,#c79c5a 20%,#c79c5a 80%,transparent);opacity:.85}
-@media(min-width:992px){.nav__links,.nav .btn{display:flex}.nav__toggle{display:none}}
-.drawer-ov{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:199;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
-.drawer-ov.is-open{opacity:1;visibility:visible}
-.drawer{position:fixed;inset:0 0 0 auto;z-index:200;width:min(88vw,380px);background:var(--midnight);color:#fff;padding:80px 32px 40px;transform:translateX(105%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
-.drawer.is-open{transform:none}
-.drawer a{display:block;padding:18px 0;font-family:var(--display);font-size:1.9rem;border-bottom:1px solid rgba(216,195,165,.16)}
-.drawer button{position:absolute;top:20px;right:22px;background:none;border:0;color:#fff;font-size:2rem;cursor:pointer}
+
 
 /* HEADER */
 .hd{position:relative;overflow:hidden;min-height:56svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:150px 0 80px}
@@ -54,8 +37,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
 .hd h1 em{color:var(--champagne)}
 .hd p.sub{max-width:46ch;margin:0 auto;color:var(--champagne)}
 
-/* FILTERS */
-.filters{position:sticky;top:0;z-index:50;background:var(--ivory);border-bottom:1px solid rgba(16,37,66,.1);padding:14px 0}
+/* FILTERS */.filters{position:sticky;top:76px;z-index:50;background:var(--ivory);border-bottom:1px solid rgba(16,37,66,.1);padding:14px 0}
 .filters__in{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:2px 0}
 .filters__in::-webkit-scrollbar{display:none}
 @media(min-width:900px){.filters__in{justify-content:center}}
@@ -138,33 +120,66 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
 </head>
 <body>
 
-<header class="nav" id="nav">
-  <div class="wrap nav__in">
-    <a class="nav__brand" href="index.html">Decor <em>By</em> Pearls</a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="gallery.html" aria-current="page">Gallery</a>
-      <a href="blog.html">Blogs</a>
-      <a href="reviews.html">Testimonials</a>
-      <a href="about.html">About</a>
-    </nav>
-    <a class="btn" href="/contact.html">Plan Your Event</a>
-    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  </div>
+<header class="site-header" id="siteHeader">
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="site-container site-nav__inner">
+      <a class="site-nav__brand" href="index.html" aria-label="Decor By Pearls home">
+        <img src="https://decorbypearls.com/static/images/logo_decorbypearls.png?v=1787160818" alt="Decor By Pearls" width="160" height="48">
+      </a>
+
+      <div class="site-nav__desktop">
+        <div class="site-nav__links">
+          <a href="index.html" data-page="index.html">Home</a>
+
+          <div class="nav-dd" id="navDd">
+            <a href="service.html/mainservice.html" class="nav-dd__link" data-page="services.html">Services</a>
+            <button class="nav-dd__caret" type="button" aria-label="Show service locations" aria-expanded="false" aria-controls="navDdMenu"></button>
+            <ul class="nav-dd__menu" id="navDdMenu">
+              <li><a href="/service.html/chandigarh.html" data-page="chandigarh-wedding-planner.html">Chandigarh</a></li>
+              <li><a href="/service.html/punjab.html" data-page="punjab-wedding-planner.html">Punjab</a></li>
+              <li><a href="/service.html/haryana.html" data-page="haryana-wedding-planner.html">Haryana</a></li>
+              <li><a href="/service.html/himachal.html" data-page="himachal-wedding-planner.html">Himachal</a></li>
+            </ul>
+          </div>
+
+          <a href="gallery.html" data-page="gallery.html">Gallery</a>
+          <a href="blog.html" data-page="blog.html">Blogs</a>
+          <a href="reviews.html" data-page="reviews.html">Testimonials</a>
+          <a href="about.html" data-page="about.html">About</a>
+        </div>
+        <a class="nav-btn" href="contact.html">Plan Your Event</a>
+      </div>
+
+      <button class="site-nav__toggler" type="button" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
   <hr class="nav-rule">
 </header>
-<div class="drawer-ov" id="drawerOv"></div>
-<aside class="drawer" id="drawer" aria-hidden="true">
-  <button type="button" aria-label="Close menu">&times;</button>
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="blog.html">Blogs</a>
-  <a href="reviews.html">Testimonials</a>
-  <a href="about.html">About</a>
-</aside>
-
+<div class="mobile-menu__overlay" id="mobileMenuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mobile-menu__close" type="button" aria-label="Close menu">&times;</button>
+  <ul class="mobile-menu__links">
+    <li><a href="index.html">Home</a></li>
+    <li class="mm-dd">
+      <div class="mm-dd__row">
+        <a href="service.html/mainservice.html">Services</a>
+        <button class="mm-dd__btn" type="button" aria-label="Show service locations" aria-expanded="false"></button>
+      </div>
+      <ul class="mm-dd__list">
+        <li><a href="/service.html/chandigarh.html">Chandigarh</a></li>
+        <li><a href="/service.html/punjab.html">Punjab</a></li>
+        <li><a href="/service.html/haryana.html">Haryana</a></li>
+        <li><a href="/service.html/himachal.html">Himachal</a></li>
+      </ul>
+    </li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="blog.html">Blogs</a></li>
+    <li><a href="reviews.html">Testimonials</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</div>
 <main>
   <section class="hd pattern" aria-label="Gallery introduction">
     <div class="hd__bg" aria-hidden="true"></div>
@@ -192,25 +207,22 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
   <section class="sec pattern-light" aria-label="Photo gallery">
     <div class="wrap">
       <div class="grid" id="grid">
-        <button class="g-item t" data-cat="wedding" data-cap="Floral mandap, Chandigarh"><img src="fort wedding.jpg" alt="Floral wedding mandap" loading="lazy"><span class="tag">Wedding</span></button>
-        <button class="g-item" data-cat="decor" data-cap="Table styling with candles"><img src="gallery 1.jpg" alt="Wedding table decor" loading="lazy"><span class="tag">Decor</span></button>
-        <button class="g-item w" data-cat="destination" data-cap="Beachfront ceremony, Goa"><img src="destination wedding.JPG" alt="Beach wedding setup" loading="lazy"><span class="tag">Destination</span></button>
-        <button class="g-item" data-cat="mehndi" data-cap="Mehndi evening lounge"><img src="hero image 4 (2).jpg" alt="Mehndi function decor" loading="lazy"><span class="tag">Mehndi</span></button>
-        <button class="g-item t" data-cat="haldi" data-cap="Marigold haldi setup"><img src="mehandi.jpg" alt="Haldi ceremony decor" loading="lazy"><span class="tag">Haldi</span></button>
-        <button class="g-item" data-cat="engagement" data-cap="Ring ceremony stage"><img src="about image 2.jpg" alt="Engagement stage" loading="lazy"><span class="tag">Engagement</span></button>
-        <button class="g-item w" data-cat="reception" data-cap="Grand reception hall"><img src="gallery 3.jpg" alt="Reception hall decor" loading="lazy"><span class="tag">Reception</span></button>
-        <button class="g-item" data-cat="decor" data-cap="Floral entrance arch"><img src="hero image 3.jpg" alt="Floral entrance" loading="lazy"><span class="tag">Decor</span></button>
-        <button class="g-item t" data-cat="wedding" data-cap="Bride and groom portrait"><img src="wedding day gallery .jpg" alt="Bride and groom" loading="lazy"><span class="tag">Wedding</span></button>
-        <button class="g-item" data-cat="mehndi" data-cap="Sangeet stage lighting"><img src="ring ceremony.jpg" alt="Sangeet stage" loading="lazy"><span class="tag">Sangeet</span></button>
-        <button class="g-item" data-cat="destination" data-cap="Fort wedding, Rajasthan"><img src="destination wedding.JPG" alt="Fort wedding" loading="lazy"><span class="tag">Destination</span></button>
-        <button class="g-item" data-cat="engagement" data-cap="Pastel engagement brunch"><img src="door side 2.jpg" alt="Engagement brunch decor" loading="lazy"><span class="tag">Engagement</span></button>
-      <button class="g-item" data-cat="wedding" data-cap="Wedding stage decor"><img src="images/gallery/g13.jpg" alt="Wedding stage decor" loading="lazy"><span class="tag">Wedding</span></button>
-<button class="g-item t" data-cat="decor" data-cap="Floral ceiling installation"><img src="images/gallery/g14.jpg" alt="Floral ceiling decor" loading="lazy"><span class="tag">Decor</span></button>
-<button class="g-item" data-cat="mehndi" data-cap="Mehndi seating setup"><img src="images/gallery/g15.jpg" alt="Mehndi seating setup" loading="lazy"><span class="tag">Mehndi</span></button>
-<button class="g-item w" data-cat="reception" data-cap="Reception stage and lighting"><img src="images/gallery/g16.jpg" alt="Reception stage" loading="lazy"><span class="tag">Reception</span></button>
-<button class="g-item" data-cat="haldi" data-cap="Haldi ceremony corner"><img src="images/gallery/g17.jpg" alt="Haldi ceremony decor" loading="lazy"><span class="tag">Haldi</span></button>
-<button class="g-item" data-cat="engagement" data-cap="Engagement backdrop"><img src="images/gallery/g18.jpg" alt="Engagement backdrop" loading="lazy"><span class="tag">Engagement</span></button>
-<button class="g-item t" data-cat="destination" data-cap="Destination wedding mandap"><img src="images/gallery/g19.jpg" alt="Destination wedding mandap" loading="lazy"><span class="tag">Destination</span></button> </div>
+        <button class="g-item t" data-cat="wedding" data-cap="Floral mandap, Chandigarh"><img src="/images/fort wedding.jpg" alt="Floral wedding mandap" loading="lazy"><span class="tag">Wedding</span></button>
+        <button class="g-item" data-cat="decor" data-cap="Table styling with candles"><img src="/images/gallery 1.jpg" alt="Wedding table decor" loading="lazy"><span class="tag">Decor</span></button>
+        <button class="g-item w" data-cat="destination" data-cap="Beachfront ceremony, Goa"><img src="/images/destination wedding.JPG" alt="Beach wedding setup" loading="lazy"><span class="tag">Destination</span></button>
+        <button class="g-item" data-cat="mehndi" data-cap="Mehndi evening lounge"><img src="/images/hero image 4 (2).jpg" alt="Mehndi function decor" loading="lazy"><span class="tag">Mehndi</span></button>
+        <button class="g-item t" data-cat="haldi" data-cap="Marigold haldi setup"><img src="/images/haldi.JPG" alt="Haldi ceremony decor" loading="lazy"><span class="tag">Haldi</span></button>
+        <button class="g-item" data-cat="engagement" data-cap="Ring ceremony stage"><img src="/images/mehandi.jpg" alt="Engagement stage" loading="lazy"><span class="tag">Engagement</span></button>
+        <button class="g-item w" data-cat="reception" data-cap="Grand reception hall"><img src="/images/gallery 3.jpg" alt="Reception hall decor" loading="lazy"><span class="tag">Reception</span></button>
+        <button class="g-item" data-cat="decor" data-cap="Floral entrance arch"><img src="/images/hero image 3.jpg" alt="Floral entrance" loading="lazy"><span class="tag">Decor</span></button>
+        <button class="g-item t" data-cat="wedding" data-cap="Bride and groom portrait"><img src="/images/wedding day gallery .jpg" alt="Bride and groom" loading="lazy"><span class="tag">Wedding</span></button>
+        <button class="g-item" data-cat="mehndi" data-cap="Sangeet stage lighting"><img src="/images/ring ceremony.jpg" alt="Sangeet stage" loading="lazy"><span class="tag">Sangeet</span></button>
+        <button class="g-item" data-cat="destination" data-cap="Fort wedding, Rajasthan"><img src="/images/destination wedding.JPG" alt="Fort wedding" loading="lazy"><span class="tag">Destination</span></button>
+        <button class="g-item" data-cat="engagement" data-cap="Pastel engagement brunch"><img src="/images/door side 2.jpg" alt="Engagement brunch decor" loading="lazy"><span class="tag">Engagement</span></button>
+      <button class="g-item" data-cat="wedding" data-cap="Wedding stage decor"><img src="/images/wedding gallery img.jpg" alt="Wedding stage decor" loading="lazy"><span class="tag">Wedding</span></button>
+<button class="g-item t" data-cat="decor" data-cap="Floral ceiling installation"><img src="/images/haldi gallery img.jpg" alt="Floral ceiling decor" loading="lazy"><span class="tag">Decor</span></button>
+<button class="g-item" data-cat="mehndi" data-cap="Mehndi seating setup"><img src="/images/mehandi gallery img.JPG" alt="Mehndi seating setup" loading="lazy"><span class="tag">Mehndi</span></button>
+
     </div>
   </section>
 
@@ -251,7 +263,7 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="service.html/mainservice.html">Services</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="index.html#events">Events</a></li>
           <li><a href="index.html#films">Films</a></li>
@@ -316,18 +328,7 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
   var hasG = typeof gsap !== "undefined";
   if (hasG) gsap.registerPlugin.apply(gsap, [ScrollTrigger, Flip, Observer, window.SplitText].filter(Boolean));
 
-  /* NAV + DRAWER (no GSAP needed) */
-  var nav = $("#nav"), drawer = $("#drawer"), ov = $("#drawerOv"), tg = $(".nav__toggle");
-  function onScroll() { nav.classList.toggle("is-scrolled", window.scrollY > 60); }
-  onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
-  function setDrawer(o) {
-    drawer.classList.toggle("is-open", o); ov.classList.toggle("is-open", o);
-    drawer.setAttribute("aria-hidden", String(!o)); tg.setAttribute("aria-expanded", String(o));
-    document.body.style.overflow = o ? "hidden" : "";
-  }
-  tg.addEventListener("click", function () { setDrawer(true); });
-  $("button", drawer).addEventListener("click", function () { setDrawer(false); });
-  ov.addEventListener("click", function () { setDrawer(false); });
+
 
   /* FILTER (Flip) */
   var items = $$(".g-item"), pills = $$(".pill");
@@ -383,7 +384,7 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
   $(".lb__n").addEventListener("click", function () { show(cur + 1, 1); });
   lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") { closeLb(); setDrawer(false); closeVid(); }
+   if (e.key === "Escape") { closeLb(); closeVid(); }
     if (!open) return;
     if (e.key === "ArrowLeft") show(cur - 1, -1);
     if (e.key === "ArrowRight") show(cur + 1, 1);
@@ -417,7 +418,7 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
   /* ANIMATIONS (skipped for reduced motion, content stays visible) */
   gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", function () {
     // page load
-    gsap.from(".nav", { yPercent: -100, autoAlpha: 0, duration: .9, ease: "power3.out" });
+
     var tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
     tl.from(".hd__e", { y: 24, autoAlpha: 0 });
     if (window.SplitText) {
@@ -466,6 +467,6 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
 
   window.addEventListener("load", function () { ScrollTrigger.refresh(); });
 })();
-</script>
+</script><script src="partials/navbar.js" defer></script>
 </body>
 </html>
