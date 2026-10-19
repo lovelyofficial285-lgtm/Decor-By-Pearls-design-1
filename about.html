@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About Us | Decor By Pearls – Luxury Wedding Planner in Mohali & Chandigarh</title>
+    <title>About Us | Decor By Pearls – Luxury Wedding Planner in India</title>
     <meta name="description" content="Meet the team behind Decor By Pearls. 12+ years crafting intimate garden ceremonies and grand destination weddings across Chandigarh, Punjab, Haryana and Himachal.">
     <meta name="theme-color" content="#102542">
     <link rel="icon" href="favicon.ico">
@@ -144,27 +144,7 @@
         .craft__row:hover b { font-style: italic; }
         .craft__row:hover span { transform: translate(6px, -6px); }
 
-        /* ===== 4. TEAM: staggered arches ===== */
-        .team { background: var(--midnight); color: var(--ivory); padding: var(--pad) 0; }
-        .team__head { text-align: center; max-width: 620px; margin: 0 auto clamp(48px, 7vw, 90px); }
-        .team__head .eyebrow { margin-bottom: 20px; }
-        .team__head h2 { font-family: var(--display); font-weight: 400; font-size: clamp(2.4rem, 5vw, 4.4rem); line-height: 1.02; margin-bottom: 18px; }
-        .team__head h2 em { color: var(--champagne); }
-        .team__head p { color: rgba(250,248,245,.7); }
-        .team__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
-        .member:nth-child(2) { margin-top: clamp(40px, 7vw, 96px); }
-        .member:nth-child(3) { margin-top: clamp(12px, 2.5vw, 36px); }
-        .member__photo { aspect-ratio: 3 / 4.2; border-radius: 999px 999px 0 0; overflow: hidden; margin-bottom: 26px; }
-        .member__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
-        .member:hover .member__photo img { transform: scale(1.05); }
-        .member h3 { font-family: var(--display); font-style: italic; font-weight: 400; font-size: clamp(1.8rem, 2.6vw, 2.4rem); line-height: 1.1; margin-bottom: 6px; }
-        .member .role { font-size: .7rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--champagne); margin-bottom: 14px; }
-        .member p:last-child { color: rgba(250,248,245,.7); font-size: .95rem; max-width: 34ch; }
-        @media (max-width: 799.98px) {
-        .team__grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; gap: 56px; }
-        .member:nth-child(n) { margin-top: 0; }
-        }
-
+       
         /* ===== 5. VISIT ===== */
         .visit { background: var(--ivory); padding: var(--pad) 0; }
         .visit__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(40px, 7vw, 110px); align-items: start; }
@@ -229,7 +209,107 @@
 .footer a:hover,.footer a:focus-visible{color:#c79c5a}
 .footer__bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(216,195,165,.16);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;font-size:.8rem}
 .footer__legal{display:flex;flex-wrap:wrap;gap:8px 22px}
-@media(min-width:768px){.footer__grid{grid-template-columns:1.6fr 1fr 1fr 1.4fr}}
+@media(min-width:768px){.footer__grid{grid-template-columns:1.6fr 1fr 1fr 1.4fr}} /* Bigger logo, tighter header */
+.site-nav__inner { padding-top: 4px !important; padding-bottom: 4px !important; min-height: 0 !important; }
+.site-header { padding-top: 0 !important; padding-bottom: 0 !important; }
+.site-nav { padding-top: 0 !important; padding-bottom: 0 !important; }
+
+.site-nav__brand { line-height: 0; display: flex; align-items: center; }
+.site-nav__brand img { height: 80px !important; width: auto !important; }
+.site-header.is-scrolled .site-nav__brand img { height: 64px !important; }
+
+@media (max-width: 767.98px) {
+  .site-nav__brand img { height: 72px !important; }
+  .site-header.is-scrolled .site-nav__brand img { height: 56px !important; }
+} .opening__grid {
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr !important;
+  grid-template-areas: "left arch right" ". eyebrow ." !important;
+  align-items: center;
+  gap: clamp(10px, 3vw, 56px);
+}
+.opening__left  { grid-area: left !important;  align-self: start !important; text-align: right; }
+.opening__arch  { grid-area: arch !important;  width: clamp(150px, 40vw, 480px); margin: 0; }
+.opening__right { grid-area: right !important; align-self: end !important;   text-align: left; }
+.opening__eyebrow { grid-area: eyebrow; text-align: center; margin: 18px 0 0; }
+.opening__title { font-size: clamp(1.5rem, 5.2vw, 5.8rem); }
+
+@media (max-width: 480px) {
+  .opening__title { font-size: 1.35rem; }
+  .opening .eyebrow { font-size: .6rem; letter-spacing: .16em; }
+}@media (max-width: 767.98px) {
+  .opening__grid {
+    position: relative;
+    grid-template-columns: 1fr !important;
+    grid-template-areas: "arch" "eyebrow" !important;
+    justify-items: center;
+  }
+  .opening__arch { width: min(82vw, 480px); }
+  .opening__left, .opening__right {
+    position: absolute;
+    z-index: 2;
+    text-shadow: 0 2px 14px rgba(0,0,0,.7);
+  }
+  .opening__left  { bottom: 102%;     left: 6%;  text-align: left; }
+  .opening__right {         bottom: 24%;
+        right: -5%; text-align: right; }
+  .opening__title { font-size: clamp(1.6rem, 8vw, 2.6rem); }
+} .opening.anim .w { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .12em; }
+.opening.anim .w > span { display: inline-block; transform: translateY(110%); transition: transform 1s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d); }
+.opening.anim .opening__arch { opacity: 0; transform: scale(.94); transition: opacity 1.2s ease, transform 1.4s cubic-bezier(.2,.7,.2,1); }
+.opening.anim .opening__eyebrow { opacity: 0; transform: translateY(14px); transition: opacity .8s ease 1.1s, transform .8s ease 1.1s; }
+
+.opening.anim.is-in .w > span { transform: none; }
+.opening.anim.is-in .opening__arch { opacity: 1; transform: none; }
+.opening.anim.is-in .opening__eyebrow { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .opening.anim .w > span, .opening.anim .opening__arch, .opening.anim .opening__eyebrow { transition: none; transform: none; opacity: 1; }
+} @media (min-width: 768px) {
+  .opening { min-height: 100svh; padding: 110px 0 40px; align-items: center; }
+  .opening__grid {
+    grid-template-columns: 1fr auto 1fr !important;
+    row-gap: 16px;
+    column-gap: clamp(16px, 3vw, 48px);
+  }
+  .opening__arch {
+    width: auto;
+    height: calc(100svh - 240px);
+    max-height: 760px;
+    aspect-ratio: 3 / 4.3;
+    justify-self: center;
+  }
+ 
+} /* ===== TEAM CARDS ===== */
+.ptm { background-color: #102542; background-image: linear-gradient(rgba(16,37,66,.9), rgba(16,37,66,.9)), url("pattern.jpg"); background-size: auto, 320px auto; color: #fff; padding: clamp(70px, 10vw, 120px) 0; }
+.ptm__wrap { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+.ptm__head { text-align: center; margin-bottom: clamp(36px, 6vw, 64px); }
+.ptm__head .eyebrow { margin: 0 0 14px; }
+.ptm__title { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-weight: 400; line-height: 1.06; letter-spacing: -.01em; font-size: clamp(2.2rem, 5vw, 3.6rem); }
+.ptm__title em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; color: var(--brass); }
+
+.ptm__grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.ptm__card { position: relative; overflow: hidden; min-height: 460px; border-radius: 20px; border: 1px solid rgba(216,195,165,.22); background: var(--sapphire); }
+.ptm__card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .8s ease; }
+.ptm__card:hover img { transform: scale(1.06); }
+.ptm__card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,16,38,.96) 0%, rgba(10,16,38,.75) 35%, rgba(10,16,38,0) 70%); }
+.ptm__body { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 26px; }
+.ptm__tag { display: inline-block; margin-bottom: 12px; padding: 6px 14px; border-radius: 999px; background: var(--brass); color: var(--midnight); font-size: .62rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+.ptm__card h3 { margin: 0 0 4px; font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 1.8rem; color: #fff; }
+.ptm__role { margin: 0 0 10px; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+.ptm__bio { margin: 0; font-size: .92rem; line-height: 1.55; color: rgba(255,255,255,.78); }
+
+@media (min-width: 768px) {
+  .ptm__grid { grid-template-columns: repeat(3, 1fr); }
+  .ptm__card { min-height: 520px; }
+}  .opening { position: relative; padding-bottom: 76px !important; }
+.opening > .opening__eyebrow {
+  position: absolute !important;
+  left: 0; right: 0; bottom: 28px;
+  margin: 0 !important;
+  text-align: center;
+  grid-area: auto !important;
+}
     </style>
     </head>
     <body>
@@ -244,7 +324,7 @@
       <div class="site-nav__desktop">
         <div class="site-nav__links">
           <a href="index.html" data-page="index.html">Home</a>
-
+          
           <div class="nav-dd" id="navDd">
             <a href="service.html/mainservice.html" class="nav-dd__link" data-page="services.html">Services</a>
             <button class="nav-dd__caret" type="button" aria-label="Show service locations" aria-expanded="false" aria-controls="navDdMenu"></button>
@@ -255,11 +335,11 @@
               <li><a href="/service.html/himachal.html" data-page="himachal-wedding-planner.html">Himachal</a></li>
             </ul>
           </div>
+          <a href="about.html" data-page="about.html">About</a>
 
           <a href="gallery.html" data-page="gallery.html">Gallery</a>
           <a href="blog.html" data-page="blog.html">Blogs</a>
           <a href="reviews.html" data-page="reviews.html">Testimonials</a>
-          <a href="about.html" data-page="about.html">About</a>
         </div>
         <a class="nav-btn" href="contact.html">Plan Your Event</a>
       </div>
@@ -283,16 +363,16 @@
         <button class="mm-dd__btn" type="button" aria-label="Show service locations" aria-expanded="false"></button>
       </div>
       <ul class="mm-dd__list">
-        <li><a href="chandigarh-wedding-planner.html">Chandigarh</a></li>
-        <li><a href="punjab-wedding-planner.html">Punjab</a></li>
-        <li><a href="haryana-wedding-planner.html">Haryana</a></li>
-        <li><a href="himachal-wedding-planner.html">Himachal</a></li>
+        <li><a href="/service.html/chandigarh.html">Chandigarh</a></li>
+        <li><a href="/service.html/punjab.html">Punjab</a></li>
+        <li><a href="/service.html/haryana.html">Haryana</a></li>
+        <li><a href="/service.html/himachal.html">Himachal</a></li>
       </ul>
+      <li><a href="about.html">About</a></li>
     </li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="blog.html">Blogs</a></li>
     <li><a href="reviews.html">Testimonials</a></li>
-    <li><a href="about.html">About</a></li>
   </ul>
 </div>
 
@@ -302,16 +382,16 @@
         <section class="opening pattern-bg" aria-label="About Decor By Pearls">
         <div class="opening__grid">
             <div class="opening__left">
-            <p class="eyebrow">Our story</p>
+            <!-- <p class="eyebrow">Our story</p> -->
             <h1 class="opening__title">We turn <em>dreams</em><span class="sr-only"> into memories.</span></h1>
             </div>
             <figure class="opening__arch">
-            <img src="https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?auto=format&fit=crop&w=1000&q=80" alt="Floral wedding arch with white drapes" width="900" height="1290">
+            <img src="/images/about page main image .jpg" alt="Floral wedding arch with white drapes" width="900" height="1290">
             </figure>
             <div class="opening__right">
             <p class="opening__title" aria-hidden="true">into <em>memories.</em></p>
             </div>
-        </div>
+        </div>  <p class="eyebrow opening__eyebrow">Our story</p>
         </section>
 
         <!-- 2. STORY -->
@@ -347,36 +427,43 @@
         </div>
         </section>
 
-        <!-- 4. TEAM -->
-        <section class="team pattern-bg">
-        <div class="wrap">
-            <div class="team__head rv">
-            <p class="eyebrow">The people behind the magic</p>
-            <h2>Meet our <em>team</em></h2>
-            <p>Passionate creatives who live &amp; breathe extraordinary celebrations.</p>
-            </div>
-            <div class="team__grid">
-            <article class="member rv">
-                <div class="member__photo"><img src="/images/Mohit Singh Rajput.jpeg" alt="Mohit Singh Rajput" loading="lazy"></div>
-                <h3>Mohit Singh Rajput</h3>
-                <p class="role">Founder &amp; Creative Director</p>
-                <p>Crafting extraordinary celebrations with timeless decor concepts, luxury aesthetics, and unforgettable event experiences.</p>
-            </article>
-            <article class="member rv" style="--d:.15s">
-                <div class="member__photo"><img src="/images/sachin mishra.jpeg" alt="Sachin Mishra" loading="lazy"></div>
-                <h3>Sachin Mishra</h3>
-                <p class="role">Co-Founder &amp; Operations Head</p>
-                <p>Managing seamless event execution, client coordination, and flawless planning for every celebration.</p>
-            </article>
-            <article class="member rv" style="--d:.3s">
-                <div class="member__photo"><img src="/images/Jasneet Kaur.jpeg" alt="Jasneet Kaur" loading="lazy"></div>
-                <h3>Jasneet Kaur</h3>
-                <p class="role">Co-Founder &amp; Styling Director</p>
-                <p>Bringing elegant wedding styling, creative themes, and personalized decor inspirations to life beautifully.</p>
-            </article>
-            </div>
+       <section class="ptm" aria-label="Meet our team">
+  <div class="ptm__wrap">
+    <div class="ptm__head rv">
+      <p class="eyebrow">The People Behind Your Day</p>
+      <h2 class="ptm__title">Meet Our <em>Team</em></h2>
+    </div>
+    <div class="ptm__grid">
+      <article class="ptm__card rv">
+        <img src="/images/Mohit Singh Rajput.jpeg" alt="Mohit Singh Rajput" loading="lazy">
+        <div class="ptm__body">
+          <span class="ptm__tag">Visionary</span>
+          <h3>Mohit Singh Rajput</h3>
+          <p class="ptm__role">Founder &amp; Creative Director</p>
+          <p class="ptm__bio">Crafting extraordinary celebrations with timeless decor concepts, luxury aesthetics, and unforgettable event experiences.</p>
         </div>
-        </section>
+      </article>
+      <article class="ptm__card rv" style="--d:.15s">
+        <img src="/images/sachin mishra.jpeg" alt="Sachin Mishra" loading="lazy">
+        <div class="ptm__body">
+          <span class="ptm__tag">Operations</span>
+          <h3>Sachin Mishra</h3>
+          <p class="ptm__role">Co-Founder &amp; Operations Head</p>
+          <p class="ptm__bio">Managing seamless event execution, client coordination, and flawless planning for every celebration.</p>
+        </div>
+      </article>
+      <article class="ptm__card rv" style="--d:.3s">
+        <img src="/images/Jasneet Kaur.jpeg" alt="Jasneet Kaur" loading="lazy">
+        <div class="ptm__body">
+          <span class="ptm__tag">Styling</span>
+          <h3>Jasneet Kaur</h3>
+          <p class="ptm__role">Co-Founder &amp; Styling Director</p>
+          <p class="ptm__bio">Bringing elegant wedding styling, creative themes, and personalized decor inspirations to life beautifully.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
         <!-- 5. VISIT -->
         <section class="visit" id="contact">
@@ -468,6 +555,46 @@
   items.forEach(function (el) { io.observe(el); });
 })();
 </script>
-    </script>
+    </script> <script>
+(function () {
+  var sec = document.querySelector(".opening");
+  if (!sec) return;
+  var i = 0;
+
+  function split(node) {
+    Array.from(node.childNodes).forEach(function (n) {
+      if (n.nodeType === 1) {
+        if (!n.classList.contains("sr-only")) split(n);
+      } else if (n.nodeType === 3 && n.textContent.trim()) {
+        var frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(" ")); return; }
+          var w = document.createElement("span");
+          var s = document.createElement("span");
+          w.className = "w";
+          s.textContent = part;
+          s.style.setProperty("--d", (0.25 + i * 0.14) + "s");
+          i++;
+          w.appendChild(s);
+          frag.appendChild(w);
+        });
+        n.parentNode.replaceChild(frag, n);
+      }
+    });
+  }
+
+  sec.querySelectorAll(".opening__title").forEach(split);
+  sec.classList.add("anim");
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (en, io) {
+      if (en[0].isIntersecting) { sec.classList.add("is-in"); io.disconnect(); }
+    }, { threshold: 0.3 }).observe(sec);
+  } else {
+    sec.classList.add("is-in");
+  }
+})();
+</script>
     </body>
     </html>

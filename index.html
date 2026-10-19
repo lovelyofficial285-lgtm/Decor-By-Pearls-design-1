@@ -514,7 +514,7 @@ height: calc(var(--door-h) * .8468);
 .sec__head { text-align: center; margin-bottom: clamp(36px, 6vw, 64px); }
 .sec__head .eyebrow { margin-bottom: 14px; }
 .sec__title { font-size: clamp(2.2rem, 5vw, 3.6rem); }
-.sec__title em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; color: var(--brass); }
+.sec__title  { font-family: "Instrument Serif", Georgia, serif; font-style: italic; color: var(--brass); }
 .sec__cta { text-align: center; margin-top: 48px; }
 .btn-dark { background: var(--midnight); color: var(--white); border: 1px solid var(--midnight); }
 .btn-dark:hover, .btn-dark:focus-visible { background: var(--brass); border-color: var(--brass); color: var(--midnight); }
@@ -845,7 +845,47 @@ height: calc(var(--door-h) * .8468);
   letter-spacing:.14em;
   text-transform:uppercase;
   font-size:.74rem;
-} 
+}  /* Bigger logo, tighter header */
+.site-nav__inner { padding-top: 4px !important; padding-bottom: 4px !important; min-height: 0 !important; }
+.site-header { padding-top: 0 !important; padding-bottom: 0 !important; }
+.site-nav { padding-top: 0 !important; padding-bottom: 0 !important; }
+
+.site-nav__brand { line-height: 0; display: flex; align-items: center; }
+.site-nav__brand img { height: 80px !important; width: auto !important; }
+.site-header.is-scrolled .site-nav__brand img { height: 64px !important; }
+
+@media (max-width: 767.98px) {
+  .site-nav__brand img { height: 72px !important; }
+  .site-header.is-scrolled .site-nav__brand img { height: 56px !important; }
+} /* ===== FEATURES & APPRECIATION ===== */
+.features { background: #f0e8dc; padding: clamp(50px, 7vw, 80px) 0; text-align: center; }
+.features__title { margin: 0; font-family: var(--heading-font); font-weight: 600; font-size: clamp(1.2rem, 2.4vw, 1.6rem); letter-spacing: .04em; text-transform: uppercase; color: var(--midnight); }
+.features__sub { margin: 4px 0 clamp(28px, 4vw, 44px); font-family: var(--heading-font); font-size: 1.05rem; color: var(--muted); }
+.features__logos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 20px; align-items: center; justify-items: center; }
+.features__logos img { max-height: 38px; width: auto; max-width: 100%; object-fit: contain; filter: grayscale(1); opacity: .75; transition: opacity .3s ease, filter .3s ease; }
+.features__logos img:hover { opacity: 1; filter: grayscale(0); }
+@media (min-width: 640px) { .features__logos { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 992px) { .features__logos { grid-template-columns: repeat(6, 1fr); gap: 20px 32px; } .features__logos img { max-height: 44px; } }
+
+/* ===== INSTAGRAM ===== */
+.insta__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.insta__item { position: relative; display: block; overflow: hidden; border-radius: 6px; aspect-ratio: 1; background: var(--sapphire); }
+.insta__item img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.insta__item::after { content: ""; position: absolute; inset: 0; background: rgba(16,37,66,.55); opacity: 0; transition: opacity .35s ease; }
+.insta__item::before {
+  content: ""; position: absolute; z-index: 1; top: 50%; left: 50%; width: 30px; height: 30px; margin: -15px 0 0 -15px;
+  border: 2px solid #fff; border-radius: 9px; opacity: 0; transition: opacity .35s ease;
+  background: radial-gradient(circle, transparent 5px, #fff 5px, #fff 7px, transparent 7px);
+}
+.insta__item:hover img { transform: scale(1.08); }
+.insta__item:hover::after, .insta__item:hover::before { opacity: 1; }
+@media (min-width: 640px) { .insta__grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 992px) { .insta__grid { grid-template-columns: repeat(6, 1fr); gap: 14px; } }
+
+/* ===== MAP ===== */
+.map { background: var(--midnight); padding: clamp(60px, 8vw, 100px) 0 0; }
+.map__frame { max-width: 1000px; margin: 0 auto; padding: 0 20px clamp(60px, 8vw, 100px); border: 0; }
+.map__frame iframe { display: block; width: 100%; height: clamp(300px, 40vw, 420px); border: 1px solid rgba(199,156,90,.45); border-radius: 12px; filter: grayscale(.35) contrast(1.05); }.map__addr { text-align: center; margin: -12px auto 40px; max-width: 56ch; color: rgba(255,255,255,.78); font-size: .95rem; }
 </style>
  
   </style>
@@ -887,10 +927,10 @@ height: calc(var(--door-h) * .8468);
             </ul>
           </div>
  
+          <a href="about.html" data-page="about.html">About</a>
           <a href="gallery.html" data-page="gallery.html">Gallery</a>
           <a href="blog.html" data-page="blog.html">Blogs</a>
           <a href="reviews.html" data-page="testimonials.html">Testimonials</a>
-          <a href="about.html" data-page="about.html">About</a>
         </div>
         <a class="nav-btn" href="contact.html">Plan Your Event</a>
       </div>
@@ -920,10 +960,10 @@ height: calc(var(--door-h) * .8468);
         <li><a href="himachal-wedding-planner.html">Himachal</a></li>
       </ul>
     </li>
+    <li><a href="about.html">About</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="blog.html">Blogs</a></li>
     <li><a href="testimonials.html">Testimonials</a></li>
-    <li><a href="about.html">About</a></li>
   </ul>
 </div>
 
@@ -950,7 +990,7 @@ height: calc(var(--door-h) * .8468);
       <div class="hero__overlay" aria-hidden="true"></div>
 
       <div class="container hero__content">
-        <p class="eyebrow hero__eyebrow">Wedding Planner &amp; Decor in Chandigarh</p>
+        <p class="eyebrow hero__eyebrow">Wedding Planner &amp; Decor in India</p>
 
         <h1 class="hero__title">
           <span class="hero__line"><span>Timeless weddings,</span></span>
@@ -962,7 +1002,7 @@ height: calc(var(--door-h) * .8468);
         <div class="hero__actions">
           <a class="btn btn-brass magnetic-btn" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding">Book Consultation</a>
           <!-- FIX: now scrolls to the gate, not WhatsApp -->
-          <a class="btn btn-outline-light magnetic-btn" href="#doorReveal">View Our Work</a>
+          <a class="btn btn-outline-light magnetic-btn" href="/service.html/mainservice.html">View Our Work</a>
         </div>
       </div>
 
@@ -1050,7 +1090,7 @@ height: calc(var(--door-h) * .8468);
         <h2 class="sec__title">We turn dreams into <em>memories</em></h2>
 <p>From intimate garden ceremonies to grand destination weddings, we handle every detail with care: the finest vendors, breathtaking decor, and flawless events across India.</p>
 <p>Based in Mohali, we have spent over a decade designing weddings across Chandigarh, Punjab, Haryana and Himachal, and in destination cities across the country. Every celebration begins with listening: your story, your families, your traditions.</p>
-<p>From mehndi, haldi and sangeet to the wedding and reception, our team handles concept design, floral work, styling and on-ground coordination, so you can enjoy every moment instead of managing it.</p>        <a class="btn btn-dark" href="#contact">Our Story</a>
+<p>From mehndi, haldi and sangeet to the wedding and reception, our team handles concept design, floral work, styling and on-ground coordination, so you can enjoy every moment instead of managing it.</p>        <a class="btn btn-dark" href="/contact.html">Our Story</a>
       </div>
     </div>
     <div class="stats reveal">
@@ -1111,10 +1151,10 @@ height: calc(var(--door-h) * .8468);
     <div class="events">
       <article class="event reveal"><img src="images/real beach wedding.jpeg" alt="Beach wedding" loading="lazy"><div class="event__body"><h3>Beach Weddings</h3><p>Blue skies and ocean waves.</p><a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Beach%20Wedding">Book Now</a></div></article>
       <article class="event reveal"><img src="images/cruise wedding.jpeg" alt="Cruise wedding" loading="lazy"><div class="event__body"><h3>Cruise Weddings</h3><p>Celebrate on the open ocean.</p><a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Cruise%20Wedding">Book Now</a></div></article>
-      <article class="event reveal"><img src="images/Vineyard Weddings .jpg" alt="Vineyard wedding" loading="lazy"><div class="event__body"><h3>Vineyard Weddings</h3><p>Green wineries, romantic settings.</p><a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Vineyard%20Weddings">Book Now</a></div></article>
+      <article class="event reveal"><img src="/images/Vineyard Weddings.jpg" alt="Vineyard wedding" loading="lazy"><div class="event__body"><h3>Vineyard Weddings</h3><p>Green wineries, romantic settings.</p><a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Vineyard%20Weddings">Book Now</a></div></article>
       <article class="event reveal"><img src="images/fort wedding.jpg" alt="Fort wedding" loading="lazy"><div class="event__body"><h3>Fort Weddings</h3><p>Royal grandeur, unforgettable.</p><a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Fort%20Weddings">Book Now</a></div></article>
       <article class="event reveal"><img src="images/mountain real wedding.jpeg" alt="Mountain wedding" loading="lazy"><div class="event__body"><h3>Mountain Weddings</h3><p>Hilltop vistas and cool air.</p><a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Mountain%20Weddings">Book Now</a></div></article>
-      <article class="event reveal"><img src="images/intimate wedding.jpg" alt="Intimate wedding" loading="lazy"><div class="event__body"><h3>Intimate Weddings</h3><p>Cozy, meaningful, with family.</p><a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Intimate%20Weddings">Book Now</a></div></article>
+      <article class="event reveal"><img src="/images/gallery 4.jpg" alt="Intimate wedding" loading="lazy"><div class="event__body"><h3>Intimate Weddings</h3><p>Cozy, meaningful, with family.</p><a class="btn btn-brass" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20know%20more%20about%20Intimate%20Weddings">Book Now</a></div></article>
     </div>
   </div>
 </section>
@@ -1128,12 +1168,12 @@ height: calc(var(--door-h) * .8468);
     </div>
    
 <div class="collage">
-  <figure class="collage__item c1 reveal"><img src="/images/gallery 1.jpg" alt="Wedding stage decor" loading="lazy"></figure>
+  <figure class="collage__item c1 reveal"><img src="/images/index gallery 1.jpg" alt="Wedding stage decor" loading="lazy"></figure>
   <figure class="collage__item c2 reveal"><img src="/images/gallery 2.jpg" alt="Table setting" loading="lazy"></figure>
-  <figure class="collage__item c3 reveal"><img src="/images/gallery 3.jpg" alt="Floral mandap" loading="lazy"></figure>
+  <figure class="collage__item c3 reveal"><img src="/images/index gallery 4.jpg" alt="Floral mandap" loading="lazy"></figure>
   <figure class="collage__item c4 reveal"><img src="/images/gallery 3.jpg" alt="Outdoor ceremony" loading="lazy"></figure>
   <figure class="collage__item c5 reveal"><img src="/images/gallery 5.jpg" alt="Reception decor" loading="lazy"></figure>
-  <figure class="collage__item c6 reveal"><img src="/images/gallery 4.jpg" alt="Bridal portrait" loading="lazy"></figure>
+  <figure class="collage__item c6 reveal"><img src="/images/intimate wedding index img .jpg" alt="Bridal portrait" loading="lazy"></figure>
 </div>
     </div>
     <div class="sec__cta"><a class="btn btn-dark" href="/contact.html">Plan Your Event</a></div>
@@ -1223,8 +1263,22 @@ height: calc(var(--door-h) * .8468);
     <figcaption class="review__who">WedMeGood Review<span><a href="https://www.wedmegood.com/profile/decor-by-pearls--26002481/reviews/672939" target="_blank" rel="noopener">View on WedMeGood</a></span></figcaption>
   </figure>
 </div>
+  </div> 
+</section> <section class="features" id="features" aria-label="Features and appreciation">
+  <div class="container reveal">
+    <h2 class="features__title">Features and Appreciation</h2>
+    <p class="features__sub">Partners</p>
+    <div class="features__logos">
+      <img src="/images/wedmegood.png" alt="WedMeGood" loading="lazy">
+      <img src="images/logos/weddingsutra.png" alt="WeddingSutra" loading="lazy">
+      <img src="images/logos/vogue.png" alt="Vogue" loading="lazy">
+      <img src="images/logos/weddingwire.png" alt="WeddingWire.in" loading="lazy">
+      <img src="images/logos/weddingbazaar.png" alt="WeddingBazaar" loading="lazy">
+      <img src="images/logos/bridestory.png" alt="Bridestory" loading="lazy">
+    </div>
   </div>
 </section>
+
   <!-- FAQ -->
 <section class="sec sec--dark pattern-bg" id="faq" aria-label="Frequently asked questions">
   <div class="container faq">
@@ -1335,7 +1389,41 @@ height: calc(var(--door-h) * .8468);
 </section>
 </section>
  
-<!-- CTA -->
+
+<!-- INSTAGRAM -->
+<section class="sec sec--dark pattern-bg" id="instagram" aria-label="Follow us on Instagram">
+  <div class="container">
+    <div class="sec__head reveal">
+      <p class="eyebrow">@decor_bypearls</p>
+      <h2 class="sec__title">Follow us on <em>Instagram</em></h2>
+    </div>
+    <div class="insta__grid">
+      <a class="insta__item reveal" href="https://www.instagram.com/decor_bypearls" target="_blank" rel="noopener" aria-label="View on Instagram"><img src="images/gallery 2.jpg" alt="Decor By Pearls on Instagram" loading="lazy"></a>
+      <a class="insta__item reveal" href="https://www.instagram.com/decor_bypearls" target="_blank" rel="noopener" aria-label="View on Instagram"><img src="images/gallery 3.jpg" alt="Decor By Pearls on Instagram" loading="lazy"></a>
+      <a class="insta__item reveal" href="https://www.instagram.com/decor_bypearls" target="_blank" rel="noopener" aria-label="View on Instagram"><img src="images/gallery 5.jpg" alt="Decor By Pearls on Instagram" loading="lazy"></a>
+      <a class="insta__item reveal" href="https://www.instagram.com/decor_bypearls" target="_blank" rel="noopener" aria-label="View on Instagram"><img src="images/gallery 4.jpg" alt="Decor By Pearls on Instagram" loading="lazy"></a>
+      <a class="insta__item reveal" href="https://www.instagram.com/decor_bypearls" target="_blank" rel="noopener" aria-label="View on Instagram"><img src="images/door side.jpg" alt="Decor By Pearls on Instagram" loading="lazy"></a>
+      <a class="insta__item reveal" href="https://www.instagram.com/decor_bypearls" target="_blank" rel="noopener" aria-label="View on Instagram"><img src="images/about image 2.jpg" alt="Decor By Pearls on Instagram" loading="lazy"></a>
+    </div>
+    <div class="sec__cta"><a class="btn btn-brass" href="https://www.instagram.com/decor_bypearls" target="_blank" rel="noopener">Follow @decor_bypearls</a></div>
+  </div>
+</section>
+
+<!-- MAP -->
+<!-- MAP -->
+<section class="map" id="map" aria-label="Our location">
+  <div class="container">
+    <div class="sec__head reveal">
+      <p class="eyebrow">Visit Us</p>
+      <h2 class="sec__title">Find <em>us</em></h2>
+    </div>
+    <p class="map__addr">4th Floor, Plot No. C-210 B, Fateh Tower, Industrial Area, Phase 8B, Sector 74, Mohali, Punjab 140307</p>
+  </div>
+  <div class="map__frame">
+    <iframe title="Decor By Pearls location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps?q=Fateh+Tower,+Industrial+Area+Phase+8B,+Sector+74,+Mohali,+Punjab+140307&output=embed"></iframe>
+  </div>
+</section> <!-- CTA -->
 <section class="sec cta" id="cta" aria-label="Get in touch" style="background:var(--sapphire);color:var(--white)">
   <div class="container reveal">
     <h2 class="sec__title">Begin your <em>love story</em></h2>

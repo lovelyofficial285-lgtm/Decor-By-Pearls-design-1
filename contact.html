@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact Us | Decor By Pearls – Wedding Planner in Mohali & Chandigarh</title>
+<title>Contact Us | Decor By Pearls – Wedding Planner in India</title>
 <meta name="description" content="Plan your wedding with Decor By Pearls. Send an enquiry, call or WhatsApp our Mohali team for a complimentary consultation.">
 <meta name="theme-color" content="#102542">
 <link rel="icon" href="favicon.ico">
@@ -93,7 +93,19 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
 .footer a:hover,.footer a:focus-visible{color:#c79c5a}
 .footer__bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(216,195,165,.16);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;font-size:.8rem}
 .footer__legal{display:flex;flex-wrap:wrap;gap:8px 22px}
-@media(min-width:768px){.footer__grid{grid-template-columns:1.6fr 1fr 1fr 1.4fr}}
+@media(min-width:768px){.footer__grid{grid-template-columns:1.6fr 1fr 1fr 1.4fr}} /* Bigger logo, tighter header */
+.site-nav__inner { padding-top: 4px !important; padding-bottom: 4px !important; min-height: 0 !important; }
+.site-header { padding-top: 0 !important; padding-bottom: 0 !important; }
+.site-nav { padding-top: 0 !important; padding-bottom: 0 !important; }
+
+.site-nav__brand { line-height: 0; display: flex; align-items: center; }
+.site-nav__brand img { height: 80px !important; width: auto !important; }
+.site-header.is-scrolled .site-nav__brand img { height: 64px !important; }
+
+@media (max-width: 767.98px) {
+  .site-nav__brand img { height: 72px !important; }
+  .site-header.is-scrolled .site-nav__brand img { height: 56px !important; }
+}
 </style>
 </head>
 <body>
@@ -120,10 +132,10 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
             </ul>
           </div>
 
+          <a href="about.html" data-page="about.html">About</a>
           <a href="gallery.html" data-page="gallery.html">Gallery</a>
           <a href="blog.html" data-page="blog.html">Blogs</a>
           <a href="reviews.html" data-page="reviews.html">Testimonials</a>
-          <a href="about.html" data-page="about.html">About</a>
         </div>
         <a class="nav-btn" href="contact.html">Plan Your Event</a>
       </div>
@@ -153,10 +165,10 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
         <li><a href="himachal-wedding-planner.html">Himachal</a></li>
       </ul>
     </li>
+    <li><a href="about.html">About</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="blog.html">Blogs</a></li>
     <li><a href="reviews.html">Testimonials</a></li>
-    <li><a href="about.html">About</a></li>
   </ul>
 </div>
 
