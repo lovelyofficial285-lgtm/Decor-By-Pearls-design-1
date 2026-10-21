@@ -161,6 +161,11 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
 @media (max-width: 767.98px) {
   .site-nav__brand img { height: 72px !important; }
   .site-header.is-scrolled .site-nav__brand img { height: 56px !important; }
+} .site-header .site-nav__brand {
+  color: #fff !important;
+}
+.site-header .site-nav__brand em {
+  color: var(--brass) !important;
 }
 </style>
 </head>
@@ -169,9 +174,8 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
 <header class="site-header" id="siteHeader">
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="site-container site-nav__inner">
-      <a class="site-nav__brand" href="index.html" aria-label="Decor By Pearls home">
-        <img src="https://decorbypearls.com/static/images/logo_decorbypearls.png?v=1787160818" alt="Decor By Pearls" width="160" height="48">
-      </a>
+       <a class="site-nav__brand" href="index.html" aria-label="Decor By Pearls home">Decor <em>By</em> Pearls</a>
+
 
       <div class="site-nav__desktop">
         <div class="site-nav__links">
@@ -190,7 +194,7 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
           
           <a href="about.html" data-page="about.html">About</a>
           <a href="gallery.html" data-page="gallery.html">Gallery</a>
-          <a href="blog.html" data-page="blog.html">Blogs</a
+          <a href="blog.html" data-page="blog.html">Blogs</a>
           <a href="reviews.html" data-page="reviews.html">Testimonials</a>
         </div>
         <a class="nav-btn" href="contact.html">Plan Your Event</a>

@@ -612,7 +612,7 @@ height: calc(var(--door-h) * .8468);
   .gallery img { margin-bottom: 16px; }
   .stats { grid-template-columns: repeat(4, 1fr); }
   .form__row { grid-template-columns: 1fr 1fr; }
-  .footer__grid { grid-template-columns: 1.6fr 1fr 1fr 1.4fr; }
+ 
 }
 @media (min-width: 992px) { .about { grid-template-columns: 1fr 1fr; gap: 80px; } }
 .sec.pattern-bg {
@@ -860,10 +860,15 @@ height: calc(var(--door-h) * .8468);
 } /* ===== FEATURES & APPRECIATION ===== */
 .features { background: #f0e8dc; padding: clamp(50px, 7vw, 80px) 0; text-align: center; }
 .features__title { margin: 0; font-family: var(--heading-font); font-weight: 600; font-size: clamp(1.2rem, 2.4vw, 1.6rem); letter-spacing: .04em; text-transform: uppercase; color: var(--midnight); }
-.features__sub { margin: 4px 0 clamp(28px, 4vw, 44px); font-family: var(--heading-font); font-size: 1.05rem; color: var(--muted); }
-.features__logos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 20px; align-items: center; justify-items: center; }
-.features__logos img { max-height: 38px; width: auto; max-width: 100%; object-fit: contain; filter: grayscale(1); opacity: .75; transition: opacity .3s ease, filter .3s ease; }
-.features__logos img:hover { opacity: 1; filter: grayscale(0); }
+.features__sub { margin: 4px 0 clamp(28px, 4vw, 44px); font-family: var(--heading-font); font-size: 1.05rem; color: var(--muted); }.features__logos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px 24px; align-items: center; justify-items: center; }
+.features__logos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 24px; align-items: center; justify-items: center; }
+.features__logos img { height: 90px; width: auto; max-width: 100%; max-height: none; object-fit: contain; filter: none; transition: transform .3s ease; }
+.features__logos img:hover { transform: scale(1.05); }
+@media (min-width: 640px) { .features__logos { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 992px) {
+  .features__logos { grid-template-columns: repeat(5, 1fr); gap: 24px 40px; }
+  .features__logos img { height: 120px; }
+}
 @media (min-width: 640px) { .features__logos { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 992px) { .features__logos { grid-template-columns: repeat(6, 1fr); gap: 20px 32px; } .features__logos img { max-height: 44px; } }
 
@@ -886,6 +891,26 @@ height: calc(var(--door-h) * .8468);
 .map { background: var(--midnight); padding: clamp(60px, 8vw, 100px) 0 0; }
 .map__frame { max-width: 1000px; margin: 0 auto; padding: 0 20px clamp(60px, 8vw, 100px); border: 0; }
 .map__frame iframe { display: block; width: 100%; height: clamp(300px, 40vw, 420px); border: 1px solid rgba(199,156,90,.45); border-radius: 12px; filter: grayscale(.35) contrast(1.05); }.map__addr { text-align: center; margin: -12px auto 40px; max-width: 56ch; color: rgba(255,255,255,.78); font-size: .95rem; }
+.site-nav__brand {
+  line-height: 1.1 !important;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.9rem;
+  color: var(--white);
+  white-space: nowrap;
+}
+.site-nav__brand em { color: var(--brass); font-style: italic; }
+
+@media (max-width: 767.98px) {
+  .site-nav__brand { font-size: 1.5rem; }
+}.about__sub {
+  margin: 0 0 18px;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  line-height: 1.2;
+  color: var(--champagne);
+}
+
 </style>
  
   </style>
@@ -908,13 +933,12 @@ height: calc(var(--door-h) * .8468);
 <header class="site-header" id="siteHeader">
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="site-container site-nav__inner">
-      <a class="site-nav__brand" href="index.html" aria-label="Decor By Pearls home">
-        <img src="https://decorbypearls.com/static/images/logo_decorbypearls.png?v=1787160818" alt="Decor By Pearls" width="160" height="48">
-      </a>
+    <a class="site-nav__brand" href="index.html" aria-label="Decor By Pearls home">Decor <em>By</em> Pearls</a>
  
       <div class="site-nav__desktop">
         <div class="site-nav__links">
           <a href="index.html" data-page="index.html">Home</a>
+          <a href="about.html" data-page="about.html">About</a>
  
           <div class="nav-dd" id="navDd">
             <a href="service.html/mainservice.html" class="nav-dd__link" data-page="services.html">Services</a>
@@ -927,7 +951,6 @@ height: calc(var(--door-h) * .8468);
             </ul>
           </div>
  
-          <a href="about.html" data-page="about.html">About</a>
           <a href="gallery.html" data-page="gallery.html">Gallery</a>
           <a href="blog.html" data-page="blog.html">Blogs</a>
           <a href="reviews.html" data-page="testimonials.html">Testimonials</a>
@@ -948,6 +971,7 @@ height: calc(var(--door-h) * .8468);
   <button class="mobile-menu__close" type="button" aria-label="Close menu">&times;</button>
   <ul class="mobile-menu__links">
     <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
     <li class="mm-dd">
       <div class="mm-dd__row">
         <a href="service.html/mainservice.html">Services</a>
@@ -960,7 +984,6 @@ height: calc(var(--door-h) * .8468);
         <li><a href="himachal-wedding-planner.html">Himachal</a></li>
       </ul>
     </li>
-    <li><a href="about.html">About</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="blog.html">Blogs</a></li>
     <li><a href="testimonials.html">Testimonials</a></li>
@@ -977,10 +1000,10 @@ height: calc(var(--door-h) * .8468);
         </div>
         <!-- FIX: removed loading="lazy" from hidden slides (caused blank flashes) -->
         <div class="hero__slide">
-          <img src="images/hero image 3.jpg" alt="Bride in traditional Indian bridal attire during a wedding ceremony" width="1600" height="1067">
+          <img src="images/hero image 3.jpg" alt="Bride in traditional Indian bridal attire during a wedding ceremony" width="1600" height="1067" loading="lazy">
         </div>
         <div class="hero__slide">
-          <img src="images/hero image.jpg" alt="Luxury wedding table decor with candles and floral arrangements" width="1600" height="1067">
+          <img src="images/hero image.jpg" alt="Luxury wedding table decor with candles and floral arrangements" width="1600" height="1067" loading="lazy">
         </div>
         <div class="hero__slide">
           <img src="images/hero image 4 (2).jpg" alt="Elegant outdoor wedding venue decorated with flowers and lighting" width="1600" height="1067">
@@ -1088,10 +1111,11 @@ height: calc(var(--door-h) * .8468);
       <div class="about__text reveal">
         <p class="eyebrow">About Us</p>
         <h2 class="sec__title">We turn dreams into <em>memories</em></h2>
-<p>From intimate garden ceremonies to grand destination weddings, we handle every detail with care: the finest vendors, breathtaking decor, and flawless events across India.</p>
-<p>Based in Mohali, we have spent over a decade designing weddings across Chandigarh, Punjab, Haryana and Himachal, and in destination cities across the country. Every celebration begins with listening: your story, your families, your traditions.</p>
-<p>From mehndi, haldi and sangeet to the wedding and reception, our team handles concept design, floral work, styling and on-ground coordination, so you can enjoy every moment instead of managing it.</p>        <a class="btn btn-dark" href="/contact.html">Our Story</a>
-      </div>
+<h3 class="about__sub">Wedding Planner India: Luxury &amp; Destination Weddings, Designed Around the Couple</h3>
+<p>Every wedding has a character of its own, and the surest way to honour it is to begin with design. Decor by Pearls is a luxury and destination wedding planner in India that starts with the couple’s colours, traditions and sense of style, then shapes the venue, décor, guest experience and schedule around that picture. The result is a celebration that feels unmistakably personal, whether the setting is a palace in Udaipur, a beach in Goa, a hill resort in Himachal or a garden in Chandigarh.</p>
+<p>Royal palace ceremonies, multi-day destination weddings, luxury celebrations and intimate family gatherings all receive the same standard of care. One team manages planning, décor, vendors, entertainment, catering, hospitality and logistics, so the family arrives as guests of honour rather than managers of the event.</p>
+<p>Behind the scenes, rituals are mapped with the family, weather and travel are planned for, and every function runs to a detailed schedule. On the day, the wedding simply feels effortless.</p>
+<a class="btn btn-dark" href="/contact.html">Our Story</a> </div>
     </div>
     <div class="stats reveal">
       <div><strong>500+</strong><span>Weddings Crafted</span></div>
@@ -1269,12 +1293,12 @@ height: calc(var(--door-h) * .8468);
     <h2 class="features__title">Features and Appreciation</h2>
     <p class="features__sub">Partners</p>
     <div class="features__logos">
-      <img src="/images/wedmegood.png" alt="WedMeGood" loading="lazy">
-      <img src="images/logos/weddingsutra.png" alt="WeddingSutra" loading="lazy">
-      <img src="images/logos/vogue.png" alt="Vogue" loading="lazy">
-      <img src="images/logos/weddingwire.png" alt="WeddingWire.in" loading="lazy">
-      <img src="images/logos/weddingbazaar.png" alt="WeddingBazaar" loading="lazy">
-      <img src="images/logos/bridestory.png" alt="Bridestory" loading="lazy">
+      <img src="/logo/weddingsutracom_logo.jpg" alt="WeddingSutra" loading="lazy">
+      <img src="/logo/vogue logo.png" alt="Vogue" loading="lazy">
+      <img src="/logo/wedmegood.png" alt="WedMeGood" loading="lazy">
+      <img src="/logo/white-wedding-wire-logo-hd-png.png" alt="WeddingWire.in" loading="lazy">
+      <img src="/logo/wedding bazar.png" alt="WeddingBazaar" loading="lazy">
+     
     </div>
   </div>
 </section>
@@ -1310,85 +1334,7 @@ height: calc(var(--door-h) * .8468);
     </div>
   </div>
 </section>
-<!-- FORM (placeholder fields, opens WhatsApp on submit) -->
-<section class="sec sec--dark pattern-bg" id="contact" aria-label="Wedding enquiry form">
-  <div class="container contact">
-    <div class="sec__head reveal">
-      <p class="eyebrow">Contact Us</p>
-      <h2 class="sec__title">Wedding <em>enquiry</em></h2>
-    </div>
 
-    <form class="form reveal" id="wedForm" novalidate>
-      <input type="hidden" name="access_key" value="6f5e23c9-29cc-4cdb-a97d-5cb981330aa0">
-      <input type="hidden" name="subject" value="New Wedding Enquiry | Decor By Pearls">
-      <input type="hidden" name="from_name" value="Decor By Pearls Website">
-      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-      <div class="form__row">
-        <div class="field">
-          <label for="w-name">Full Name *</label>
-          <input id="w-name" name="name" type="text" autocomplete="name" required>
-          <small class="err"></small>
-        </div>
-        <div class="field">
-          <label for="w-phone">Phone Number *</label>
-          <input id="w-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98765 43210" required>
-          <small class="err"></small>
-        </div>
-      </div>
-
-      <div class="form__row">
-        <div class="field">
-          <label for="w-email">Email Address *</label>
-          <input id="w-email" name="email" type="email" autocomplete="email" required>
-          <small class="err"></small>
-        </div>
-        <div class="field">
-          <label for="w-date">Event Date *</label>
-          <input id="w-date" name="event_date" type="date" required>
-          <small class="err"></small>
-        </div>
-      </div>
-
-      <div class="form__row">
-        <div class="field">
-          <label for="w-type">Event Type *</label>
-          <select id="w-type" name="event_type" required>
-            <option value="">Select event type</option>
-            <option>Wedding</option>
-            <option>Destination Wedding</option>
-            <option>Engagement</option>
-            <option>Reception</option>
-            <option>Pre-Wedding Functions</option>
-            <option>Other</option>
-          </select>
-          <small class="err"></small>
-        </div>
-        <div class="field">
-          <label for="w-budget">Estimated Budget *</label>
-          <select id="w-budget" name="budget" required>
-            <option value="">Select budget</option>
-            <option>₹10–20 Lakhs</option>
-            <option>₹20–50 Lakhs</option>
-            <option>₹50 Lakhs–₹1 Crore</option>
-            <option>Custom Budget (Available on Request)</option>
-          </select>
-          <small class="err"></small>
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="h-captcha" data-captcha="true"></div>
-        <small class="err" id="w-captcha-err"></small>
-      </div>
-
-      <button class="btn btn-brass" type="submit" id="wSubmit">Submit Enquiry</button>
-      <p class="form__note" id="wNote" role="status" aria-live="polite"></p>
-    </form>
-  </div>
-</section>
-</section>
- 
 
 <!-- INSTAGRAM -->
 <section class="sec sec--dark pattern-bg" id="instagram" aria-label="Follow us on Instagram">
@@ -1437,7 +1383,7 @@ height: calc(var(--door-h) * .8468);
  
 <!-- (c) Paste the FOOTER right AFTER </main> -->
 <footer class="footer">
-  <div class="container">
+  <div class="footer__in">
     <div class="footer__grid">
       <div>
         <div class="footer__brand">Decor By Pearls</div>
@@ -1446,12 +1392,14 @@ height: calc(var(--door-h) * .8468);
       <div>
         <h4>Quick Links</h4>
         <ul>
+          <li><a href="/index.html">Home</a></li>
           <li><a href="/about.html">About</a></li>
-          <li><a href="#events">Events</a></li>
+          <li><a href="/service.html/mainservice.html">Services</a></li>
           <li><a href="/gallery.html">Gallery</a></li>
-          <li><a href="#films">Films</a></li>
-          <li><a href="/reviews.html">Reviews</a></li> <a href="refund.html">Refund &amp; Cancellation</a>
-<a href="packages.html">Packages &amp; Pricing</a>
+          <li><a href="/index.html#events">Events</a></li>
+          <li><a href="/index.html#films">Films</a></li>
+          <li><a href="/reviews.html">Testimonials</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
       </div>
       <div>
@@ -1470,9 +1418,22 @@ height: calc(var(--door-h) * .8468);
         <p>4th Floor, Plot No. C-210 B, Fateh Tower, Industrial Area, Phase 8B, Sector 74, Mohali, Punjab 140307</p>
       </div>
     </div>
-    <div class="footer__bottom">&copy; 2026 Decor By Pearls. Weddings With Elegance.</div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 Decor By Pearls. Weddings With Elegance.</span>
+      <div class="footer__legal">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms &amp; Conditions</a>
+        <a href="/refund.html">Refund &amp; Cancellation</a>
+        <a href="/packages.html">Packages &amp; Pricing</a>
+      </div>
+    </div>
   </div>
 </footer>
+
+<div class="fab">
+  <a class="fab__call" href="tel:+917355051840" aria-label="Call Decor By Pearls"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></a>
+  <a class="fab__wa" href="https://wa.me/917355051840?text=Hi!%20I%20want%20to%20plan%20my%20wedding" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg></a>
+</div>
 
 <div class="vmodal" id="videoModal" aria-hidden="true" role="dialog" aria-label="Wedding film">
   <button class="vmodal__close" type="button" aria-label="Close video">&times;</button>

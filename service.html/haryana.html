@@ -317,7 +317,15 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .facts2{display:flex;flex-wrap:wrap;gap:20px clamp(28px,5vw,56px);margin-top:32px;padding-top:26px;border-top:1px solid rgba(199,156,90,.4)}
 .facts2 b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,4.5vw,3rem);line-height:1;color:var(--brass)}
 .facts2 span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--champagne)}
-</style>
+ /* SERVICES: text left, image right */
+.svc-split{display:grid;gap:clamp(28px,5vw,64px)}
+.svc--one{grid-template-columns:1fr!important}
+.svc-split__img img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px}
+@media(min-width:992px){
+  .svc-split{grid-template-columns:1.2fr 1fr;align-items:start}
+  .svc-split__img{position:sticky;top:110px}
+  .svc-split__img img{aspect-ratio:3/4}
+}</style>
 </head>
 <body>
 
@@ -325,7 +333,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   <div class="wrap nav__in">
     <a class="nav__brand" href="index.html">Decor <em>By</em> Pearls</a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="index.html">Home</a><a href="services.html" aria-current="page">Services</a><a href="gallery.html">Gallery</a><a href="blog.html">Blogs</a><a href="testimonials.html">Testimonials</a><a href="about.html">About</a>
+      <a href="../index.html">Home</a><a href="../services.html" aria-current="page">Services</a><a href="../gallery.html">Gallery</a><a href="../blog.html">Blogs</a><a href="../testimonials.html">Testimonials</a><a href="../about.html">About</a>
     </nav>
     <a class="btn" href="contact.html">Plan Your Event</a>
     <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -335,12 +343,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 <div class="drawer-ov" id="drawerOv"></div>
 <aside class="drawer" id="drawer" aria-hidden="true">
   <button type="button" aria-label="Close menu">&times;</button>
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="blog.html">Blogs</a>
-  <a href="testimonials.html">Testimonials</a>
-  <a href="about.html">About</a>
+  <a href="../index.html">Home</a>
+  <a href="../services.html">Services</a>
+  <a href="../gallery.html">Gallery</a>
+  <a href="../blog.html">Blogs</a>
+  <a href="../testimonials.html">Testimonials</a>
+  <a href="../about.html">About</a>
 </aside>
 
 <main>
@@ -384,22 +392,29 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="sec solid" aria-label="Wedding planning services in Haryana">
-    <div class="wrap">
-      <div class="sec__head"><p class="eyebrow">What we do</p><h2 class="sec__title">Wedding planning services in <em>Haryana</em></h2></div>
-      <p class="lead">Every wedding has different priorities. Some couples want traditional ceremonies and family-focused celebrations, while others prefer contemporary décor, elegant venues and elaborate guest experiences. Planning adapts to each wedding’s requirements rather than relying on a fixed package.</p>
-      <div class="svc">
-        <article><h3>Full-service wedding planning</h3><p>Full-service planning brings the major elements of a wedding together under one coordinated plan, including venue research, vendor coordination, function scheduling, budget planning, décor concepts and event-day management.</p></article>
-        <article><h3>Wedding décor &amp; design</h3><p>A cohesive visual experience is created through customised décor concepts, floral arrangements, stage styling, entrance installations, lighting, table settings and ceremony backdrops. Design decisions are guided by the wedding theme, venue and budget.</p></article>
-        <article><h3>Luxury wedding planner in Haryana</h3><p>Couples seeking a premium celebration can choose a luxury planning service that includes detailed design planning, refined décor concepts, coordinated vendors and personalised guest experiences. The final scope depends on the selected venue, number of functions and overall investment.</p></article>
-        <article><h3>Affordable wedding planner in Haryana</h3><p>A beautiful wedding does not always require an elaborate production. An affordable approach prioritises essential services, practical venue choices and thoughtful spending. Budget allocation can be adjusted to focus on the details that matter most to the couple.</p></article>
-        <article><h3>Destination wedding planner in Haryana</h3><p>A destination celebration requires careful coordination of accommodation, transportation, venue logistics, catering, décor and guest communication. Decor By Pearls helps assess suitable locations and organises event requirements around the planned guest experience.</p></article>
-        <article><h3>Guest hospitality &amp; logistics</h3><p>Guest arrangements can include accommodation coordination, arrival schedules, transportation planning, welcome arrangements and assistance with event information. These details help guests move between wedding functions with fewer complications.</p></article>
+ <!-- SERVICES -->
+<section class="sec solid" aria-label="Wedding planning services in Haryana">
+  <div class="wrap">
+    <div class="sec__head"><p class="eyebrow">What we do</p><h2 class="sec__title">Wedding planning services in <em>Haryana</em></h2></div>
+    <div class="svc-split">
+      <div class="svc-split__text">
+        <p class="lead">Every wedding has different priorities. Some couples want traditional ceremonies and family-focused celebrations, while others prefer contemporary décor, elegant venues and elaborate guest experiences. Planning adapts to each wedding’s requirements rather than relying on a fixed package.</p>
+        <div class="svc svc--one">
+          <article><h3>Full-service wedding planning</h3><p>Full-service planning brings the major elements of a wedding together under one coordinated plan, including venue research, vendor coordination, function scheduling, budget planning, décor concepts and event-day management.</p></article>
+          <article><h3>Wedding décor &amp; design</h3><p>A cohesive visual experience is created through customised décor concepts, floral arrangements, stage styling, entrance installations, lighting, table settings and ceremony backdrops. Design decisions are guided by the wedding theme, venue and budget.</p></article>
+          <article><h3>Luxury wedding planner in Haryana</h3><p>Couples seeking a premium celebration can choose a luxury planning service that includes detailed design planning, refined décor concepts, coordinated vendors and personalised guest experiences. The final scope depends on the selected venue, number of functions and overall investment.</p></article>
+          <article><h3>Affordable wedding planner in Haryana</h3><p>A beautiful wedding does not always require an elaborate production. An affordable approach prioritises essential services, practical venue choices and thoughtful spending. Budget allocation can be adjusted to focus on the details that matter most to the couple.</p></article>
+          <article><h3>Destination wedding planner in Haryana</h3><p>A destination celebration requires careful coordination of accommodation, transportation, venue logistics, catering, décor and guest communication. Decor By Pearls helps assess suitable locations and organises event requirements around the planned guest experience.</p></article>
+          <article><h3>Guest hospitality &amp; logistics</h3><p>Guest arrangements can include accommodation coordination, arrival schedules, transportation planning, welcome arrangements and assistance with event information. These details help guests move between wedding functions with fewer complications.</p></article>
+        </div>
+        <p class="lead gap" style="margin-bottom:0">Couples comparing the best destination wedding planner Haryana has to offer should look for clear logistics planning, transparent costing and a written scope of services before confirming any booking.</p>
       </div>
-      <p class="lead gap" style="margin-bottom:0">Couples comparing the best destination wedding planner Haryana has to offer should look for clear logistics planning, transparent costing and a written scope of services before confirming any booking.</p>
+      <figure class="svc-split__img">
+        <img src="/images/haryana wedding bride.webp" alt="Wedding planning in Haryana" loading="lazy">
+      </figure>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- CITIES -->
   <section class="sec pattern" aria-label="Wedding planning across Haryana">
@@ -557,14 +572,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
       <div>
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="index.html#events">Events</a></li>
-          <li><a href="index.html#films">Films</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../gallery.html">Gallery</a></li>
+          <li><a href="../index.html#events">Events</a></li>
+          <li><a href="../index.html#films">Films</a></li>
+          <li><a href="../testimonials.html">Testimonials</a></li>
+          <li><a href="../contact.html">Contact</a></li>
         </ul>
       </div>
       <div>

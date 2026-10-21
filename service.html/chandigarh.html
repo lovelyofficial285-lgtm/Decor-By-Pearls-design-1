@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://www.decorbypearls.com/chandigarh-wedding-planner.html">
 <link rel="icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link rel="stylesheet" href="/partials/navbar.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -199,7 +199,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 @media(min-width:768px){.strip{grid-template-columns:repeat(4,1fr)}}
 .strip figure{position:relative;overflow:hidden;aspect-ratio:4/5;background:var(--midnight)}
 .strip img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
-.strip figure:hover img{transform:scale(1.06)}
+.strip figure:hover img{transform:scale(1.06)} /* TYPES: text left, image right */
+.types--stack{grid-template-columns:1fr!important;gap:20px}
+.pics--tall img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px}
+@media(min-width:992px){
+  .types-split{grid-template-columns:1.1fr 1fr;align-items:stretch}
+  .pics--tall{height:100%}
+  .pics--tall img{height:100%;aspect-ratio:auto}
+}
 </style>
 </head>
 <body>
@@ -208,7 +215,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   <div class="wrap nav__in">
     <a class="nav__brand" href="index.html">Decor <em>By</em> Pearls</a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="index.html">Home</a><a href="services.html" aria-current="page">Services</a><a href="gallery.html">Gallery</a><a href="blog.html">Blogs</a><a href="testimonials.html">Testimonials</a><a href="about.html">About</a>
+      <a href="../index.html">Home</a><a href="../services.html" aria-current="page">Services</a><a href="../gallery.html">Gallery</a><a href="../blog.html">Blogs</a><a href="../testimonials.html">Testimonials</a><a href="../about.html">About</a>
     </nav>
     <a class="btn" href="contact.html">Plan Your Event</a>
     <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -218,12 +225,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 <div class="drawer-ov" id="drawerOv"></div>
 <aside class="drawer" id="drawer" aria-hidden="true">
   <button type="button" aria-label="Close menu">&times;</button>
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="blog.html">Blogs</a>
-  <a href="testimonials.html">Testimonials</a>
-  <a href="about.html">About</a>
+  <a href="../index.html">Home</a>
+  <a href="../services.html">Services</a>
+  <a href="../gallery.html">Gallery</a>
+  <a href="../blog.html">Blogs</a>
+  <a href="../testimonials.html">Testimonials</a>
+  <a href="../about.html">About</a>
 </aside>
 
 <main>
@@ -320,20 +327,25 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
     </div>
   </section>
 
-  <section class="sec pattern" aria-label="Types of wedding planning">
-    <div class="wrap">
-      <div class="sec__head"><p class="eyebrow">Your style</p><h2 class="sec__title">Planning that fits <em>your wedding</em></h2></div>
-      <div class="types">
+ <section class="sec pattern" aria-label="Types of wedding planning">
+  <div class="wrap">
+    <div class="sec__head"><p class="eyebrow">Your style</p><h2 class="sec__title">Planning that fits <em>your wedding</em></h2></div>
+    <div class="intro intro--pics types-split">
+      <div class="types types--stack">
         <article class="type"><h3>Luxury</h3><p>Not only expensive décor or a big venue. Guests notice the welcome, comfortable seating, directions inside the venue, lighting, entertainment and whether things start on time. We plan all of it together.</p></article>
         <article class="type"><h3>Affordable</h3><p>Affordable doesn’t mean cheap-looking. It means spending on what matters to your family, whether food, stage or photography, and skipping what doesn’t. Early planning avoids the usual overruns.</p></article>
         <article class="type"><h3>Destination</h3><p>Rajasthan, Goa, Uttarakhand or Himachal. We handle venues, guest stays and transport, décor, ceremonies and on-site vendors, and help you decide between Chandigarh teams and local ones.</p></article>
       </div>
+      <div class="pics pics--one pics--tall">
+        <img src="/images/about image 1.jpg" alt="Wedding planning in Chandigarh" loading="lazy">
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <section class="sec pattern" aria-label="Wedding décor in Chandigarh">
     <div class="wrap intro intro--pics">
-      <div class="pics pics--one"><img src="hero image 4 (2).jpg" alt="Wedding décor in Chandigarh" loading="lazy"></div>
+      <div class="pics pics--one"><img src="/images/ring ceremony.jpg" alt="Wedding décor in Chandigarh" loading="lazy"></div>
       <div class="prose">
         <h2 style="font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin-bottom:20px">Wedding décor in <em style="font-family:var(--display);color:var(--brass)">Chandigarh</em></h2>
         <p>Décor should suit the function, the venue and the celebration. Our wedding decoration in Chandigarh covers every function, from a bright mehndi or haldi setup to a more formal reception.</p>
@@ -411,14 +423,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
       <div>
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="index.html#events">Events</a></li>
-          <li><a href="index.html#films">Films</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../gallery.html">Gallery</a></li>
+          <li><a href="../index.html#events">Events</a></li>
+          <li><a href="../index.html#films">Films</a></li>
+          <li><a href="../testimonials.html">Testimonials</a></li>
+          <li><a href="../contact.html">Contact</a></li>
         </ul>
       </div>
       <div>

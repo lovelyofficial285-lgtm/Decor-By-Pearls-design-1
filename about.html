@@ -70,47 +70,6 @@
         .js .rv.in { opacity: 1; transform: none; }
 
         /* ===== HEADER ===== */
-       
-        /* ===== 1. OPENING: headline split around an arch ===== */
-        .opening {
-        min-height: 100svh;
-        display: flex; align-items: center;
-        padding: clamp(120px, 16vh, 170px) 0 clamp(64px, 10vh, 110px);
-        background: var(--midnight); color: var(--ivory);
-        }
-        .opening__grid {
-        width: min(1320px, calc(100% - 48px)); margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr minmax(260px, 30vw) 1fr;
-        gap: clamp(28px, 4.5vw, 72px);
-        align-items: center;
-        }
-        .opening__title {
-        font-family: var(--display); font-weight: 400;
-        font-size: clamp(2.6rem, 5.4vw, 5.8rem);
-        line-height: .98; letter-spacing: -.02em;
-        }
-        .opening__title em { color: var(--champagne); }
-        .opening__left { text-align: right; align-self: end; padding-bottom: 6vh; }
-        .opening__left .eyebrow { margin-bottom: 22px; }
-        .opening__right { align-self: start; padding-top: 6vh; }
-        .opening__arch {
-        margin: 0;
-        aspect-ratio: 3 / 4.3;
-        border-radius: 999px 999px 0 0;
-        overflow: hidden;
-        outline: 1px solid rgba(199,156,90,.55);
-        outline-offset: 14px;
-        }
-        .opening__arch img { width: 100%; height: 100%; object-fit: cover; animation: settle 2.6s cubic-bezier(.2,.7,.2,1) both; }
-        @keyframes settle { from { transform: scale(1.14); } to { transform: scale(1); } }
-        @media (max-width: 899.98px) {
-        .opening { min-height: 0; }
-        .opening__grid { grid-template-columns: 1fr; gap: 28px; text-align: center; }
-        .opening__arch { order: 1; width: min(76vw, 340px); margin: 0 auto 14px; }
-        .opening__left { order: 2; text-align: center; padding: 0; }
-        .opening__right { order: 3; padding: 0; margin-top: -18px; }
-        }
 
         /* ===== 2. STORY ===== */
         .story { background: var(--ivory); padding: var(--pad) 0; }
@@ -234,53 +193,8 @@
 .opening__eyebrow { grid-area: eyebrow; text-align: center; margin: 18px 0 0; }
 .opening__title { font-size: clamp(1.5rem, 5.2vw, 5.8rem); }
 
-@media (max-width: 480px) {
-  .opening__title { font-size: 1.35rem; }
-  .opening .eyebrow { font-size: .6rem; letter-spacing: .16em; }
-}@media (max-width: 767.98px) {
-  .opening__grid {
-    position: relative;
-    grid-template-columns: 1fr !important;
-    grid-template-areas: "arch" "eyebrow" !important;
-    justify-items: center;
-  }
-  .opening__arch { width: min(82vw, 480px); }
-  .opening__left, .opening__right {
-    position: absolute;
-    z-index: 2;
-    text-shadow: 0 2px 14px rgba(0,0,0,.7);
-  }
-  .opening__left  { bottom: 102%;     left: 6%;  text-align: left; }
-  .opening__right {         bottom: 24%;
-        right: -5%; text-align: right; }
-  .opening__title { font-size: clamp(1.6rem, 8vw, 2.6rem); }
-} .opening.anim .w { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .12em; }
-.opening.anim .w > span { display: inline-block; transform: translateY(110%); transition: transform 1s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d); }
-.opening.anim .opening__arch { opacity: 0; transform: scale(.94); transition: opacity 1.2s ease, transform 1.4s cubic-bezier(.2,.7,.2,1); }
-.opening.anim .opening__eyebrow { opacity: 0; transform: translateY(14px); transition: opacity .8s ease 1.1s, transform .8s ease 1.1s; }
 
-.opening.anim.is-in .w > span { transform: none; }
-.opening.anim.is-in .opening__arch { opacity: 1; transform: none; }
-.opening.anim.is-in .opening__eyebrow { opacity: 1; transform: none; }
-
-@media (prefers-reduced-motion: reduce) {
-  .opening.anim .w > span, .opening.anim .opening__arch, .opening.anim .opening__eyebrow { transition: none; transform: none; opacity: 1; }
-} @media (min-width: 768px) {
-  .opening { min-height: 100svh; padding: 110px 0 40px; align-items: center; }
-  .opening__grid {
-    grid-template-columns: 1fr auto 1fr !important;
-    row-gap: 16px;
-    column-gap: clamp(16px, 3vw, 48px);
-  }
-  .opening__arch {
-    width: auto;
-    height: calc(100svh - 240px);
-    max-height: 760px;
-    aspect-ratio: 3 / 4.3;
-    justify-self: center;
-  }
- 
-} /* ===== TEAM CARDS ===== */
+ /* ===== TEAM CARDS ===== */
 .ptm { background-color: #102542; background-image: linear-gradient(rgba(16,37,66,.9), rgba(16,37,66,.9)), url("pattern.jpg"); background-size: auto, 320px auto; color: #fff; padding: clamp(70px, 10vw, 120px) 0; }
 .ptm__wrap { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 .ptm__head { text-align: center; margin-bottom: clamp(36px, 6vw, 64px); }
@@ -309,7 +223,55 @@
   margin: 0 !important;
   text-align: center;
   grid-area: auto !important;
+} .site-nav__brand {
+  line-height: 1.1 !important;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.9rem;
+  color: var(--white);
+  white-space: nowrap;
 }
+.site-nav__brand em { color: var(--brass); font-style: italic; }
+
+@media (max-width: 767.98px) {
+  .site-nav__brand { font-size: 1.5rem; }
+} .site-header .site-nav__brand {
+  color: #fff !important;
+}
+.site-header .site-nav__brand em {
+  color: var(--brass) !important;
+}
+.about-hero {
+  position: relative;
+  min-height: 100vh; min-height: 100svh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 120px 0 80px;
+  overflow: hidden;
+  background: var(--midnight);
+  color: #fff;
+  text-align: center;
+}
+.about-hero__bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  animation: heroZoom 8s ease-out forwards;
+}
+.about-hero::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(16,37,66,.8), rgba(16,37,66,.45) 60%, rgba(16,37,66,.6));
+}
+.about-hero__content { position: relative; z-index: 1; padding: 0 24px; max-width: 900px; }
+.about-hero .eyebrow { color: var(--champagne); margin-bottom: 22px; }
+.about-hero__title {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  line-height: 1.02; letter-spacing: -.02em;
+  margin-bottom: 24px;
+}
+.about-hero__title em { color: var(--champagne); }
+.about-hero__sub { max-width: 46ch; margin: 0 auto; color: var(--champagne); font-size: clamp(1rem, 2vw, 1.2rem); }
+@keyframes heroZoom { from { transform: scale(1.12); } to { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .about-hero__bg { animation: none; } }
     </style>
     </head>
     <body>
@@ -317,14 +279,13 @@
 <header class="site-header" id="siteHeader">
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="site-container site-nav__inner">
-      <a class="site-nav__brand" href="index.html" aria-label="Decor By Pearls home">
-        <img src="https://decorbypearls.com/static/images/logo_decorbypearls.png?v=1787160818" alt="Decor By Pearls" width="160" height="48">
-      </a>
+    <a class="site-nav__brand" href="index.html" aria-label="Decor By Pearls home">Decor <em>By</em> Pearls</a>
 
       <div class="site-nav__desktop">
         <div class="site-nav__links">
           <a href="index.html" data-page="index.html">Home</a>
           
+          <a href="about.html" data-page="about.html">About</a>
           <div class="nav-dd" id="navDd">
             <a href="service.html/mainservice.html" class="nav-dd__link" data-page="services.html">Services</a>
             <button class="nav-dd__caret" type="button" aria-label="Show service locations" aria-expanded="false" aria-controls="navDdMenu"></button>
@@ -335,7 +296,6 @@
               <li><a href="/service.html/himachal.html" data-page="himachal-wedding-planner.html">Himachal</a></li>
             </ul>
           </div>
-          <a href="about.html" data-page="about.html">About</a>
 
           <a href="gallery.html" data-page="gallery.html">Gallery</a>
           <a href="blog.html" data-page="blog.html">Blogs</a>
@@ -357,6 +317,7 @@
   <button class="mobile-menu__close" type="button" aria-label="Close menu">&times;</button>
   <ul class="mobile-menu__links">
     <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
     <li class="mm-dd">
       <div class="mm-dd__row">
         <a href="service.html/mainservice.html">Services</a>
@@ -368,7 +329,6 @@
         <li><a href="/service.html/haryana.html">Haryana</a></li>
         <li><a href="/service.html/himachal.html">Himachal</a></li>
       </ul>
-      <li><a href="about.html">About</a></li>
     </li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="blog.html">Blogs</a></li>
@@ -378,28 +338,21 @@
 
     <main>
 
-        <!-- 1. OPENING (TEMP Unsplash photos in the two big arches: swap the src with your own images) -->
-        <section class="opening pattern-bg" aria-label="About Decor By Pearls">
-        <div class="opening__grid">
-            <div class="opening__left">
-            <!-- <p class="eyebrow">Our story</p> -->
-            <h1 class="opening__title">We turn <em>dreams</em><span class="sr-only"> into memories.</span></h1>
-            </div>
-            <figure class="opening__arch">
-            <img src="/images/about page main image .jpg" alt="Floral wedding arch with white drapes" width="900" height="1290">
-            </figure>
-            <div class="opening__right">
-            <p class="opening__title" aria-hidden="true">into <em>memories.</em></p>
-            </div>
-        </div>  <p class="eyebrow opening__eyebrow">Our story</p>
-        </section>
+      <section class="about-hero" aria-label="About Decor By Pearls">
+  <img class="about-hero__bg" src="/images/about page main image .jpg" alt="Floral wedding arch with white drapes" fetchpriority="high">
+  <div class="about-hero__content">
+    <p class="eyebrow">Our story</p>
+    <h1 class="about-hero__title">We turn <em>dreams</em><br>into <em>memories.</em></h1>
+    <p class="about-hero__sub">Luxury weddings and celebrations across India, designed around you.</p>
+  </div>
+</section>
 
         <!-- 2. STORY -->
         <section class="story pattern-bg">
         <div class="wrap story__grid">
             <div class="rv">
             <div class="story__arch">
-                <img src="/images/bride and groom (1).png" alt="Elegant tented dining setup in a garden" loading="lazy">
+                <img src="/images/couple photo 2.jpg" alt="Elegant tented dining setup in a garden" loading="lazy">
             </div>
             <div class="story__years"><b>12+</b><span>Years of excellence</span></div>
             </div>

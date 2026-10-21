@@ -123,6 +123,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media (max-width: 767.98px) {
   .site-nav__brand img { height: 72px !important; }
   .site-header.is-scrolled .site-nav__brand img { height: 56px !important; }
+} .site-nav__brand {
+  line-height: 1.1 !important;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.9rem;
+  color: var(--white);
+  white-space: nowrap;
+}
+.site-nav__brand em { color: var(--brass); font-style: italic; }
+
+@media (max-width: 767.98px) {
+  .site-nav__brand { font-size: 1.5rem; }
+} .site-header .site-nav__brand {
+  color: #fff !important;
+}
+.site-header .site-nav__brand em {
+  color: var(--brass) !important;
 }
 </style>
 </head>
@@ -131,9 +147,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <header class="site-header" id="siteHeader">
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="site-container site-nav__inner">
-      <a class="site-nav__brand" href="index.html" aria-label="Decor By Pearls home">
-        <img src="https://decorbypearls.com/static/images/logo_decorbypearls.png?v=1787160818" alt="Decor By Pearls" width="160" height="48">
-      </a>
+      <a class="site-nav__brand" href="index.html" aria-label="Decor By Pearls home">Decor <em>By</em> Pearls</a>
 
       <div class="site-nav__desktop">
         <div class="site-nav__links">
