@@ -131,7 +131,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:background-color .35s,padding .35s}
 .nav.is-scrolled{background:rgba(16,37,66,.92);backdrop-filter:blur(14px);padding:14px 0}
 .nav__in{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.nav__brand{font-family:var(--display);font-size:1.6rem;color:#fff}.nav__brand em{color:var(--brass)}
+.nav__brand{display:flex;align-items:center;line-height:0}
+.nav__brand img{height:80px;width:auto}
+.nav.is-scrolled .nav__brand img{height:64px}
+@media(max-width:767.98px){.nav__brand img{height:56px}.nav.is-scrolled .nav__brand img{height:48px}}
 .nav__links{display:none;align-items:center;gap:30px}
 .nav__links a{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .3s}
 .nav__links a:hover,.nav__links a[aria-current]{color:var(--brass)}
@@ -331,7 +334,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 
 <header class="nav" id="nav">
   <div class="wrap nav__in">
-    <a class="nav__brand" href="index.html">Decor <em>By</em> Pearls</a>
+    <a class="nav__brand" href="/index.html" aria-label="Decor By Pearls home"><img src="/images/brand_logo-removebg-preview.png" alt="Decor By Pearls"></a>
     <nav class="nav__links" aria-label="Primary">
       <a href="../index.html">Home</a><a href="../services.html" aria-current="page">Services</a><a href="../gallery.html">Gallery</a><a href="../blog.html">Blogs</a><a href="../testimonials.html">Testimonials</a><a href="../about.html">About</a>
     </nav>
@@ -374,7 +377,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   <section class="sec pattern" aria-label="About our Haryana wedding planning">
     <div class="wrap intro intro--pics">
       <div class="pics">
-        <img src="/images/haryana gallery 1.jpg" alt="Wedding stage decor in Haryana" loading="lazy">
+        <img src="/images/haryana memorable days .jpg" alt="Wedding stage decor in Haryana" loading="lazy">
         <img src="/images/gate open image.png" alt="Wedding table setting" loading="lazy">
       </div>
       <div>
@@ -434,10 +437,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 
   <hr class="gold-line" id="gl2">
   <section class="strip" aria-label="Moments from our weddings">
-    <figure><img src="/images/haryana gallery 1.jpg" alt="Floral mandap" loading="lazy"></figure>
-    <figure><img src="/images/haryana gallery 2.jpg" alt="Reception decor" loading="lazy"></figure>
-    <figure><img src="/images/haryana gallery 3.jpg" alt="Outdoor ceremony" loading="lazy"></figure>
-    <figure><img src="/images/haryana gallery main.jpg" alt="Bridal portrait" loading="lazy"></figure>
+    <figure><img src="/images/haryana img 1.jpg" alt="Floral mandap" loading="lazy"></figure>
+    <figure><img src="/images/haryana img  2.jpg" alt="Reception decor" loading="lazy"></figure>
+    <figure><img src="/images/haryana img  3.jpg" alt="Outdoor ceremony" loading="lazy"></figure>
+    <figure><img src="/images/haryana img 4.jpg" alt="Bridal portrait" loading="lazy"></figure>
   </section>
 
   <!-- HARYANVI TRADITIONS -->
@@ -567,7 +570,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
     <div class="footer__grid">
       <div>
         <div class="footer__brand">Decor By Pearls</div>
-        <p style="margin-top:12px;max-width:34ch">Unforgettable celebrations where every detail tells your love story.</p>
+        <p style="margin-top:12px;max-width:38ch">Unforgettable celebrations where every detail tells your love story. Luxury wedding planning and decor from Mohali, serving Chandigarh, Punjab, Haryana, Himachal and destinations across North India.</p>
       </div>
       <div>
         <h4>Quick Links</h4>

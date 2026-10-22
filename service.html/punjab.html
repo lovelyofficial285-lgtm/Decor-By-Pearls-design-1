@@ -48,7 +48,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:background-color .35s,padding .35s}
 .nav.is-scrolled{background:rgba(16,37,66,.92);backdrop-filter:blur(14px);padding:14px 0}
 .nav__in{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.nav__brand{font-family:var(--display);font-size:1.6rem;color:#fff}.nav__brand em{color:var(--brass)}
+.nav__brand{display:flex;align-items:center;line-height:0}
+.nav__brand img{height:80px;width:auto}
+.nav.is-scrolled .nav__brand img{height:64px}
+@media(max-width:767.98px){.nav__brand img{height:56px}.nav.is-scrolled .nav__brand img{height:48px}}
 .nav__links{display:none;align-items:center;gap:30px}
 .nav__links a{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .3s}
 .nav__links a:hover,.nav__links a[aria-current]{color:var(--brass)}
@@ -228,14 +231,27 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .tm h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;line-height:1.15}
 .tm p{margin-top:4px;font-size:.9rem;color:var(--champagne)}
 .note{margin-top:20px;color:var(--champagne);font-size:.95rem}
-.sub-h{font-family:var(--serif);font-weight:500;font-size:1.7rem;line-height:1.15;margin-bottom:12px;color:#fff}
+.sub-h{font-family:var(--serif);font-weight:500;font-size:1.7rem;line-height:1.15;margin-bottom:12px;color:#fff} /* CITY ROWS: image left, text right */
+.fn.city-rows{display:flex;flex-direction:column;gap:40px;grid-template-columns:none;columns:auto}
+.fn.city-rows .city-row{display:grid;grid-template-columns:1fr 1.2fr;gap:32px;align-items:center;padding:0;background:none;border:0;box-shadow:none}
+.city-row__img{width:100%;height:100%;max-height:340px;object-fit:cover;border-radius:12px;display:block}
+.city-row__text h3{margin:0 0 12px}
+.city-row__text p{margin:0}
+
+/* Optional: alternate sides */
+/* .fn.city-rows .city-row:nth-child(even) .city-row__img{order:2} */
+
+@media(max-width:768px){
+  .fn.city-rows .city-row{grid-template-columns:1fr;gap:16px}
+  .city-row__img{max-height:240px}
+}
 </style>
 </head>
 <body>
 
 <header class="nav" id="nav">
   <div class="wrap nav__in">
-    <a class="nav__brand" href="index.html">Decor <em>By</em> Pearls</a>
+    <a class="nav__brand" href="/index.html" aria-label="Decor By Pearls home"><img src="/images/brand_logo-removebg-preview.png" alt="Decor By Pearls"></a>
     <nav class="nav__links" aria-label="Primary">
       <a href="../index.html">Home</a><a href="../services.html" aria-current="page">Services</a><a href="../gallery.html">Gallery</a><a href="../blog.html">Blogs</a><a href="../testimonials.html">Testimonials</a><a href="../about.html">About</a>
     </nav>
@@ -382,19 +398,56 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   </section>
 
   <!-- CITY BY CITY -->
-  <section class="sec solid" aria-label="Wedding planning across Punjab city by city">
-    <div class="wrap">
-      <div class="sec__head"><p class="eyebrow">City by city</p><h2 class="sec__title">Wedding planning across <em>Punjab</em></h2></div>
-      <p class="lead">Each Punjab city has its own venue style, traffic pattern and guest-travel challenge. Here is what we plan around in each.</p>
-      <div class="fn">
-        <article><h3>Wedding Planner in Ludhiana</h3><p>Ludhiana weddings tend to be large, and parking and evening traffic matter more than most families expect. We have planned weddings at Hyatt Regency Ludhiana (5-star, sophisticated halls), Radisson Blu Hotel MBD Ludhiana (expansive ballrooms) and The Cabbana Resort &amp; Spa (a large nature resort suited to big outdoor celebrations). We plan parking, brief the venue on entry flow and schedule vendor load-in before peak traffic.</p></article>
-        <article><h3>Wedding Planner in Amritsar</h3><p>Amritsar offers luxury hotels and heritage havelis. Taj Swarna has a pillarless hall and a manicured lawn, and Ranjit’s SVAASA is a heritage boutique haveli with royal settings and traditional Punjabi charm. When the Anand Karaj is part of the wedding, we plan the Gurdwara timing and outstation guests’ travel together, so no one is racing between the Gurdwara and the venue.</p></article>
-        <article><h3>Wedding Planner in Jalandhar</h3><p>Functions here are often spread over more than one venue, so transport and timing become the main concern. We manage multi-city and multi-function weddings across Ludhiana, Amritsar and Jalandhar, with a movement plan for guests, family cars and vendors.</p></article>
-        <article><h3>Wedding Planner in Mohali &amp; Zirakpur</h3><p>Our office is in Mohali, so site visits and vendor meetings here are quick. Hotels, banquet halls and lawns near Chandigarh and the airport suit families with guests flying in, and we coordinate pickups and hotel check-ins around the function schedule.</p></article>
-        <article><h3>Other locations</h3><p>Beyond these cities, we also plan weddings in <a href="chandigarh-wedding-planner.html" style="color:var(--champagne);border-bottom:1px solid rgba(199,156,90,.6)">Chandigarh</a>, <a href="haryana-wedding-planner.html" style="color:var(--champagne);border-bottom:1px solid rgba(199,156,90,.6)">Haryana</a> and <a href="himachal-wedding-planner.html" style="color:var(--champagne);border-bottom:1px solid rgba(199,156,90,.6)">Himachal</a>.</p></article>
-      </div>
+<section class="sec solid" aria-label="Wedding planning across Punjab city by city">
+  <div class="wrap">
+    <div class="sec__head"><p class="eyebrow">City by city</p><h2 class="sec__title">Wedding planning across <em>Punjab</em></h2></div>
+    <p class="lead">Each Punjab city has its own venue style, traffic pattern and guest-travel challenge. Here is what we plan around in each.</p>
+    <div class="fn city-rows">
+
+      <article class="city-row">
+        <img class="city-row__img" src="images/ludhiana-wedding-planner.jpg" alt="Wedding planner in Ludhiana" loading="lazy" width="600" height="450">
+        <div class="city-row__text">
+          <h3>Wedding Planner in Ludhiana</h3>
+          <p>Ludhiana weddings tend to be large, and parking and evening traffic matter more than most families expect. We have planned weddings at Hyatt Regency Ludhiana (5-star, sophisticated halls), Radisson Blu Hotel MBD Ludhiana (expansive ballrooms) and The Cabbana Resort &amp; Spa (a large nature resort suited to big outdoor celebrations). We plan parking, brief the venue on entry flow and schedule vendor load-in before peak traffic.</p>
+        </div>
+      </article>
+
+      <article class="city-row">
+        <img class="city-row__img" src="images/amritsar-wedding-planner.jpg" alt="Wedding planner in Amritsar" loading="lazy" width="600" height="450">
+        <div class="city-row__text">
+          <h3>Wedding Planner in Amritsar</h3>
+          <p>Amritsar offers luxury hotels and heritage havelis. Taj Swarna has a pillarless hall and a manicured lawn, and Ranjit’s SVAASA is a heritage boutique haveli with royal settings and traditional Punjabi charm. When the Anand Karaj is part of the wedding, we plan the Gurdwara timing and outstation guests’ travel together, so no one is racing between the Gurdwara and the venue.</p>
+        </div>
+      </article>
+
+      <article class="city-row">
+        <img class="city-row__img" src="images/jalandhar-wedding-planner.jpg" alt="Wedding planner in Jalandhar" loading="lazy" width="600" height="450">
+        <div class="city-row__text">
+          <h3>Wedding Planner in Jalandhar</h3>
+          <p>Functions here are often spread over more than one venue, so transport and timing become the main concern. We manage multi-city and multi-function weddings across Ludhiana, Amritsar and Jalandhar, with a movement plan for guests, family cars and vendors.</p>
+        </div>
+      </article>
+
+      <article class="city-row">
+        <img class="city-row__img" src="images/mohali-zirakpur-wedding-planner.jpg" alt="Wedding planner in Mohali and Zirakpur" loading="lazy" width="600" height="450">
+        <div class="city-row__text">
+          <h3>Wedding Planner in Mohali &amp; Zirakpur</h3>
+          <p>Our office is in Mohali, so site visits and vendor meetings here are quick. Hotels, banquet halls and lawns near Chandigarh and the airport suit families with guests flying in, and we coordinate pickups and hotel check-ins around the function schedule.</p>
+        </div>
+      </article>
+
+      <article class="city-row">
+        <img class="city-row__img" src="images/punjab-wedding-locations.jpg" alt="Wedding planner in Chandigarh, Haryana and Himachal" loading="lazy" width="600" height="450">
+        <div class="city-row__text">
+          <h3>Other locations</h3>
+          <p>Beyond these cities, we also plan weddings in <a href="chandigarh-wedding-planner.html" style="color:var(--champagne);border-bottom:1px solid rgba(199,156,90,.6)">Chandigarh</a>, <a href="haryana-wedding-planner.html" style="color:var(--champagne);border-bottom:1px solid rgba(199,156,90,.6)">Haryana</a> and <a href="himachal-wedding-planner.html" style="color:var(--champagne);border-bottom:1px solid rgba(199,156,90,.6)">Himachal</a>.</p>
+        </div>
+      </article>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- VENUES -->
   <section class="sec pattern" aria-label="Best wedding venues in Punjab">
@@ -588,7 +641,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
     <div class="footer__grid">
       <div>
         <div class="footer__brand">Decor By Pearls</div>
-        <p style="margin-top:12px;max-width:34ch">Unforgettable celebrations where every detail tells your love story.</p>
+       <p style="margin-top:12px;max-width:38ch">Unforgettable celebrations where every detail tells your love story. Luxury wedding planning and decor from Mohali, serving Chandigarh, Punjab, Haryana, Himachal and destinations across North India.</p>
       </div>
       <div>
         <h4>Quick Links</h4>

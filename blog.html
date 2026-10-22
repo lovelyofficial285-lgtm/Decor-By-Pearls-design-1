@@ -75,7 +75,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .rhd h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,5vw,3.6rem);line-height:1.08;margin:16px 0 22px}
 .meta{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 28px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--champagne)}
 .rbody{padding:clamp(36px,6vw,70px) 0 clamp(60px,8vw,100px)}
-.article{max-width:800px;margin:0 auto;padding:clamp(26px,5vw,56px);background:#fff;border-radius:8px;border:1px solid rgba(16,37,66,.08)}
+
 .article .cover{width:100%;border-radius:6px;margin-bottom:34px}
 .article p{font-size:1.02rem;line-height:1.85;color:#2b3a52;margin-bottom:20px}
 .article strong{font-weight:600;color:var(--midnight)}
@@ -88,7 +88,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .rcta{margin-top:44px;padding-top:36px;border-top:1px solid rgba(16,37,66,.1);text-align:center}
 .rcta h4{font-family:var(--serif);font-weight:400;font-size:2rem;color:var(--midnight);margin:0 0 18px}
 .rcta .btn{color:var(--midnight);border-bottom:1px solid var(--brass)}
-
+.rbody .wrap{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:32px;align-items:start}
+.article{max-width:none;margin:0;padding:clamp(26px,5vw,56px);background:#fff;border-radius:8px;border:1px solid rgba(16,37,66,.08)}
+.side{position:sticky;top:30px;background:#fff;border:1px solid rgba(16,37,66,.08);border-radius:8px;padding:28px}
+.side h3{font-family:var(--serif);font-weight:500;font-size:1.7rem;padding-bottom:12px;border-bottom:1px solid rgba(16,37,66,.12);margin-bottom:22px}
+.side-item{display:flex;gap:14px;width:100%;margin:0 0 20px;padding:0;background:none;border:0;text-align:left;font:inherit;color:var(--midnight);cursor:pointer}
+.side-item:last-child{margin-bottom:0}
+.side-item img{width:84px;height:84px;object-fit:cover;border-radius:8px;flex-shrink:0}
+.side-item b{display:block;font-family:var(--serif);font-weight:600;font-size:1.1rem;line-height:1.25;margin-bottom:6px}
+.side-item small{font-size:.75rem;color:var(--muted)}
+.side-item:hover b{color:var(--brass)}
+@media(max-width:960px){.rbody .wrap{grid-template-columns:1fr}.side{position:static}}
 /* CTA + FOOTER + FAB */
 .cta{text-align:center;background:var(--sapphire);color:#fff}
 .cta h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.06}
@@ -139,7 +149,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 .site-header .site-nav__brand em {
   color: var(--brass) !important;
-}
+} .side-item small{color:var(--brass);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.7rem}
+.side-item span{display:block}
 </style>
 </head>
 <body>
@@ -147,7 +158,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <header class="site-header" id="siteHeader">
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="site-container site-nav__inner">
-      <a class="site-nav__brand" href="index.html" aria-label="Decor By Pearls home">Decor <em>By</em> Pearls</a>
+      <a class="site-nav__brand" href="index.html" aria-label="Decor By Pearls home"><img src="/images/brand_logo-removebg-preview.png" alt="Decor By Pearls"></a>
 
       <div class="site-nav__desktop">
         <div class="site-nav__links">
@@ -247,7 +258,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="footer__grid">
       <div>
         <div class="footer__brand">Decor By Pearls</div>
-        <p style="margin-top:12px;max-width:34ch">Unforgettable celebrations where every detail tells your love story.</p>
+        <p style="margin-top:12px;max-width:38ch">Unforgettable celebrations where every detail tells your love story. Luxury wedding planning and decor from Mohali, serving Chandigarh, Punjab, Haryana, Himachal and destinations across North India.</p>
       </div>
       <div>
         <h4>Quick Links</h4>
@@ -307,7 +318,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
   <hr class="gold-line">
   <div class="rbody pattern-light">
-    <div class="wrap"><article class="article" id="rBody"></article></div>
+  <div class="wrap">
+  <article class="article" id="rBody"></article>
+  <aside class="side" id="rSide" aria-label="More articles"></aside>
+</div>
   </div>
 </div>
 
@@ -672,21 +686,35 @@ var posts = [
 
   /* READER */
   function openPost(id, fromPop){
-    var p = posts.filter(function(x){ return x.id === id; })[0];
-    if(!p) return;
-    $('#rCat').textContent = p.category;
-    $('#rTitle').textContent = p.title;
-    $('#rDate').textContent = p.date;
-    $('#rBy').textContent = 'By ' + p.by;
-    $('#rBody').innerHTML = '<img class="cover" src="' + p.image + '" alt="" onerror="this.remove()">' + p.content +
-      '<div class="rcta"><h4>Plan Your Dream Day</h4><a class="btn" href="contact.html">Contact Us</a></div>';
-    lastFocus = document.activeElement;
-    reader.scrollTop = 0;
-    reader.classList.add('open');
-    document.body.classList.add('lock');
-    if(!fromPop) history.pushState({ post: id }, '', '#post-' + id);
-    closeBtn.focus();
+  var p = posts.filter(function(x){ return x.id === id; })[0];
+  if(!p) return;
+  var wasOpen = reader.classList.contains('open');
+
+  $('#rCat').textContent = p.category;
+  $('#rTitle').textContent = p.title;
+  $('#rDate').textContent = p.date;
+  $('#rBy').textContent = 'By ' + p.by;
+  $('#rBody').innerHTML = '<img class="cover" src="' + p.image + '" alt="" onerror="this.remove()">' + p.content +
+    '<div class="rcta"><h4>Plan Your Dream Day</h4><a class="btn" href="contact.html">Contact Us</a></div>';
+
+  /* Sidebar: all other blogs */
+  $('#rSide').innerHTML = '<h3>More Articles</h3>' + posts.filter(function(x){ return x.id !== id; }).map(function(x){
+    return '<button class="side-item" type="button" data-id="' + x.id + '">' +
+      '<img src="' + x.image + '" alt="" onerror="this.remove()">' +
+      '<span><b>' + esc(x.title) + '</b><small>Read more &rarr;</small></span>' +
+    '</button>';
+  }).join('');
+
+  if(!wasOpen) lastFocus = document.activeElement;
+  reader.scrollTop = 0;
+  reader.classList.add('open');
+  document.body.classList.add('lock');
+  if(!fromPop){
+    if(wasOpen) history.replaceState({ post: id }, '', '#post-' + id);
+    else history.pushState({ post: id }, '', '#post-' + id);
   }
+  if(!wasOpen) closeBtn.focus();
+}
   function closePost(fromPop){
     if(!reader.classList.contains('open')) return;
     reader.classList.remove('open');
@@ -696,7 +724,9 @@ var posts = [
   }
   grid.addEventListener('click', function(e){
     var b = e.target.closest('.more'); if(b) openPost(+b.dataset.id);
-  });
+  }); $('#rSide').addEventListener('click', function(e){
+  var b = e.target.closest('.side-item'); if(b) openPost(+b.dataset.id);
+});
   closeBtn.addEventListener('click', function(){ closePost(); });
   document.addEventListener('keydown', function(e){
   if(e.key === 'Escape' && reader.classList.contains('open')) closePost();

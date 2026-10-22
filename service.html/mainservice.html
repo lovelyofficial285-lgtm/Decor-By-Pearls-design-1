@@ -34,7 +34,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:background-color .35s,padding .35s}
 .nav.is-scrolled{background:rgba(16,37,66,.92);backdrop-filter:blur(14px);padding:14px 0}
 .nav__in{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.nav__brand{font-family:var(--display);font-size:1.6rem;color:#fff}.nav__brand em{color:var(--brass)}
+.nav__brand{display:flex;align-items:center;line-height:0}
+.nav__brand img{height:80px;width:auto}
+.nav.is-scrolled .nav__brand img{height:64px}
+@media(max-width:767.98px){.nav__brand img{height:56px}.nav.is-scrolled .nav__brand img{height:48px}}
 .nav__links{display:none;align-items:center;gap:30px}
 .nav__links a{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .3s}
 .nav__links a:hover,.nav__links a[aria-current]{color:var(--brass)}
@@ -60,13 +63,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
 .hd .sub{max-width:46ch;margin:0 auto;color:var(--champagne)}
 
 /* SERVICES */
-.svc{display:grid;grid-template-columns:1fr;border-top:1px solid rgba(16,37,66,.14)}
-@media(min-width:768px){.svc{grid-template-columns:1fr 1fr;column-gap:clamp(32px,6vw,88px)}}
-.svc article{padding:28px 0;border-bottom:1px solid rgba(16,37,66,.14);transition:padding-left .35s,border-color .35s}
-.svc article:hover{padding-left:12px;border-color:var(--brass)}
-.svc h3{font-family:var(--serif);font-weight:500;font-size:1.7rem;line-height:1.15}
-.svc p{margin-top:6px;color:var(--muted);max-width:40ch}
-
+/* SERVICES: image cards */
+.svc{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.svc article{position:relative;overflow:hidden;border-radius:16px;aspect-ratio:1/1;background:var(--midnight);flex:0 0 calc(50% - 8px)}
+@media(min-width:768px){.svc article{flex-basis:calc(33.333% - 11px)}}
+@media(min-width:992px){.svc article{flex-basis:calc(25% - 12px)}}
+.svc article img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.svc article:hover img{transform:scale(1.06)}
+.svc article::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,37,66,.05) 30%,rgba(16,37,66,.92))}
+.svc .txt{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:18px}
+.svc h3{font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:1.15;color:#fff}
+.svc p{margin-top:6px;font-size:.8rem;line-height:1.45;color:var(--champagne)}
+@media(min-width:768px){.svc h3{font-size:1.35rem}.svc p{font-size:.85rem}}
 /* STATES */
 .states{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 @media(min-width:992px){.states{grid-template-columns:repeat(4,1fr)}}
@@ -125,7 +133,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
 
 <header class="nav" id="nav">
   <div class="wrap nav__in">
-    <a class="nav__brand" href="index.html">Decor <em>By</em> Pearls</a>
+   <a class="nav__brand" href="/index.html" aria-label="Decor By Pearls home"><img src="/images/brand_logo-removebg-preview.png" alt="Decor By Pearls"></a>
     <nav class="nav__links" aria-label="Primary">
       <a href="/index.html">Home</a><a href="/service.html" aria-current="page">Services</a><a href="/gallery.html">Gallery</a><a href="/blog.html">Blogs</a><a href="/reviews.html">Testimonials</a><a href="/about.html">About</a>
     </nav>
@@ -161,16 +169,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
   <section class="sec pattern-light" aria-label="Our services">
     <div class="wrap">
       <div class="sec__head"><p class="eyebrow">Everything handled</p><h2 class="sec__title">Services we <em>provide</em></h2></div>
-      <div class="svc">
-        <article><h3>Planning &amp; Consulting</h3><p>Your vision, mapped from day one.</p></article>
-        <article><h3>Venue Selection</h3><p>Hand-picked venues across North India.</p></article>
-        <article><h3>Décor &amp; Design</h3><p>Spaces that stop guests mid-step.</p></article>
-        <article><h3>Vendor Management</h3><p>Vetted vendors. One point of contact.</p></article>
-        <article><h3>Catering &amp; Hospitality</h3><p>Great food. Warm welcomes.</p></article>
-        <article><h3>Budget Control</h3><p>Every rupee planned, nothing wasted.</p></article>
-        <article><h3>Bridal Styling &amp; Gifting</h3><p>Details that feel personal.</p></article>
-        <article><h3>Invitations &amp; Wed-Sites</h3><p>Your story, beautifully shared.</p></article>
-      </div>
+     <div class="svc">
+  <article><img src="/images/consult .jpg" alt="Consulting and planning" loading="lazy"><div class="txt"><h3>Consulting &amp; Planning</h3><p>Expert guidance at every stage of your celebration journey.</p></div></article>
+  <article><img src="/images/destination and venue .jpg" alt="Destination and venue selection" loading="lazy"><div class="txt"><h3>Destination &amp; Venue Selection</h3><p>Curated venues across India's most breathtaking locations.</p></div></article>
+  <article><img src="/images/vendor .jpg" alt="Vendor sourcing and management" loading="lazy"><div class="txt"><h3>Vendor Sourcing &amp; Management</h3><p>Trusted network of premium vendors for every need.</p></div></article>
+  <article><img src="/images/decor.jpg" alt="Design and decor management" loading="lazy"><div class="txt"><h3>Design &amp; Décor Management</h3><p>Transforming spaces into magical atmospheres.</p></div></article>
+  <article><img src="/images/food and beverage .jpg" alt="Food and beverage management" loading="lazy"><div class="txt"><h3>Food &amp; Beverage Management</h3><p>Exquisite culinary experiences tailored to your taste.</p></div></article>
+  <article><img src="/images/budget.jpg" alt="Budget management" loading="lazy"><div class="txt"><h3>Budget Management</h3><p>Smart financial planning for your perfect day.</p></div></article>
+  <article><img src="/images/guest.jpg" alt="Guest RSVP and hospitality" loading="lazy"><div class="txt"><h3>Guest RSVP &amp; Hospitality</h3><p>Ensuring every guest feels warmly welcomed.</p></div></article>
+  <article><img src="/images/wedding favour.jpg" alt="Wedding favors and gifting" loading="lazy"><div class="txt"><h3>Wedding Favors &amp; Gifting</h3><p>Personalised tokens of love for your guests.</p></div></article>
+  <article><img src="/images/bridal styling real .jpg" alt="Bridal and wardrobe styling" loading="lazy"><div class="txt"><h3>Bridal &amp; Wardrobe Styling</h3><p>Look stunning for every moment of your celebration.</p></div></article>
+  <article><img src="/images/logistic.jpg" alt="Logistics management" loading="lazy"><div class="txt"><h3>Logistics Management</h3><p>Seamless coordination so nothing is left to chance.</p></div></article>
+  <article><img src="/images/invitation.jpg" alt="Stationery and invitations" loading="lazy"><div class="txt"><h3>Stationery &amp; Invitations</h3><p>Bespoke designs that set the tone for your event.</p></div></article>
+  <article><img src="/images/wed sites .jpg" alt="Wed-Sites" loading="lazy"><div class="txt"><h3>Wed-Sites</h3><p>Beautiful digital experiences to share your love story.</p></div></article>
+</div>
     </div>
   </section>
 
@@ -179,9 +191,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
       <div class="sec__head"><p class="eyebrow">Our regions</p><h2 class="sec__title">Where we <em>wed</em></h2></div>
       <div class="states">
         <article class="state"><img src="/images/gallery 1.jpg" alt="Chandigarh wedding decor" loading="lazy"><div><h3>Chandigarh</h3><p>Modern luxury, city hotels and lawns.</p></div></article>
-        <article class="state"><img src="/images/gallery 2.jpg" alt="Punjab wedding decor" loading="lazy"><div><h3>Punjab</h3><p>Grand, vibrant, royal-style celebrations.</p></div></article>
+        <article class="state"><img src="/images/where we web img 2.jpg" alt="Punjab wedding decor" loading="lazy"><div><h3>Punjab</h3><p>Grand, vibrant, royal-style celebrations.</p></div></article>
         <article class="state"><img src="/images/gallery 3.jpg" alt="Haryana wedding decor" loading="lazy"><div><h3>Haryana</h3><p>Spacious resorts and farmhouse weddings.</p></div></article>
-        <article class="state"><img src="/images/gallery 3.jpg" alt="Himachal wedding decor" loading="lazy"><div><h3>Himachal</h3><p>Mountain vows in Shimla, Manali, Kasauli.</p></div></article>
+        <article class="state"><img src="/images/gallery 2.jpg" alt="Himachal wedding decor" loading="lazy"><div><h3>Himachal</h3><p>Mountain vows in Shimla, Manali, Kasauli.</p></div></article>
       </div>
       <p class="note"><b>Intimate weddings too.</b> Small guest list, big emotion.</p>
     </div>
@@ -226,7 +238,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
     <div class="footer__grid">
       <div>
         <div class="footer__brand">Decor By Pearls</div>
-        <p style="margin-top:12px;max-width:34ch">Unforgettable celebrations where every detail tells your love story.</p>
+       <p style="margin-top:12px;max-width:38ch">Unforgettable celebrations where every detail tells your love story. Luxury wedding planning and decor from Mohali, serving Chandigarh, Punjab, Haryana, Himachal and destinations across North India.</p>
       </div>
       <div>
         <h4>Quick Links</h4>

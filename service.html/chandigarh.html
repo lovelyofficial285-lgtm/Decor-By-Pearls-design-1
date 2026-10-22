@@ -45,7 +45,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:background-color .35s,padding .35s}
 .nav.is-scrolled{background:rgba(16,37,66,.92);backdrop-filter:blur(14px);padding:14px 0}
 .nav__in{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.nav__brand{font-family:var(--display);font-size:1.6rem;color:#fff}.nav__brand em{color:var(--brass)}
+.nav__brand{display:flex;align-items:center;line-height:0}
+.nav__brand img{height:80px;width:auto}
+.nav.is-scrolled .nav__brand img{height:64px}
+@media(max-width:767.98px){.nav__brand img{height:56px}.nav.is-scrolled .nav__brand img{height:48px}}
 .nav__links{display:none;align-items:center;gap:30px}
 .nav__links a{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .3s}
 .nav__links a:hover,.nav__links a[aria-current]{color:var(--brass)}
@@ -206,14 +209,23 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   .types-split{grid-template-columns:1.1fr 1fr;align-items:stretch}
   .pics--tall{height:100%}
   .pics--tall img{height:100%;aspect-ratio:auto}
-}
+} /* SERVICES: text left, image right */
+.svc{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:768px){.svc{grid-template-columns:1fr 1fr;gap:20px}}
+.svc article{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 16px 16px 26px;background:#fff;border:1px solid rgba(16,37,66,.1);border-radius:16px;transition:border-color .35s,transform .35s}
+.svc article:hover{border-color:var(--brass);transform:translateY(-3px)}
+.svc .txt{flex:1;order:1}
+.svc article img{order:2;flex:0 0 96px;width:96px;height:96px;object-fit:cover;border-radius:12px}
+@media(min-width:768px){.svc article img{flex-basis:120px;width:120px;height:120px}}
+.svc h3{font-family:var(--serif);font-weight:500;font-size:1.35rem;line-height:1.15;color:var(--midnight)}
+.svc p{margin-top:6px;font-size:.9rem;line-height:1.5;color:var(--muted)}
 </style>
 </head>
 <body>
 
 <header class="nav" id="nav">
   <div class="wrap nav__in">
-    <a class="nav__brand" href="index.html">Decor <em>By</em> Pearls</a>
+    <a class="nav__brand" href="/index.html" aria-label="Decor By Pearls home"><img src="/images/brand_logo-removebg-preview.png" alt="Decor By Pearls"></a>
     <nav class="nav__links" aria-label="Primary">
       <a href="../index.html">Home</a><a href="../services.html" aria-current="page">Services</a><a href="../gallery.html">Gallery</a><a href="../blog.html">Blogs</a><a href="../testimonials.html">Testimonials</a><a href="../about.html">About</a>
     </nav>
@@ -258,7 +270,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
         <img src="/images/chandigarh second main img .jpg" alt="Wedding table setting" loading="lazy">
       </div>
       <div>
-        <h2>A Punjabi wedding is not <em>one event</em></h2>
+        <h2>A Chandigarh  wedding is not <em>one event</em></h2>
         <div class="prose" style="margin-top:20px">
           <p>By the time the reception is over, a family has usually handled a roka, mehendi, haldi, sangeet, the wedding itself and a few more things in between. Every function needs its own décor, its own food plan and its own timings. Doing all that along with work, relatives and daily life gets tiring really fast.</p>
           <p>That is where we come in. Decor By Pearls is a wedding planner in Chandigarh, and we work in Mohali and Panchkula too. We plan destination weddings outside the three cities as well. You can give us the whole wedding or just a few functions, depending on what you have already sorted and how much you want to spend.</p>
@@ -356,24 +368,25 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   </section>
 
   <section class="sec solid" aria-label="Questions to ask a planner">
-    <div class="wrap intro">
-      <div>
-        <h2 style="font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,3rem);line-height:1.1">What to ask before you <em style="font-family:var(--display);color:var(--brass)">hire a planner</em></h2>
-        <p class="prose" style="margin-top:16px">Photos show how a wedding looked, not how it was handled. Ask every planner the same questions, us included.</p>
-      </div>
-      <div>
-        <ul class="ask">
-          <li>Who is my main contact, and who will be at the venue during each function?</li>
-          <li>What’s included in the price, and what costs extra?</li>
-          <li>How are vendors booked, confirmed and paid?</li>
-          <li>What happens if a vendor cancels or plans change on the day?</li>
-          <li>Have you worked at my venue, or will you visit before quoting?</li>
-          <li>How often will you update me as the date gets closer?</li>
-        </ul>
-        <p class="prose">See who explains things clearly, including costs and who’s responsible for what.</p>
-      </div>
+  <div class="wrap intro intro--pics">
+    <div>
+      <h2 style="font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,3rem);line-height:1.1">What to ask before you <em style="font-family:var(--display);color:var(--brass)">hire a planner</em></h2>
+      <p class="prose" style="margin-top:16px">Photos show how a wedding looked, not how it was handled. Ask every planner the same questions, us included.</p>
+      <ul class="ask" style="margin-top:24px">
+        <li>Who is my main contact, and who will be at the venue during each function?</li>
+        <li>What’s included in the price, and what costs extra?</li>
+        <li>How are vendors booked, confirmed and paid?</li>
+        <li>What happens if a vendor cancels or plans change on the day?</li>
+        <li>Have you worked at my venue, or will you visit before quoting?</li>
+        <li>How often will you update me as the date gets closer?</li>
+      </ul>
+      <p class="prose">See who explains things clearly, including costs and who’s responsible for what.</p>
     </div>
-  </section>
+    <div class="pics pics--one">
+      <img src="/images/ask planner .jpg" alt="Meeting with a wedding planner" loading="lazy">
+    </div>
+  </div>
+</section>
 
   <section class="sec pattern" aria-label="Frequently asked questions">
     <div class="wrap">
@@ -418,7 +431,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
     <div class="footer__grid">
       <div>
         <div class="footer__brand">Decor By Pearls</div>
-        <p style="margin-top:12px;max-width:34ch">Unforgettable celebrations where every detail tells your love story.</p>
+        <p style="margin-top:12px;max-width:38ch">Unforgettable celebrations where every detail tells your love story. Luxury wedding planning and decor from Mohali, serving Chandigarh, Punjab, Haryana, Himachal and destinations across North India.</p>
       </div>
       <div>
         <h4>Quick Links</h4>
