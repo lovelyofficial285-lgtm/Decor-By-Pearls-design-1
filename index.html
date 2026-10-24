@@ -1127,7 +1127,8 @@ height: calc(var(--door-h) * .8468);
 
 @media (max-width: 991.98px) {
   .about__text p { max-width: none; }
-}
+} .film { aspect-ratio: 9 / 14; max-height: 520px; }
+.vmodal__box { width: auto; height: min(88vh, 800px); aspect-ratio: 9 / 16; max-width: 100%; }
 </style>
  
   </style>
@@ -1428,13 +1429,20 @@ height: calc(var(--door-h) * .8468);
       <p class="eyebrow">Stories We've Told</p>
       <h2 class="sec__title">Wedding <em>films</em></h2>
     </div>
-    <div class="films">
-    <a class="film reveal" href="#" data-video="https://drive.google.com/file/d/1WokMcX721Zw-l6tpmbLPOIKnxYsjOhI3/view?usp=sharing" aria-label="Play film: Priya and Arjun"><img src="https://picsum.photos/seed/pearls-f1/800/500" alt="" loading="lazy"><span class="film__play"></span><div class="film__cap"><h3>Priya &amp; Arjun</h3><span>Udaipur</span></div></a>
-
-<a class="film reveal" href="#" data-video="https://drive.google.com/file/d/16NnWh1PvDYY5Kg8Cs0mj3mglOYmYfwHY/view?usp=sharing" aria-label="Play film: Devansh and Mayra"><img src="https://picsum.photos/seed/pearls-f2/800/500" alt="" loading="lazy"><span class="film__play"></span><div class="film__cap"><h3>Devansh &amp; Mayra</h3><span>Beach wedding</span></div></a>
-
-<a class="film reveal" href="#" data-video="https://drive.google.com/file/d/1pb6nsO75YcyV2Z0DYzXeN0-JRCXjjiCe/view?usp=sharing" aria-label="Play film: Anubhav and Harshita"><img src="https://picsum.photos/seed/pearls-f3/800/500" alt="" loading="lazy"><span class="film__play"></span><div class="film__cap"><h3>Anubhav &amp; Harshita</h3><span>Fort wedding</span></div></a> </div>
-  </div>
+  <div class="films">
+  <a class="film reveal" href="#" data-yt="FDoL7ueqK7o" aria-label="Play film: Priya and Arjun">
+    <img alt="" loading="lazy"><span class="film__play"></span>
+    <div class="film__cap"><h3>Priya &amp; Arjun</h3><span>Udaipur</span></div>
+  </a>
+  <a class="film reveal" href="#" data-yt="xHW4UGg-csY" aria-label="Play film: Devansh and Mayra">
+    <img alt="" loading="lazy"><span class="film__play"></span>
+    <div class="film__cap"><h3>Devansh &amp; Mayra</h3><span>Beach wedding</span></div>
+  </a>
+  <a class="film reveal" href="#" data-yt="yprsL9faA3E" aria-label="Play film: Anubhav and Harshita">
+    <img alt="" loading="lazy"><span class="film__play"></span>
+    <div class="film__cap"><h3>Anubhav &amp; Harshita</h3><span>Fort wedding</span></div>
+  </a>
+</div>
 </section>
 
 <section class="sec sec--dark pattern-bg" id="team" aria-label="Meet our team">
@@ -1511,9 +1519,9 @@ height: calc(var(--door-h) * .8468);
     <p class="features__sub">Partners</p>
     <div class="features__logos">
       <img src="/logo/weddingsutracom_logo-removebg-preview.png" alt="WeddingSutra" loading="lazy">
-      <img src="/logo/vogue logo.png" alt="Vogue" loading="lazy">
+      <img src="/logo/vogue real.jpeg" alt="Vogue" loading="lazy">
       <img src="/logo/wedmegood-removebg-preview (1).png" alt="WedMeGood" loading="lazy">
-      <img src="/logo/white-wedding-wire-logo-hd-png.png" alt="WeddingWire.in" loading="lazy">
+      <img src="/logo/wedding wire.jpeg" alt="WeddingWire.in" loading="lazy">
       <img src="/logo/wedding_bazar-removebg-preview.png" alt="WeddingBazaar" loading="lazy">
      
     </div>
@@ -2167,6 +2175,46 @@ height: calc(var(--door-h) * .8468);
   } else { visible = true; start(); }
 })();
 
+/* ===== YOUTUBE FILMS: thumbnail + click = muted autoplay ===== */
+(function () {
+  var modal = document.getElementById("videoModal");
+  var frame = document.getElementById("videoFrame");
+  if (!modal) return;
+
+  /* Thumbnails */
+  document.querySelectorAll(".film[data-yt]").forEach(function (f) {
+    var img = f.querySelector("img");
+    var id = f.dataset.yt;
+    var list = [
+      "https://i.ytimg.com/vi/" + id + "/hq720.jpg",
+      "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg"
+    ];
+    var n = 0;
+    img.onerror = function () { if (++n < list.length) img.src = list[n]; };
+    img.src = list[0];
+
+    f.addEventListener("click", function (e) { e.preventDefault(); open(id); });
+  });
+
+  /* Modal: autoplay + muted */
+  function open(id) {
+    frame.src = "https://www.youtube.com/embed/" + id +
+      "?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1";
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+  function close() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    frame.src = "";
+    document.body.style.overflow = "";
+  }
+  modal.querySelector(".vmodal__close").addEventListener("click", close);
+  modal.addEventListener("click", function (e) { if (e.target === modal) close(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+})();
+
 (function () {
   var header = document.getElementById("siteHeader");
   var toggler = document.querySelector(".site-nav__toggler");
@@ -2240,6 +2288,6 @@ height: calc(var(--door-h) * .8468);
   check();
 })();
 
-  </script>
+</script>
 </body>
 </html>
