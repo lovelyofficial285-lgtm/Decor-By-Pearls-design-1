@@ -218,7 +218,51 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .svc article img{order:2;flex:0 0 96px;width:96px;height:96px;object-fit:cover;border-radius:12px}
 @media(min-width:768px){.svc article img{flex-basis:120px;width:120px;height:120px}}
 .svc h3{font-family:var(--serif);font-weight:500;font-size:1.35rem;line-height:1.15;color:var(--midnight)}
-.svc p{margin-top:6px;font-size:.9rem;line-height:1.5;color:var(--muted)}
+.svc p{margin-top:6px;font-size:.9rem;line-height:1.5;color:var(--muted)} /* SERVICES */
+/* SERVICES: image cards */
+.svc{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.svc article{position:relative;overflow:hidden;border-radius:16px;aspect-ratio:1/1;background:var(--midnight);flex:0 0 calc(50% - 8px)}
+@media(min-width:768px){.svc article{flex-basis:calc(33.333% - 11px)}}
+@media(min-width:992px){.svc article{flex-basis:calc(25% - 12px)}}
+.svc article img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.svc article:hover img{transform:scale(1.06)}
+.svc article::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,37,66,.05) 30%,rgba(16,37,66,.92))}
+.svc .txt{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:18px}
+.svc h3{font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:1.15;color:#fff}
+.svc p{margin-top:6px;font-size:.8rem;line-height:1.45;color:var(--champagne)}
+@media(min-width:768px){.svc h3{font-size:1.35rem}.svc p{font-size:.85rem}}
+/* STATES */
+.states{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(min-width:992px){.states{grid-template-columns:repeat(4,1fr)}}
+.state{position:relative;overflow:hidden;aspect-ratio:3/4;border-radius:8px;background:var(--midnight);display:flex;align-items:flex-end}
+.state img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.state:hover img{transform:scale(1.06)}
+.state::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,37,66,.05) 30%,rgba(16,37,66,.92))}
+.state div{position:relative;z-index:1;padding:20px}
+.state h3{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.05}
+.state p{margin-top:8px;font-size:.88rem;line-height:1.5;color:var(--champagne)}
+.note{margin-top:28px;text-align:center;color:var(--champagne);font-size:.95rem}
+.note b{color:#fff;font-weight:500}
+/* ONE BOX, THREE HEADINGS */
+.types--stack{
+  display:block;
+  padding:8px 32px;
+  border:1px solid rgba(199,156,90,.45);
+  border-radius:8px;
+  background:rgba(11,26,48,.72);
+}
+.types--stack .type{
+  padding:26px 0;
+  border:0;
+  border-bottom:1px solid rgba(199,156,90,.35);
+  border-radius:0;
+  background:none;
+}
+.types--stack .type:last-child{border-bottom:0}
+
+@media(max-width:640px){
+  .types--stack{padding:4px 20px}
+}
 </style>
 </head>
 <body>
@@ -291,8 +335,44 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
         <article><h3>Wedding days</h3><p>Someone from our team watches the schedule and solves small problems, so your family can enjoy the day.</p></article>
       </div>
     </div>
+  </section> <section class="sec pattern-light" aria-label="Our services">
+    <div class="wrap">
+      <div class="sec__head"><p class="eyebrow">Everything handled</p><h2 class="sec__title">Services we <em>provide</em></h2></div>
+     <div class="svc">
+  <article><img src="/images/consult .jpg" alt="Consulting and planning" loading="lazy"><div class="txt"><h3>Consulting &amp; Planning</h3><p>Expert guidance at every stage of your celebration journey.</p></div></article>
+  <article><img src="/images/destination and venue .jpg" alt="Destination and venue selection" loading="lazy"><div class="txt"><h3>Destination &amp; Venue Selection</h3><p>Curated venues across India's most breathtaking locations.</p></div></article>
+  <article><img src="/images/vendor .jpg" alt="Vendor sourcing and management" loading="lazy"><div class="txt"><h3>Vendor Sourcing &amp; Management</h3><p>Trusted network of premium vendors for every need.</p></div></article>
+  <article><img src="/images/decor.jpg" alt="Design and decor management" loading="lazy"><div class="txt"><h3>Design &amp; Décor Management</h3><p>Transforming spaces into magical atmospheres.</p></div></article>
+  <article><img src="/images/food and beverage .jpg" alt="Food and beverage management" loading="lazy"><div class="txt"><h3>Food &amp; Beverage Management</h3><p>Exquisite culinary experiences tailored to your taste.</p></div></article>
+  <article><img src="/images/budget.jpg" alt="Budget management" loading="lazy"><div class="txt"><h3>Budget Management</h3><p>Smart financial planning for your perfect day.</p></div></article>
+  <article><img src="/images/guest.jpg" alt="Guest RSVP and hospitality" loading="lazy"><div class="txt"><h3>Guest RSVP &amp; Hospitality</h3><p>Ensuring every guest feels warmly welcomed.</p></div></article>
+  <article><img src="/images/wedding favour.jpg" alt="Wedding favors and gifting" loading="lazy"><div class="txt"><h3>Wedding Favors &amp; Gifting</h3><p>Personalised tokens of love for your guests.</p></div></article>
+  <article><img src="/images/bridal styling real .jpg" alt="Bridal and wardrobe styling" loading="lazy"><div class="txt"><h3>Bridal &amp; Wardrobe Styling</h3><p>Look stunning for every moment of your celebration.</p></div></article>
+  <article><img src="/images/logistic.jpg" alt="Logistics management" loading="lazy"><div class="txt"><h3>Logistics Management</h3><p>Seamless coordination so nothing is left to chance.</p></div></article>
+  <article><img src="/images/invitation.jpg" alt="Stationery and invitations" loading="lazy"><div class="txt"><h3>Stationery &amp; Invitations</h3><p>Bespoke designs that set the tone for your event.</p></div></article>
+  <article><img src="/images/wed sites .jpg" alt="Wed-Sites" loading="lazy"><div class="txt"><h3>Wed-Sites</h3><p>Beautiful digital experiences to share your love story.</p></div></article>
+</div>
+    </div>
   </section>
-
+ <section class="sec pattern-light" aria-label="Our services">
+    <div class="wrap">
+      <div class="sec__head"><p class="eyebrow">Everything handled</p><h2 class="sec__title">Services we <em>provide</em></h2></div>
+     <div class="svc">
+  <article><img src="/images/consult .jpg" alt="Consulting and planning" loading="lazy"><div class="txt"><h3>Consulting &amp; Planning</h3><p>Expert guidance at every stage of your celebration journey.</p></div></article>
+  <article><img src="/images/destination and venue .jpg" alt="Destination and venue selection" loading="lazy"><div class="txt"><h3>Destination &amp; Venue Selection</h3><p>Curated venues across India's most breathtaking locations.</p></div></article>
+  <article><img src="/images/vendor .jpg" alt="Vendor sourcing and management" loading="lazy"><div class="txt"><h3>Vendor Sourcing &amp; Management</h3><p>Trusted network of premium vendors for every need.</p></div></article>
+  <article><img src="/images/decor.jpg" alt="Design and decor management" loading="lazy"><div class="txt"><h3>Design &amp; Décor Management</h3><p>Transforming spaces into magical atmospheres.</p></div></article>
+  <article><img src="/images/food and beverage .jpg" alt="Food and beverage management" loading="lazy"><div class="txt"><h3>Food &amp; Beverage Management</h3><p>Exquisite culinary experiences tailored to your taste.</p></div></article>
+  <article><img src="/images/budget.jpg" alt="Budget management" loading="lazy"><div class="txt"><h3>Budget Management</h3><p>Smart financial planning for your perfect day.</p></div></article>
+  <article><img src="/images/guest.jpg" alt="Guest RSVP and hospitality" loading="lazy"><div class="txt"><h3>Guest RSVP &amp; Hospitality</h3><p>Ensuring every guest feels warmly welcomed.</p></div></article>
+  <article><img src="/images/wedding favour.jpg" alt="Wedding favors and gifting" loading="lazy"><div class="txt"><h3>Wedding Favors &amp; Gifting</h3><p>Personalised tokens of love for your guests.</p></div></article>
+  <article><img src="/images/bridal styling real .jpg" alt="Bridal and wardrobe styling" loading="lazy"><div class="txt"><h3>Bridal &amp; Wardrobe Styling</h3><p>Look stunning for every moment of your celebration.</p></div></article>
+  <article><img src="/images/logistic.jpg" alt="Logistics management" loading="lazy"><div class="txt"><h3>Logistics Management</h3><p>Seamless coordination so nothing is left to chance.</p></div></article>
+  <article><img src="/images/invitation.jpg" alt="Stationery and invitations" loading="lazy"><div class="txt"><h3>Stationery &amp; Invitations</h3><p>Bespoke designs that set the tone for your event.</p></div></article>
+  <article><img src="/images/wed sites .jpg" alt="Wed-Sites" loading="lazy"><div class="txt"><h3>Wed-Sites</h3><p>Beautiful digital experiences to share your love story.</p></div></article>
+</div>
+    </div>
+  </section>
   <section class="sec pattern" aria-label="How each function is planned">
     <div class="wrap">
       <div class="sec__head"><p class="eyebrow">Function by function</p><h2 class="sec__title">How each function is <em>planned</em></h2></div>

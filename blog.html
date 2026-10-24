@@ -320,7 +320,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <div class="rbody pattern-light">
   <div class="wrap">
   <article class="article" id="rBody"></article>
-  <aside class="side" id="rSide" aria-label="More articles"></aside>
+  <aside class="side" id="rSide" aria-label="Recent Posts"></aside>
 </div>
   </div>
 </div>
@@ -698,7 +698,7 @@ var posts = [
     '<div class="rcta"><h4>Plan Your Dream Day</h4><a class="btn" href="contact.html">Contact Us</a></div>';
 
   /* Sidebar: all other blogs */
-  $('#rSide').innerHTML = '<h3>More Articles</h3>' + posts.filter(function(x){ return x.id !== id; }).map(function(x){
+  $('#rSide').innerHTML = '<h3>Recent Post</h3>' + posts.filter(function(x){ return x.id !== id; }).map(function(x){
     return '<button class="side-item" type="button" data-id="' + x.id + '">' +
       '<img src="' + x.image + '" alt="" onerror="this.remove()">' +
       '<span><b>' + esc(x.title) + '</b><small>Read more &rarr;</small></span>' +
