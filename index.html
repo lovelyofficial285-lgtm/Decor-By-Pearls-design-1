@@ -1674,7 +1674,7 @@ height: calc(var(--door-h) * .8468);
     </div>
 
     <div class="enq reveal">
-      <form class="enq__form" id="enquiryForm" novalidate>
+      <form class="enq__form" id="enquiryForm" method="post" action="javascript:void(0)" novalidate>
 
         <div class="enq__row">
           <div class="enq__field">
@@ -1710,28 +1710,42 @@ height: calc(var(--door-h) * .8468);
           </div>
         </div>
 
-        <div class="enq__field">
-          <label for="enqBudget">Estimated Budget<span class="req">*</span></label>
-          <select id="enqBudget" name="budget" required>
-            <option value="" selected disabled>Select budget</option>
-            <option>₹10–20 Lakhs</option>
-            <option>₹20–50 Lakhs</option>
-            <option>₹50 Lakhs–₹1 Crore</option>
-            <option>Custom Budget (Available on Request)</option>
-          </select>
-          <p class="enq__err">Select a budget range.</p>
-        </div>
+        <div class="enq__row">
+  <div class="enq__field">
+    <label for="enqEmail">Email Address<span class="req">*</span></label>
+    <input type="email" id="enqEmail" name="email" autocomplete="email" maxlength="100" required>
+    <p class="enq__err">Enter a valid email address.</p>
+  </div>
+  <div class="enq__field">
+    <label for="enqBudget">Estimated Budget<span class="req">*</span></label>
+    <select id="enqBudget" name="budget" required>
+      <option value="" selected disabled>Select budget</option>
+      <option>₹10–20 Lakhs</option>
+      <option>₹20–50 Lakhs</option>
+      <option>₹50 Lakhs–₹1 Crore</option>
+      <option>Custom Budget (Available on Request)</option>
+    </select>
+    <p class="enq__err">Select a budget range.</p>
+  </div>
+</div>
 
-        <div class="enq__trap" aria-hidden="true">
-          <label for="enqWebsite">Website</label>
-          <input type="text" id="enqWebsite" name="website" tabindex="-1" autocomplete="off">
-        </div>
+  <input type="hidden" name="access_key" value="e693a13c-6199-4f05-8a69-2907f55c4e64">
+<input type="hidden" name="subject" value="New Wedding Enquiry - Decor By Pearls">
+<input type="hidden" name="from_name" value="Decor By Pearls Website">
 
-        <button class="btn btn-brass enq__submit" type="submit" id="enqBtn">Submit Enquiry</button>
-        <p class="enq__msg" id="enqMsg" role="status" aria-live="polite"></p>
+<div class="enq__trap" aria-hidden="true">
+  <label for="enqWebsite">Website</label>
+  <input type="text" id="enqWebsite" name="website" tabindex="-1" autocomplete="off">
+</div>
+<input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+<div class="h-captcha" data-captcha="true"></div>
+
+<button class="btn btn-brass enq__submit" type="submit" id="enqBtn">Submit Enquiry</button>
+<p class="enq__msg" id="enqMsg" role="status" aria-live="polite"></p>
       </form>
     </div>
   </div>
+</section>
 </section>
   <section class="sec sec--dark pattern-bg" id="luxury-planner" aria-label="Luxury Wedding Planner India: A Décor-Led Partner for Every Celebration">
   <div class="container" style="max-width:920px">
@@ -2467,6 +2481,6 @@ height: calc(var(--door-h) * .8468);
   check();
 })();
 
-</script> <script type="module" src="js/inquiry.js"></script>
+</script>  <script src="https://web3forms.com/client/script.js" async defer></script><script type="module" src="partials/enquiry.js"></script>
 </body>
 </html>
