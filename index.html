@@ -1195,6 +1195,32 @@ height: calc(var(--door-h) * .8468);
   .enq__row { grid-template-columns: 1fr 1fr; }
   .enq__submit { width: auto; justify-self: start; min-width: 240px; }
 }
+.pattern-light{background-color:#fff;background-image:linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)),url("pattern.jpg");background-size:auto,320px auto}
+
+/* SERVICES: image cards */
+.svc{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.svc article{position:relative;overflow:hidden;border-radius:16px;aspect-ratio:1/1;background:var(--midnight);flex:0 0 calc(50% - 8px)}
+@media(min-width:768px){.svc article{flex-basis:calc(33.333% - 11px)}}
+@media(min-width:992px){.svc article{flex-basis:calc(25% - 12px)}}
+.svc article img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.svc article:hover img{transform:scale(1.06)}
+.svc article::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,37,66,.05) 30%,rgba(16,37,66,.92))}
+.svc .txt{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:18px}
+.svc h3{font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:1.15;color:#fff}
+.svc p{margin-top:6px;font-size:.8rem;line-height:1.45;color:var(--champagne)}
+@media(min-width:768px){.svc h3{font-size:1.35rem}.svc p{font-size:.85rem}}
+/* Text + image split */
+.split{display:grid;gap:40px;align-items:center}
+.split > .about__text{min-width:0;margin:0}
+.split__img{border-radius:12px;overflow:hidden;aspect-ratio:4/5;border:1px solid rgba(199,156,90,.45);background:var(--sapphire);max-width:480px;width:100%;justify-self:center}
+.split__img img{width:100%;height:100%;object-fit:cover}
+
+@media(min-width:992px){
+  .split{grid-template-columns:1.25fr .75fr;gap:64px}
+  .split__img{max-width:none;justify-self:stretch}
+  .split--top{align-items:start}
+  .split--top .split__img{position:sticky;top:110px}
+}
 </style>
  
 </head>
@@ -1355,7 +1381,7 @@ height: calc(var(--door-h) * .8468);
       <!-- Desktop-only side pictures. TEMP Unsplash placeholders: replace with your own images -->
       <div class="gate__side gate__side--left">
         <div class="gate__pic gate__pic--a">
-          <img src="images/index page gate side image .jpg" alt="Floral wedding decor" style="object-position:30% 50%" loading="lazy">
+          <img src="images/haryana gallery 3.jpg" alt="Floral wedding decor" style="object-position:30% 50%" loading="lazy">
         </div>
         <div class="gate__pic gate__pic--b">
           <img src="images/door side 2.jpg" alt="Wedding celebration detail" style="object-position:70% 50%" loading="lazy">
@@ -1447,7 +1473,25 @@ height: calc(var(--door-h) * .8468);
   </div>
 </section>
 
- 
+ <section class="sec pattern-light" aria-label="Our services">
+  <div class="container">
+    <div class="sec__head"><p class="eyebrow">Everything handled</p><h2 class="sec__title">Services we <em>provide</em></h2></div>
+    <div class="svc">
+      <article><img src="/images/consult .jpg" alt="Consulting and planning" loading="lazy"><div class="txt"><h3>Consulting &amp; Planning</h3><p>Expert guidance at every stage of your celebration journey.</p></div></article>
+      <article><img src="/images/destination and venue .jpg" alt="Destination and venue selection" loading="lazy"><div class="txt"><h3>Destination &amp; Venue Selection</h3><p>Curated venues across India's most breathtaking locations.</p></div></article>
+      <article><img src="/images/vendor .jpg" alt="Vendor sourcing and management" loading="lazy"><div class="txt"><h3>Vendor Sourcing &amp; Management</h3><p>Trusted network of premium vendors for every need.</p></div></article>
+      <article><img src="/images/decor.jpg" alt="Design and decor management" loading="lazy"><div class="txt"><h3>Design &amp; Décor Management</h3><p>Transforming spaces into magical atmospheres.</p></div></article>
+      <article><img src="/images/food and beverage .jpg" alt="Food and beverage management" loading="lazy"><div class="txt"><h3>Food &amp; Beverage Management</h3><p>Exquisite culinary experiences tailored to your taste.</p></div></article>
+      <article><img src="/images/budget.jpg" alt="Budget management" loading="lazy"><div class="txt"><h3>Budget Management</h3><p>Smart financial planning for your perfect day.</p></div></article>
+      <article><img src="/images/guest.jpg" alt="Guest RSVP and hospitality" loading="lazy"><div class="txt"><h3>Guest RSVP &amp; Hospitality</h3><p>Ensuring every guest feels warmly welcomed.</p></div></article>
+      <article><img src="/images/wedding favour.jpg" alt="Wedding favors and gifting" loading="lazy"><div class="txt"><h3>Wedding Favors &amp; Gifting</h3><p>Personalised tokens of love for your guests.</p></div></article>
+      <article><img src="/images/bridal styling real .jpg" alt="Bridal and wardrobe styling" loading="lazy"><div class="txt"><h3>Bridal &amp; Wardrobe Styling</h3><p>Look stunning for every moment of your celebration.</p></div></article>
+      <article><img src="/images/logistic.jpg" alt="Logistics management" loading="lazy"><div class="txt"><h3>Logistics Management</h3><p>Seamless coordination so nothing is left to chance.</p></div></article>
+      <article><img src="/images/invitation.jpg" alt="Stationery and invitations" loading="lazy"><div class="txt"><h3>Stationery &amp; Invitations</h3><p>Bespoke designs that set the tone for your event.</p></div></article>
+      <article><img src="/images/wed sites .jpg" alt="Wed-Sites" loading="lazy"><div class="txt"><h3>Wed-Sites</h3><p>Beautiful digital experiences to share your love story.</p></div></article>
+    </div>
+  </div>
+</section>
 <!-- EVENTS -->
 <section class="sec sec--dark pattern-bg" id="events" aria-label="Wedding categories">
   <div class="container">
@@ -1494,20 +1538,21 @@ height: calc(var(--door-h) * .8468);
       <p class="eyebrow">Stories We've Told</p>
       <h2 class="sec__title">Wedding <em>films</em></h2>
     </div>
-  <div class="films">
-  <a class="film reveal" href="#" data-yt="FDoL7ueqK7o" aria-label="Play film: Priya and Arjun">
-    <img alt="" loading="lazy"><span class="film__play"></span>
-    <div class="film__cap"><h3>Priya &amp; Arjun</h3><span>Udaipur</span></div>
-  </a>
-  <a class="film reveal" href="#" data-yt="xHW4UGg-csY" aria-label="Play film: Devansh and Mayra">
-    <img alt="" loading="lazy"><span class="film__play"></span>
-    <div class="film__cap"><h3>Devansh &amp; Mayra</h3><span>Beach wedding</span></div>
-  </a>
-  <a class="film reveal" href="#" data-yt="yprsL9faA3E" aria-label="Play film: Anubhav and Harshita">
-    <img alt="" loading="lazy"><span class="film__play"></span>
-    <div class="film__cap"><h3>Anubhav &amp; Harshita</h3><span>Fort wedding</span></div>
-  </a>
-</div>
+    <div class="films">
+      <a class="film reveal" href="https://youtube.com/shorts/49-af5-1PaY" data-yt="49-af5-1PaY" aria-label="Play film: Priya and Arjun">
+        <img alt="" loading="lazy"><span class="film__play"></span>
+        <div class="film__cap"><h3>Priya &amp; Arjun</h3><span>Udaipur</span></div>
+      </a>
+      <a class="film reveal" href="https://youtube.com/shorts/xHW4UGg-csY" data-yt="xHW4UGg-csY" aria-label="Play film: Devansh and Mayra">
+        <img alt="" loading="lazy"><span class="film__play"></span>
+        <div class="film__cap"><h3>Devansh &amp; Mayra</h3><span>Beach wedding</span></div>
+      </a>
+      <a class="film reveal" href="https://youtube.com/shorts/yprsL9faA3E" data-yt="yprsL9faA3E" aria-label="Play film: Anubhav and Harshita">
+        <img alt="" loading="lazy"><span class="film__play"></span>
+        <div class="film__cap"><h3>Anubhav &amp; Harshita</h3><span>Fort wedding</span></div>
+      </a>
+    </div>
+  </div>
 </section>
 
 <section class="sec sec--dark pattern-bg" id="team" aria-label="Meet our team">
@@ -1761,16 +1806,21 @@ height: calc(var(--door-h) * .8468);
   </div>
 </section>
  
-<section class="sec  pattern-bg" id="destination-planner" aria-label="Destination Wedding Planner for NRI and International Couples">
-  <div class="container" style="max-width:920px">
+<section class="sec pattern-bg" id="destination-planner" aria-label="Destination Wedding Planner for NRI and International Couples">
+  <div class="container">
     <div class="sec__head reveal">
       <p class="eyebrow">NRI &amp; International</p>
       <h2 class="sec__title">Destination Wedding Planner for NRI and International Couples</h2>
     </div>
-    <div class="about__text reveal" style="margin:0 auto">
-      <p style="max-width:none">India draws couples from across the world for its culture, rituals and hospitality. A destination wedding here brings families together in one place to experience the celebration side by side. As a destination wedding planner in India, Decor by Pearls manages the journey from a distance and on the ground:</p>
-      <ul style="margin:0 0 24px;padding-left:20px;max-width:70ch;color:rgba(255,255,255,.78)"><li style="margin-bottom:8px"><strong style="color:var(--champagne)">Virtual planning:</strong> consultations, mood-board reviews and approvals held online, scheduled around time zones</li><li style="margin-bottom:8px"><strong style="color:var(--champagne)">Venue selection and coordination:</strong> palaces, resorts, forts and heritage properties shortlisted and inspected on behalf of the couple</li><li style="margin-bottom:8px"><strong style="color:var(--champagne)">Vendor management:</strong> decorators, caterers, photographers, makeup artists and entertainers sourced and supervised locally</li><li style="margin-bottom:8px"><strong style="color:var(--champagne)">Guest coordination:</strong> arrivals, departures, stays and transport for family travelling from abroad</li><li style="margin-bottom:8px"><strong style="color:var(--champagne)">Ceremony and event management:</strong> every function from welcome evening to farewell, scheduled and staffed</li><li style="margin-bottom:8px"><strong style="color:var(--champagne)">Itinerary planning:</strong> ceremonies, guest activities and sightseeing balanced, so guests are never rushed or left idle</li><li style="margin-bottom:8px"><strong style="color:var(--champagne)">Hospitality management:</strong> comfort and personal attention for the bride, groom, families and guests</li><li style="margin-bottom:8px"><strong style="color:var(--champagne)">On-ground presence:</strong> a local team that checks every detail in person, so approvals made online match reality on the day</li></ul>
-      <p style="max-width:none">The planning happens remotely. The wedding happens in person, with a team already on location.</p>
+    <div class="split split--top">
+      <div class="about__text reveal">
+        <p style="max-width:none">India draws couples from across the world for its culture, rituals and hospitality. A destination wedding here brings families together in one place to experience the celebration side by side. As a destination wedding planner in India, Decor by Pearls manages the journey from a distance and on the ground:</p>
+        <ul style="margin:0 0 24px;padding-left:20px;max-width:70ch;color:rgba(255,255,255,.78)"><li style="margin-bottom:8px"><strong style="color:var(--champagne)">Virtual planning:</strong> consultations, mood-board reviews and approvals held online, scheduled around time zones</li><li style="margin-bottom:8px"><strong style="color:var(--champagne)">Venue selection and coordination:</strong> palaces, resorts, forts and heritage properties shortlisted and inspected on behalf of the couple</li><li style="margin-bottom:8px"><strong style="color:var(--champagne)">Vendor management:</strong> decorators, caterers, photographers, makeup artists and entertainers sourced and supervised locally</li><li style="margin-bottom:8px"><strong style="color:var(--champagne)">Guest coordination:</strong> arrivals, departures, stays and transport for family travelling from abroad</li><li style="margin-bottom:8px"><strong style="color:var(--champagne)">Ceremony and event management:</strong> every function from welcome evening to farewell, scheduled and staffed</li><li style="margin-bottom:8px"><strong style="color:var(--champagne)">Itinerary planning:</strong> ceremonies, guest activities and sightseeing balanced, so guests are never rushed or left idle</li><li style="margin-bottom:8px"><strong style="color:var(--champagne)">Hospitality management:</strong> comfort and personal attention for the bride, groom, families and guests</li><li style="margin-bottom:8px"><strong style="color:var(--champagne)">On-ground presence:</strong> a local team that checks every detail in person, so approvals made online match reality on the day</li></ul>
+        <p style="max-width:none">The planning happens remotely. The wedding happens in person, with a team already on location.</p>
+      </div>
+      <div class="split__img reveal">
+        <img src="images/destination and venue .jpg" alt="Destination wedding venue in India" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
@@ -1825,20 +1875,24 @@ height: calc(var(--door-h) * .8468);
   </div>
 </section>
  
-<section class="sec  pattern-bg" id="wedding-decorators" aria-label="Wedding Decorators in India: Design That Belongs to the Venue">
-  <div class="container" style="max-width:920px">
+<section class="sec pattern-bg" id="wedding-decorators" aria-label="Wedding Decorators in India: Design That Belongs to the Venue">
+  <div class="container">
     <div class="sec__head reveal">
       <p class="eyebrow">Design &amp; Décor</p>
       <h2 class="sec__title">Wedding Decorators in India: Design That Belongs to the Venue</h2>
     </div>
-    <div class="about__text reveal" style="margin:0 auto">
-      <p style="max-width:none">Every design starts from three things: the couple’s story, the venue’s architecture and the season. Palaces need décor that respects heritage stonework. Beaches need wind-ready structures. Mountains need warmth built into seating. Gardens need florals that frame the greenery instead of competing with it.</p>
-      <p style="max-width:none">Décor covers floral design, grand entrances, mandaps, reception stages, tables, lighting, lounges and mehendi and haldi settings, plus complete venue transformation when the space demands it. Themes are developed from the destination and the couple’s personality, not picked from a catalogue.</p>
-      <p style="max-width:none">For couples dreaming of a palace ceremony, a garden celebration, a colourful mehendi or a luxurious reception, décor is where the wedding takes visible shape.</p>
+    <div class="split">
+      <div class="about__text reveal">
+        <p style="max-width:none">Every design starts from three things: the couple’s story, the venue’s architecture and the season. Palaces need décor that respects heritage stonework. Beaches need wind-ready structures. Mountains need warmth built into seating. Gardens need florals that frame the greenery instead of competing with it.</p>
+        <p style="max-width:none">Décor covers floral design, grand entrances, mandaps, reception stages, tables, lighting, lounges and mehendi and haldi settings, plus complete venue transformation when the space demands it. Themes are developed from the destination and the couple’s personality, not picked from a catalogue.</p>
+        <p style="max-width:none">For couples dreaming of a palace ceremony, a garden celebration, a colourful mehendi or a luxurious reception, décor is where the wedding takes visible shape.</p>
+      </div>
+      <div class="split__img reveal">
+        <img src="images/decor.jpg" alt="Wedding decor by Decor By Pearls" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
- 
   <!-- FAQ -->
 <section class="sec sec--dark pattern-bg" id="faq" aria-label="Frequently asked questions">
   <div class="container">
@@ -2035,8 +2089,7 @@ height: calc(var(--door-h) * .8468);
     
 (function () {
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
- 
-  /* Scroll reveal (skipped if GSAP missing or reduced motion) */
+
   if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined" && !reduce) {
     gsap.set(".reveal", { opacity: 0, y: 36 });
     ScrollTrigger.batch(".reveal", {
@@ -2046,11 +2099,11 @@ height: calc(var(--door-h) * .8468);
         gsap.to(els, { opacity: 1, y: 0, duration: .9, stagger: .12, ease: "power3.out", overwrite: true });
       }
     });
+
+    gsap.from(".svc article", { autoAlpha: 0, y: 30, stagger: .08, duration: .8, ease: "power3.out", scrollTrigger: { trigger: ".svc", start: "top 85%", once: true } });
+
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
- 
-  /* Form: opens WhatsApp with the details */
-
 })();
     (function () {
       var root = document.documentElement;
@@ -2479,6 +2532,7 @@ height: calc(var(--door-h) * .8468);
   window.addEventListener("load", check);
   window.addEventListener("resize", check);
   check();
+  
 })();
 
 </script>  <script src="https://web3forms.com/client/script.js" async defer></script><script type="module" src="partials/enquiry.js"></script>

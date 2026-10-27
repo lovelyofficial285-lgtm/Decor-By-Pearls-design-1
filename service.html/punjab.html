@@ -245,6 +245,36 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   .fn.city-rows .city-row{grid-template-columns:1fr;gap:16px}
   .city-row__img{max-height:240px}
 }
+/* TEAM (self-contained, with fallbacks) */
+.team-grid{display:grid;grid-template-columns:1fr;gap:24px}
+.member{
+  position:relative;overflow:hidden;min-height:460px;
+  border-radius:20px;border:1px solid rgba(216,195,165,.22);
+  background:var(--sapphire,#1e3a5f);
+}
+.member img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  transition:transform .8s ease;
+}
+.member:hover img{transform:scale(1.06)}
+.member::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,16,38,.96) 0%,rgba(10,16,38,.75) 35%,rgba(10,16,38,0) 70%);
+}
+.member__body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:26px;text-align:left}
+.member__tag{
+  display:inline-block;margin-bottom:12px;padding:6px 14px;
+  border-radius:999px;background:var(--brass,#c79c5a);color:var(--midnight,#102542);
+  font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;line-height:1.7;
+}
+.member h3{margin:0 0 4px;font-family:var(--serif,Georgia,serif);font-weight:600;font-size:1.8rem;line-height:1.15;color:#fff}
+.member__role{margin:0 0 10px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.member__bio{margin:0;font-size:.92rem;line-height:1.55;color:rgba(255,255,255,.78)}
+@media(min-width:768px){
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+  .member{min-height:520px}
+}
 </style>
 </head>
 <body>
@@ -567,16 +597,43 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   </section>
 
   <!-- FOUNDERS -->
-  <section class="sec pattern" aria-label="Meet the founders">
-    <div class="wrap">
-      <div class="sec__head"><p class="eyebrow">The people behind your day</p><h2 class="sec__title">Meet the <em>founders</em></h2></div>
-      <div class="team">
-        <article class="tm"><img src="/images/Mohit Singh Rajput.jpeg" alt="Mohit Singh Rajput" loading="lazy"><div><h3>Mohit Singh Rajput</h3><p>Founder &amp; Creative Director: timeless décor concepts and luxury aesthetics.</p></div></article>
-        <article class="tm"><img src="/images/sachin mishra.jpeg" alt="Sachin Mishra" loading="lazy"><div><h3>Sachin Mishra</h3><p>Co-Founder &amp; Operations Head: event execution, client coordination and planning.</p></div></article>
-        <article class="tm"><img src="/images/Jasneet Kaur.jpeg" alt="Jasneet Kaur" loading="lazy"><div><h3>Jasneet Kaur</h3><p>Co-Founder &amp; Styling Director: wedding styling, themes and personalised décor.</p></div></article>
-      </div>
+  <section class="sec pattern" id="team" aria-label="Meet our team">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="eyebrow">The People Behind Your Day</p>
+      <h2 class="sec__title">Meet Our <em>Team</em></h2>
     </div>
-  </section>
+    <div class="team-grid">
+      <article class="member">
+        <img src="/images/Mohit Singh Rajput.jpeg" alt="Mohit Singh Rajput" loading="lazy">
+        <div class="member__body">
+          <span class="member__tag">Visionary</span>
+          <h3>Mohit Singh Rajput</h3>
+          <p class="member__role">Founder &amp; Creative Director</p>
+          <p class="member__bio">Crafting extraordinary celebrations with timeless decor concepts, luxury aesthetics, and unforgettable event experiences.</p>
+        </div>
+      </article>
+      <article class="member">
+        <img src="/images/sachin mishra.jpeg" alt="Sachin Mishra" loading="lazy">
+        <div class="member__body">
+          <span class="member__tag">Operations</span>
+          <h3>Sachin Mishra</h3>
+          <p class="member__role">Co-Founder &amp; Operations Head</p>
+          <p class="member__bio">Managing seamless event execution, client coordination, and flawless planning for every celebration.</p>
+        </div>
+      </article>
+      <article class="member">
+        <img src="/images/Jasneet Kaur.jpeg" alt="Jasneet Kaur" loading="lazy">
+        <div class="member__body">
+          <span class="member__tag">Styling</span>
+          <h3>Jasneet Kaur</h3>
+          <p class="member__role">Co-Founder &amp; Styling Director</p>
+          <p class="member__bio">Bringing elegant wedding styling, creative themes, and personalized decor inspirations to life beautifully.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
   <!-- REVIEWS -->
   <section class="sec solid" aria-label="What couples say">
@@ -743,6 +800,19 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
     gsap.from(".cta p, .cta__a", { y: 24, autoAlpha: 0, stagger: .15, duration: .9, ease: "power3.out", scrollTrigger: { trigger: ".cta", start: "top 70%", once: true } });
   });
   window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+})();
+</script><script>
+(function(){
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", function(){
+    gsap.utils.toArray(".team-grid").forEach(function(el){
+      gsap.from(el.children,{
+        autoAlpha:0, y:40, stagger:.12, duration:.9, ease:"power3.out",
+        scrollTrigger:{trigger:el, start:"top 85%", once:true}
+      });
+    });
+  });
 })();
 </script>
 </body>

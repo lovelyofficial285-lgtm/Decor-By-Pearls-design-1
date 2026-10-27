@@ -384,6 +384,46 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   .lux-split{grid-template-columns:1.15fr 1fr}
   .lux-split__img img{aspect-ratio:3/4}
 } .sub-h.faq-g{color:var(--brass)}
+.vfull{background:#102542;padding:clamp(40px,6vw,80px) 0}
+.vfull__box{position:relative;width:min(100%,177.78vh);aspect-ratio:16/9;max-height:100vh;margin:0 auto;background:#000 url("https://i.ytimg.com/vi/Q2J-5ZOC9zA/hqdefault.jpg") center/cover no-repeat;overflow:hidden}
+.vfull__box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vfull__shield{position:absolute;inset:0;z-index:1}
+.vfull__vol{position:absolute;z-index:2;right:18px;bottom:18px;width:48px;height:48px;border-radius:50%;border:1px solid #c79c5a;background:rgba(16,37,66,.65);color:#c79c5a;display:grid;place-items:center;cursor:pointer;padding:0;transition:background-color .3s,color .3s}
+.vfull__vol:hover{background:#c79c5a;color:#102542}
+.vfull__vol svg{width:22px;height:22px;fill:currentColor}
+.vfull__vol .on{display:none}
+.vfull__vol.is-on .on{display:block}
+.vfull__vol.is-on .off{display:none}
+/* TEAM (self-contained, with fallbacks) */
+.team-grid{display:grid;grid-template-columns:1fr;gap:24px}
+.member{
+  position:relative;overflow:hidden;min-height:460px;
+  border-radius:20px;border:1px solid rgba(216,195,165,.22);
+  background:var(--sapphire,#1e3a5f);
+}
+.member img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  transition:transform .8s ease;
+}
+.member:hover img{transform:scale(1.06)}
+.member::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,16,38,.96) 0%,rgba(10,16,38,.75) 35%,rgba(10,16,38,0) 70%);
+}
+.member__body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:26px;text-align:left}
+.member__tag{
+  display:inline-block;margin-bottom:12px;padding:6px 14px;
+  border-radius:999px;background:var(--brass,#c79c5a);color:var(--midnight,#102542);
+  font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;line-height:1.7;
+}
+.member h3{margin:0 0 4px;font-family:var(--serif,Georgia,serif);font-weight:600;font-size:1.8rem;line-height:1.15;color:#fff}
+.member__role{margin:0 0 10px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.member__bio{margin:0;font-size:.92rem;line-height:1.55;color:rgba(255,255,255,.78)}
+@media(min-width:768px){
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+  .member{min-height:520px}
+}
 </style>
 </head>
 <body>
@@ -627,16 +667,43 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
   </section>
 
   <!-- TEAM -->
-  <section class="sec pattern" aria-label="Meet the planning team">
-    <div class="wrap">
-      <div class="sec__head"><p class="eyebrow">The people behind your day</p><h2 class="sec__title">Meet the planning <em>team</em></h2></div>
-      <div class="team">
-        <article class="tm"><img src="Mohit Singh Rajput.jpeg" alt="Mohit Singh Rajput" loading="lazy"><div><h3>Mohit Singh Rajput</h3><p>Founder &amp; Creative Director</p></div></article>
-        <article class="tm"><img src="sachin mishra.jpeg" alt="Sachin Mishra" loading="lazy"><div><h3>Sachin Mishra</h3><p>Co-Founder &amp; Operations Head</p></div></article>
-        <article class="tm"><img src="Jasneet Kaur.jpeg" alt="Jasneet Kaur" loading="lazy"><div><h3>Jasneet Kaur</h3><p>Co-Founder &amp; Styling Director</p></div></article>
-      </div>
+  <section class="sec pattern" id="team" aria-label="Meet our team">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="eyebrow">The People Behind Your Day</p>
+      <h2 class="sec__title">Meet Our <em>Team</em></h2>
     </div>
-  </section>
+    <div class="team-grid">
+      <article class="member">
+        <img src="/images/Mohit Singh Rajput.jpeg" alt="Mohit Singh Rajput" loading="lazy">
+        <div class="member__body">
+          <span class="member__tag">Visionary</span>
+          <h3>Mohit Singh Rajput</h3>
+          <p class="member__role">Founder &amp; Creative Director</p>
+          <p class="member__bio">Crafting extraordinary celebrations with timeless decor concepts, luxury aesthetics, and unforgettable event experiences.</p>
+        </div>
+      </article>
+      <article class="member">
+        <img src="/images/sachin mishra.jpeg" alt="Sachin Mishra" loading="lazy">
+        <div class="member__body">
+          <span class="member__tag">Operations</span>
+          <h3>Sachin Mishra</h3>
+          <p class="member__role">Co-Founder &amp; Operations Head</p>
+          <p class="member__bio">Managing seamless event execution, client coordination, and flawless planning for every celebration.</p>
+        </div>
+      </article>
+      <article class="member">
+        <img src="/images/Jasneet Kaur.jpeg" alt="Jasneet Kaur" loading="lazy">
+        <div class="member__body">
+          <span class="member__tag">Styling</span>
+          <h3>Jasneet Kaur</h3>
+          <p class="member__role">Co-Founder &amp; Styling Director</p>
+          <p class="member__bio">Bringing elegant wedding styling, creative themes, and personalized decor inspirations to life beautifully.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
   <!-- FAQ -->
   <section class="sec solid" aria-label="Frequently asked questions">
@@ -671,7 +738,15 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
       </div>
     </div>
   </section>
-
+<section class="vfull" aria-label="Wedding film">
+  <div class="vfull__box" id="vfullBox" data-yt="Q2J-5ZOC9zA">
+    <div class="vfull__shield"></div>
+    <button class="vfull__vol" type="button" aria-label="Unmute">
+      <svg class="off" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 12a4.5 4.5 0 0 0-2.5-4v2.2l2.4 2.4c.1-.2.1-.4.1-.6zM19 12c0 .9-.2 1.8-.5 2.600l1.500 1.500A9 9 0 0 0 21 12a9 9 0 0 0-7-8.800v2.100c2.900.9 5 3.500 5 6.700zM4.300 3 3 4.300 7.700 9H3v6h4l5 5v-6.700l4.300 4.300c-.7.500-1.400.9-2.300 1.100v2.100a9 9 0 0 0 3.700-1.800l2 2 1.300-1.300L4.300 3zM12 4 9.900 6.100 12 8.200V4z"/></svg>
+      <svg class="on" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.500 3A4.500 4.500 0 0 0 14 8v8a4.500 4.500 0 0 0 2.500-4zM14 3.200v2.100c2.900.9 5 3.500 5 6.700s-2.100 5.800-5 6.700v2.100c4-.9 7-4.500 7-8.800s-3-7.900-7-8.800z"/></svg>
+    </button>
+  </div>
+</section>
   <!-- REGIONS -->
   <section class="sec pattern" aria-label="Other regions">
     <div class="wrap">
@@ -806,6 +881,59 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
     gsap.from(".cta p, .cta__a", { y: 24, autoAlpha: 0, stagger: .15, duration: .9, ease: "power3.out", scrollTrigger: { trigger: ".cta", start: "top 70%", once: true } });
   });
   window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+})();
+</script><script>
+(function(){
+  var box=document.getElementById("vfullBox");
+  if(!box)return;
+  var id=box.dataset.yt, btn=box.querySelector(".vfull__vol"), shield=box.querySelector(".vfull__shield");
+  var frame=null, muted=true, playing=true;
+
+  function cmd(f){
+    if(frame&&frame.contentWindow)
+      frame.contentWindow.postMessage(JSON.stringify({event:"command",func:f,args:[]}),"*");
+  }
+
+  function load(){
+    frame=document.createElement("iframe");
+    frame.src="https://www.youtube.com/embed/"+id+"?autoplay=1&mute=1&controls=0&loop=1&playlist="+id+"&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0&enablejsapi=1&origin="+encodeURIComponent(location.origin);
+    frame.allow="autoplay; encrypted-media";
+    frame.title="Wedding film";
+    box.insertBefore(frame,box.firstChild);
+  }
+
+  shield.addEventListener("click",function(){
+    playing=!playing;
+    cmd(playing?"playVideo":"pauseVideo");
+  });
+
+  btn.addEventListener("click",function(){
+    muted=!muted;
+    cmd(muted?"mute":"unMute");
+    btn.classList.toggle("is-on",!muted);
+    btn.setAttribute("aria-label",muted?"Unmute":"Mute");
+  });
+
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(en){
+      if(en[0].isIntersecting){
+        if(!frame) load(); else if(playing) cmd("playVideo");
+      } else if(frame){ cmd("pauseVideo"); }
+    },{threshold:.4}).observe(box);
+  } else { load(); }
+})();
+</script><script>
+(function(){
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", function(){
+    gsap.utils.toArray(".team-grid").forEach(function(el){
+      gsap.from(el.children,{
+        autoAlpha:0, y:40, stagger:.12, duration:.9, ease:"power3.out",
+        scrollTrigger:{trigger:el, start:"top 85%", once:true}
+      });
+    });
+  });
 })();
 </script>
 </body>
