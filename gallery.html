@@ -439,28 +439,32 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
     onLeft: function () { if (open) show(cur + 1, 1); },
     onRight: function () { if (open) show(cur - 1, -1); } });
 
-  /* VIDEO MODAL */
-  var vm = $("#videoModal"), vf = $("#videoFrame");
-  function closeVid() { if (!vm.classList.contains("is-open")) return; vm.classList.remove("is-open"); vm.setAttribute("aria-hidden", "true"); vf.src = ""; document.body.style.overflow = ""; }
-  $$(".film").forEach(function (f) {
-    var m = f.dataset.video.match(/\/d\/([\w-]+)/), img = $("img", f);
-    f.addEventListener("click", function (e) {
-      e.preventDefault();
-      vf.src = m ? "https://drive.google.com/file/d/" + m[1] + "/preview" : f.dataset.video;
-      vm.classList.add("is-open"); vm.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden";
-    });
-    if (m && img) {
-      var srcs = ["https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w1000", "https://lh3.googleusercontent.com/d/" + m[1] + "=w1000"], n = 0, fb = img.src;
-      img.referrerPolicy = "no-referrer";
-      img.onerror = function () { n++; if (n < srcs.length) img.src = srcs[n]; else { img.onerror = null; img.src = fb; } };
-      img.src = srcs[0];
-    }
+ $$(".film").forEach(function (f) {
+  var url = f.dataset.video, img = $("img", f);
+  var yt = url.match(/(?:shorts\/|youtu\.be\/|v=|embed\/)([\w-]{11})/);
+  var dr = url.match(/\/d\/([\w-]+)/);
+
+  f.addEventListener("click", function (e) {
+    e.preventDefault();
+    vf.src = yt ? "https://www.youtube.com/embed/" + yt[1] + "?autoplay=1&mute=1&playsinline=1&rel=0"
+         : dr ? "https://drive.google.com/file/d/" + dr[1] + "/preview"
+         : url;
+    vm.classList.add("is-open"); vm.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden";
   });
-  $(".vmodal__x").addEventListener("click", closeVid);
-  vm.addEventListener("click", function (e) { if (e.target === vm) closeVid(); });
 
-  if (!hasG) return;
-
+  if (yt && img) {
+    img.src = "https://i.ytimg.com/vi/" + yt[1] + "/hqdefault.jpg";
+  }
+});
+var vm = $("#videoModal"), vf = $("#videoFrame");
+function closeVid() {
+  vm.classList.remove("is-open");
+  vm.setAttribute("aria-hidden", "true");
+  vf.src = "";
+  document.body.style.overflow = "";
+}
+$(".vmodal__x").addEventListener("click", closeVid);
+vm.addEventListener("click", function (e) { if (e.target === vm) closeVid(); });
   /* ANIMATIONS (skipped for reduced motion, content stays visible) */
   gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", function () {
     // page load

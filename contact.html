@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"> <link rel="stylesheet" href="partials/navbar.css">
 
 <style>
-:root{--midnight:#102542;--sapphire:#1e3a5f;--champagne:#d8c3a5;--ivory:#faf8f5;--brass:#c79c5a;--muted:#5d6879;--display:"Instrument Serif",Georgia,serif;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Inter",Arial,sans-serif;--pad:clamp(64px,9vw,120px)}
+:root{--midnight:#102542;--sapphire:#1e3a5f;--champagne:#d8c3a5;--ivory:#faf8f5;--brass:#c79c5a;--muted:#5d6879;--white:#fff;--display:"Instrument Serif",Georgia,serif;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Inter",Arial,sans-serif;--pad:clamp(64px,9vw,120px)}
 *{box-sizing:border-box}
 body{margin:0;font-family:var(--sans);color:var(--midnight);background:var(--ivory);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}a{color:inherit;text-decoration:none}h1,h2,h3,p,dl,dd{margin:0}em{font-style:italic}
@@ -53,21 +53,61 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .social a:hover{background:var(--brass);border-color:var(--brass)}
 
 /* FORM */
-.form{display:grid;gap:18px;padding:clamp(24px,5vw,44px);background:#fff;border-radius:8px;border:1px solid rgba(16,37,66,.08);box-shadow:0 20px 50px rgba(16,37,66,.08)}
-.form h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,3vw,2.2rem);line-height:1.1}
-.form h2 em{font-family:var(--display);color:var(--brass)}
-.row{display:grid;gap:18px}
-@media(min-width:640px){.row{grid-template-columns:1fr 1fr}}
-.field{min-width:0}
-.form label{display:block;margin-bottom:6px;font-size:.8rem;font-weight:500;color:var(--muted)}
-.form input[type=text],.form input[type=tel],.form input[type=email],.form input[type=date],.form select{width:100%;padding:14px 16px;font:inherit;color:var(--midnight);background:var(--ivory);border:1px solid rgba(16,37,66,.15);border-radius:4px}
-.form select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
-.err{display:block;min-height:1em;margin-top:4px;font-size:.75rem;color:#c0392b}
-.invalid{border-color:#c0392b!important}
-.hp{position:absolute;left:-9999px;opacity:0}
-.note{margin:0;font-size:.9rem}.note.ok{color:#1e7e4a;font-weight:500}.note.bad{color:#c0392b;font-weight:500}
-.form .btn{width:100%}
-.cf-turnstile{max-width:100%;overflow:hidden}
+.enq { max-width: 760px; margin: 0 auto; }
+.enq__form {
+  display: grid; gap: 20px;
+  background: var(--white); color: var(--midnight);
+  border-radius: 8px; border-top: 4px solid var(--brass);
+  padding: clamp(24px, 5vw, 52px);
+  box-shadow: 0 18px 50px rgba(8,10,14,.35);
+}
+.enq__row { display: grid; gap: 20px; grid-template-columns: 1fr; }
+.enq__field { min-width: 0; }
+.enq__field label {
+  display: block; margin-bottom: 8px;
+  font-size: .78rem; font-weight: 600; letter-spacing: .06em; color: var(--sapphire);
+}
+.enq__field label .req { color: #b3402f; margin-left: 2px; }
+.enq__field input,
+.enq__field select {
+  width: 100%; min-height: 50px; padding: 13px 16px;
+  font: inherit; color: var(--midnight);
+  background: var(--ivory);
+  border: 1px solid rgba(16,37,66,.2); border-radius: 4px;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.enq__field select {
+  appearance: none; -webkit-appearance: none; padding-right: 44px; cursor: pointer;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--brass) 50%),
+    linear-gradient(135deg, var(--brass) 50%, transparent 50%);
+  background-position: calc(100% - 22px) 50%, calc(100% - 16px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+.enq__field input:focus-visible,
+.enq__field select:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; border-color: var(--brass); }
+.enq__field.is-invalid input,
+.enq__field.is-invalid select { border-color: #b3402f; box-shadow: 0 0 0 3px rgba(179,64,47,.12); }
+.enq__err { display: none; margin: 6px 0 0; font-size: .8rem; color: #b3402f; }
+.enq__field.is-invalid .enq__err { display: block; }
+
+.enq__trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.enq__submit { width: 100%; margin-top: 4px; }
+.enq__submit[disabled] { opacity: .65; cursor: not-allowed; }
+
+.enq__msg {
+  display: none; margin: 0; padding: 14px 18px; border-radius: 4px;
+  font-size: .92rem; line-height: 1.5;
+}
+.enq__msg.is-ok  { display: block; background: #eef6ee; color: #1f5a2b; border: 1px solid #b9d9bd; }
+.enq__msg.is-bad { display: block; background: #fbeeec; color: #8c2d20; border: 1px solid #efc3bc; }
+
+@media (min-width: 640px) {
+  .enq__row { grid-template-columns: 1fr 1fr; }
+  .enq__submit { width: auto; justify-self: start; min-width: 240px; }
+}
 
 /* MAP */
 .map{position:relative;height:clamp(300px,45vw,440px);background:var(--sapphire)}
@@ -214,30 +254,77 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
         </div>
       </div>
 
-      <form class="form" id="wedForm" novalidate>
-        <input type="hidden" name="access_key" value="6f5e23c9-29cc-4cdb-a97d-5cb981330aa0">
-        <input type="hidden" name="subject" value="New Wedding Enquiry | Decor By Pearls">
-        <input type="hidden" name="from_name" value="Decor By Pearls Website">
-        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <h2>Wedding <em>enquiry</em></h2>
-        <div class="row">
-          <div class="field"><label for="w-name">Full name *</label><input id="w-name" name="name" type="text" autocomplete="name" required><small class="err"></small></div>
-          <div class="field"><label for="w-phone">Phone number *</label><input id="w-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98765 43210" required><small class="err"></small></div>
-        </div>
-        <div class="row">
-          <div class="field"><label for="w-email">Email address *</label><input id="w-email" name="email" type="email" autocomplete="email" required><small class="err"></small></div>
-          <div class="field"><label for="w-date">Event date *</label><input id="w-date" name="event_date" type="date" required><small class="err"></small></div>
-        </div>
-        <div class="row">
-          <div class="field"><label for="w-type">Event type *</label>
-            <select id="w-type" name="event_type" required><option value="">Select event type</option><option>Wedding</option><option>Destination Wedding</option><option>Engagement</option><option>Reception</option><option>Pre-Wedding Functions</option><option>Other</option></select><small class="err"></small></div>
-          <div class="field"><label for="w-budget">Estimated budget *</label>
-            <select id="w-budget" name="budget" required><option value="">Select budget</option><option>₹10–20 Lakhs</option><option>₹20–50 Lakhs</option><option>₹50 Lakhs–₹1 Crore</option><option>Custom Budget (Available on Request)</option></select><small class="err"></small></div>
-        </div>
-       
-        <button class="btn" type="submit" id="wSubmit">Submit Enquiry</button>
-        <p class="note" id="wNote" role="status" aria-live="polite"></p>
-      </form>
+      <div class="enq">
+        <form class="enq__form" id="enquiryForm" method="post" action="javascript:void(0)" novalidate>
+
+          <div class="enq__row">
+            <div class="enq__field">
+              <label for="enqName">Full Name<span class="req">*</span></label>
+              <input type="text" id="enqName" name="name" autocomplete="name" maxlength="80" required>
+              <p class="enq__err">Enter your full name.</p>
+            </div>
+            <div class="enq__field">
+              <label for="enqPhone">Phone Number<span class="req">*</span></label>
+              <input type="tel" id="enqPhone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+91 98765 43210" maxlength="20" required>
+              <p class="enq__err">Enter a valid phone number.</p>
+            </div>
+          </div>
+
+          <div class="enq__row">
+            <div class="enq__field">
+              <label for="enqDate">Event Date<span class="req">*</span></label>
+              <input type="date" id="enqDate" name="date" required>
+              <p class="enq__err">Choose a date that is today or later.</p>
+            </div>
+            <div class="enq__field">
+              <label for="enqType">Event Type<span class="req">*</span></label>
+              <select id="enqType" name="type" required>
+                <option value="" selected disabled>Select event type</option>
+                <option>Wedding</option>
+                <option>Destination Wedding</option>
+                <option>Engagement</option>
+                <option>Reception</option>
+                <option>Pre-Wedding Functions</option>
+                <option>Other</option>
+              </select>
+              <p class="enq__err">Select an event type.</p>
+            </div>
+          </div>
+
+          <div class="enq__row">
+            <div class="enq__field">
+              <label for="enqEmail">Email Address<span class="req">*</span></label>
+              <input type="email" id="enqEmail" name="email" autocomplete="email" maxlength="100" required>
+              <p class="enq__err">Enter a valid email address.</p>
+            </div>
+            <div class="enq__field">
+              <label for="enqBudget">Estimated Budget<span class="req">*</span></label>
+              <select id="enqBudget" name="budget" required>
+                <option value="" selected disabled>Select budget</option>
+                <option>₹10–20 Lakhs</option>
+                <option>₹20–50 Lakhs</option>
+                <option>₹50 Lakhs–₹1 Crore</option>
+                <option>Custom Budget (Available on Request)</option>
+              </select>
+              <p class="enq__err">Select a budget range.</p>
+            </div>
+          </div>
+
+          <input type="hidden" name="access_key" value="e693a13c-6199-4f05-8a69-2907f55c4e64">
+          <input type="hidden" name="subject" value="New Wedding Enquiry - Decor By Pearls">
+          <input type="hidden" name="from_name" value="Decor By Pearls Website">
+
+          <div class="enq__trap" aria-hidden="true">
+            <label for="enqWebsite">Website</label>
+            <input type="text" id="enqWebsite" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="h-captcha" data-captcha="true"></div>
+
+          <button class="btn btn-brass enq__submit" type="submit" id="enqBtn">Submit Enquiry</button>
+          <p class="enq__msg" id="enqMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -311,55 +398,11 @@ footer a:hover{color:var(--brass)}footer nav{display:flex;gap:22px}
   var hasG = typeof gsap !== "undefined";
   if (hasG) gsap.registerPlugin.apply(gsap, [ScrollTrigger, window.SplitText].filter(Boolean));
 
-  /* Google Sheet web app URL (leave as is to skip saving to a Sheet) */
-  var SHEET_URL = "PASTE_WEB_APP_URL_HERE";
-
   /* NAV + DRAWER */
-
-
-/* FORM */
-var form = $("#wedForm"), note = $("#wNote"), btn = $("#wSubmit");
-var d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
-form.elements.event_date.min = d.toISOString().split("T")[0];
-function setErr(el, m) { var s = el.parentNode.querySelector(".err"); if (s) s.textContent = m || ""; el.classList.toggle("invalid", !!m); }
-function check() {
-  var f = form.elements, ok = true, v;
-  v = f.name.value.trim().length >= 2; setErr(f.name, v ? "" : "Please enter your full name."); ok = ok && v;
-  var ph = f.phone.value.trim(), dg = ph.replace(/\D/g, "");
-  v = /^\+?[\d\s\-()]+$/.test(ph) && dg.length >= 10 && dg.length <= 15; setErr(f.phone, v ? "" : "Enter a valid phone number (10 to 15 digits)."); ok = ok && v;
-  v = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.value.trim()); setErr(f.email, v ? "" : "Enter a valid email address."); ok = ok && v;
-  v = f.event_date.value && f.event_date.value >= f.event_date.min; setErr(f.event_date, v ? "" : "Choose a future event date."); ok = ok && !!v;
-  ["event_type", "budget"].forEach(function (n) { var bad = !f[n].value; setErr(f[n], bad ? "Please select an option." : ""); if (bad) ok = false; });
-  return ok;
-}
-  form.addEventListener("submit", function (e) {
-    e.preventDefault(); note.className = "note"; note.textContent = "";
-    if (form.elements.botcheck.checked) return;
-    if (!check()) { note.className = "note bad"; note.textContent = "Please fix the highlighted fields."; return; }
-    btn.disabled = true; btn.textContent = "Sending...";
-    fetch("https://api.web3forms.com/submit", { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) })
-      .then(function (r) { return r.json(); })
-      .then(function (res) {
-        if (!res.success) throw new Error(res.message);
-        var f = form.elements;
-        if (SHEET_URL.indexOf("http") === 0) {
-          fetch(SHEET_URL, { method: "POST", mode: "no-cors", body: new URLSearchParams({
-            name: f.name.value, phone: f.phone.value, email: f.email.value,
-            event_date: f.event_date.value, event_type: f.event_type.value, budget: f.budget.value }) }).catch(function () {});
-        }
-        note.className = "note ok"; note.textContent = "Thank you! Your enquiry has been sent. We will contact you shortly.";
-       form.reset();
-      })
-      .catch(function () { note.className = "note bad"; note.textContent = "Submission failed. Please try again or WhatsApp us at +91 73550 51840."; })
-      .finally(function () { btn.disabled = false; btn.textContent = "Submit Enquiry"; });
-  });
-  form.addEventListener("input", function (e) { if (e.target.classList.contains("invalid")) setErr(e.target, ""); });
-
-  if (!hasG) return;
 
   /* ANIMATIONS (skipped for reduced motion) */
   gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", function () {
-   
+
     var tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
     tl.from(".hd__e", { y: 24, autoAlpha: 0 });
     if (window.SplitText) {
@@ -369,17 +412,12 @@ function check() {
     tl.from(".hd__s", { y: 24, autoAlpha: 0 }, "-=0.6");
     gsap.to(".hd__bg", { scale: 1.12, duration: 14, ease: "sine.inOut", repeat: -1, yoyo: true });
 
-    gsap.from(".info > *, .info dl > div, .social a", { y: 28, autoAlpha: 0, stagger: .08, duration: .8, ease: "power3.out",
-      scrollTrigger: { trigger: ".info", start: "top 85%", once: true } });
-    gsap.from(".form", { y: 50, autoAlpha: 0, duration: 1, ease: "power3.out",
-      scrollTrigger: { trigger: ".form", start: "top 88%", once: true } });
-    gsap.from(".form .row, .form .field, .form .btn", { y: 18, autoAlpha: 0, stagger: .07, duration: .6, ease: "power3.out",
-      scrollTrigger: { trigger: ".form", start: "top 80%", once: true } });
     gsap.fromTo("#gl1", { scaleX: 0 }, { scaleX: 1, ease: "none", scrollTrigger: { trigger: "#gl1", start: "top 95%", end: "top 55%", scrub: true } });
     gsap.from(".map iframe", { scale: 1.1, duration: 1.6, ease: "power2.out", scrollTrigger: { trigger: ".map", start: "top 85%", once: true } });
   });
   window.addEventListener("load", function () { ScrollTrigger.refresh(); });
 })();
-</script> <script src="partials/navbar.js" defer></script>
+</script> <script src="partials/navbar.js" defer></script> <script src="https://web3forms.com/client/script.js" async defer></script>
+<script type="module" src="partials/enquiry.js"></script>
 </body>
 </html>
