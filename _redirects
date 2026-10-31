@@ -1,0 +1,6 @@
+/service.html/chandigarh /services/chandigarh 301
+/service.html/punjab /services/punjab 301
+/service.html/haryana /services/haryana 301
+/service.html/himachal /services/himachal 301
+/service.html/mainservice /services/ 301
+/service.html/* /services/ 301
