@@ -1214,7 +1214,13 @@ height: calc(var(--door-h) * .8468);
 .split > .about__text{min-width:0;margin:0}
 .split__img{border-radius:12px;overflow:hidden;aspect-ratio:4/5;border:1px solid rgba(199,156,90,.45);background:var(--sapphire);max-width:480px;width:100%;justify-self:center}
 .split__img img{width:100%;height:100%;object-fit:cover}
-
+@media (max-width: 767.98px) {
+  .svc p { display: none; }
+  .svc article::after {
+    background: linear-gradient(180deg, rgba(16,37,66,0) 55%, rgba(16,37,66,.85));
+  }
+  .svc .txt { padding: 12px; }
+}
 @media(min-width:992px){
   .split{grid-template-columns:1.25fr .75fr;gap:64px}
   .split__img{max-width:none;justify-self:stretch}
