@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin | Decor By Pearls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--midnight:#102542;--sapphire:#1e3a5f;--champagne:#d8c3a5;--ivory:#faf8f5;--brass:#c79c5a;--muted:#5d6879;--red:#b3402f;--green:#1f5a2b}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Inter",Arial,sans-serif;color:var(--midnight);background:var(--ivory);line-height:1.55}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;margin:0}
+button{font:inherit;cursor:pointer}
+.hide{display:none!important}
+
+/* LOGIN */
+#login{min-height:100vh;display:grid;place-items:center;padding:20px;background:var(--midnight)}
+.lbox{width:min(400px,100%);background:#fff;border-top:4px solid var(--brass);border-radius:8px;padding:34px 30px}
+.lbox h1{font-size:2rem;margin-bottom:6px}
+.lbox p{margin:0 0 22px;color:var(--muted);font-size:.9rem}
+
+/* FIELDS */
+label{display:block;margin:0 0 6px;font-size:.78rem;font-weight:600;color:var(--sapphire)}
+input,select,textarea{width:100%;padding:11px 13px;font:inherit;color:var(--midnight);background:#fff;border:1px solid rgba(16,37,66,.22);border-radius:4px}
+textarea{resize:vertical;line-height:1.6}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.f{margin-bottom:16px}
+.row{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:700px){.row2{grid-template-columns:1fr 1fr}.row3{grid-template-columns:1fr 1fr 1fr}}
+.hint{margin:5px 0 0;font-size:.75rem;color:var(--muted)}
+
+/* BUTTONS */
+.btn{display:inline-block;padding:11px 22px;border:1px solid var(--brass);border-radius:999px;background:var(--brass);color:var(--midnight);font-size:.76rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:background-color .2s}
+.btn:hover{background:var(--champagne);border-color:var(--champagne)}
+.btn[disabled]{opacity:.6;cursor:wait}
+.btn-line{background:transparent;border-color:rgba(16,37,66,.3)}
+.btn-line:hover{background:transparent;border-color:var(--brass)}
+.btn-red{background:transparent;border-color:rgba(179,64,47,.5);color:var(--red)}
+.btn-red:hover{background:var(--red);border-color:var(--red);color:#fff}
+.btn-sm{padding:7px 14px;font-size:.68rem}
+
+/* APP */
+header.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;background:var(--midnight);color:#fff}
+header.top h1{font-size:1.5rem;color:#fff}
+header.top h1 span{color:var(--brass)}
+header.top .who{font-size:.78rem;color:var(--champagne);margin-right:12px}
+nav.tabs{display:flex;gap:6px;padding:14px 20px 0;border-bottom:1px solid rgba(16,37,66,.12);background:#fff;overflow-x:auto}
+nav.tabs button{padding:10px 18px;border:0;border-bottom:3px solid transparent;background:none;font-size:.85rem;font-weight:600;color:var(--muted)}
+nav.tabs button[aria-selected="true"]{color:var(--midnight);border-bottom-color:var(--brass)}
+main{max-width:1040px;margin:0 auto;padding:26px 20px 80px}
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.bar h2{font-size:1.9rem}
+.card{background:#fff;border:1px solid rgba(16,37,66,.1);border-radius:8px;padding:clamp(18px,3vw,30px);margin-bottom:22px}
+
+/* LIST */
+.item{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid rgba(16,37,66,.08)}
+.item:last-child{border-bottom:0}
+.item .t{flex:1 1 280px;min-width:0}
+.item .t b{display:block;font-weight:600}
+.item .t small{color:var(--muted);font-size:.78rem}
+.badge{padding:3px 11px;border-radius:999px;font-size:.68rem;font-weight:600;background:#eef6ee;color:var(--green)}
+.badge.off{background:#f1ede6;color:var(--muted)}
+.acts{display:flex;gap:8px}
+.empty{padding:30px 0;text-align:center;color:var(--muted)}
+
+/* EDITOR */
+.tools{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.tools button{padding:6px 12px;border:1px solid rgba(16,37,66,.22);border-radius:4px;background:var(--ivory);font-size:.78rem;font-weight:600}
+.tools button:hover{border-color:var(--brass)}
+#content{min-height:380px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem}
+.preview{min-height:120px;padding:20px;border:1px dashed rgba(16,37,66,.3);border-radius:4px;margin-bottom:16px;background:#fff}
+.preview h3{font-size:1.7rem;margin:22px 0 10px}.preview h4{font-family:"Cormorant Garamond",serif;font-size:1.3rem;color:var(--brass);margin:18px 0 6px}
+.preview p{margin:0 0 14px}
+.chk{display:flex;align-items:center;gap:10px;margin:6px 0 18px}
+.chk input{width:auto}.chk label{margin:0;font-size:.9rem}
+.msg{margin:14px 0 0;padding:11px 15px;border-radius:4px;font-size:.88rem}
+.msg.ok{background:#eef6ee;color:var(--green);border:1px solid #b9d9bd}
+.msg.bad{background:#fbeeec;color:#8c2d20;border:1px solid #efc3bc}
+.code{display:block;margin:6px 0 16px;padding:12px 14px;background:var(--midnight);color:var(--champagne);border-radius:4px;font:.78rem/1.5 ui-monospace,Menlo,Consolas,monospace;word-break:break-all;white-space:pre-wrap}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<section id="login">
+  <form class="lbox" id="loginForm" novalidate>
+    <h1>Decor By Pearls</h1>
+    <p>Admin sign in</p>
+    <div class="f"><label for="lEmail">Email</label><input id="lEmail" type="email" autocomplete="username" required></div>
+    <div class="f"><label for="lPass">Password</label><input id="lPass" type="password" autocomplete="current-password" required></div>
+    <button class="btn" type="submit" id="lBtn" style="width:100%">Sign in</button>
+    <p class="msg bad hide" id="lMsg" role="alert"></p>
+  </form>
+</section>
+
+<!-- APP -->
+<div id="app" class="hide">
+  <header class="top">
+    <h1>Decor By Pearls <span>Admin</span></h1>
+    <div><span class="who" id="who"></span><button class="btn btn-line btn-sm" id="logout" type="button" style="color:#fff;border-color:rgba(255,255,255,.4)">Sign out</button></div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-tab="blogs">Blogs</button>
+    <button role="tab" aria-selected="false" data-tab="faqs">FAQs</button>
+    <button role="tab" aria-selected="false" data-tab="import">Import</button>
+  </nav>
+
+  <main>
+    <!-- BLOGS -->
+    <section id="tab-blogs">
+      <div id="blogList">
+        <div class="bar"><h2>Blogs</h2><button class="btn" id="newBlog" type="button">New post</button></div>
+        <div class="card" id="blogRows"></div>
+      </div>
+
+      <form id="blogForm" class="card hide" novalidate>
+        <div class="bar"><h2 id="blogFormTitle">New post</h2><button class="btn btn-line btn-sm" id="blogBack" type="button">Back to list</button></div>
+
+        <div class="f"><label for="bTitle">Title *</label><input id="bTitle" maxlength="160" required></div>
+        <div class="row row2">
+          <div class="f"><label for="bSlug">Slug *</label><input id="bSlug" maxlength="120" required><p class="hint">Used in the link. Lowercase letters, numbers, hyphens.</p></div>
+          <div class="f"><label for="bCat">Category *</label>
+            <select id="bCat"><option>Planning Tips</option><option>Trends</option><option>Inspiration</option><option>Hospitality</option><option>Uncategorized</option></select></div>
+        </div>
+        <div class="row row3">
+          <div class="f"><label for="bDate">Date *</label><input id="bDate" type="date" required></div>
+          <div class="f"><label for="bBy">Author</label><input id="bBy" value="Decor By Pearls Team" maxlength="80"></div>
+          <div class="f"><label for="bImg">Cover image path or URL *</label><input id="bImg" placeholder="/images/blog1.webp" required></div>
+        </div>
+        <div class="f"><label for="bExcerpt">Excerpt *</label><textarea id="bExcerpt" rows="3" maxlength="400" required></textarea><p class="hint">Shown on the blog card. Up to 400 characters.</p></div>
+        <div class="row row2">
+          <div class="f"><label for="bMetaT">SEO title</label><input id="bMetaT" maxlength="70"><p class="hint">Blank = post title.</p></div>
+          <div class="f"><label for="bMetaD">SEO meta description</label><input id="bMetaD" maxlength="170"><p class="hint">Blank = excerpt.</p></div>
+        </div>
+
+        <div class="f">
+          <label for="content">Content (HTML) *</label>
+          <div class="tools" id="tools">
+            <button type="button" data-w="p">Paragraph</button>
+            <button type="button" data-w="h3">H3</button>
+            <button type="button" data-w="h4">H4</button>
+            <button type="button" data-w="strong">Bold</button>
+            <button type="button" data-w="em">Italic</button>
+            <button type="button" data-w="ul">List</button>
+            <button type="button" data-w="a">Link</button>
+            <button type="button" id="togglePrev">Preview</button>
+          </div>
+          <textarea id="content" required></textarea>
+        </div>
+        <div class="preview hide" id="preview"></div>
+
+        <div class="chk"><input type="checkbox" id="bPub" checked><label for="bPub">Published (visible on the website)</label></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" type="submit" id="blogSave">Save post</button><button class="btn btn-line" id="blogCancel" type="button">Cancel</button></div>
+        <p class="msg hide" id="blogMsg" role="status"></p>
+      </form>
+    </section>
+
+    <!-- FAQS -->
+    <section id="tab-faqs" class="hide">
+      <div class="bar"><h2>FAQs</h2></div>
+      <form id="faqForm" class="card" novalidate>
+        <h3 id="faqFormTitle" style="font-size:1.5rem;margin-bottom:14px">Add FAQ</h3>
+        <div class="row" style="grid-template-columns:1fr">
+          <div class="f"><label for="fQ">Question *</label><input id="fQ" maxlength="220" required></div>
+          <div class="f"><label for="fA">Answer *</label><textarea id="fA" rows="5" maxlength="2000" required></textarea></div>
+          <div class="f" style="max-width:160px"><label for="fO">Order *</label><input id="fO" type="number" min="1" step="1" value="1" required></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" type="submit" id="faqSave">Save FAQ</button><button class="btn btn-line hide" id="faqCancel" type="button">Cancel edit</button></div>
+        <p class="msg hide" id="faqMsg" role="status"></p>
+      </form>
+      <div class="card" id="faqRows"></div>
+    </section>
+
+    <!-- IMPORT -->
+    <section id="tab-import" class="hide">
+      <div class="bar"><h2>Import existing content</h2></div>
+      <div class="card">
+        <h3 style="font-size:1.4rem;margin-bottom:8px">1. Copy the data</h3>
+        <label>Blogs: open blog.html, press F12, Console, paste this, press Enter</label>
+        <code class="code">copy(JSON.stringify(posts))</code>
+        <label>FAQs: open index.html, press F12, Console, paste this, press Enter</label>
+        <code class="code">copy(JSON.stringify([...document.querySelectorAll('.faq__item')].map((d,i)=>({question:d.querySelector('summary').textContent.replace(/^\d+\.\s*/,'').trim(),answer:d.querySelector('p').textContent.trim(),order:i+1}))))</code>
+        <h3 style="font-size:1.4rem;margin:18px 0 8px">2. Paste and import</h3>
+        <div class="f" style="max-width:260px"><label for="iType">Type</label><select id="iType"><option value="blogs">Blogs</option><option value="faqs">FAQs</option></select></div>
+        <div class="f"><label for="iJson">JSON</label><textarea id="iJson" rows="8"></textarea></div>
+        <button class="btn" id="iBtn" type="button">Import</button>
+        <p class="msg hide" id="iMsg" role="status"></p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, collection, doc, getDoc, getDocs, setDoc, deleteDoc, query, orderBy, serverTimestamp, writeBatch } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* ===== PASTE YOUR FIREBASE CONFIG HERE ===== */
+const firebaseConfig = {
+  apiKey: "AIzaSyCN-0pAeMLXcVov40lmQ7DV_KbYP6hjzQI",
+  authDomain: "decor-by-pearls.firebaseapp.com",
+  projectId: "decor-by-pearls",
+  storageBucket: "decor-by-pearls.firebasestorage.app",
+  messagingSenderId: "815568698743",
+  appId: "1:815568698743:web:cf842cf99744abe7edf572",
+  measurementId: "G-2850YCPJNK"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const $ = (s) => document.querySelector(s);
+
+/* ---------- helpers ---------- */
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
+const slugify = (s) => String(s).toLowerCase().trim().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 100);
+function flash(el, text, ok) { el.textContent = text; el.className = "msg " + (ok ? "ok" : "bad"); }
+function toISO(v) {
+  if (!v) return new Date().toISOString().slice(0, 10);
+  if (/^\d{4}-\d{2}-\d{2}$/.test(v)) return v;
+  const d = new Date(v);
+  return isNaN(d) ? new Date().toISOString().slice(0, 10) : d.toISOString().slice(0, 10);
+}
+function prettyDate(iso) {
+  const d = new Date(iso + "T00:00:00");
+  return isNaN(d) ? iso : d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+}
+function errText(e) {
+  if (e && e.code === "permission-denied") return "Permission denied. This account is not an admin in Firestore rules.";
+  return (e && e.message) || "Something went wrong.";
+}
+
+/* ---------- auth ---------- */
+$("#loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const btn = $("#lBtn"), msg = $("#lMsg");
+  msg.classList.add("hide");
+  btn.disabled = true;
+  try {
+    await signInWithEmailAndPassword(auth, $("#lEmail").value.trim(), $("#lPass").value);
+  } catch (err) {
+    msg.textContent = "Wrong email or password.";
+    msg.classList.remove("hide");
+  }
+  btn.disabled = false;
+});
+$("#logout").addEventListener("click", () => signOut(auth));
+
+onAuthStateChanged(auth, (user) => {
+  $("#login").classList.toggle("hide", !!user);
+  $("#app").classList.toggle("hide", !user);
+  if (user) {
+    $("#who").textContent = user.email;
+    loadBlogs();
+    loadFaqs();
+  }
+});
+
+/* ---------- tabs ---------- */
+document.querySelectorAll("nav.tabs button").forEach((b) => b.addEventListener("click", () => {
+  document.querySelectorAll("nav.tabs button").forEach((x) => x.setAttribute("aria-selected", String(x === b)));
+  ["blogs", "faqs", "import"].forEach((t) => $("#tab-" + t).classList.toggle("hide", t !== b.dataset.tab));
+}));
+
+/* =========================================================
+   BLOGS  (collection: blogs, doc id = slug)
+   ========================================================= */
+let blogs = [];
+let editingBlog = null;
+
+async function loadBlogs() {
+  const rows = $("#blogRows");
+  try {
+    const snap = await getDocs(query(collection(db, "blogs"), orderBy("date", "desc")));
+    blogs = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+  } catch (e) {
+    rows.innerHTML = '<p class="msg bad">' + esc(errText(e)) + "</p>";
+    return;
+  }
+  if (!blogs.length) { rows.innerHTML = '<p class="empty">No posts yet. Click New post, or use the Import tab.</p>'; return; }
+  rows.innerHTML = blogs.map((p) =>
+    '<div class="item"><div class="t"><b>' + esc(p.title) + "</b><small>" + esc(p.category) + " · " + esc(prettyDate(p.date)) + " · /" + esc(p.id) + '</small></div>' +
+    '<span class="badge ' + (p.published ? "" : "off") + '">' + (p.published ? "Published" : "Draft") + "</span>" +
+    '<div class="acts"><button class="btn btn-line btn-sm" data-edit="' + esc(p.id) + '">Edit</button><button class="btn btn-red btn-sm" data-del="' + esc(p.id) + '">Delete</button></div></div>'
+  ).join("");
+}
+
+$("#blogRows").addEventListener("click", async (e) => {
+  const ed = e.target.closest("[data-edit]"), del = e.target.closest("[data-del]");
+  if (ed) openBlog(blogs.find((b) => b.id === ed.dataset.edit));
+  if (del) {
+    const p = blogs.find((b) => b.id === del.dataset.del);
+    if (!confirm('Delete "' + p.title + '"? This cannot be undone.')) return;
+    try { await deleteDoc(doc(db, "blogs", p.id)); await loadBlogs(); } catch (err) { alert(errText(err)); }
+  }
+});
+
+function showBlogForm(show) {
+  $("#blogForm").classList.toggle("hide", !show);
+  $("#blogList").classList.toggle("hide", show);
+  if (show) window.scrollTo({ top: 0 });
+}
+function openBlog(p) {
+  editingBlog = p ? p.id : null;
+  $("#blogFormTitle").textContent = p ? "Edit post" : "New post";
+  $("#bTitle").value = p?.title || "";
+  $("#bSlug").value = p?.id || "";
+  $("#bCat").value = p?.category || "Planning Tips";
+  $("#bDate").value = p ? toISO(p.date) : new Date().toISOString().slice(0, 10);
+  $("#bBy").value = p?.by || "Decor By Pearls Team";
+  $("#bImg").value = p?.image || "";
+  $("#bExcerpt").value = p?.excerpt || "";
+  $("#bMetaT").value = p?.metaTitle || "";
+  $("#bMetaD").value = p?.metaDescription || "";
+  $("#content").value = p?.content || "";
+  $("#bPub").checked = p ? !!p.published : true;
+  $("#blogMsg").classList.add("hide");
+  $("#preview").classList.add("hide");
+  $("#togglePrev").textContent = "Preview";
+  showBlogForm(true);
+}
+$("#newBlog").addEventListener("click", () => openBlog(null));
+$("#blogBack").addEventListener("click", () => showBlogForm(false));
+$("#blogCancel").addEventListener("click", () => showBlogForm(false));
+
+/* auto slug for new posts only */
+$("#bTitle").addEventListener("input", () => { if (!editingBlog) $("#bSlug").value = slugify($("#bTitle").value); });
+$("#bSlug").addEventListener("blur", () => { $("#bSlug").value = slugify($("#bSlug").value); });
+
+/* toolbar */
+$("#tools").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.id === "togglePrev") {
+    const pv = $("#preview"), on = pv.classList.contains("hide");
+    pv.classList.toggle("hide", !on);
+    b.textContent = on ? "Hide preview" : "Preview";
+    if (on) pv.innerHTML = $("#content").value;
+    return;
+  }
+  const ta = $("#content"), s = ta.selectionStart, en = ta.selectionEnd, sel = ta.value.slice(s, en);
+  const w = b.dataset.w; let out;
+  if (w === "a") {
+    const url = prompt("Link URL (example: contact.html)"); if (!url) return;
+    out = '<a href="' + url + '">' + (sel || "link text") + "</a>";
+  } else if (w === "ul") {
+    const lines = (sel || "Item one\nItem two").split("\n").filter(Boolean);
+    out = "<ul>\n" + lines.map((l) => "<li>" + l + "</li>").join("\n") + "\n</ul>";
+  } else {
+    out = "<" + w + ">" + (sel || "text") + "</" + w + ">";
+  }
+  ta.setRangeText(out, s, en, "end");
+  ta.focus();
+  if (!$("#preview").classList.contains("hide")) $("#preview").innerHTML = ta.value;
+});
+$("#content").addEventListener("input", () => { if (!$("#preview").classList.contains("hide")) $("#preview").innerHTML = $("#content").value; });
+
+/* save */
+$("#blogForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const msg = $("#blogMsg"), btn = $("#blogSave");
+  const slug = slugify($("#bSlug").value);
+  const data = {
+    title: $("#bTitle").value.trim(),
+    slug: slug,
+    category: $("#bCat").value,
+    date: $("#bDate").value,
+    by: $("#bBy").value.trim() || "Decor By Pearls Team",
+    image: $("#bImg").value.trim(),
+    excerpt: $("#bExcerpt").value.trim(),
+    metaTitle: $("#bMetaT").value.trim(),
+    metaDescription: $("#bMetaD").value.trim(),
+    content: $("#content").value.trim(),
+    published: $("#bPub").checked,
+    updatedAt: serverTimestamp()
+  };
+  if (!data.title || !slug || !data.date || !data.image || !data.excerpt || !data.content) {
+    flash(msg, "Fill every field marked *.", false); return;
+  }
+  btn.disabled = true;
+  try {
+    const ref = doc(db, "blogs", slug);
+    const renamed = editingBlog && editingBlog !== slug;
+    if (!editingBlog || renamed) {
+      const exists = await getDoc(ref);
+      if (exists.exists()) { flash(msg, "A post with this slug already exists. Change the slug.", false); btn.disabled = false; return; }
+    }
+    const prev = editingBlog ? blogs.find((b) => b.id === editingBlog) : null;
+    const payload = { ...data, createdAt: prev?.createdAt || serverTimestamp() };
+    if (renamed) {
+      const batch = writeBatch(db);
+      batch.set(ref, payload);
+      batch.delete(doc(db, "blogs", editingBlog));
+      await batch.commit();
+    } else {
+      await setDoc(ref, payload, { merge: true });
+    }
+    editingBlog = slug;
+    flash(msg, "Saved.", true);
+    await loadBlogs();
+  } catch (err) { flash(msg, errText(err), false); }
+  btn.disabled = false;
+});
+
+/* =========================================================
+   FAQS  (collection: faqs, auto id)
+   ========================================================= */
+let faqs = [];
+let editingFaq = null;
+
+async function loadFaqs() {
+  const rows = $("#faqRows");
+  try {
+    const snap = await getDocs(query(collection(db, "faqs"), orderBy("order", "asc")));
+    faqs = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+  } catch (e) {
+    rows.innerHTML = '<p class="msg bad">' + esc(errText(e)) + "</p>";
+    return;
+  }
+  if (!faqs.length) { rows.innerHTML = '<p class="empty">No FAQs yet. Add one above, or use the Import tab.</p>'; }
+  else rows.innerHTML = faqs.map((f) =>
+    '<div class="item"><div class="t"><b>' + esc(f.order) + ". " + esc(f.question) + "</b><small>" + esc((f.answer || "").slice(0, 120)) + (f.answer && f.answer.length > 120 ? "…" : "") + "</small></div>" +
+    '<div class="acts"><button class="btn btn-line btn-sm" data-edit="' + esc(f.id) + '">Edit</button><button class="btn btn-red btn-sm" data-del="' + esc(f.id) + '">Delete</button></div></div>'
+  ).join("");
+  if (!editingFaq) $("#fO").value = faqs.length ? Math.max(...faqs.map((f) => +f.order || 0)) + 1 : 1;
+}
+
+function resetFaqForm() {
+  editingFaq = null;
+  $("#faqFormTitle").textContent = "Add FAQ";
+  $("#fQ").value = ""; $("#fA").value = "";
+  $("#faqCancel").classList.add("hide");
+  $("#fO").value = faqs.length ? Math.max(...faqs.map((f) => +f.order || 0)) + 1 : 1;
+}
+$("#faqCancel").addEventListener("click", () => { resetFaqForm(); $("#faqMsg").classList.add("hide"); });
+
+$("#faqRows").addEventListener("click", async (e) => {
+  const ed = e.target.closest("[data-edit]"), del = e.target.closest("[data-del]");
+  if (ed) {
+    const f = faqs.find((x) => x.id === ed.dataset.edit);
+    editingFaq = f.id;
+    $("#faqFormTitle").textContent = "Edit FAQ";
+    $("#fQ").value = f.question; $("#fA").value = f.answer; $("#fO").value = f.order;
+    $("#faqCancel").classList.remove("hide");
+    $("#faqMsg").classList.add("hide");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  if (del) {
+    const f = faqs.find((x) => x.id === del.dataset.del);
+    if (!confirm('Delete this FAQ?\n\n"' + f.question + '"')) return;
+    try { await deleteDoc(doc(db, "faqs", f.id)); if (editingFaq === f.id) resetFaqForm(); await loadFaqs(); } catch (err) { alert(errText(err)); }
+  }
+});
+
+$("#faqForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const msg = $("#faqMsg"), btn = $("#faqSave");
+  const q = $("#fQ").value.trim(), a = $("#fA").value.trim(), o = parseInt($("#fO").value, 10);
+  if (!q || !a || !(o >= 1)) { flash(msg, "Fill question, answer and a valid order.", false); return; }
+  btn.disabled = true;
+  try {
+    const ref = editingFaq ? doc(db, "faqs", editingFaq) : doc(collection(db, "faqs"));
+    await setDoc(ref, { question: q, answer: a, order: o, updatedAt: serverTimestamp() }, { merge: true });
+    flash(msg, "Saved.", true);
+    resetFaqForm();
+    await loadFaqs();
+  } catch (err) { flash(msg, errText(err), false); }
+  btn.disabled = false;
+});
+
+/* =========================================================
+   IMPORT
+   ========================================================= */
+$("#iBtn").addEventListener("click", async () => {
+  const msg = $("#iMsg"), btn = $("#iBtn"), type = $("#iType").value;
+  let arr;
+  try { arr = JSON.parse($("#iJson").value); if (!Array.isArray(arr) || !arr.length) throw 0; }
+  catch { flash(msg, "Paste a valid JSON array.", false); return; }
+  if (!confirm("Import " + arr.length + " " + type + "? Existing items with the same slug will be overwritten.")) return;
+  btn.disabled = true;
+  try {
+    const batch = writeBatch(db);
+    if (type === "blogs") {
+      arr.forEach((p) => {
+        const slug = slugify(p.slug || p.title);
+        batch.set(doc(db, "blogs", slug), {
+          title: String(p.title || "").trim(), slug,
+          category: p.category || "Planning Tips",
+          date: toISO(p.date),
+          by: p.by || "Decor By Pearls Team",
+          image: p.image || "",
+          excerpt: String(p.excerpt || "").trim(),
+          metaTitle: p.metaTitle || "", metaDescription: p.metaDescription || "",
+          content: String(p.content || "").trim(),
+          published: p.published !== false,
+          createdAt: serverTimestamp(), updatedAt: serverTimestamp()
+        });
+      });
+    } else {
+      arr.forEach((f, i) => {
+        batch.set(doc(collection(db, "faqs")), {
+          question: String(f.question || "").trim(),
+          answer: String(f.answer || "").trim(),
+          order: parseInt(f.order, 10) || i + 1,
+          updatedAt: serverTimestamp()
+        });
+      });
+    }
+    await batch.commit();
+    flash(msg, "Imported " + arr.length + " " + type + ".", true);
+    $("#iJson").value = "";
+    type === "blogs" ? await loadBlogs() : await loadFaqs();
+  } catch (err) { flash(msg, errText(err), false); }
+  btn.disabled = false;
+});
+</script>
+</body>
+</html>
