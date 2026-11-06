@@ -69,7 +69,6 @@ async function loadBlogs() {
       '<p class="eyebrow">' + esc(p.category) + "</p>" +
       '<h3 class="blog-card__title">' + esc(p.title) + "</h3>" +
       '<p class="blog-card__text">' + esc(p.excerpt) + "</p>" +
-      '<a class="blog-card__link" href="blog.html#post-' + encodeURIComponent(p.id) + '">Read more &rarr;</a>' +
       "</div></article>";
   }).join("");
   refreshScroll();
