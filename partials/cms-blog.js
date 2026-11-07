@@ -36,8 +36,9 @@ async function boot() {
     .map((d) => {
       const x = d.data();
       return {
-        id: d.id,
-        title: x.title || "",
+      id: x.slug || d.id,
+      docId: d.id,
+       title: x.title || "",
         excerpt: x.excerpt || "",
         date: longDate(x.date),
         sort: String(x.date || ""),
@@ -100,14 +101,17 @@ function takeover(posts) {
 
   /* Accepts a slug, or an old numeric id (#post-1 to #post-4) */
   function resolve(raw) {
-    if (!raw) return null;
-    if (posts.some((p) => p.id === raw)) return raw;
-    if (/^\d+$/.test(raw) && LEGACY_TITLES[raw]) {
-      const s = slugify(LEGACY_TITLES[raw]);
-      if (posts.some((p) => p.id === s)) return s;
-    }
-    return null;
+  if (!raw) return null;
+  if (posts.some((p) => p.id === raw)) return raw;
+  const byDoc = posts.find((p) => p.docId === raw);
+  if (byDoc) return byDoc.id;
+  if (/^\d+$/.test(raw) && LEGACY_TITLES[raw]) {
+    const s = slugify(LEGACY_TITLES[raw]);
+    const m = posts.find((p) => p.docId === s);
+    if (m) return m.id;
   }
+  return null;
+}
 
   function openPost(id, fromPop) {
     const p = posts.filter((x) => x.id === id)[0];
