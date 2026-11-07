@@ -30,15 +30,20 @@ function longDate(iso) {
   return isNaN(d) ? String(iso || "") : d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 }
 
+const slugFromPath = () => {
+  const m = location.pathname.match(/^\/blog\/([^\/]+)\/?$/);
+  return m ? decodeURIComponent(m[1]) : null;
+};
+
 async function boot() {
   const snap = await getDocs(query(collection(db, "blogs"), where("published", "==", true)));
   const posts = snap.docs
     .map((d) => {
       const x = d.data();
       return {
-      id: x.slug || d.id,
-      docId: d.id,
-       title: x.title || "",
+        id: x.slug || d.id,
+        docId: d.id,
+        title: x.title || "",
         excerpt: x.excerpt || "",
         date: longDate(x.date),
         sort: String(x.date || ""),
@@ -99,19 +104,19 @@ function takeover(posts) {
   q.addEventListener("keydown", (e) => { if (e.key === "Enter") applyFilter(); });
   catSel.addEventListener("change", applyFilter);
 
-  /* Accepts a slug, or an old numeric id (#post-1 to #post-4) */
+  /* Accepts a slug, a Firestore doc id, or an old numeric id (#post-1 to #post-4) */
   function resolve(raw) {
-  if (!raw) return null;
-  if (posts.some((p) => p.id === raw)) return raw;
-  const byDoc = posts.find((p) => p.docId === raw);
-  if (byDoc) return byDoc.id;
-  if (/^\d+$/.test(raw) && LEGACY_TITLES[raw]) {
-    const s = slugify(LEGACY_TITLES[raw]);
-    const m = posts.find((p) => p.docId === s);
-    if (m) return m.id;
+    if (!raw) return null;
+    if (posts.some((p) => p.id === raw)) return raw;
+    const byDoc = posts.find((p) => p.docId === raw);
+    if (byDoc) return byDoc.id;
+    if (/^\d+$/.test(raw) && LEGACY_TITLES[raw]) {
+      const s = slugify(LEGACY_TITLES[raw]);
+      const m = posts.find((p) => p.docId === s);
+      if (m) return m.id;
+    }
+    return null;
   }
-  return null;
-}
 
   function openPost(id, fromPop) {
     const p = posts.filter((x) => x.id === id)[0];
@@ -137,8 +142,8 @@ function takeover(posts) {
     reader.classList.add("open");
     document.body.classList.add("lock");
     if (!fromPop) {
-      if (wasOpen) history.replaceState({ post: id }, "", "#post-" + id);
-      else history.pushState({ post: id }, "", "#post-" + id);
+      if (wasOpen) history.replaceState({ post: id }, "", "/blog/" + id);
+      else history.pushState({ post: id }, "", "/blog/" + id);
     }
     if (!wasOpen) closeBtn.focus();
   }
@@ -147,25 +152,30 @@ function takeover(posts) {
     if (!reader.classList.contains("open")) return;
     reader.classList.remove("open");
     document.body.classList.remove("lock");
-    if (!fromPop && location.hash.indexOf("#post-") === 0) history.back();
+    if (!fromPop && location.pathname !== "/blog") history.pushState({}, "", "/blog");
     if (lastFocus) lastFocus.focus();
   }
 
   grid.addEventListener("click", (e) => { const b = e.target.closest(".more"); if (b) openPost(b.dataset.id); });
   side.addEventListener("click", (e) => { const b = e.target.closest(".side-item"); if (b) openPost(b.dataset.id); });
   closeBtn.addEventListener("click", () => closePost());
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && reader.classList.contains("open")) closePost(); });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && reader.classList.contains("open")) { e.stopImmediatePropagation(); closePost(); }
+  }, true);
+
   window.addEventListener("popstate", () => {
-    if (location.hash.indexOf("#post-") === 0) {
-      const id = resolve(decodeURIComponent(location.hash.slice(6)));
-      if (id) openPost(id, true);
-    } else closePost(true);
+    const id = resolve(slugFromPath());
+    if (id) openPost(id, true); else closePost(true);
   });
 
   render(posts);
-  if (location.hash.indexOf("#post-") === 0) {
-    const id = resolve(decodeURIComponent(location.hash.slice(6)));
-    if (id) openPost(id, true);
+
+  const raw = slugFromPath() || (location.hash.indexOf("#post-") === 0 ? decodeURIComponent(location.hash.slice(6)) : null);
+  const startId = resolve(raw);
+  if (startId) {
+    openPost(startId, true);
+    history.replaceState({ post: startId }, "", "/blog/" + startId);
   }
 }
 
