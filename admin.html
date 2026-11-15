@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
 <style>
 :root{--midnight:#102542;--sapphire:#1e3a5f;--champagne:#d8c3a5;--ivory:#faf8f5;--brass:#c79c5a;--muted:#5d6879;--red:#b3402f;--green:#1f5a2b}
 *{box-sizing:border-box}
@@ -15,14 +16,10 @@ body{margin:0;font-family:"Inter",Arial,sans-serif;color:var(--midnight);backgro
 h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;margin:0}
 button{font:inherit;cursor:pointer}
 .hide{display:none!important}
-
-/* LOGIN */
 #login{min-height:100vh;display:grid;place-items:center;padding:20px;background:var(--midnight)}
 .lbox{width:min(400px,100%);background:#fff;border-top:4px solid var(--brass);border-radius:8px;padding:34px 30px}
 .lbox h1{font-size:2rem;margin-bottom:6px}
 .lbox p{margin:0 0 22px;color:var(--muted);font-size:.9rem}
-
-/* FIELDS */
 label{display:block;margin:0 0 6px;font-size:.78rem;font-weight:600;color:var(--sapphire)}
 input,select,textarea{width:100%;padding:11px 13px;font:inherit;color:var(--midnight);background:#fff;border:1px solid rgba(16,37,66,.22);border-radius:4px}
 textarea{resize:vertical;line-height:1.6}
@@ -31,8 +28,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
 .row{display:grid;gap:16px;grid-template-columns:1fr}
 @media(min-width:700px){.row2{grid-template-columns:1fr 1fr}.row3{grid-template-columns:1fr 1fr 1fr}}
 .hint{margin:5px 0 0;font-size:.75rem;color:var(--muted)}
-
-/* BUTTONS */
+.hint.warn{color:var(--red)}
 .btn{display:inline-block;padding:11px 22px;border:1px solid var(--brass);border-radius:999px;background:var(--brass);color:var(--midnight);font-size:.76rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:background-color .2s}
 .btn:hover{background:var(--champagne);border-color:var(--champagne)}
 .btn[disabled]{opacity:.6;cursor:wait}
@@ -41,8 +37,6 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
 .btn-red{background:transparent;border-color:rgba(179,64,47,.5);color:var(--red)}
 .btn-red:hover{background:var(--red);border-color:var(--red);color:#fff}
 .btn-sm{padding:7px 14px;font-size:.68rem}
-
-/* APP */
 header.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;background:var(--midnight);color:#fff}
 header.top h1{font-size:1.5rem;color:#fff}
 header.top h1 span{color:var(--brass)}
@@ -54,8 +48,7 @@ main{max-width:1040px;margin:0 auto;padding:26px 20px 80px}
 .bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
 .bar h2{font-size:1.9rem}
 .card{background:#fff;border:1px solid rgba(16,37,66,.1);border-radius:8px;padding:clamp(18px,3vw,30px);margin-bottom:22px}
-
-/* LIST */
+.card>h3{font-size:1.5rem;margin:0 0 14px;padding-bottom:8px;border-bottom:1px solid rgba(16,37,66,.1)}
 .item{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid rgba(16,37,66,.08)}
 .item:last-child{border-bottom:0}
 .item .t{flex:1 1 280px;min-width:0}
@@ -63,28 +56,63 @@ main{max-width:1040px;margin:0 auto;padding:26px 20px 80px}
 .item .t small{color:var(--muted);font-size:.78rem}
 .badge{padding:3px 11px;border-radius:999px;font-size:.68rem;font-weight:600;background:#eef6ee;color:var(--green)}
 .badge.off{background:#f1ede6;color:var(--muted)}
+.badge.sch{background:#fdf3e1;color:#8a5a10}
 .acts{display:flex;gap:8px}
 .empty{padding:30px 0;text-align:center;color:var(--muted)}
-
-/* EDITOR */
-.tools{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
-.tools button{padding:6px 12px;border:1px solid rgba(16,37,66,.22);border-radius:4px;background:var(--ivory);font-size:.78rem;font-weight:600}
+/* cover */
+.cover-row{display:flex;gap:10px;flex-wrap:wrap}.cover-row input[type=text],.cover-row input:not([type=file]){flex:1 1 240px}
+.cover-prev{margin-top:10px;max-width:260px;border-radius:6px;border:1px solid rgba(16,37,66,.12)}
+/* tags */
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:8px;border:1px solid rgba(16,37,66,.22);border-radius:4px;background:#fff}
+.tags input{border:0;flex:1 1 120px;padding:4px;min-width:100px}
+.tag{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;background:var(--ivory);border:1px solid rgba(16,37,66,.15);font-size:.78rem}
+.tag button{border:0;background:none;padding:0;font-size:1rem;line-height:1;color:var(--muted)}
+.seo-check{list-style:none;margin:8px 0 0;padding:0;font-size:.8rem;display:grid;gap:3px}
+.seo-check .ok{color:var(--green)}.seo-check .no{color:var(--red)}
+/* editor */
+.tools{display:flex;flex-wrap:wrap;gap:6px;padding:8px;border:1px solid rgba(16,37,66,.22);border-bottom:0;border-radius:4px 4px 0 0;background:var(--ivory);position:sticky;top:56px;z-index:10}
+.tools button,.tools select{padding:6px 11px;width:auto;border:1px solid rgba(16,37,66,.22);border-radius:4px;background:#fff;font-size:.78rem;font-weight:600}
 .tools button:hover{border-color:var(--brass)}
-#content{min-height:380px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem}
-.preview{min-height:120px;padding:20px;border:1px dashed rgba(16,37,66,.3);border-radius:4px;margin-bottom:16px;background:#fff}
-.preview h3{font-size:1.7rem;margin:22px 0 10px}.preview h4{font-family:"Cormorant Garamond",serif;font-size:1.3rem;color:var(--brass);margin:18px 0 6px}
-.preview p{margin:0 0 14px}
-.chk{display:flex;align-items:center;gap:10px;margin:6px 0 18px}
-.chk input{width:auto}.chk label{margin:0;font-size:.9rem}
+.tools button.on{background:var(--midnight);color:#fff}
+.tbar{display:flex;flex-wrap:wrap;gap:6px;padding:8px;border:1px solid var(--brass);border-bottom:0;background:#fdf7ec;font-size:.75rem;align-items:center}
+.tbar b{margin-right:4px}.tbar button{padding:5px 10px;border:1px solid rgba(16,37,66,.22);border-radius:4px;background:#fff;font-size:.72rem}
+.tbar button.del{color:var(--red);border-color:rgba(179,64,47,.5)}
+#editor{min-height:420px;padding:22px;border:1px solid rgba(16,37,66,.22);border-radius:0 0 4px 4px;background:#fff;outline:0;overflow-wrap:anywhere}
+#editor:focus{border-color:var(--brass)}
+#editor:empty:before{content:"Start writing...";color:var(--muted)}
+#editor h1,#editor h2,#editor h3,#editor h4{font-family:"Cormorant Garamond",Georgia,serif;margin:22px 0 10px;line-height:1.2}
+#editor h1{font-size:2.3rem}#editor h2{font-size:1.9rem}#editor h3{font-size:1.6rem}#editor h4{font-size:1.3rem;color:var(--brass)}
+#editor p{margin:0 0 14px}
+#editor img{max-width:100%;height:auto;border-radius:4px}
+#editor blockquote{margin:18px 0;padding:10px 18px;border-left:4px solid var(--brass);background:var(--ivory);font-style:italic}
+#editor table,.pv table{width:100%;border-collapse:collapse;margin:18px 0}
+#editor th,#editor td,.pv th,.pv td{border:1px solid rgba(16,37,66,.25);padding:8px 10px;text-align:left;min-width:60px}
+#editor th,.pv th{background:var(--midnight);color:#fff}
+#editor td.sel,#editor th.sel{outline:2px solid var(--brass);outline-offset:-2px}
+.cta-btn{display:inline-block;padding:14px 30px;border-radius:999px;font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--brass)!important;text-decoration:none}
+.cta-btn--solid{background:var(--brass);color:var(--midnight)}
+.cta-btn--outline{background:transparent;color:var(--midnight)}
+#source{min-height:420px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;border-radius:0 0 4px 4px}
+/* publish */
+.pubbox{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:700px){.pubbox{grid-template-columns:1fr 1fr}}
+.status{display:inline-block;margin-left:8px;font-size:.78rem}
 .msg{margin:14px 0 0;padding:11px 15px;border-radius:4px;font-size:.88rem}
 .msg.ok{background:#eef6ee;color:var(--green);border:1px solid #b9d9bd}
 .msg.bad{background:#fbeeec;color:#8c2d20;border:1px solid #efc3bc}
 .code{display:block;margin:6px 0 16px;padding:12px 14px;background:var(--midnight);color:var(--champagne);border-radius:4px;font:.78rem/1.5 ui-monospace,Menlo,Consolas,monospace;word-break:break-all;white-space:pre-wrap}
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:16px;background:rgba(16,37,66,.6);overflow:auto}
+.mbox{width:min(480px,100%);background:#fff;border-radius:8px;padding:26px;border-top:4px solid var(--brass)}
+.mbox.wide{width:min(980px,100%)}
+.mbox h3{font-size:1.6rem;margin-bottom:14px}
+.mact{display:flex;gap:10px;justify-content:flex-end;margin-top:8px;flex-wrap:wrap}
+iframe#pvFrame{width:100%;height:70vh;border:1px solid rgba(16,37,66,.15);border-radius:4px;background:#fff}
+.pvtabs{display:flex;gap:8px;margin-bottom:10px}
 </style>
 </head>
 <body>
 
-<!-- LOGIN -->
 <section id="login">
   <form class="lbox" id="loginForm" novalidate>
     <h1>Decor By Pearls</h1>
@@ -96,7 +124,6 @@ main{max-width:1040px;margin:0 auto;padding:26px 20px 80px}
   </form>
 </section>
 
-<!-- APP -->
 <div id="app" class="hide">
   <header class="top">
     <h1>Decor By Pearls <span>Admin</span></h1>
@@ -110,60 +137,106 @@ main{max-width:1040px;margin:0 auto;padding:26px 20px 80px}
   </nav>
 
   <main>
-    <!-- BLOGS -->
     <section id="tab-blogs">
       <div id="blogList">
         <div class="bar"><h2>Blogs</h2><button class="btn" id="newBlog" type="button">New post</button></div>
         <div class="card" id="blogRows"></div>
       </div>
 
-      <form id="blogForm" class="card hide" novalidate>
+      <form id="blogForm" class="hide" novalidate>
         <div class="bar"><h2 id="blogFormTitle">New post</h2><button class="btn btn-line btn-sm" id="blogBack" type="button">Back to list</button></div>
 
-        <div class="f"><label for="bTitle">Title *</label><input id="bTitle" maxlength="160" required></div>
-        <div class="row row2">
-          <div class="f"><label for="bSlug">Slug *</label><input id="bSlug" maxlength="120" required><p class="hint">Used in the link. Lowercase letters, numbers, hyphens.</p></div>
-          <div class="f"><label for="bCat">Category *</label>
-            <select id="bCat"><option>Planning Tips</option><option>Trends</option><option>Inspiration</option><option>Hospitality</option><option>Uncategorized</option></select></div>
-        </div>
-        <div class="row row3">
-          <div class="f"><label for="bDate">Date *</label><input id="bDate" type="date" required></div>
-          <div class="f"><label for="bBy">Author</label><input id="bBy" value="Decor By Pearls Team" maxlength="80"></div>
-          <div class="f"><label for="bImg">Cover image path or URL *</label><input id="bImg" placeholder="/images/blog1.webp" required></div>
-        </div>
-        <div class="f"><label for="bExcerpt">Excerpt *</label><textarea id="bExcerpt" rows="3" maxlength="400" required></textarea><p class="hint">Shown on the blog card. Up to 400 characters.</p></div>
-        <div class="row row2">
-          <div class="f"><label for="bMetaT">SEO title</label><input id="bMetaT" maxlength="70"><p class="hint">Blank = post title.</p></div>
-          <div class="f"><label for="bMetaD">SEO meta description</label><input id="bMetaD" maxlength="170"><p class="hint">Blank = excerpt.</p></div>
-        </div>
-
-        <div class="f">
-          <label for="content">Content (HTML) *</label>
-          <div class="tools" id="tools">
-            <button type="button" data-w="p">Paragraph</button>
-            <button type="button" data-w="h3">H3</button>
-            <button type="button" data-w="h4">H4</button>
-            <button type="button" data-w="strong">Bold</button>
-            <button type="button" data-w="em">Italic</button>
-            <button type="button" data-w="ul">List</button>
-            <button type="button" data-w="a">Link</button>
-            <button type="button" id="togglePrev">Preview</button>
+        <!-- 1 BASIC -->
+        <div class="card">
+          <h3>Basic details</h3>
+          <div class="f"><label for="bTitle">Blog title *</label><input id="bTitle" maxlength="160" required></div>
+          <div class="row row2">
+            <div class="f"><label for="bSlug">Slug *</label><input id="bSlug" maxlength="120" required><p class="hint">Link: /blog/<span id="slugPrev">your-slug</span></p></div>
+            <div class="f"><label for="bCat">Category *</label>
+              <select id="bCat"><option>Planning Tips</option><option>Trends</option><option>Inspiration</option><option>Hospitality</option><option>Uncategorized</option></select></div>
           </div>
-          <textarea id="content" required></textarea>
+          <div class="row row2">
+            <div class="f"><label for="bDate">Publishing date *</label><input id="bDate" type="date" required></div>
+            <div class="f"><label for="bBy">Author name</label><input id="bBy" value="Decor By Pearls Team" maxlength="80"></div>
+          </div>
+          <div class="f">
+            <label for="bImg">Cover image *</label>
+            <div class="cover-row">
+              <input id="bImg" placeholder="Paste URL or /images/blog1.webp" required>
+              <input id="bImgFile" type="file" accept="image/*" class="hide">
+              <button class="btn btn-line btn-sm" id="bImgBtn" type="button">Upload image</button>
+            </div>
+            <img class="cover-prev hide" id="bImgPrev" alt="">
+            <p class="hint" id="bImgMsg"></p>
+          </div>
+          <div class="f"><label for="bImgAlt">Cover image alt text</label><input id="bImgAlt" maxlength="160"><p class="hint">Describe the image. Helps SEO and accessibility.</p></div>
+          <div class="f"><label for="bExcerpt">Excerpt *</label><textarea id="bExcerpt" rows="3" maxlength="400" required></textarea><p class="hint">Shown on the blog card. <span id="exCnt">0</span>/400</p></div>
         </div>
-        <div class="preview hide" id="preview"></div>
 
-        <div class="chk"><input type="checkbox" id="bPub" checked><label for="bPub">Published (visible on the website)</label></div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" type="submit" id="blogSave">Save post</button><button class="btn btn-line" id="blogCancel" type="button">Cancel</button></div>
-        <p class="msg hide" id="blogMsg" role="status"></p>
+        <!-- 2 SEO -->
+        <div class="card">
+          <h3>SEO settings</h3>
+          <div class="f"><label for="bMetaT">Meta title</label><input id="bMetaT" maxlength="70"><p class="hint">Blank = post title. <span id="mtCnt">0</span>/60 recommended</p></div>
+          <div class="f"><label for="bMetaD">Meta description</label><textarea id="bMetaD" rows="2" maxlength="170"></textarea><p class="hint">Blank = excerpt. <span id="mdCnt">0</span>/160 recommended</p></div>
+          <div class="row row2">
+            <div class="f"><label for="bFocus">Focus keyword</label><input id="bFocus" maxlength="80" placeholder="wedding planner in chandigarh"></div>
+            <div class="f"><label for="kwIn">Targeted keywords</label><div class="tags" id="kwBox"><input id="kwIn" placeholder="Type, press Enter"></div></div>
+          </div>
+          <label>Focus keyword check</label>
+          <ul class="seo-check" id="seoCheck"></ul>
+        </div>
+
+        <!-- 3 CONTENT -->
+        <div class="card">
+          <h3>Content</h3>
+          <div class="tools" id="tools">
+            <select id="blockSel" aria-label="Block type"><option value="P">Paragraph</option><option value="H1">H1</option><option value="H2">H2</option><option value="H3">H3</option><option value="H4">H4</option></select>
+            <button type="button" data-c="bold"><b>B</b></button>
+            <button type="button" data-c="italic"><i>I</i></button>
+            <button type="button" data-c="insertUnorderedList">• List</button>
+            <button type="button" data-c="insertOrderedList">1. List</button>
+            <button type="button" data-c="quote">Quote</button>
+            <button type="button" data-c="link">Link</button>
+            <button type="button" data-c="unlink">Unlink</button>
+            <button type="button" data-c="image">Image</button>
+            <button type="button" data-c="table">Table</button>
+            <button type="button" data-c="cta">CTA</button>
+            <button type="button" data-c="source" id="srcBtn">HTML</button>
+            <button type="button" data-c="preview">Preview</button>
+          </div>
+          <div class="tbar hide" id="tbar">
+            <b>Table:</b>
+            <button type="button" data-t="rowA">+ Row above</button><button type="button" data-t="rowB">+ Row below</button>
+            <button type="button" data-t="colA">+ Col left</button><button type="button" data-t="colB">+ Col right</button>
+            <button type="button" data-t="rowD" class="del">Delete row</button><button type="button" data-t="colD" class="del">Delete col</button>
+            <button type="button" data-t="head">Toggle header row</button><button type="button" data-t="tblD" class="del">Delete table</button>
+          </div>
+          <div id="editor" contenteditable="true" spellcheck="true"></div>
+          <textarea id="source" class="hide"></textarea>
+        </div>
+
+        <!-- 5 PUBLISH -->
+        <div class="card">
+          <h3>Publishing <span class="status" id="curStatus"></span></h3>
+          <div class="pubbox">
+            <div class="f"><label for="bAt">Schedule date and time</label><input id="bAt" type="datetime-local"><p class="hint">Needed only for Schedule.</p></div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-line" type="button" data-save="draft">Save draft</button>
+            <button class="btn" type="button" data-save="published">Publish</button>
+            <button class="btn btn-line" type="button" data-save="scheduled">Schedule</button>
+            <button class="btn btn-line" type="button" id="prevBtn">Preview</button>
+            <button class="btn btn-line" id="blogCancel" type="button">Close</button>
+          </div>
+          <p class="msg hide" id="blogMsg" role="status"></p>
+        </div>
       </form>
     </section>
 
-    <!-- FAQS -->
     <section id="tab-faqs" class="hide">
       <div class="bar"><h2>FAQs</h2></div>
       <form id="faqForm" class="card" novalidate>
-        <h3 id="faqFormTitle" style="font-size:1.5rem;margin-bottom:14px">Add FAQ</h3>
+        <h3 id="faqFormTitle" style="border:0">Add FAQ</h3>
         <div class="row" style="grid-template-columns:1fr">
           <div class="f"><label for="fQ">Question *</label><input id="fQ" maxlength="220" required></div>
           <div class="f"><label for="fA">Answer *</label><textarea id="fA" rows="5" maxlength="2000" required></textarea></div>
@@ -175,16 +248,15 @@ main{max-width:1040px;margin:0 auto;padding:26px 20px 80px}
       <div class="card" id="faqRows"></div>
     </section>
 
-    <!-- IMPORT -->
     <section id="tab-import" class="hide">
       <div class="bar"><h2>Import existing content</h2></div>
       <div class="card">
-        <h3 style="font-size:1.4rem;margin-bottom:8px">1. Copy the data</h3>
-        <label>Blogs: open blog.html, press F12, Console, paste this, press Enter</label>
+        <h3 style="border:0">1. Copy the data</h3>
+        <label>Blogs: open the OLD blog.html, press F12, Console, paste, Enter</label>
         <code class="code">copy(JSON.stringify(posts))</code>
-        <label>FAQs: open index.html, press F12, Console, paste this, press Enter</label>
+        <label>FAQs: open index.html, press F12, Console, paste, Enter</label>
         <code class="code">copy(JSON.stringify([...document.querySelectorAll('.faq__item')].map((d,i)=>({question:d.querySelector('summary').textContent.replace(/^\d+\.\s*/,'').trim(),answer:d.querySelector('p').textContent.trim(),order:i+1}))))</code>
-        <h3 style="font-size:1.4rem;margin:18px 0 8px">2. Paste and import</h3>
+        <h3 style="margin:18px 0 8px;border:0">2. Paste and import</h3>
         <div class="f" style="max-width:260px"><label for="iType">Type</label><select id="iType"><option value="blogs">Blogs</option><option value="faqs">FAQs</option></select></div>
         <div class="f"><label for="iJson">JSON</label><textarea id="iJson" rows="8"></textarea></div>
         <button class="btn" id="iBtn" type="button">Import</button>
@@ -194,12 +266,36 @@ main{max-width:1040px;margin:0 auto;padding:26px 20px 80px}
   </main>
 </div>
 
+<!-- MODALS -->
+<div class="modal hide" id="mImg"><div class="mbox"><h3>Insert image</h3>
+  <div class="f"><label for="miUrl">Image URL</label><input id="miUrl" placeholder="https://..."></div>
+  <div class="f"><label for="miFile">or upload</label><input id="miFile" type="file" accept="image/*"></div>
+  <div class="f"><label for="miAlt">Alt text *</label><input id="miAlt" maxlength="160"></div>
+  <p class="hint" id="miMsg"></p>
+  <div class="mact"><button class="btn btn-line btn-sm" type="button" data-close>Cancel</button><button class="btn btn-sm" type="button" id="miOk">Insert</button></div></div></div>
+
+<div class="modal hide" id="mTbl"><div class="mbox"><h3>Insert table</h3>
+  <div class="row row2"><div class="f"><label for="mtR">Rows</label><input id="mtR" type="number" min="1" max="30" value="3"></div><div class="f"><label for="mtC">Columns</label><input id="mtC" type="number" min="1" max="10" value="3"></div></div>
+  <div class="f"><label><input type="checkbox" id="mtH" checked style="width:auto"> First row is heading</label></div>
+  <div class="mact"><button class="btn btn-line btn-sm" type="button" data-close>Cancel</button><button class="btn btn-sm" type="button" id="mtOk">Insert</button></div></div></div>
+
+<div class="modal hide" id="mCta"><div class="mbox"><h3>Insert CTA button</h3>
+  <div class="f"><label for="mcT">Button text *</label><input id="mcT" value="Contact Us"></div>
+  <div class="f"><label for="mcL">Link *</label><input id="mcL" value="/contact"></div>
+  <div class="f"><label for="mcS">Style</label><select id="mcS"><option value="solid">Solid</option><option value="outline">Outline</option></select></div>
+  <div class="mact"><button class="btn btn-line btn-sm" type="button" data-close>Cancel</button><button class="btn btn-sm" type="button" id="mcOk">Insert</button></div></div></div>
+
+<div class="modal hide" id="mPv"><div class="mbox wide"><h3>Preview</h3>
+  <div class="pvtabs"><button class="btn btn-sm" type="button" data-pv="article">Article</button><button class="btn btn-line btn-sm" type="button" data-pv="card">Card</button><button class="btn btn-line btn-sm" type="button" data-pv="mobile">Mobile</button></div>
+  <iframe id="pvFrame" title="Preview"></iframe>
+  <div class="mact"><button class="btn btn-sm" type="button" data-close>Close</button></div></div></div>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, collection, doc, getDoc, getDocs, setDoc, deleteDoc, query, orderBy, serverTimestamp, writeBatch } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore, collection, doc, getDoc, getDocs, setDoc, deleteDoc, query, orderBy, serverTimestamp, writeBatch, Timestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getStorage, ref as sRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
-/* ===== PASTE YOUR FIREBASE CONFIG HERE ===== */
 const firebaseConfig = {
   apiKey: "AIzaSyCN-0pAeMLXcVov40lmQ7DV_KbYP6hjzQI",
   authDomain: "decor-by-pearls.firebaseapp.com",
@@ -209,89 +305,70 @@ const firebaseConfig = {
   appId: "1:815568698743:web:cf842cf99744abe7edf572",
   measurementId: "G-2850YCPJNK"
 };
-
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+const auth = getAuth(app), db = getFirestore(app), storage = getStorage(app);
 const $ = (s) => document.querySelector(s);
+const $$ = (s) => [...document.querySelectorAll(s)];
 
 /* ---------- helpers ---------- */
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
 const slugify = (s) => String(s).toLowerCase().trim().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 100);
-function flash(el, text, ok) { el.textContent = text; el.className = "msg " + (ok ? "ok" : "bad"); }
-function localISO(d) {
-  return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
-}
-function toISO(v) {
-  if (!v) return localISO(new Date());
-  if (/^\d{4}-\d{2}-\d{2}$/.test(v)) return v;
-  const d = new Date(v);
-  return isNaN(d) ? localISO(new Date()) : localISO(d);
-}
-function prettyDate(iso) {
-  const d = new Date(iso + "T00:00:00");
-  return isNaN(d) ? iso : d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
-}
-function errText(e) {
-  if (e && e.code === "permission-denied") return "Permission denied. This account is not an admin in Firestore rules.";
-  return (e && e.message) || "Something went wrong.";
-}
+const flash = (el, t, ok) => { el.textContent = t; el.className = "msg " + (ok ? "ok" : "bad"); };
+const localISO = (d) => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+const toISO = (v) => { if (!v) return localISO(new Date()); if (/^\d{4}-\d{2}-\d{2}$/.test(v)) return v; const d = new Date(v); return isNaN(d) ? localISO(new Date()) : localISO(d); };
+const prettyDate = (iso) => { const d = new Date(iso + "T00:00:00"); return isNaN(d) ? iso : d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }); };
+const errText = (e) => e && e.code === "permission-denied" ? "Permission denied. This account is not an admin in Firestore rules." : (e && e.message) || "Something went wrong.";
+const toLocalInput = (d) => localISO(d) + "T" + String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
+const statusOf = (p) => p.status || (p.published ? "published" : "draft");
+const tsToDate = (t) => t && t.toDate ? t.toDate() : (t ? new Date(t) : null);
+
+const PURIFY = {
+  ALLOWED_TAGS: ["p","h1","h2","h3","h4","strong","b","em","i","u","ul","ol","li","a","blockquote","table","thead","tbody","tr","th","td","img","figure","figcaption","br","hr","span","div"],
+  ALLOWED_ATTR: ["href","target","rel","src","alt","class","colspan","rowspan","loading","width","height"]
+};
+const clean = (h) => DOMPurify.sanitize(h, PURIFY);
 
 /* ---------- auth ---------- */
 $("#loginForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const btn = $("#lBtn"), msg = $("#lMsg");
-  msg.classList.add("hide");
-  btn.disabled = true;
-  try {
-    await signInWithEmailAndPassword(auth, $("#lEmail").value.trim(), $("#lPass").value);
-  } catch (err) {
-    msg.textContent = "Wrong email or password.";
-    msg.classList.remove("hide");
-  }
+  msg.classList.add("hide"); btn.disabled = true;
+  try { await signInWithEmailAndPassword(auth, $("#lEmail").value.trim(), $("#lPass").value); }
+  catch { msg.textContent = "Wrong email or password."; msg.classList.remove("hide"); }
   btn.disabled = false;
 });
 $("#logout").addEventListener("click", () => signOut(auth));
-
 onAuthStateChanged(auth, (user) => {
   $("#login").classList.toggle("hide", !!user);
   $("#app").classList.toggle("hide", !user);
-  if (user) {
-    $("#who").textContent = user.email;
-    loadBlogs();
-    loadFaqs();
-  }
+  if (user) { $("#who").textContent = user.email; loadBlogs(); loadFaqs(); }
 });
-
-/* ---------- tabs ---------- */
-document.querySelectorAll("nav.tabs button").forEach((b) => b.addEventListener("click", () => {
-  document.querySelectorAll("nav.tabs button").forEach((x) => x.setAttribute("aria-selected", String(x === b)));
+$$("nav.tabs button").forEach((b) => b.addEventListener("click", () => {
+  $$("nav.tabs button").forEach((x) => x.setAttribute("aria-selected", String(x === b)));
   ["blogs", "faqs", "import"].forEach((t) => $("#tab-" + t).classList.toggle("hide", t !== b.dataset.tab));
 }));
 
 /* =========================================================
-   BLOGS  (collection: blogs, doc id = slug)
+   BLOG LIST
    ========================================================= */
-let blogs = [];
-let editingBlog = null;
+let blogs = [], editingBlog = null, keywords = [];
 
 async function loadBlogs() {
   const rows = $("#blogRows");
   try {
     const snap = await getDocs(query(collection(db, "blogs"), orderBy("date", "desc")));
     blogs = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-  } catch (e) {
-    rows.innerHTML = '<p class="msg bad">' + esc(errText(e)) + "</p>";
-    return;
-  }
+  } catch (e) { rows.innerHTML = '<p class="msg bad">' + esc(errText(e)) + "</p>"; return; }
   if (!blogs.length) { rows.innerHTML = '<p class="empty">No posts yet. Click New post, or use the Import tab.</p>'; return; }
-  rows.innerHTML = blogs.map((p) =>
-    '<div class="item"><div class="t"><b>' + esc(p.title) + "</b><small>" + esc(p.category) + " · " + esc(prettyDate(p.date)) + " · /" + esc(p.id) + '</small></div>' +
-    '<span class="badge ' + (p.published ? "" : "off") + '">' + (p.published ? "Published" : "Draft") + "</span>" +
-    '<div class="acts"><button class="btn btn-line btn-sm" data-edit="' + esc(p.id) + '">Edit</button><button class="btn btn-red btn-sm" data-del="' + esc(p.id) + '">Delete</button></div></div>'
-  ).join("");
+  rows.innerHTML = blogs.map((p) => {
+    const st = statusOf(p), at = tsToDate(p.publishAt);
+    const label = st === "published" ? "Published" : st === "scheduled" ? "Scheduled" + (at ? " · " + at.toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" }) : "") : "Draft";
+    const cls = st === "published" ? "" : st === "scheduled" ? "sch" : "off";
+    return '<div class="item"><div class="t"><b>' + esc(p.title) + "</b><small>" + esc(p.category) + " · " + esc(prettyDate(p.date)) + " · /" + esc(p.id) + "</small></div>" +
+      '<span class="badge ' + cls + '">' + esc(label) + "</span>" +
+      '<div class="acts"><button class="btn btn-line btn-sm" data-edit="' + esc(p.id) + '">Edit</button><button class="btn btn-red btn-sm" data-del="' + esc(p.id) + '">Delete</button></div></div>';
+  }).join("");
 }
-
 $("#blogRows").addEventListener("click", async (e) => {
   const ed = e.target.closest("[data-edit]"), del = e.target.closest("[data-del]");
   if (ed) openBlog(blogs.find((b) => b.id === ed.dataset.edit));
@@ -301,6 +378,12 @@ $("#blogRows").addEventListener("click", async (e) => {
     try { await deleteDoc(doc(db, "blogs", p.id)); await loadBlogs(); } catch (err) { alert(errText(err)); }
   }
 });
+
+/* =========================================================
+   FORM
+   ========================================================= */
+const editor = $("#editor"), source = $("#source");
+let srcMode = false, savedRange = null;
 
 function showBlogForm(show) {
   $("#blogForm").classList.toggle("hide", !show);
@@ -316,139 +399,355 @@ function openBlog(p) {
   $("#bDate").value = p ? toISO(p.date) : localISO(new Date());
   $("#bBy").value = p?.by || "Decor By Pearls Team";
   $("#bImg").value = p?.image || "";
+  $("#bImgAlt").value = p?.imageAlt || "";
   $("#bExcerpt").value = p?.excerpt || "";
   $("#bMetaT").value = p?.metaTitle || "";
   $("#bMetaD").value = p?.metaDescription || "";
-  $("#content").value = p?.content || "";
-  $("#bPub").checked = p ? !!p.published : true;
+  $("#bFocus").value = p?.focusKeyword || "";
+  keywords = Array.isArray(p?.keywords) ? [...p.keywords] : [];
+  renderTags();
+  setContent(p?.content || "");
+  const at = tsToDate(p?.publishAt);
+  $("#bAt").value = at ? toLocalInput(at) : "";
+  $("#curStatus").textContent = p ? "Current: " + statusOf(p) : "New (not saved)";
   $("#blogMsg").classList.add("hide");
-  $("#preview").classList.add("hide");
-  $("#togglePrev").textContent = "Preview";
+  setSrc(false);
+  refreshAll();
   showBlogForm(true);
 }
 $("#newBlog").addEventListener("click", () => openBlog(null));
 $("#blogBack").addEventListener("click", () => showBlogForm(false));
-$("#blogCancel").addEventListener("click", () => showBlogForm(false));
+$("#blogCancel").addEventListener("click", () => { showBlogForm(false); loadBlogs(); });
 
-/* auto slug for new posts only */
-$("#bTitle").addEventListener("input", () => { if (!editingBlog) $("#bSlug").value = slugify($("#bTitle").value); });
-$("#bSlug").addEventListener("blur", () => { $("#bSlug").value = slugify($("#bSlug").value); });
+$("#bTitle").addEventListener("input", () => { if (!editingBlog) $("#bSlug").value = slugify($("#bTitle").value); refreshAll(); });
+$("#bSlug").addEventListener("blur", () => { $("#bSlug").value = slugify($("#bSlug").value); refreshAll(); });
+["bSlug","bExcerpt","bMetaT","bMetaD","bFocus"].forEach((id) => $("#" + id).addEventListener("input", refreshAll));
 
-/* toolbar */
-$("#tools").addEventListener("click", (e) => {
-  const b = e.target.closest("button"); if (!b) return;
-  if (b.id === "togglePrev") {
-    const pv = $("#preview"), on = pv.classList.contains("hide");
-    pv.classList.toggle("hide", !on);
-    b.textContent = on ? "Hide preview" : "Preview";
-    if (on) pv.innerHTML = $("#content").value;
-    return;
-  }
-  const ta = $("#content"), s = ta.selectionStart, en = ta.selectionEnd, sel = ta.value.slice(s, en);
-  const w = b.dataset.w; let out;
-  if (w === "a") {
-    const url = prompt("Link URL (example: contact.html)"); if (!url) return;
-    out = '<a href="' + url + '">' + (sel || "link text") + "</a>";
-  } else if (w === "ul") {
-    const lines = (sel || "Item one\nItem two").split("\n").filter(Boolean);
-    out = "<ul>\n" + lines.map((l) => "<li>" + l + "</li>").join("\n") + "\n</ul>";
-  } else {
-    out = "<" + w + ">" + (sel || "text") + "</" + w + ">";
-  }
-  ta.setRangeText(out, s, en, "end");
-  ta.focus();
-  if (!$("#preview").classList.contains("hide")) $("#preview").innerHTML = ta.value;
-});
-$("#content").addEventListener("input", () => { if (!$("#preview").classList.contains("hide")) $("#preview").innerHTML = $("#content").value; });
-
-/* save */
-$("#blogForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const msg = $("#blogMsg"), btn = $("#blogSave");
-  const slug = slugify($("#bSlug").value);
-  const data = {
-    title: $("#bTitle").value.trim(),
-    slug: slug,
-    category: $("#bCat").value,
-    date: $("#bDate").value,
-    by: $("#bBy").value.trim() || "Decor By Pearls Team",
-    image: $("#bImg").value.trim(),
-    excerpt: $("#bExcerpt").value.trim(),
-    metaTitle: $("#bMetaT").value.trim(),
-    metaDescription: $("#bMetaD").value.trim(),
-    content: $("#content").value.trim(),
-    published: $("#bPub").checked,
-    updatedAt: serverTimestamp()
-  };
-  if (!data.title || !slug || !data.date || !data.image || !data.excerpt || !data.content) {
-    flash(msg, "Fill every field marked *.", false); return;
-  }
-  btn.disabled = true;
+/* cover image */
+function setCoverPrev() {
+  const v = $("#bImg").value.trim(), im = $("#bImgPrev");
+  im.classList.toggle("hide", !v); if (v) { im.src = v; im.alt = $("#bImgAlt").value; }
+}
+$("#bImg").addEventListener("input", setCoverPrev);
+$("#bImgBtn").addEventListener("click", () => $("#bImgFile").click());
+async function upload(file, msgEl) {
+  if (!file) return null;
+  if (file.size > 5 * 1024 * 1024) { msgEl.textContent = "Max 5 MB."; return null; }
+  msgEl.textContent = "Uploading...";
   try {
-    const ref = doc(db, "blogs", slug);
-    const renamed = editingBlog && editingBlog !== slug;
-    if (!editingBlog || renamed) {
-      const exists = await getDoc(ref);
-      if (exists.exists()) { flash(msg, "A post with this slug already exists. Change the slug.", false); btn.disabled = false; return; }
-    }
-    const prev = editingBlog ? blogs.find((b) => b.id === editingBlog) : null;
-    const payload = { ...data, createdAt: prev?.createdAt || serverTimestamp() };
-    if (renamed) {
-      const batch = writeBatch(db);
-      batch.set(ref, payload);
-      batch.delete(doc(db, "blogs", editingBlog));
-      await batch.commit();
-    } else {
-      await setDoc(ref, payload, { merge: true });
-    }
-    editingBlog = slug;
-    flash(msg, "Saved.", true);
-    await loadBlogs();
-  } catch (err) { flash(msg, errText(err), false); }
-  btn.disabled = false;
+    const r = sRef(storage, "blog-images/" + Date.now() + "-" + file.name.replace(/[^a-zA-Z0-9._-]/g, "_"));
+    await uploadBytes(r, file);
+    const url = await getDownloadURL(r);
+    msgEl.textContent = "Uploaded."; return url;
+  } catch (e) { msgEl.textContent = "Upload failed: " + errText(e); return null; }
+}
+$("#bImgFile").addEventListener("change", async (e) => {
+  const url = await upload(e.target.files[0], $("#bImgMsg"));
+  if (url) { $("#bImg").value = url; setCoverPrev(); }
+  e.target.value = "";
+});
+
+/* keywords */
+function renderTags() {
+  $$("#kwBox .tag").forEach((t) => t.remove());
+  keywords.forEach((k, i) => {
+    const s = document.createElement("span"); s.className = "tag";
+    s.innerHTML = esc(k) + '<button type="button" aria-label="Remove ' + esc(k) + '" data-i="' + i + '">&times;</button>';
+    $("#kwBox").insertBefore(s, $("#kwIn"));
+  });
+}
+function addKw(v) { v = v.trim().toLowerCase(); if (v && !keywords.includes(v)) { keywords.push(v); renderTags(); } $("#kwIn").value = ""; }
+$("#kwIn").addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === ",") { e.preventDefault(); addKw($("#kwIn").value); } if (e.key === "Backspace" && !$("#kwIn").value) { keywords.pop(); renderTags(); } });
+$("#kwIn").addEventListener("blur", () => addKw($("#kwIn").value));
+$("#kwBox").addEventListener("click", (e) => { const b = e.target.closest("button[data-i]"); if (b) { keywords.splice(+b.dataset.i, 1); renderTags(); } });
+
+/* counters + SEO check */
+function plainText() { const d = document.createElement("div"); d.innerHTML = getContent(); return d.textContent.toLowerCase(); }
+function refreshAll() {
+  $("#slugPrev").textContent = $("#bSlug").value || "your-slug";
+  $("#exCnt").textContent = $("#bExcerpt").value.length;
+  const mt = $("#bMetaT").value.length, md = $("#bMetaD").value.length;
+  $("#mtCnt").textContent = mt; $("#mtCnt").parentElement.classList.toggle("warn", mt > 60);
+  $("#mdCnt").textContent = md; $("#mdCnt").parentElement.classList.toggle("warn", md > 160);
+  const kw = $("#bFocus").value.trim().toLowerCase(), ul = $("#seoCheck");
+  if (!kw) { ul.innerHTML = "<li>Add a focus keyword to see checks.</li>"; return; }
+  const t = ($("#bTitle").value + " " + $("#bMetaT").value).toLowerCase();
+  const checks = [
+    ["In title", $("#bTitle").value.toLowerCase().includes(kw)],
+    ["In slug", $("#bSlug").value.includes(slugify(kw))],
+    ["In meta title", $("#bMetaT").value.toLowerCase().includes(kw)],
+    ["In meta description", $("#bMetaD").value.toLowerCase().includes(kw)],
+    ["In content", plainText().includes(kw)],
+    ["Meta title 30-60 characters", mt >= 30 && mt <= 60],
+    ["Meta description 120-160 characters", md >= 120 && md <= 160]
+  ];
+  ul.innerHTML = checks.map((c) => '<li class="' + (c[1] ? "ok" : "no") + '">' + (c[1] ? "✓ " : "✗ ") + c[0] + "</li>").join("");
+}
+
+/* =========================================================
+   EDITOR
+   ========================================================= */
+function getContent() { return srcMode ? source.value : editor.innerHTML; }
+function setContent(h) { editor.innerHTML = clean(h); source.value = h; }
+function setSrc(on) {
+  if (on === srcMode) return;
+  if (on) { source.value = editor.innerHTML; }
+  else { editor.innerHTML = clean(source.value); }
+  srcMode = on;
+  editor.classList.toggle("hide", on); source.classList.toggle("hide", !on);
+  $("#srcBtn").classList.toggle("on", on);
+  $("#tbar").classList.add("hide");
+}
+source.addEventListener("input", refreshAll);
+
+const inEditor = (n) => n && editor.contains(n.nodeType === 3 ? n.parentNode : n);
+function saveRange() { const s = getSelection(); if (s.rangeCount && inEditor(s.anchorNode)) savedRange = s.getRangeAt(0).cloneRange(); }
+function restoreRange() {
+  editor.focus();
+  if (savedRange) { const s = getSelection(); s.removeAllRanges(); s.addRange(savedRange); }
+}
+["keyup","mouseup","input"].forEach((ev) => editor.addEventListener(ev, () => { saveRange(); updateTbar(); refreshAll(); }));
+document.addEventListener("selectionchange", () => { if (document.activeElement === editor) { saveRange(); updateTbar(); } });
+
+$("#tools").addEventListener("mousedown", (e) => { if (e.target.closest("button")) e.preventDefault(); });
+$("#blockSel").addEventListener("change", (e) => { restoreRange(); document.execCommand("formatBlock", false, e.target.value); e.target.value = "P"; saveRange(); });
+
+function insertBlock(html) {
+  restoreRange();
+  const tpl = document.createElement("template"); tpl.innerHTML = clean(html);
+  const frag = tpl.content;
+  let n = savedRange ? savedRange.endContainer : null;
+  while (n && n.parentNode !== editor) n = n.parentNode;
+  if (n && n.parentNode === editor) {
+    const isEmptyP = n.nodeName === "P" && !n.textContent.trim() && !n.querySelector("img");
+    editor.insertBefore(frag, n.nextSibling);
+    if (isEmptyP) n.remove();
+  } else editor.appendChild(frag);
+  if (!editor.lastElementChild || editor.lastElementChild.nodeName !== "P") editor.appendChild(Object.assign(document.createElement("p"), { innerHTML: "<br>" }));
+  refreshAll();
+}
+
+const openM = (id) => { saveRange(); $(id).classList.remove("hide"); };
+const closeM = (id) => $(id).classList.add("hide");
+$$("[data-close]").forEach((b) => b.addEventListener("click", () => closeM("#" + b.closest(".modal").id)));
+
+$("#tools").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-c]"); if (!b) return;
+  const c = b.dataset.c;
+  if (c === "source") { setSrc(!srcMode); refreshAll(); return; }
+  if (c === "preview") { openPreview(); return; }
+  if (srcMode) return;
+  restoreRange();
+  if (c === "bold" || c === "italic" || c === "insertUnorderedList" || c === "insertOrderedList" || c === "unlink") document.execCommand(c);
+  else if (c === "quote") document.execCommand("formatBlock", false, "BLOCKQUOTE");
+  else if (c === "link") {
+    const url = prompt("Link URL (example: /contact or https://...)"); if (!url) return;
+    if (savedRange && savedRange.collapsed) { const t = prompt("Link text") || url; document.execCommand("insertHTML", false, '<a href="' + esc(url) + '">' + esc(t) + "</a>"); }
+    else document.execCommand("createLink", false, url);
+  }
+  else if (c === "image") { $("#miUrl").value = ""; $("#miAlt").value = ""; $("#miMsg").textContent = ""; openM("#mImg"); }
+  else if (c === "table") openM("#mTbl");
+  else if (c === "cta") openM("#mCta");
+  saveRange();
+});
+
+/* paste cleanup */
+editor.addEventListener("paste", (e) => {
+  e.preventDefault();
+  const h = e.clipboardData.getData("text/html"), t = e.clipboardData.getData("text/plain");
+  if (h) document.execCommand("insertHTML", false, DOMPurify.sanitize(h, { ...PURIFY, ALLOWED_ATTR: ["href","src","alt","colspan","rowspan"] }));
+  else document.execCommand("insertText", false, t);
+});
+
+/* image */
+$("#miOk").addEventListener("click", async () => {
+  const f = $("#miFile").files[0];
+  let url = $("#miUrl").value.trim();
+  if (f) { url = await upload(f, $("#miMsg")); if (!url) return; }
+  const alt = $("#miAlt").value.trim();
+  if (!url) { $("#miMsg").textContent = "Add a URL or upload a file."; return; }
+  if (!alt) { $("#miMsg").textContent = "Alt text is required."; return; }
+  insertBlock('<figure><img src="' + esc(url) + '" alt="' + esc(alt) + '" loading="lazy"></figure>');
+  $("#miFile").value = ""; closeM("#mImg");
+});
+
+/* CTA */
+$("#mcOk").addEventListener("click", () => {
+  const t = $("#mcT").value.trim(), l = $("#mcL").value.trim();
+  if (!t || !l) return;
+  insertBlock('<p style="text-align:center"><a class="cta-btn cta-btn--' + $("#mcS").value + '" href="' + esc(l) + '">' + esc(t) + "</a></p>");
+  closeM("#mCta");
+});
+
+/* table insert */
+$("#mtOk").addEventListener("click", () => {
+  const r = Math.min(30, Math.max(1, +$("#mtR").value || 1)), c = Math.min(10, Math.max(1, +$("#mtC").value || 1)), h = $("#mtH").checked;
+  let html = "<table><tbody>";
+  for (let i = 0; i < r; i++) { html += "<tr>"; for (let j = 0; j < c; j++) html += (h && i === 0 ? "<th>Heading</th>" : "<td>Text</td>"); html += "</tr>"; }
+  insertBlock(html + "</tbody></table>");
+  closeM("#mTbl");
+});
+
+/* table editing */
+function curCell() {
+  const s = getSelection(); if (!s.rangeCount || !inEditor(s.anchorNode)) return null;
+  const n = s.anchorNode.nodeType === 3 ? s.anchorNode.parentNode : s.anchorNode;
+  return n.closest ? n.closest("td,th") : null;
+}
+function updateTbar() {
+  $$("#editor .sel").forEach((x) => x.classList.remove("sel"));
+  const c = curCell();
+  $("#tbar").classList.toggle("hide", !c || srcMode);
+  if (c) c.classList.add("sel");
+}
+const mkCell = (tag) => { const x = document.createElement(tag); x.innerHTML = tag === "th" ? "Heading" : "Text"; return x; };
+function convertRow(tr, tag) {
+  [...tr.cells].forEach((cell) => { if (cell.tagName.toLowerCase() === tag) return; const n = document.createElement(tag); n.innerHTML = cell.innerHTML; cell.replaceWith(n); });
+}
+$("#tbar").addEventListener("mousedown", (e) => { if (e.target.closest("button")) e.preventDefault(); });
+$("#tbar").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-t]"); if (!b) return;
+  restoreRange();
+  const cell = curCell(); if (!cell) return;
+  const tr = cell.parentElement, table = cell.closest("table"), idx = cell.cellIndex, a = b.dataset.t;
+  if (a === "rowA" || a === "rowB") {
+    const nr = document.createElement("tr");
+    [...tr.cells].forEach(() => nr.appendChild(mkCell("td")));
+    tr.parentNode.insertBefore(nr, a === "rowA" ? tr : tr.nextSibling);
+  } else if (a === "colA" || a === "colB") {
+    [...table.rows].forEach((r) => {
+      const ref = r.cells[idx], nc = mkCell(ref ? ref.tagName.toLowerCase() : "td");
+      r.insertBefore(nc, a === "colA" ? ref : (ref ? ref.nextSibling : null));
+    });
+  } else if (a === "rowD") {
+    if (table.rows.length <= 1) table.remove(); else tr.remove();
+  } else if (a === "colD") {
+    if (tr.cells.length <= 1) table.remove(); else [...table.rows].forEach((r) => r.cells[idx] && r.cells[idx].remove());
+  } else if (a === "head") {
+    const first = table.rows[0], isHead = first.cells[0].tagName === "TH";
+    convertRow(first, isHead ? "td" : "th");
+  } else if (a === "tblD") {
+    if (confirm("Delete this table?")) table.remove();
+  }
+  saveRange(); updateTbar(); refreshAll();
 });
 
 /* =========================================================
-   FAQS  (collection: faqs, auto id)
+   PREVIEW
    ========================================================= */
-let faqs = [];
-let editingFaq = null;
+let pvMode = "article";
+const PV_CSS = `body{margin:0;font-family:Inter,Arial,sans-serif;color:#102542;background:#faf8f5;line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:24px 18px}.mob{max-width:390px}
+h1.t{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:2.4rem;line-height:1.1;margin:8px 0}
+.cat{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#c79c5a}.meta{font-size:.78rem;color:#5d6879;margin-bottom:18px}
+.art{background:#fff;border:1px solid rgba(16,37,66,.08);border-radius:8px;padding:24px}.art img{max-width:100%;height:auto;border-radius:6px}
+.art p{font-size:1.02rem;line-height:1.85;color:#2b3a52;margin:0 0 20px}.art h2,.art h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;line-height:1.15;margin:40px 0 14px}.art h2{font-size:2.4rem}.art h3{font-size:2rem}
+.art h4{font-family:"Cormorant Garamond",serif;font-size:1.4rem;color:#c79c5a;margin:26px 0 8px}
+.art li{margin-bottom:6px}.art a{color:#102542;border-bottom:1px solid #c79c5a}
+.art blockquote{margin:22px 0;padding:10px 20px;border-left:4px solid #c79c5a;background:#faf8f5;font-style:italic}
+.tw{overflow-x:auto;margin:22px 0}table{width:100%;border-collapse:collapse;font-size:.95rem}th,td{border:1px solid rgba(16,37,66,.2);padding:10px 12px;text-align:left}th{background:#102542;color:#fff}tr:nth-child(even) td{background:#faf8f5}
+.art a.cta-btn{display:inline-block;padding:14px 30px;border-radius:999px;font-weight:600;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid #c79c5a;text-decoration:none}.cta-btn--solid{background:#c79c5a;color:#102542}
+.card{background:#fff;border-radius:8px;border:1px solid rgba(16,37,66,.08);overflow:hidden;max-width:340px}.card img{width:100%;aspect-ratio:16/11;object-fit:cover}.card div{padding:22px}.card h3{font-family:"Cormorant Garamond",serif;font-size:1.6rem;line-height:1.2;margin:8px 0 12px}.card p{color:#5d6879;font-size:.95rem;margin:0}`;
+function normPreview(h) {
+  const t = document.createElement("template"); t.innerHTML = clean(h);
+  t.content.querySelectorAll("h1").forEach((x) => { const n = document.createElement("h2"); n.innerHTML = x.innerHTML; x.replaceWith(n); });
+  t.content.querySelectorAll("table").forEach((x) => { const w = document.createElement("div"); w.className = "tw"; x.replaceWith(w); w.appendChild(x); });
+  return Array.from(t.content.childNodes).map((n) => n.outerHTML || n.textContent).join("");
+}
+function renderPreview() {
+  const title = $("#bTitle").value, img = $("#bImg").value, alt = $("#bImgAlt").value;
+  let body;
+  if (pvMode === "card") {
+    body = '<div class="wrap"><div class="card">' + (img ? '<img src="' + esc(img) + '" alt="' + esc(alt) + '">' : "") + '<div><span class="cat">' + esc($("#bCat").value) + "</span><h3>" + esc(title) + "</h3><p>" + esc($("#bExcerpt").value) + "</p></div></div></div>";
+  } else {
+    body = '<div class="wrap ' + (pvMode === "mobile" ? "mob" : "") + '"><span class="cat">' + esc($("#bCat").value) + '</span><h1 class="t">' + esc(title) + '</h1><div class="meta">' + esc(prettyDate($("#bDate").value)) + " · By " + esc($("#bBy").value) + '</div><div class="art">' + (img ? '<img src="' + esc(img) + '" alt="' + esc(alt) + '">' : "") + normPreview(getContent()) + "</div></div>";
+  }
+  $("#pvFrame").srcdoc = '<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Cormorant+Garamond:wght@500;600&family=Instrument+Serif&display=swap" rel="stylesheet"><style>' + PV_CSS + "</style></head><body>" + body + "</body></html>";
+}
+function openPreview() { pvMode = "article"; renderPreview(); $("#mPv").classList.remove("hide"); }
+$("#prevBtn").addEventListener("click", openPreview);
+$("#mPv").addEventListener("click", (e) => {
+  const b = e.target.closest("[data-pv]"); if (!b) return;
+  pvMode = b.dataset.pv;
+  $$("#mPv [data-pv]").forEach((x) => x.classList.toggle("btn-line", x !== b));
+  renderPreview();
+});
 
+/* =========================================================
+   SAVE
+   ========================================================= */
+$$("[data-save]").forEach((b) => b.addEventListener("click", () => saveBlog(b.dataset.save)));
+
+async function saveBlog(status) {
+  const msg = $("#blogMsg"), btns = $$("[data-save]");
+  const slug = slugify($("#bSlug").value);
+  const content = clean(getContent()).trim();
+  const data = {
+    title: $("#bTitle").value.trim(), slug, category: $("#bCat").value, date: $("#bDate").value,
+    by: $("#bBy").value.trim() || "Decor By Pearls Team",
+    image: $("#bImg").value.trim(), imageAlt: $("#bImgAlt").value.trim(),
+    excerpt: $("#bExcerpt").value.trim(),
+    metaTitle: $("#bMetaT").value.trim(), metaDescription: $("#bMetaD").value.trim(),
+    keywords, focusKeyword: $("#bFocus").value.trim(),
+    content, status, published: status === "published", publishAt: null,
+    updatedAt: serverTimestamp()
+  };
+  if (!data.title || !slug || !data.date || !data.image || !data.excerpt || !data.content) { flash(msg, "Fill every field marked *.", false); return; }
+  if (status === "scheduled") {
+    const v = $("#bAt").value, d = v ? new Date(v) : null;
+    if (!d || isNaN(d)) { flash(msg, "Pick a schedule date and time.", false); return; }
+    if (d <= new Date()) { flash(msg, "Schedule time must be in the future.", false); return; }
+    data.publishAt = Timestamp.fromDate(d);
+    data.date = localISO(d);
+  }
+  btns.forEach((b) => b.disabled = true);
+  try {
+    const ref = doc(db, "blogs", slug), renamed = editingBlog && editingBlog !== slug;
+    if (!editingBlog || renamed) {
+      const ex = await getDoc(ref);
+      if (ex.exists()) { flash(msg, "A post with this slug already exists. Change the slug.", false); btns.forEach((b) => b.disabled = false); return; }
+    }
+    const prev = editingBlog ? blogs.find((b) => b.id === editingBlog) : null;
+    const payload = { ...data, createdAt: prev?.createdAt || serverTimestamp() };
+    if (renamed) { const batch = writeBatch(db); batch.set(ref, payload); batch.delete(doc(db, "blogs", editingBlog)); await batch.commit(); }
+    else await setDoc(ref, payload, { merge: true });
+    editingBlog = slug;
+    $("#curStatus").textContent = "Current: " + status;
+    flash(msg, status === "draft" ? "Draft saved." : status === "published" ? "Published." : "Scheduled.", true);
+    await loadBlogs();
+  } catch (err) { flash(msg, errText(err), false); }
+  btns.forEach((b) => b.disabled = false);
+}
+
+/* =========================================================
+   FAQS
+   ========================================================= */
+let faqs = [], editingFaq = null;
 async function loadFaqs() {
   const rows = $("#faqRows");
   try {
     const snap = await getDocs(query(collection(db, "faqs"), orderBy("order", "asc")));
     faqs = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-  } catch (e) {
-    rows.innerHTML = '<p class="msg bad">' + esc(errText(e)) + "</p>";
-    return;
-  }
-  if (!faqs.length) { rows.innerHTML = '<p class="empty">No FAQs yet. Add one above, or use the Import tab.</p>'; }
+  } catch (e) { rows.innerHTML = '<p class="msg bad">' + esc(errText(e)) + "</p>"; return; }
+  if (!faqs.length) rows.innerHTML = '<p class="empty">No FAQs yet. Add one above, or use the Import tab.</p>';
   else rows.innerHTML = faqs.map((f) =>
     '<div class="item"><div class="t"><b>' + esc(f.order) + ". " + esc(f.question) + "</b><small>" + esc((f.answer || "").slice(0, 120)) + (f.answer && f.answer.length > 120 ? "…" : "") + "</small></div>" +
-    '<div class="acts"><button class="btn btn-line btn-sm" data-edit="' + esc(f.id) + '">Edit</button><button class="btn btn-red btn-sm" data-del="' + esc(f.id) + '">Delete</button></div></div>'
-  ).join("");
+    '<div class="acts"><button class="btn btn-line btn-sm" data-edit="' + esc(f.id) + '">Edit</button><button class="btn btn-red btn-sm" data-del="' + esc(f.id) + '">Delete</button></div></div>').join("");
   if (!editingFaq) $("#fO").value = faqs.length ? Math.max(...faqs.map((f) => +f.order || 0)) + 1 : 1;
 }
-
 function resetFaqForm() {
-  editingFaq = null;
-  $("#faqFormTitle").textContent = "Add FAQ";
-  $("#fQ").value = ""; $("#fA").value = "";
-  $("#faqCancel").classList.add("hide");
+  editingFaq = null; $("#faqFormTitle").textContent = "Add FAQ";
+  $("#fQ").value = ""; $("#fA").value = ""; $("#faqCancel").classList.add("hide");
   $("#fO").value = faqs.length ? Math.max(...faqs.map((f) => +f.order || 0)) + 1 : 1;
 }
 $("#faqCancel").addEventListener("click", () => { resetFaqForm(); $("#faqMsg").classList.add("hide"); });
-
 $("#faqRows").addEventListener("click", async (e) => {
   const ed = e.target.closest("[data-edit]"), del = e.target.closest("[data-del]");
   if (ed) {
     const f = faqs.find((x) => x.id === ed.dataset.edit);
-    editingFaq = f.id;
-    $("#faqFormTitle").textContent = "Edit FAQ";
+    editingFaq = f.id; $("#faqFormTitle").textContent = "Edit FAQ";
     $("#fQ").value = f.question; $("#fA").value = f.answer; $("#fO").value = f.order;
-    $("#faqCancel").classList.remove("hide");
-    $("#faqMsg").classList.add("hide");
+    $("#faqCancel").classList.remove("hide"); $("#faqMsg").classList.add("hide");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
   if (del) {
@@ -457,7 +756,6 @@ $("#faqRows").addEventListener("click", async (e) => {
     try { await deleteDoc(doc(db, "faqs", f.id)); if (editingFaq === f.id) resetFaqForm(); await loadFaqs(); } catch (err) { alert(errText(err)); }
   }
 });
-
 $("#faqForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const msg = $("#faqMsg"), btn = $("#faqSave");
@@ -467,15 +765,13 @@ $("#faqForm").addEventListener("submit", async (e) => {
   try {
     const ref = editingFaq ? doc(db, "faqs", editingFaq) : doc(collection(db, "faqs"));
     await setDoc(ref, { question: q, answer: a, order: o, updatedAt: serverTimestamp() }, { merge: true });
-    flash(msg, "Saved.", true);
-    resetFaqForm();
-    await loadFaqs();
+    flash(msg, "Saved.", true); resetFaqForm(); await loadFaqs();
   } catch (err) { flash(msg, errText(err), false); }
   btn.disabled = false;
 });
 
 /* =========================================================
-   IMPORT
+   IMPORT (blogs imported as published, with new fields)
    ========================================================= */
 $("#iBtn").addEventListener("click", async () => {
   const msg = $("#iMsg"), btn = $("#iBtn"), type = $("#iType").value;
@@ -489,28 +785,24 @@ $("#iBtn").addEventListener("click", async () => {
     if (type === "blogs") {
       arr.forEach((p) => {
         const slug = slugify(p.slug || p.title);
+        const st = p.status || (p.published === false ? "draft" : "published");
         batch.set(doc(db, "blogs", slug), {
-          title: String(p.title || "").trim(), slug,
-          category: p.category || "Planning Tips",
-          date: toISO(p.date),
-          by: p.by || "Decor By Pearls Team",
-          image: p.image || "",
+          title: String(p.title || "").trim(), slug, category: p.category || "Planning Tips",
+          date: toISO(p.date), by: p.by || "Decor By Pearls Team",
+          image: p.image || "", imageAlt: p.imageAlt || String(p.title || "").trim(),
           excerpt: String(p.excerpt || "").trim(),
           metaTitle: p.metaTitle || "", metaDescription: p.metaDescription || "",
+          keywords: Array.isArray(p.keywords) ? p.keywords : [], focusKeyword: p.focusKeyword || "",
           content: String(p.content || "").trim(),
-          published: p.published !== false,
+          status: st, published: st === "published", publishAt: null,
           createdAt: serverTimestamp(), updatedAt: serverTimestamp()
         });
       });
     } else {
-      arr.forEach((f, i) => {
-        batch.set(doc(collection(db, "faqs")), {
-          question: String(f.question || "").trim(),
-          answer: String(f.answer || "").trim(),
-          order: parseInt(f.order, 10) || i + 1,
-          updatedAt: serverTimestamp()
-        });
-      });
+      arr.forEach((f, i) => batch.set(doc(collection(db, "faqs")), {
+        question: String(f.question || "").trim(), answer: String(f.answer || "").trim(),
+        order: parseInt(f.order, 10) || i + 1, updatedAt: serverTimestamp()
+      }));
     }
     await batch.commit();
     flash(msg, "Imported " + arr.length + " " + type + ".", true);
